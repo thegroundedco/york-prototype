@@ -1,0 +1,1 @@
+// pdp.js — PDP gallery and variant picker (loaded only on PDP pages)

@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>York Barbell</title>
+  <meta name="description" content="York Barbell — equipment for strength training, muscle, and longevity.">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/chrome.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Chrome — renders once for every page -->
+  <div class="chrome-top">
+  <div id="announcement-bar" class="announcement-bar" role="region" aria-label="Site announcements" aria-roledescription="carousel">
+    <button class="announcement-bar__nav announcement-bar__nav--prev" type="button" aria-label="Previous announcement">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none">
+        <path d="M12 4l-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <ul class="announcement-bar__messages" role="list" aria-live="polite" aria-atomic="true">
+      <li class="announcement-bar__message" data-announcement="1">NEW PRODUCT LINE IS OUT NOW! BUY ONE GET ONE FOR 10% OFF</li>
+      <li class="announcement-bar__message" data-announcement="2" hidden>FREE SHIPPING ON ORDERS OVER $99</li>
+      <li class="announcement-bar__message" data-announcement="3" hidden>SIGN UP FOR 10% OFF YOUR FIRST ORDER</li>
+    </ul>
+    <button class="announcement-bar__nav announcement-bar__nav--next" type="button" aria-label="Next announcement">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none">
+        <path d="M8 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+  <header id="site-header" class="site-header">
+    <nav class="site-nav" aria-label="Main">
+      <a class="site-nav__logo" href="#home" aria-label="York Barbell home">
+        <img src="assets/icons/logo.svg" alt="York Barbell" width="86" height="26">
+      </a>
+
+      <button class="site-nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-drawer" type="button">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none"/>
+        </svg>
+      </button>
+
+      <ul class="site-nav__links" role="list">
+        <li><a data-nav-link href="#shop-by-goals" data-dropdown="shop-by-goals" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-shop-by-goals">Shop by Goals</a></li>
+        <li><a data-nav-link href="#equipment" data-dropdown="equipment" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-equipment">Equipment</a></li>
+      </ul>
+
+      <div class="site-nav__icons">
+        <button class="site-nav__icon-btn" aria-label="Search" data-toggle-search type="button">
+          <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none">
+            <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M13 13l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="site-nav__icon-btn" aria-label="Account" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 5C13.66 5 15 6.34 15 8C15 9.66 13.66 11 12 11C10.34 11 9 9.66 9 8C9 6.34 10.34 5 12 5ZM12 19.2C9.5 19.2 7.29 17.92 6 15.98C6.03 13.99 10 12.9 12 12.9C13.99 12.9 17.97 13.99 18 15.98C16.71 17.92 14.5 19.2 12 19.2Z" fill="currentColor"/>
+          </svg>
+        </button>
+        <button class="site-nav__icon-btn site-nav__icon-btn--cart" aria-label="Cart, $0.00" data-toggle-cart type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 6H16C16 3.79 14.21 2 12 2C9.79 2 8 3.79 8 6H4V22H20V6ZM10 11H8V8H10V11ZM12 4C13.1 4 14 4.9 14 6H10C10 4.9 10.9 4 12 4ZM16 11H14V8H16V11Z" fill="currentColor"/>
+          </svg>
+          <span class="site-nav__cart-total">$0.00</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Dropdowns — one per top-level nav item with data-dropdown -->
+    <div class="dropdown dropdown--mega dropdown--goals" id="dropdown-shop-by-goals" hidden>
+      <div class="dropdown__inner">
+        <div class="mega-goals">
+          <div class="mega-goal-card">
+            <div class="mega-goal-card__media">
+              <img src="assets/images/mega/goals-beginners.jpg" alt="" class="mega-goal-card__image">
+            </div>
+            <div class="mega-goal-card__body">
+              <h3 class="mega-goal-card__title heading-sm"><a class="mega-goal-card__link" href="beginners-collection.html">Beginners Collection</a></h3>
+              <p class="mega-goal-card__desc body-md">Just getting started? The basics, done right. Adjustable dumbbells, starter benches, and forgiving plates that grow with you. Not gear you'll outgrow in six months.</p>
+            </div>
+            <a class="mega-goal-card__cta btn btn--primary" href="beginners-collection.html">Shop Essentials</a>
+          </div>
+          <div class="mega-goal-card">
+            <div class="mega-goal-card__media">
+              <img src="assets/images/mega/goals-muscle.jpg" alt="" class="mega-goal-card__image">
+            </div>
+            <div class="mega-goal-card__body">
+              <h3 class="mega-goal-card__title heading-sm"><a class="mega-goal-card__link" href="#collections-muscle">Muscle <span class="amp">&amp;</span> Maintenance</a></h3>
+              <p class="mega-goal-card__desc body-md">Built for lifters who already know the assignment. Commercial-grade bars, racks, and plates—sized for the room you've got, not the warehouse you don't.</p>
+            </div>
+            <a class="mega-goal-card__cta btn btn--primary" href="#collections-muscle">Keep What You've Started</a>
+          </div>
+          <div class="mega-goal-card">
+            <div class="mega-goal-card__media">
+              <img src="assets/images/mega/goals-longevity.jpg" alt="" class="mega-goal-card__image">
+            </div>
+            <div class="mega-goal-card__body">
+              <h3 class="mega-goal-card__title heading-sm"><a class="mega-goal-card__link" href="longevity-collection.html">Longevity</a></h3>
+              <p class="mega-goal-card__desc body-md">Train how you can move later. Lower-impact tools: kettlebells, mobility gear, lighter dumbbells, designed for the long game, not the next PR.</p>
+            </div>
+            <a class="mega-goal-card__cta btn btn--primary" href="longevity-collection.html">Train For Life</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown dropdown--mega dropdown--equipment" id="dropdown-equipment" hidden>
+      <div class="dropdown__inner">
+        <div class="mega-equipment">
+          <div class="mega-equipment__col">
+            <h3 class="mega-equipment__heading label-md">Racks &amp; Benches</h3>
+            <ul role="list" class="mega-equipment__list">
+              <li><a href="product-generic.html">Fitness Bench</a></li>
+              <li><a href="product-generic.html">FTS Power Cage</a></li>
+              <li><a href="plp-racks-benches.html">View All</a></li>
+            </ul>
+          </div>
+          <div class="mega-equipment__col">
+            <h3 class="mega-equipment__heading label-md">Bars &amp; Weights</h3>
+            <ul role="list" class="mega-equipment__list">
+              <li><a href="product-package.html">Rubber Hex Dumbbell Set</a></li>
+              <li><a href="product-package.html">Olympic Training Set: Plates + 44 lb (20 Kg)</a></li>
+              <li><a href="product-package.html">Olympic Training Set: Plates + 33 lb (15 Kg)</a></li>
+              <li><a href="product-single.html">Men's North American Chrome Olympic Training Weight Bar</a></li>
+              <li><a href="product-single.html">Women's Elite Olympic Training Weight Bar</a></li>
+              <li><a href="product-generic.html">Rubber Training Bumper Plates</a></li>
+              <li><a href="product-generic.html">Kettlebells</a></li>
+              <li><a href="product-generic.html">Vinyl Fitbell (Multi-Color)</a></li>
+              <li><a href="product-package.html">Performance Package</a></li>
+              <li><a href="product-generic.html">Quick Access Collar</a></li>
+              <li><a href="plp-bars-weights.html">View All</a></li>
+            </ul>
+          </div>
+          <div class="mega-equipment__col">
+            <h3 class="mega-equipment__heading label-md">Cardio &amp; Conditioning</h3>
+            <ul role="list" class="mega-equipment__list">
+              <li><a href="product-single.html">Aspire 366 Stationary Bike Flywheel</a></li>
+              <li><a href="product-single.html">Aspire 110 Rower</a></li>
+              <li><a href="product-generic.html">R-350 Rower</a></li>
+              <li><a href="product-generic.html">300 Fan Bike</a></li>
+              <li><a href="product-generic.html">Kettlebells</a></li>
+              <li><a href="product-generic.html">Battle Rope</a></li>
+              <li><a href="product-generic.html">Slam Ball</a></li>
+              <li><a href="product-package.html">Plyo Package</a></li>
+              <li><a href="plp-cardio-conditioning.html">View All</a></li>
+            </ul>
+          </div>
+          <div class="mega-equipment__col">
+            <h3 class="mega-equipment__heading label-md">Accessories</h3>
+            <ul role="list" class="mega-equipment__list">
+              <li><a href="product-generic.html">Resistance Bands</a></li>
+              <li><a href="product-generic.html">Yoga Mat</a></li>
+              <li><a href="product-generic.html">York Quick Access Collar</a></li>
+              <li><a href="product-generic.html">Mini 2-Tier Dumbbell Stand</a></li>
+              <li><a href="product-generic.html">2 Tier Dumbbell Stand</a></li>
+              <li><a href="product-generic.html">3 Tier Dumbbell Stand</a></li>
+              <li><a href="product-generic.html">Resistance Bands</a></li>
+              <li><a href="product-package.html">Plyo Package</a></li>
+              <li><a href="plp-accessories.html">View All</a></li>
+            </ul>
+          </div>
+          <div class="mega-equipment__col">
+            <h3 class="mega-equipment__heading label-md">Storage</h3>
+            <ul role="list" class="mega-equipment__list">
+              <li><a href="product-generic.html">Mini 2-Tier Dumbbell Stand</a></li>
+              <li><a href="product-generic.html">2 Tier Dumbbell Stand</a></li>
+              <li><a href="product-generic.html">3 Tier Dumbbell Stand</a></li>
+              <li><a href="plp-storage.html">View All</a></li>
+              <li><a href="plp-equipment.html"><strong>Shop All</strong></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search overlay — full-width, slides over nav -->
+    <div class="search-overlay" id="search-overlay" hidden role="dialog" aria-label="Search products">
+      <div class="search-overlay__inner">
+        <form class="search-overlay__form" action="search-results.html" method="get">
+          <label class="visually-hidden" for="search-input">Search products</label>
+          <div class="search-overlay__field">
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+              <circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M15 15l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <input id="search-input" name="q" type="search" class="search-overlay__input" autocomplete="off">
+          </div>
+          <button type="button" class="search-overlay__close">Cancel</button>
+        </form>
+        <div class="search-overlay__popular" data-search-popular>
+          <p class="search-overlay__popular-title">Popular Searches</p>
+          <ul class="search-overlay__popular-list" role="list">
+            <li><a href="search-results.html?q=fitness+bench">Fitness Bench</a></li>
+            <li><a href="search-results.html?q=fts+power+cage">FTS Power Cage</a></li>
+            <li><a href="search-results.html?q=dumbbell+sets">Dumbbell Sets</a></li>
+            <li><a href="search-results.html?q=r-350+rower">R-350 Rower</a></li>
+          </ul>
+        </div>
+        <div class="search-overlay__results" data-search-results hidden></div>
+      </div>
+    </div>
+
+    <!-- Mobile nav drawer — full-screen overlay on mobile -->
+    <div class="mobile-drawer" id="mobile-nav-drawer" hidden role="dialog" aria-modal="true" aria-label="Main menu">
+      <div class="mobile-drawer__header">
+        <p class="mobile-drawer__title">What's Your Goal?</p>
+        <button class="mobile-drawer__close" aria-label="Close menu" type="button">
+          <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M2 2l16 16M18 2L2 18" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+        </button>
+      </div>
+      <hr class="mobile-drawer__rule">
+
+      <nav class="mobile-drawer__nav" aria-label="Mobile main">
+        <ul role="list">
+          <li class="mobile-drawer__item">
+            <a href="beginners-collection.html" class="mobile-drawer__link">Beginners<br>Essentials</a>
+            <hr class="mobile-drawer__rule">
+          </li>
+          <li class="mobile-drawer__item">
+            <a href="muscle-maintenance.html" class="mobile-drawer__link">Muscle<br>Maintenance</a>
+            <hr class="mobile-drawer__rule">
+          </li>
+          <li class="mobile-drawer__item">
+            <a href="longevity-collection.html" class="mobile-drawer__link">Longevity</a>
+            <hr class="mobile-drawer__rule">
+          </li>
+          <li class="mobile-drawer__item mobile-drawer__item--expandable">
+            <button class="mobile-drawer__expand-btn" aria-expanded="false" type="button">
+              <span class="mobile-drawer__link">Shop<br>Equipment</span>
+              <svg class="mobile-drawer__expand-icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none">
+                <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </button>
+            <ul class="mobile-drawer__subnav mobile-drawer__subnav--grid" hidden role="list">
+              <li><a href="plp-bars-weights.html">Bars &amp; Weights</a></li>
+              <li><a href="plp-accessories.html">Accessories</a></li>
+              <li><a href="plp-cardio-conditioning.html">Cardio &amp; Conditioning</a></li>
+              <li><a href="plp-storage.html">Storage</a></li>
+            </ul>
+            <hr class="mobile-drawer__rule">
+          </li>
+        </ul>
+
+        <ul class="mobile-drawer__secondary" role="list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </nav>
+
+      <footer class="mobile-drawer__footer">
+        <a class="mobile-drawer__footer-logo" href="#home" aria-label="York Barbell home">
+          <img src="assets/icons/logo.svg" alt="York Barbell" width="64" height="19">
+        </a>
+        <div class="mobile-drawer__socials">
+          <a href="https://instagram.com" aria-label="York Barbell on Instagram" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="https://facebook.com" aria-label="York Barbell on Facebook" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Cart drawer — slides in from right on desktop; full-screen on mobile -->
+    <div class="cart-drawer" id="cart-drawer" hidden role="dialog" aria-modal="true" aria-label="Shopping cart">
+      <header class="cart-drawer__header">
+        <h2 class="cart-drawer__title">Cart</h2>
+        <button class="cart-drawer__close" aria-label="Close cart" type="button">
+          <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M2 2l16 16M18 2L2 18" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+        </button>
+      </header>
+
+      <div class="cart-drawer__body">
+        <p class="cart-drawer__empty">Your cart is empty.</p>
+        <a href="plp-equipment.html" class="btn btn--primary">Continue shopping</a>
+      </div>
+    </div>
+  </header>
+  </div><!-- /.chrome-top -->
+
+  <main id="main">
+    <!-- Page sections injected here. Default: #page-home -->
+    <section id="page-home" class="page" data-title="York Barbell">
+      <div class="home__hero" data-carousel>
+        <div class="home__hero-slides">
+          <div class="home__hero-slide" data-slide="1" data-carousel-slide>
+            <picture>
+              <source media="(max-width: 767px)" srcset="assets/images/home/hero-mobile.jpg">
+              <img src="assets/images/home/hero-desktop.jpg"
+                   alt="Athlete deadlifting a loaded barbell on a rubber-tile gym floor"
+                   class="home__hero-image">
+            </picture>
+          </div>
+          <div class="home__hero-slide" data-slide="2" data-carousel-slide hidden>
+            <img src="assets/images/home/hero-desktop-2.jpg"
+                 alt="Close-up of red bumper plates on a barbell"
+                 class="home__hero-image">
+          </div>
+          <div class="home__hero-slide" data-slide="3" data-carousel-slide hidden>
+            <img src="assets/images/home/hero-desktop-3.jpg"
+                 alt="A home gym setup with York Barbell equipment"
+                 class="home__hero-image">
+          </div>
+        </div>
+
+        <div class="home__hero-overlay" aria-hidden="true"></div>
+
+        <div class="home__hero-content">
+          <h1 class="home__hero-heading">The Iron Standard.<br>Engineered for<br>A New Era.</h1>
+          <p class="body-md home__hero-subhead">Olympic-grade quality meets modern precision. Experience the professional durability of York Barbell in your own home. We built the foundation of weightlifting. Now, we're engineering the next generation of at-home performance.</p>
+          <div class="home__hero-actions">
+            <a href="plp-equipment.html" class="btn btn--primary">Build Your Own Standard</a>
+          </div>
+        </div>
+
+        <div class="home__hero-dots" role="tablist" aria-label="Hero slides">
+          <button type="button" class="home__hero-dot" data-carousel-dot role="tab" aria-selected="true" aria-controls="hero-slide-1" data-slide-target="1">
+            <span class="visually-hidden">Slide 1</span>
+          </button>
+          <button type="button" class="home__hero-dot" data-carousel-dot role="tab" aria-selected="false" aria-controls="hero-slide-2" data-slide-target="2">
+            <span class="visually-hidden">Slide 2</span>
+          </button>
+          <button type="button" class="home__hero-dot" data-carousel-dot role="tab" aria-selected="false" aria-controls="hero-slide-3" data-slide-target="3">
+            <span class="visually-hidden">Slide 3</span>
+          </button>
+        </div>
+      </div>
+      <section class="home__goals" aria-label="Training goals">
+        <header class="home__goals-header">
+          <h2 class="display-lg home__goals-heading">What's your goal?</h2>
+        </header>
+
+        <div class="home__goals-grid">
+          <article class="goal-card">
+            <header class="goal-card__header">
+              <h3 class="heading-md goal-card__title">Beginner's Essentials</h3>
+              <p class="body-md goal-card__desc">Design your home gym with gear built to outlast the learning curve. Our beginner's essentials are simple, safe, and forgiving. Everything you need to create the habit, none of what you don't.</p>
+            </header>
+            <div class="goal-card__media">
+              <img src="assets/images/mega/goals-beginners.jpg" alt="" class="goal-card__image">
+              <a class="goal-card__cta btn btn--primary" href="beginners-collection.html">Shop Essentials</a>
+            </div>
+          </article>
+
+          <article class="goal-card">
+            <header class="goal-card__header">
+              <h3 class="heading-md goal-card__title">Muscle Maintenance</h3>
+              <p class="body-md goal-card__desc">Built for people on their seventh leg journey and ready to rebuild strength, muscle and confidence. This collection fits in your garage, basement and schedule, so getting back into lifting feels possible, not overwhelming.</p>
+            </header>
+            <div class="goal-card__media">
+              <img src="assets/images/mega/goals-muscle.jpg" alt="" class="goal-card__image">
+              <a class="goal-card__cta btn btn--primary" href="muscle-maintenance.html">Rebuild Your Strength</a>
+            </div>
+          </article>
+
+          <article class="goal-card">
+            <header class="goal-card__header">
+              <h3 class="heading-md goal-card__title">Longevity</h3>
+              <p class="body-md goal-card__desc">Vitality is the ultimate goal. Focus on functional strength and mobility with equipment designed to support a healthy, active lifestyle well into the future.</p>
+            </header>
+            <div class="goal-card__media">
+              <img src="assets/images/mega/goals-longevity.jpg" alt="" class="goal-card__image">
+              <a class="goal-card__cta btn btn--primary" href="longevity-collection.html">Train For Life</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="home__history" aria-label="Our history">
+        <div class="home__history-inner">
+          <div class="home__history-content">
+            <h2 class="home__history-heading display-xl">Established in 1932.<br>Reimagined for today.</h2>
+            <p class="home__history-body">Long before home gyms had a category, Bob Hoffman was making barbells in a Pennsylvania oil burner factory and shipping them to anyone who wanted to get stronger. He coached the U.S. Olympic weightlifting team, wrote the books, ran the magazine, and built the company that turned a small city in Pennsylvania into the place people came to learn how to lift.</p>
+            <a class="btn btn--secondary home__history-cta" href="about.html">About Us</a>
+          </div>
+          <img class="home__history-decoration" src="assets/images/home/history-decoration.jpg" alt="" aria-hidden="true">
+        </div>
+        <hr class="home__history-divider">
+      </section>
+      <section class="home__bestsellers" aria-label="Best sellers">
+        <header class="home__bestsellers-header">
+          <h2 class="home__bestsellers-heading display-lg">Best sellers from the York home collection.</h2>
+          <p class="body-md home__bestsellers-subhead">Four pieces that earn their footprint. Compact enough for the room you have, built well enough To Train Harder day-in and day-out.</p>
+        </header>
+
+        <div class="home__bestsellers-grid">
+          <article class="product-card">
+            <div class="product-card__media">
+              <img src="assets/images/home/bestseller-1.jpg" alt="" class="product-card__image">
+              <span class="badge badge--new product-card__badge">Sale</span>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__title body-md"><a class="product-card__title-link" href="product-generic.html">Olympic Bumper Plate 45 lb</a></h3>
+              <div class="product-card__prices">
+                <span class="product-card__price product-card__price--sale">$899.00</span>
+                <span class="product-card__price product-card__price--original">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary product-card__cta" href="#cart">Add to Cart</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__media">
+              <img src="assets/images/home/bestseller-2.jpg" alt="" class="product-card__image">
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__title body-md"><a class="product-card__title-link" href="product-generic.html">Power Cage with Pulley System</a></h3>
+              <div class="product-card__prices">
+                <span class="product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary product-card__cta" href="#cart">Add to Cart</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__media">
+              <img src="assets/images/home/bestseller-3.jpg" alt="" class="product-card__image">
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__title body-md"><a class="product-card__title-link" href="product-package.html">Adjustable Hex Dumbbell Set</a></h3>
+              <div class="product-card__prices">
+                <span class="product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary product-card__cta" href="#cart">Add to Cart</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__media">
+              <img src="assets/images/home/bestseller-4.jpg" alt="" class="product-card__image">
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__title body-md"><a class="product-card__title-link" href="product-single.html">Men's Olympic Training Bar</a></h3>
+              <div class="product-card__prices">
+                <span class="product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary product-card__cta" href="#cart">Add to Cart</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="home__bestsellers-footer">
+          <a class="home__bestsellers-shop-all" href="plp-equipment.html">
+            Shop All
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+      <section class="home__blog" id="blog" aria-label="From the blog">
+        <div class="home__blog-image-wrapper">
+          <img src="assets/images/home/blog-bg.jpg" alt="" class="home__blog-image">
+        </div>
+        <div class="home__blog-callout">
+          <h2 class="home__blog-heading display-lg">Train the body in the gym. Train your mind here.</h2>
+          <p class="body-md home__blog-copy">The York Barbell Club shares practical training advice — from our training grounds to your front door. Real life lessons from the lifters who trained in our shadows, competed under our name, and helped define what American strength looked like. Welcome to the club.</p>
+          <div class="home__blog-ctas">
+            <a class="btn btn--secondary home__blog-cta home__blog-cta--button" href="#blog-vision">Explore the Vision</a>
+            <a class="home__blog-cta" href="#blog-articles">
+              Explore all articles
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none">
+                <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section id="page-about" class="page" data-title="About | York Barbell" hidden>
+      <h1>About placeholder</h1>
+    </section>
+    <section id="page-collections-beginner" class="page" data-title="Beginner's Collection | York Barbell" hidden>
+      <!-- Hero -->
+      <section class="collections-beginner__hero" aria-label="Beginner's Collection hero">
+        <div class="collections-beginner__hero-media">
+          <img class="collections-beginner__hero-image" src="assets/images/collections/beginner-hero.jpg" alt="Athlete doing barbell curls in a dark gym">
+        </div>
+        <nav class="collections-beginner__breadcrumbs" aria-label="Breadcrumb">
+          <ol role="list">
+            <li><a href="#home">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="#shop-by-goals">Shop by Goals</a></li>
+            <li aria-hidden="true">/</li>
+            <li><span aria-current="page">Beginner's Essentials</span></li>
+          </ol>
+        </nav>
+        <div class="collections-beginner__hero-slogan">
+          <h1 class="collections-beginner__hero-heading display-xl">Everything you need.<br>Nothing you don't.</h1>
+          <p class="body-md collections-beginner__hero-desc">Starting out shouldn't mean a wall of options and a hundred YouTube tabs open. Let's lay the foundation together. Pick a category below. We'll walk you through it.</p>
+          <a class="btn btn--primary collections-beginner__hero-cta" href="#shop-products">Shop Products</a>
+        </div>
+      </section>
+
+      <!-- Intro section -->
+      <section class="collections-beginner__intro" aria-label="Introduction">
+        <h2 class="collections-beginner__intro-heading display-xl">Day one starts here.</h2>
+        <div class="collections-beginner__intro-body">
+          <p class="body-md">The room you train in today becomes the body you live in tomorrow.</p>
+          <p class="body-md">A real home gym needs the right pieces working together. Most beginners build out in three layers: strength, conditioning, and mobility. Cover those, and you can train almost any goal from one room.</p>
+        </div>
+      </section>
+
+      <!-- Strength Training feature row -->
+      <section class="collections-beginner__feature" aria-label="Strength training">
+        <div class="collections-beginner__feature-media">
+          <img src="assets/images/collections/strength-training-feature.jpg" alt="" class="collections-beginner__feature-image">
+        </div>
+        <div class="collections-beginner__feature-content">
+          <span class="collections-beginner__feature-step label-sm-uppercase">Step 1</span>
+          <h2 class="collections-beginner__feature-heading display-lg">Strength Training.</h2>
+          <p class="body-md collections-beginner__feature-body">Strength is the foundation everything else sits on. It builds bone density, protects your joints, and makes every other kind of training easier. You don't need a full rack on day one — a quality adjustable dumbbell, a sturdy bench, and a few starter accessories will take you further than most people get in their first year of a commercial gym membership.</p>
+        </div>
+      </section>
+
+      <!-- Strength Training products -->
+      <section class="collections-beginner__products" aria-label="Strength training products">
+        <div class="collections-beginner__products-sidebar">
+          <h3 class="collections-beginner__products-category">Strength Training</h3>
+          <ul class="collections-beginner__products-subcats" role="list">
+            <li><a href="#dumbbells">Dumbbells</a></li>
+            <li><a href="#plates">Plates</a></li>
+            <li><a href="#cages">Cages</a></li>
+            <li><a href="#weight-plate-sets">Weight Plate Sets</a></li>
+            <li><a href="#bars">Bars</a></li>
+          </ul>
+        </div>
+        <div class="collections-beginner__products-grid">
+          <!-- Card 1 — Sale -->
+          <article class="collections-product-card">
+            <div class="collections-product-card__media">
+              <span class="collections-product-card__badge">Sale</span>
+            </div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Olympic Adjustable Dumbbell 45 lb</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price collections-product-card__price--sale">$899.00</span>
+                <span class="collections-product-card__price collections-product-card__price--original">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <!-- Card 2 -->
+          <article class="collections-product-card">
+            <div class="collections-product-card__media"></div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Rubber Hex Dumbbell Set</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="collections-product-card">
+            <div class="collections-product-card__media"></div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Rubber Training Bumper Plates</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <!-- Card 4 -->
+          <article class="collections-product-card">
+            <div class="collections-product-card__media"></div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Olympic Bumper Plate 45 lb</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <!-- Card 5 — Sale -->
+          <article class="collections-product-card">
+            <div class="collections-product-card__media">
+              <span class="collections-product-card__badge">Sale</span>
+            </div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Olympic Training Set: Plates + 44 lb Bar</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price collections-product-card__price--sale">$999.00</span>
+                <span class="collections-product-card__price collections-product-card__price--original">$1,200.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <!-- Card 6 -->
+          <article class="collections-product-card">
+            <div class="collections-product-card__media"></div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Men's Olympic Training Bar</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <!-- Card 7 — Sale -->
+          <article class="collections-product-card">
+            <div class="collections-product-card__media">
+              <span class="collections-product-card__badge">Sale</span>
+            </div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Mini Dumbbell Stand</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price collections-product-card__price--sale">$149.00</span>
+                <span class="collections-product-card__price collections-product-card__price--original">$199.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <!-- Card 8 -->
+          <article class="collections-product-card">
+            <div class="collections-product-card__media"></div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Vinyl Fitbell (Multi-Color)</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <!-- Card 9 -->
+          <article class="collections-product-card">
+            <div class="collections-product-card__media"></div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">FTS Power Cage</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Cardiovascular Conditioning feature row (reversed: content left, image right) -->
+      <section class="collections-beginner__feature collections-beginner__feature--reverse" aria-label="Cardiovascular conditioning">
+        <div class="collections-beginner__feature-content">
+          <span class="collections-beginner__feature-step label-sm-uppercase">Step 2</span>
+          <h2 class="collections-beginner__feature-heading display-lg">Cardiovascular Conditioning.</h2>
+          <p class="body-md collections-beginner__feature-body">Cardio doesn't have to mean a treadmill humming in the corner. The most effective conditioning gear is also the most compact: short, hard intervals beat long, distracted ones every time. Pick one tool you'll actually use, learn how to push it, and you'll build a stronger engine than most gym-goers manage on machines they pretend to love but actually hate.</p>
+        </div>
+        <div class="collections-beginner__feature-media">
+          <img src="assets/images/collections/cardio-feature.jpg" alt="" class="collections-beginner__feature-image">
+        </div>
+      </section>
+
+      <!-- Cardiovascular Conditioning products (1 row of 3) -->
+      <section class="collections-beginner__products" aria-label="Cardiovascular conditioning products">
+        <div class="collections-beginner__products-sidebar">
+          <h3 class="collections-beginner__products-category">Cardiovascular Conditioning</h3>
+          <ul class="collections-beginner__products-subcats" role="list">
+            <li><a href="#rower">Rower</a></li>
+            <li><a href="#bikes">Bikes</a></li>
+            <li><a href="#kettlebells">Kettlebells</a></li>
+          </ul>
+        </div>
+        <div class="collections-beginner__products-grid">
+          <article class="collections-product-card">
+            <div class="collections-product-card__media">
+              <span class="collections-product-card__badge">Sale</span>
+            </div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Aspire 110 Rower</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price collections-product-card__price--sale">$899.00</span>
+                <span class="collections-product-card__price collections-product-card__price--original">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <article class="collections-product-card">
+            <div class="collections-product-card__media"></div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Aspire 366 Stationary Bike Flywheel</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <article class="collections-product-card">
+            <div class="collections-product-card__media"></div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Cast Iron Kettlebell Set</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Mobility & Stability feature row (image left, red content right) -->
+      <section class="collections-beginner__feature" aria-label="Mobility and stability">
+        <div class="collections-beginner__feature-media">
+          <img src="assets/images/collections/mobility-feature.jpg" alt="" class="collections-beginner__feature-image">
+        </div>
+        <div class="collections-beginner__feature-content">
+          <span class="collections-beginner__feature-step label-sm-uppercase">Step 3</span>
+          <h2 class="collections-beginner__feature-heading display-lg">Mobility <span class="amp">&amp;</span> Stability.</h2>
+          <p class="body-md collections-beginner__feature-body">This is the layer most beginners skip, and the one that decides whether you're still training in ten years or sidelined by a tweaked back. Mobility work keeps your joints moving the way they're supposed to. Stability work keeps the small muscles strong enough to protect the big ones. Five minutes a day, real returns.</p>
+        </div>
+      </section>
+
+      <!-- Mobility & Stability products (1 row of 3) -->
+      <section class="collections-beginner__products" aria-label="Mobility and stability products">
+        <div class="collections-beginner__products-sidebar">
+          <h3 class="collections-beginner__products-category">Mobility <span class="amp">&amp;</span> Stability</h3>
+          <ul class="collections-beginner__products-subcats" role="list">
+            <li><a href="#resistance-bands">Resistance Bands</a></li>
+            <li><a href="#yoga-mat">Yoga Mat</a></li>
+          </ul>
+        </div>
+        <div class="collections-beginner__products-grid">
+          <article class="collections-product-card">
+            <div class="collections-product-card__media">
+              <span class="collections-product-card__badge">Sale</span>
+            </div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Resistance Bands Set</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price collections-product-card__price--sale">$899.00</span>
+                <span class="collections-product-card__price collections-product-card__price--original">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <article class="collections-product-card">
+            <div class="collections-product-card__media"></div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Premium Yoga Mat</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+          <article class="collections-product-card">
+            <div class="collections-product-card__media"></div>
+            <div class="collections-product-card__body">
+              <h4 class="collections-product-card__title">Adjustable Hex Dumbbell Set</h4>
+              <div class="collections-product-card__prices">
+                <span class="collections-product-card__price">$1,000.00</span>
+              </div>
+              <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Testimonials/CTA + closer photo -->
+      <section class="collections-beginner__closer" aria-label="More from York">
+        <div class="collections-beginner__closer-header">
+          <h2 class="collections-beginner__closer-heading display-lg">The body you want tomorrow starts with today's set.</h2>
+          <div class="collections-beginner__closer-info">
+            <div class="collections-beginner__closer-info-item">
+              <h3 class="collections-beginner__closer-info-heading heading-md">10% off your first order</h3>
+              <p class="body-md collections-beginner__closer-info-body">Sign up for the newsletter and we'll send a code, plus the occasional tip from people who've actually built home gyms.</p>
+            </div>
+            <div class="collections-beginner__closer-info-item">
+              <h3 class="collections-beginner__closer-info-heading heading-md">10-year warranty on plates and bars</h3>
+              <p class="body-md collections-beginner__closer-info-body">If it breaks under normal use, we replace it. The gear is built to outlast the workout. We're confident enough to put a decade on it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="collections-beginner__closer-photo">
+          <img src="assets/images/collections/closer-photo.jpg" alt="" class="collections-beginner__closer-photo-image">
+        </div>
+      </section>
+
+    </section>
+
+    <section id="page-collections-muscle" class="page" data-title="Muscle Maintenance | York Barbell" hidden>
+      <!-- Hero -->
+      <section class="collections-muscle__hero" aria-label="Muscle Maintenance hero">
+        <div class="collections-muscle__hero-media">
+          <img class="collections-muscle__hero-image" src="assets/images/collections/muscle-hero.jpg" alt="Athlete pulling a barbell on a power rack">
+        </div>
+        <nav class="collections-muscle__breadcrumbs" aria-label="Breadcrumb">
+          <ol role="list">
+            <li><a href="#home">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="#shop-by-goals">Shop by Goals</a></li>
+            <li aria-hidden="true">/</li>
+            <li><span aria-current="page">Muscle Maintenance</span></li>
+          </ol>
+        </nav>
+        <div class="collections-muscle__hero-slogan">
+          <h1 class="collections-muscle__hero-heading display-xl">Stack Plates.<br>Shatter PR's.</h1>
+          <p class="body-md collections-muscle__hero-desc">Rebuild muscle, confidence and strength after weight loss, injury or time away from training. This collection provides approachable equipment and clear programming to help you progress safely and feel strong again.</p>
+          <a class="btn btn--primary collections-muscle__hero-cta" href="#shop-products">Lift Heavier</a>
+        </div>
+      </section>
+      <!-- Intro section -->
+      <section class="collections-muscle__intro" aria-label="Introduction">
+        <h2 class="collections-muscle__intro-heading display-xl">The work compounds.</h2>
+        <p class="collections-muscle__intro-subhead body-lg">Rebuild Strength. Rebuild Confidence. Rebuild Yourself.</p>
+        <div class="collections-muscle__intro-body">
+          <p class="body-md">You don't rebuild strength in a week. It happens through the sessions you show up for, the routines that become habits and the small wins that start changing how you feel every day.</p>
+          <p class="body-md">The gear in this collection is made for lifters who are dedicated to the journey. Commercial-grade where it counts. Sized for the room you train in. Built to keep up with the work you're never done doing.</p>
+        </div>
+      </section>
+
+      <!-- Sections to build: feature 1, products 1, feature 2, products 2, feature 3, products 3, closer photo -->
+    </section>
+
+    <section id="page-not-found" class="page" data-title="Not Found | York Barbell" hidden>
+      <h1>Page not found</h1>
+      <p><a href="#home">Return home</a></p>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer">
+    <div class="site-footer__inner">
+
+      <!-- Left column: brand + newsletter -->
+      <div class="site-footer__left">
+
+        <div class="site-footer__brand">
+          <a href="#home" aria-label="York Barbell home">
+            <img src="assets/icons/logo.svg" alt="York Barbell" width="86" height="26">
+          </a>
+        </div>
+
+        <div class="site-footer__newsletter">
+          <p class="site-footer__newsletter-heading">JOIN THE LEGACY.</p>
+          <p class="site-footer__newsletter-body">Receive exclusive updates on sales, stories, &amp; sign up for exclusive access to new product drops, training insights from the York archives, and 10% off your first order.</p>
+          <form class="site-footer__signup-form" action="#" method="post" novalidate>
+            <label class="site-footer__email-label" for="footer-email">Email*</label>
+            <div class="site-footer__input-row">
+              <input
+                id="footer-email"
+                class="site-footer__email-input"
+                name="email"
+                type="email"
+                placeholder="Email..."
+                required
+                autocomplete="email"
+              >
+              <button type="submit" class="site-footer__submit-btn" aria-label="Subscribe">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="site-footer__address">
+          <p class="site-footer__address-name">York Barbell USA</p>
+          <p class="site-footer__address-line">3300 Board Road</p>
+          <p class="site-footer__address-line">York, PA 17406</p>
+          <p class="site-footer__address-line">(800) 358 9675</p>
+          <p class="site-footer__address-line">Email Us | Directions</p>
+        </div>
+
+        <div class="site-footer__bottom-row">
+          <p class="site-footer__copyright">© 2026 York Barbell. All rights reserved.</p>
+          <ul class="site-footer__social" role="list" aria-label="Social links">
+            <li>
+              <a href="#" aria-label="Instagram">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Facebook">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M13 22V12h3l1-4h-4V6c0-1 .5-2 2-2h2V0h-3c-3 0-5 2-5 5v3H6v4h3v10h4z" fill="currentColor"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Right column: nav link columns + Back To Top -->
+      <div class="site-footer__right">
+
+        <div class="site-footer__nav-columns">
+
+          <div class="site-footer__col">
+            <h3 class="site-footer__col-heading">Shop By Goals</h3>
+            <ul role="list">
+              <li><a href="beginners-collection.html">Beginner's Essentials</a></li>
+              <li><a href="muscle-maintenance.html">Muscle Maintenance</a></li>
+              <li><a href="longevity-collection.html">Longevity</a></li>
+            </ul>
+          </div>
+
+          <div class="site-footer__col">
+            <h3 class="site-footer__col-heading">Equipment</h3>
+            <ul role="list">
+              <li><a href="plp-equipment.html">Shop All</a></li>
+            </ul>
+          </div>
+
+          <div class="site-footer__col">
+            <h3 class="site-footer__col-heading">Resources</h3>
+            <ul role="list">
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="#">Why The New Look?</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">York Heritage Site</a></li>
+            </ul>
+          </div>
+
+          <div class="site-footer__col">
+            <h3 class="site-footer__col-heading">Policies</h3>
+            <ul role="list">
+              <li><a href="returns-refunds.html">Returns &amp; Refunds</a></li>
+              <li><a href="shipping.html">Shipping</a></li>
+              <li><a href="warranty.html">Warranty</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="site-footer__back-to-top">
+          <a href="#top" class="site-footer__back-top-link">Back To Top</a>
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <dialog class="modal" id="modal-details" aria-labelledby="modal-details-title">
+    <header class="modal__header">
+      <h2 id="modal-details-title" class="heading-md">Details</h2>
+      <button class="modal__close" aria-label="Close" type="button">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M2 2l16 16M18 2L2 18" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+      </button>
+    </header>
+    <div class="modal__body">
+      <!-- Populated in Plan 2 from Figma "Details Modal" frame -->
+      <p class="body-md">Product details placeholder.</p>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="modal-different-variants" aria-labelledby="modal-different-variants-title">
+    <header class="modal__header">
+      <h2 id="modal-different-variants-title" class="heading-md">Different variants</h2>
+      <button class="modal__close" aria-label="Close" type="button">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M2 2l16 16M18 2L2 18" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+      </button>
+    </header>
+    <div class="modal__body">
+      <p class="body-md">Variants placeholder.</p>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="modal-mobile-variants" aria-labelledby="modal-mobile-variants-title">
+    <header class="modal__header">
+      <h2 id="modal-mobile-variants-title" class="heading-md">Variants</h2>
+      <button class="modal__close" aria-label="Close" type="button">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M2 2l16 16M18 2L2 18" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+      </button>
+    </header>
+    <div class="modal__body">
+      <p class="body-md">Mobile variants placeholder.</p>
+    </div>
+  </dialog>
+
+  <dialog class="modal modal--gallery" id="modal-gallery" aria-labelledby="modal-gallery-title">
+    <header class="modal__header">
+      <h2 id="modal-gallery-title" class="visually-hidden">Image gallery</h2>
+      <button class="modal__close" aria-label="Close" type="button">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M2 2l16 16M18 2L2 18" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+      </button>
+    </header>
+    <div class="modal__body">
+      <p class="body-md">Gallery placeholder.</p>
+    </div>
+  </dialog>
+
+  <!-- Legacy hash router removed: dropdown anchors like #shop-by-goals were triggering the not-found state -->
+  <!-- <script type="module" src="js/router.js"></script> -->
+  <script type="module" src="js/chrome.js"></script>
+  <script type="module" src="js/modals.js"></script>
+  <script type="module" src="js/pdp.js"></script>
+</body>
+</html>

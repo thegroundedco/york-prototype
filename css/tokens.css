@@ -1,0 +1,111 @@
+/* tokens.css — design tokens from Figma 'York Barbell Website 26' */
+/* Source: file AvkyvrFVv3PmI2pUm2wy3o, collections 1. Primitives (VariableCollectionId:1997:2) + 2. Semantic (VariableCollectionId:2000:2) — Dark mode resolved */
+/* Extracted via Figma Plugin API — 50 primitives + 17 semantic tokens */
+
+:root {
+
+  /* ── Color primitives ── */
+  --color-red-base:      #DA291C;
+  --color-neutral-0:     #FFFFFF;
+  --color-neutral-100:   #DDDDDD;
+  --color-neutral-200:   #D9D9D9;
+  --color-neutral-400:   #B2B2B2;
+  --color-neutral-500:   #8A8A8A;
+  --color-neutral-700:   #5D5D5D;
+  --color-neutral-1000:  #101820;
+  --color-cream-base:    #FBF7EB;
+
+  /* ── Spacing primitives ── */
+  --space-0:    0px;
+  --space-4:    4px;
+  --space-8:    8px;
+  --space-12:   12px;
+  --space-16:   16px;
+  --space-24:   24px;
+  --space-32:   32px;
+  --space-44:   44px;
+  --space-48:   48px;
+  --space-64:   64px;
+  --space-148:  148px;
+
+  /* ── Layout primitives ── */
+  --layout-container-1920:    1856px;
+  --layout-container-1440:    1376px;
+  --layout-container-390:     358px;
+  --layout-gutter-desktop:    32px;
+  --layout-gutter-mobile:     24px;
+  --layout-section-y-desktop: 148px;
+  --layout-section-y-mobile:  64px;
+
+  /* ── Typography primitives ── */
+
+  /* Font families */
+  --font-family-display: "Field Gothic No.85 Bold XWide", "Impact", system-ui, sans-serif;
+  --font-family-body:    "Field Gothic No.62 Regular",    system-ui, sans-serif;
+
+  /* Font weights */
+  --font-weight-regular:  400;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Font sizes */
+  --font-size-12:  12px;
+  --font-size-14:  14px;
+  --font-size-16:  16px;
+  --font-size-20:  20px;
+  --font-size-24:  24px;
+  --font-size-32:  32px;
+  --font-size-48:  48px;
+  --font-size-64:  64px;
+  --font-size-72:  72px;
+
+  /* Line heights (unitless — 110 = 1.1, use as multiplier or %) */
+  --font-leading-tight:   1.10;
+  --font-leading-snug:    1.25;
+  --font-leading-normal:  1.50;
+  --font-leading-relaxed: 1.65;
+
+  /* Letter spacing (converted from Figma em units: value/1000 * 1em) */
+  --font-tracking-tight:  -0.002em;
+  --font-tracking-normal:  0em;
+  --font-tracking-wide:    0.005em;
+  --font-tracking-wider:   0.010em;
+
+  /* ── Semantic tokens — Dark mode resolved ── */
+  /* Each token aliases the primitive it references in Figma */
+
+  /* Surfaces */
+  --surface-primary:  var(--color-neutral-1000);  /* neutral/1000 */
+  --surface-raised:   var(--color-neutral-700);   /* neutral/700  */
+  --surface-sunken:   var(--color-neutral-1000);  /* neutral/1000 */
+
+  /* Text */
+  --text-primary:    var(--color-neutral-0);    /* neutral/0   */
+  --text-secondary:  var(--color-neutral-200);  /* neutral/200 */
+  --text-muted:      var(--color-neutral-400);  /* neutral/400 */
+  --text-inverse:    var(--color-neutral-1000); /* neutral/1000 */
+  --text-accent:     var(--color-red-base);     /* red/base    */
+  --text-on-accent:  var(--color-neutral-0);    /* neutral/0   */
+
+  /* Borders */
+  --border-subtle:   var(--color-neutral-700);  /* neutral/700 */
+  --border-default:  var(--color-neutral-500);  /* neutral/500 */
+  --border-strong:   var(--color-neutral-200);  /* neutral/200 */
+  --border-focus:    var(--color-red-base);     /* red/base    */
+
+  /* Accents */
+  --accent-default:  var(--color-red-base);  /* red/base */
+  --accent-hover:    var(--color-red-base);  /* red/base */
+  --accent-pressed:  var(--color-red-base);  /* red/base */
+  --accent-subtle:   var(--color-red-base);  /* red/base */
+
+}
+
+/* At laptop sizes (≤1440), the 148px section-rhythm value feels excessive.
+   Tightening the token here ripples through every section that uses it. */
+@media (max-width: 1440px) {
+  :root {
+    --space-148: 96px;
+    --layout-section-y-desktop: 96px;
+  }
+}

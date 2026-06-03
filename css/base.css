@@ -1,0 +1,173 @@
+/* base.css — reset + element defaults + type style classes */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dd, figure, blockquote { margin: 0; }
+
+html {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-16);
+  line-height: var(--font-leading-normal);
+  color: var(--text-primary);
+  background: var(--color-cream-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Always show the scrollbar so opening a <dialog> never shifts page content */
+  overflow-y: scroll;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+
+button, input, select, textarea { font: inherit; }
+
+ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--accent-default); outline-offset: 2px; }
+
+/* Skip link — visually hidden until focused */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: var(--space-8) var(--space-16);
+  background: var(--accent-default);
+  color: var(--text-on-accent);
+  z-index: 9999;
+}
+.skip-link:focus { left: 0; }
+
+/* Sections are full-width by default; pages.css scopes inner layout */
+.page { width: 100%; }
+/* Hidden page sections must stay hidden even when page-specific CSS sets display:flex etc. */
+.page[hidden] { display: none !important; }
+
+/* ── Type style classes ── */
+/* Source strings stay readable; CSS applies casing via text-transform.
+   Mapped to actual numeric font-size tokens since Figma uses --font-size-N
+   (12, 14, 16, 20, 24, 32, 48, 64, 72) rather than semantic size names. */
+
+.display-xl {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-72);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-leading-tight);
+  text-transform: uppercase;
+}
+
+.display-lg {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-64);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-leading-tight);
+  text-transform: uppercase;
+}
+
+.heading-xl {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-48);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-leading-tight);
+  text-transform: uppercase;
+}
+
+.heading-lg {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-leading-snug);
+  text-transform: uppercase;
+}
+
+.heading-md {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-24);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-leading-snug);
+  text-transform: uppercase;
+}
+
+.heading-sm {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-leading-snug);
+  text-transform: uppercase;
+}
+
+.body-lg {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-leading-normal);
+}
+
+.body-md {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-leading-normal);
+}
+
+.body-sm {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-leading-normal);
+}
+
+.caption {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-leading-snug);
+}
+
+.label-md {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semibold);
+  /* No text-transform — label/md is title case per spec */
+}
+
+.label-sm {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-semibold);
+}
+
+.label-sm-uppercase {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--font-tracking-wider);
+}
+
+/* Ampersand scaling — display fonts often render & shorter than cap-height letters.
+   Scale it up so it visually matches the uppercase letters around it. */
+.amp {
+  font-size: 1.18em;
+  line-height: 0;
+  vertical-align: -0.04em;
+}
+
+/* Breadcrumb current-page item: bold across the site */
+[aria-current="page"] {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Visually hidden utility (used for screen-reader-only labels) */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
