@@ -45,7 +45,7 @@ The prototype is a single HTML file. Pages are switched via URL hash:
 |---|---|
 | Home | `986:12585` (1920) / `986:12356` (1440) / `986:12712` (390) |
 
-## "Wire to backend" gaps for dev handoff
+## "Wire up" for dev handoff
 
 - Cart state is in-memory only; persisting + showing real line items requires a backend
 - Search results are placeholder; wire to a real search engine
