@@ -252,7 +252,7 @@
         <ul class="mobile-drawer__secondary" role="list">
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="#">Blog</a></li>
+          <li><a href="blog.html">Blog</a></li>
         </ul>
       </nav>
 
@@ -298,9 +298,7 @@
 
     <!-- Hero -->
     <section class="collections-muscle__hero" aria-label="Muscle Maintenance hero">
-      <div class="collections-muscle__hero-media">
-        <img class="collections-muscle__hero-image" src="assets/images/collections/muscle-hero.jpg" alt="Athlete pulling a barbell on a power rack">
-      </div>
+      <img class="collections-muscle__hero-image" src="assets/images/collections/muscle-hero.jpg" alt="Athlete pulling a barbell on a power rack">
       <nav class="collections-muscle__breadcrumbs" aria-label="Breadcrumb">
         <ol role="list">
           <li><a href="homepage.html">Home</a></li>
@@ -340,23 +338,24 @@
     </section>
 
     <!-- Strength Training products -->
-    <section class="collections-muscle__products" aria-label="Strength training products" id="shop-products">
+    <section class="collections-muscle__products" aria-label="Strength training products" id="shop-products" data-collection-products>
       <div class="collections-muscle__products-sidebar">
         <h3 class="collections-muscle__products-category">Strength training Basics</h3>
         <ul class="collections-muscle__products-subcats" role="list">
-          <li><a href="#performance-package">Performance Package</a></li>
-          <li><a href="#dumbbell-sets">Dumbbell Sets</a></li>
-          <li><a href="#power-cage">Power Cage</a></li>
+          <li><a href="#performance-package" data-collection-filter="performance-package">Performance Package</a></li>
+          <li><a href="#dumbbell-sets" data-collection-filter="dumbbell-sets">Dumbbell Sets</a></li>
+          <li><a href="#power-cage" data-collection-filter="power-cage">Power Cage</a></li>
         </ul>
       </div>
       <div class="collections-muscle__products-grid">
         <!-- 6 product cards: 3 cols x 2 rows -->
-        <article class="collections-product-card">
+        <article class="collections-product-card" data-collection-card-category="dumbbell-sets">
           <div class="collections-product-card__media">
+            <img class="collections-product-card__image" src="assets/images/home/bestseller-3.jpg" alt="Adjustable hex dumbbell">
             <span class="collections-product-card__badge">Sale</span>
           </div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Adjustable Hex Dumbbell 3KG</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Adjustable Hex Dumbbell 3KG</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price collections-product-card__price--sale">$899.00</span>
               <span class="collections-product-card__price collections-product-card__price--original">$1,000.00</span>
@@ -364,36 +363,37 @@
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+        <article class="collections-product-card" data-collection-card-category="dumbbell-sets">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/plp/plp-3.jpg" alt="Cast iron kettlebell set"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Cast Iron Kettlebell Set</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-package.html">Cast Iron Kettlebell Set</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+        <article class="collections-product-card" data-collection-card-category="dumbbell-sets">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/home/bestseller-1.jpg" alt="Olympic bumper plates"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Olympic Bumper Plates</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Olympic Bumper Plates</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+        <article class="collections-product-card" data-collection-card-category="performance-package">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/pdp/pkg-main.jpg" alt="Performance package starter kit"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Performance Package Starter Kit</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-package.html">Performance Package Starter Kit</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
+        <article class="collections-product-card" data-collection-card-category="dumbbell-sets">
           <div class="collections-product-card__media">
+            <img class="collections-product-card__image" src="assets/images/home/bestseller-1.jpg" alt="Rubber bumper plate 45 lb">
             <span class="collections-product-card__badge">Sale</span>
           </div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Rubber Bumper Plate 45 lb</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Rubber Bumper Plate 45 lb</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price collections-product-card__price--sale">$899.00</span>
               <span class="collections-product-card__price collections-product-card__price--original">$1,000.00</span>
@@ -401,10 +401,10 @@
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+        <article class="collections-product-card" data-collection-card-category="power-cage">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/home/bestseller-2.jpg" alt="FTS power cage"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">FTS Power Cage</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">FTS Power Cage</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$2,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
@@ -427,21 +427,21 @@
     </section>
 
     <!-- Cardiovascular Conditioning products -->
-    <section class="collections-muscle__products" aria-label="Cardiovascular conditioning products">
+    <section class="collections-muscle__products" aria-label="Cardiovascular conditioning products" data-collection-products>
       <div class="collections-muscle__products-sidebar">
         <h3 class="collections-muscle__products-category">Cardiovascular Conditioning</h3>
         <ul class="collections-muscle__products-subcats" role="list">
-          <li><a href="#bikes">Bikes</a></li>
-          <li><a href="#rower">Rower</a></li>
-          <li><a href="#balls">Balls</a></li>
-          <li><a href="#ropes">Ropes</a></li>
+          <li><a href="#bikes" data-collection-filter="bikes">Bikes</a></li>
+          <li><a href="#rower" data-collection-filter="rower">Rower</a></li>
+          <li><a href="#balls" data-collection-filter="balls">Balls</a></li>
+          <li><a href="#ropes" data-collection-filter="ropes">Ropes</a></li>
         </ul>
       </div>
       <div class="collections-muscle__products-grid">
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"><span class="collections-product-card__badge">Sale</span></div>
+        <article class="collections-product-card" data-collection-card-category="rower">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/plp/plp-1.jpg" alt="Aspire 110 rower"><span class="collections-product-card__badge">Sale</span></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Aspire 110 Rower</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-single.html">Aspire 110 Rower</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price collections-product-card__price--sale">$899.00</span>
               <span class="collections-product-card__price collections-product-card__price--original">$1,000.00</span>
@@ -449,26 +449,26 @@
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+        <article class="collections-product-card" data-collection-card-category="balls">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/home/bestseller-3.jpg" alt="Adjustable hex dumbbell"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Adjustable Hex Dumbbell 3KG</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Adjustable Hex Dumbbell 3KG</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+        <article class="collections-product-card" data-collection-card-category="balls">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/plp/plp-3.jpg" alt="Cast iron kettlebell set"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Cast Iron Kettlebell Set</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-package.html">Cast Iron Kettlebell Set</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"><span class="collections-product-card__badge">Sale</span></div>
+        <article class="collections-product-card" data-collection-card-category="bikes">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/plp/plp-2.jpg" alt="Aspire 366 stationary bike"><span class="collections-product-card__badge">Sale</span></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Aspire 366 Stationary Bike Flywheel</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-single.html">Aspire 366 Stationary Bike Flywheel</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price collections-product-card__price--sale">$899.00</span>
               <span class="collections-product-card__price collections-product-card__price--original">$1,000.00</span>
@@ -476,18 +476,18 @@
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+        <article class="collections-product-card" data-collection-card-category="ropes">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/plp/cat-1.jpg" alt="Heavy battle rope"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Heavy Battle Rope</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Heavy Battle Rope</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+        <article class="collections-product-card" data-collection-card-category="balls">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/plp/cat-2.jpg" alt="Slam ball set"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Slam Ball Set</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-package.html">Slam Ball Set</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
@@ -508,19 +508,19 @@
     </section>
 
     <!-- Mobility & Stability products -->
-    <section class="collections-muscle__products" aria-label="Mobility and stability products">
+    <section class="collections-muscle__products" aria-label="Mobility and stability products" data-collection-products>
       <div class="collections-muscle__products-sidebar">
         <h3 class="collections-muscle__products-category">Mobility <span class="amp">&amp;</span> Stability</h3>
         <ul class="collections-muscle__products-subcats" role="list">
-          <li><a href="#resistance-bands">Resistance Bands</a></li>
-          <li><a href="#yoga-mat">Yoga Mat</a></li>
+          <li><a href="#resistance-bands" data-collection-filter="resistance-bands">Resistance Bands</a></li>
+          <li><a href="#yoga-mat" data-collection-filter="yoga-mat">Yoga Mat</a></li>
         </ul>
       </div>
       <div class="collections-muscle__products-grid">
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"><span class="collections-product-card__badge">Sale</span></div>
+        <article class="collections-product-card" data-collection-card-category="resistance-bands">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/pdp/bench-main.jpg" alt="Resistance bands set"><span class="collections-product-card__badge">Sale</span></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Resistance Bands Set</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-package.html">Resistance Bands Set</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price collections-product-card__price--sale">$899.00</span>
               <span class="collections-product-card__price collections-product-card__price--original">$1,000.00</span>
@@ -528,18 +528,18 @@
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+        <article class="collections-product-card" data-collection-card-category="yoga-mat">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/pdp/bench-addon.jpg" alt="Premium yoga mat"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Premium Yoga Mat</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Premium Yoga Mat</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+        <article class="collections-product-card" data-collection-card-category="yoga-mat">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/home/bestseller-3.jpg" alt="Adjustable hex dumbbell set"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Adjustable Hex Dumbbell Set</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-package.html">Adjustable Hex Dumbbell Set</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
@@ -555,9 +555,9 @@
       </header>
       <div class="collections-muscle__footer-cta-grid">
         <article class="collections-product-card">
-          <div class="collections-product-card__media"><span class="collections-product-card__badge">Sale</span></div>
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/home/bestseller-3.jpg" alt="Adjustable hex dumbbell set"><span class="collections-product-card__badge">Sale</span></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Adjustable Hex Dumbbell Set</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-package.html">Adjustable Hex Dumbbell Set</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price collections-product-card__price--sale">$899.00</span>
               <span class="collections-product-card__price collections-product-card__price--original">$1,000.00</span>
@@ -566,25 +566,25 @@
           </div>
         </article>
         <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/home/bestseller-2.jpg" alt="FTS power cage"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">FTS Power Cage</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">FTS Power Cage</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
         <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/pdp/single-product-2.jpg" alt="Vinyl fitbells"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Vinyl Fitbell (Multi-Color)</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Vinyl Fitbell (Multi-Color)</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
         <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/plp/plp-3.jpg" alt="Cast iron kettlebell set"></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Cast Iron Kettlebell Set</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-package.html">Cast Iron Kettlebell Set</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
@@ -709,7 +709,7 @@
               <li><a href="about.html">About</a></li>
               <li><a href="contact.html">Contact</a></li>
               <li><a href="#">Why The New Look?</a></li>
-              <li><a href="#">Blog</a></li>
+              <li><a href="blog.html">Blog</a></li>
               <li><a href="#">York Heritage Site</a></li>
             </ul>
           </div>

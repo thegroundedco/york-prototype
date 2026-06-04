@@ -252,7 +252,7 @@
         <ul class="mobile-drawer__secondary" role="list">
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="#">Blog</a></li>
+          <li><a href="blog.html">Blog</a></li>
         </ul>
       </nav>
 
@@ -298,9 +298,7 @@
 
     <!-- Hero -->
     <section class="collections-longevity__hero" aria-label="Longevity hero">
-      <div class="collections-longevity__hero-media">
-        <img class="collections-longevity__hero-image" src="assets/images/collections/longevity-hero.jpg" alt="Person strength training with focus on long-term fitness">
-      </div>
+      <img class="collections-longevity__hero-image" src="assets/images/collections/longevity-hero.jpg" alt="Person strength training with focus on long-term fitness">
       <nav class="collections-longevity__breadcrumbs" aria-label="Breadcrumb">
         <ol role="list">
           <li><a href="homepage.html">Home</a></li>
@@ -341,18 +339,18 @@
     </section>
 
     <!-- Basics products -->
-    <section class="collections-longevity__products" aria-label="Basics products">
+    <section class="collections-longevity__products" aria-label="Basics products" id="shop-products" data-collection-products>
       <div class="collections-longevity__products-sidebar">
         <h3 class="collections-longevity__products-category">Basics (Whole Set)</h3>
         <ul class="collections-longevity__products-subcats" role="list">
-          <li><a href="#performance-pack">Performance Pack Package</a></li>
+          <li><a href="#performance-pack" data-collection-filter="performance-pack">Performance Pack Package</a></li>
         </ul>
       </div>
       <div class="collections-longevity__products-grid">
-        <article class="collections-product-card">
-          <div class="collections-product-card__media"></div>
+        <article class="collections-product-card" data-collection-card-category="performance-pack">
+          <div class="collections-product-card__media"><img class="collections-product-card__image" src="assets/images/home/bestseller-3.jpg" alt=""></div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Adjustable Dumbbells 5KG</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-package.html">Adjustable Dumbbells 5KG</a></h4>
             <div class="collections-product-card__prices"><span class="collections-product-card__price">$1,000.00</span></div>
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
@@ -374,22 +372,22 @@
     </section>
 
     <!-- Aerobic/Metabolic products -->
-    <section class="collections-longevity__products" aria-label="Aerobic and metabolic products">
+    <section class="collections-longevity__products" aria-label="Aerobic and metabolic products" data-collection-products>
       <div class="collections-longevity__products-sidebar">
         <h3 class="collections-longevity__products-category">Aerobic/Metabolic Conditioning</h3>
         <ul class="collections-longevity__products-subcats" role="list">
-          <li><a href="#rower">Rower</a></li>
-          <li><a href="#ropes">Ropes</a></li>
+          <li><a href="#rower" data-collection-filter="rower">Rower</a></li>
+          <li><a href="#ropes" data-collection-filter="ropes">Ropes</a></li>
         </ul>
       </div>
       <div class="collections-longevity__products-grid">
-        <article class="collections-product-card">
+        <article class="collections-product-card" data-collection-card-category="rower">
           <div class="collections-product-card__media">
             <img src="assets/images/collections/longevity-aerobic-rower.jpg" alt="" class="collections-product-card__image">
             <span class="collections-product-card__badge">Sale</span>
           </div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Product Title Title Title Title Title title Title Product</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-single.html">Product Title Title Title Title Title title Title Product</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price collections-product-card__price--sale">$0.00</span>
               <span class="collections-product-card__price collections-product-card__price--original">$1,2200.00</span>
@@ -397,12 +395,12 @@
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
+        <article class="collections-product-card" data-collection-card-category="ropes">
           <div class="collections-product-card__media">
             <img src="assets/images/collections/longevity-aerobic-ropes.jpg" alt="" class="collections-product-card__image">
           </div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Product Title Title Title Title Title title Title Product</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Product Title Title Title Title Title title Title Product</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price">$1,2200.00</span>
             </div>
@@ -427,22 +425,22 @@
     </section>
 
     <!-- Power & Mobility products -->
-    <section class="collections-longevity__products" aria-label="Power and mobility products">
+    <section class="collections-longevity__products" aria-label="Power and mobility products" data-collection-products>
       <div class="collections-longevity__products-sidebar">
         <h3 class="collections-longevity__products-category">Power &amp; Mobility</h3>
         <ul class="collections-longevity__products-subcats" role="list">
-          <li><a href="#plyo-package">Plyo Package</a></li>
-          <li><a href="#floor-mat">Floor Mat</a></li>
+          <li><a href="#plyo-package" data-collection-filter="plyo-package">Plyo Package</a></li>
+          <li><a href="#floor-mat" data-collection-filter="floor-mat">Floor Mat</a></li>
         </ul>
       </div>
       <div class="collections-longevity__products-grid">
-        <article class="collections-product-card">
+        <article class="collections-product-card" data-collection-card-category="plyo-package">
           <div class="collections-product-card__media">
             <img src="assets/images/collections/longevity-power-plyo.jpg" alt="" class="collections-product-card__image">
             <span class="collections-product-card__badge">Sale</span>
           </div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Product Title Title Title Title Title title Title Product</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-package.html">Product Title Title Title Title Title title Title Product</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price collections-product-card__price--sale">$0.00</span>
               <span class="collections-product-card__price collections-product-card__price--original">$1,2200.00</span>
@@ -450,12 +448,12 @@
             <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
           </div>
         </article>
-        <article class="collections-product-card">
+        <article class="collections-product-card" data-collection-card-category="floor-mat">
           <div class="collections-product-card__media">
             <img src="assets/images/collections/longevity-power-floormat.jpg" alt="" class="collections-product-card__image">
           </div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Product Title Title Title Title Title title Title Product</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Product Title Title Title Title Title title Title Product</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price">$1,2200.00</span>
             </div>
@@ -476,7 +474,7 @@
             <span class="collections-product-card__badge">Sale</span>
           </div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Product Title Title Title Title Title title Title Product</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Product Title Title Title Title Title title Title Product</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price collections-product-card__price--sale">$0.00</span>
               <span class="collections-product-card__price collections-product-card__price--original">$1,2200.00</span>
@@ -489,7 +487,7 @@
             <img src="assets/images/collections/longevity-cta-2.jpg" alt="" class="collections-product-card__image">
           </div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Product Title Title Title Title Title title Title Product</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Product Title Title Title Title Title title Title Product</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price">$1,2200.00</span>
             </div>
@@ -501,7 +499,7 @@
             <img src="assets/images/collections/longevity-cta-3.jpg" alt="" class="collections-product-card__image">
           </div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Product Title Title Title Title Title title Title Product</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Product Title Title Title Title Title title Title Product</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price">$1,2200.00</span>
             </div>
@@ -513,7 +511,7 @@
             <img src="assets/images/collections/longevity-cta-4.jpg" alt="" class="collections-product-card__image">
           </div>
           <div class="collections-product-card__body">
-            <h4 class="collections-product-card__title">Product Title Title Title Title Title title Title Product</h4>
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="product-generic.html">Product Title Title Title Title Title title Title Product</a></h4>
             <div class="collections-product-card__prices">
               <span class="collections-product-card__price">$1,2200.00</span>
             </div>
@@ -640,7 +638,7 @@
               <li><a href="about.html">About</a></li>
               <li><a href="contact.html">Contact</a></li>
               <li><a href="#">Why The New Look?</a></li>
-              <li><a href="#">Blog</a></li>
+              <li><a href="blog.html">Blog</a></li>
               <li><a href="#">York Heritage Site</a></li>
             </ul>
           </div>

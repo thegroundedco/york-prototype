@@ -566,3 +566,12 @@
   .modal--side { width: 100%; }
   .modal--side__heading { font-size: var(--font-size-32); }
 }
+
+/* ── Reading-progress highlight: dim words until the scroll position passes them ── */
+[data-typewriter] .reading-word {
+  opacity: 0.25;
+  transition: opacity 0.35s ease;
+}
+[data-typewriter] .reading-word.is-read {
+  opacity: 1;
+}

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Racks &amp; Benches | York Barbell</title>
-  <meta name="description" content="Shop York Barbell racks and benches. Power cages, squat stands, utility benches — commercial-grade, made in York, PA.">
+  <title>Blog | York Barbell</title>
+  <meta name="description" content="Get in touch with York Barbell. Visit our York, PA headquarters, email us, or fill out the form. Real people, real answers.">
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/chrome.css">
   <link rel="stylesheet" href="css/pages.css">
 </head>
-<body class="plp-page plp-category">
+<body class="blog-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Chrome — renders once for every page -->
@@ -292,132 +292,74 @@
 
   <main id="main">
 
-    <section class="plp__container" aria-label="Racks and Benches">
+    <section class="blog__container" aria-label="Blog">
 
-      <!-- Page header -->
-      <header class="plp-category__header">
-        <nav class="plp__breadcrumbs" aria-label="Breadcrumb">
-          <ol role="list">
-            <li><a href="homepage.html">Home</a></li>
-            <li aria-hidden="true">/</li>
-            <li><a href="plp-equipment.html">Shop Equipment</a></li>
-            <li aria-hidden="true">/</li>
-            <li><span aria-current="page">Racks &amp; Benches</span></li>
-          </ol>
-        </nav>
+      <!-- Two-column layout: intro column (left) + articles grid (right) -->
+      <div class="blog__layout">
 
-        <h1 class="plp__title display-lg">Racks <span class="amp">&amp;</span> Benches</h1>
-
-        <hr class="plp-category__rule">
-
-        <div class="plp-category__toolbar">
-          <p class="plp-category__count">Showing all 12 results</p>
-          <div class="plp-category__sort">
-            <label for="cat-sort" class="visually-hidden">Sort by</label>
-            <select id="cat-sort" name="sort" class="plp__sort-select plp-category__sort-select">
-              <option value="default">Default Sorting</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="newest">Newest</option>
-              <option value="best-selling">Best Selling</option>
-            </select>
+        <aside class="blog__intro">
+          <h1 class="blog__title display-lg">York Barbell Club</h1>
+          <div class="blog__intro-body">
+            <p class="body-md">The work behind the iron.</p>
+            <p class="body-md">Product deep-dives, training guides, and stories from inside a ninety-year-old American manufacturer. Practical reading for anyone who wants to know more about what they're training with — and what to do with it.</p>
+            <ul class="blog__intro-list" role="list">
+              <li>Benches</li>
+              <li>Power Cages</li>
+              <li>Dumbbell Sets</li>
+              <li>Weight Plate Sets</li>
+              <li>Bars</li>
+            </ul>
           </div>
+        </aside>
+
+        <div class="blog__grid">
+
+          <article class="blog-article">
+            <a class="blog-article__link" href="#">
+              <div class="blog-article__media">
+                <img class="blog-article__image" src="assets/images/home/blog-bg.jpg" alt="">
+              </div>
+              <div class="blog-article__body">
+                <p class="blog-article__date">02 / 14 / 2026</p>
+                <h2 class="blog-article__title">The Anatomy Of A York Olympic Bar</h2>
+                <p class="blog-article__desc body-md">A closer look at the knurl, whip, and tensile strength built into every York Olympic bar — and how to pick the right one for your lifts.</p>
+              </div>
+            </a>
+            <hr class="blog-article__divider">
+          </article>
+
+          <article class="blog-article">
+            <a class="blog-article__link" href="#">
+              <div class="blog-article__media">
+                <img class="blog-article__image" src="assets/images/home/bestseller-4.jpg" alt="">
+              </div>
+              <div class="blog-article__body">
+                <p class="blog-article__date">01 / 28 / 2026</p>
+                <h2 class="blog-article__title">Programming Your First Year Under The Bar</h2>
+                <p class="blog-article__desc body-md">A practical twelve-month roadmap for new lifters: how to add weight safely, when to deload, and the accessory work that keeps you healthy.</p>
+              </div>
+            </a>
+            <hr class="blog-article__divider">
+          </article>
+
+          <article class="blog-article">
+            <a class="blog-article__link" href="#">
+              <div class="blog-article__media">
+                <img class="blog-article__image" src="assets/images/home/bestseller-3.jpg" alt="">
+              </div>
+              <div class="blog-article__body">
+                <p class="blog-article__date">01 / 09 / 2026</p>
+                <h2 class="blog-article__title">Why We Still Drop-Forge Our Dumbbells</h2>
+                <p class="blog-article__desc body-md">Inside our York, Pennsylvania plant, where solid-steel dumbbells are still drop-forged and hand-finished the way they have been for decades.</p>
+              </div>
+            </a>
+            <hr class="blog-article__divider">
+          </article>
+
         </div>
-      </header>
 
-      <!-- 4-up product grid -->
-      <div class="plp-category__grid">
-        <article class="plp__card">
-          <div class="plp__card-image">
-            <img src="assets/images/plp/cat-1.jpg" alt="">
-            <span class="plp__card-badge">Sale</span>
-          </div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices">
-            <span class="plp__card-price--sale">$0.00</span>
-            <span class="plp__card-price--original">$1,2200.00</span>
-          </div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
-        <article class="plp__card">
-          <div class="plp__card-image"><img src="assets/images/plp/cat-2.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
-        <article class="plp__card">
-          <div class="plp__card-image"><img src="assets/images/plp/cat-3.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
-        <article class="plp__card">
-          <div class="plp__card-image"><img src="assets/images/plp/cat-4.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
-        <article class="plp__card">
-          <div class="plp__card-image"><img src="assets/images/pdp/single-rec-1.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
-        <article class="plp__card">
-          <div class="plp__card-image"><img src="assets/images/pdp/single-rec-2.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
-        <article class="plp__card">
-          <div class="plp__card-image"><img src="assets/images/pdp/single-rec-3.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
-        <article class="plp__card">
-          <div class="plp__card-image"><img src="assets/images/pdp/single-rec-4.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
-        <article class="plp__card">
-          <div class="plp__card-image"><img src="assets/images/pdp/pkg-secondary-1.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
-        <article class="plp__card">
-          <div class="plp__card-image"><img src="assets/images/pdp/pkg-secondary-2.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
-        <article class="plp__card">
-          <div class="plp__card-image"><img src="assets/images/pdp/pkg-detail-1.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
-        <article class="plp__card">
-          <div class="plp__card-image"><img src="assets/images/pdp/pkg-detail-2.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
-          <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
-          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
-        </article>
       </div>
 
-    </section>
-
-    <!-- Category footer: full-bleed image + centered caption -->
-    <section class="plp-category__feature" aria-labelledby="cat-feature-title">
-      <div class="plp-category__feature-image">
-        <img src="assets/images/plp/cat-3.jpg" alt="">
-      </div>
-      <div class="plp-category__feature-text">
-        <h2 class="plp-category__feature-title" id="cat-feature-title">Racks <span class="amp">&amp;</span> Benches</h2>
-        <p class="plp-category__feature-body">Lorem ipsum dolor sit amet consectetur. Donec nisl ipsum auctor et luctus mauris. At vitae auctor quis sit neque sagittis id. Justo amet ipsum erat aliquam quam praesent etiam sem pellentesque. Erat in et enim sit sem et praesent. A maecenas lorem arcu turpis posuere lacus dolor sed.</p>
-      </div>
     </section>
 
   </main>

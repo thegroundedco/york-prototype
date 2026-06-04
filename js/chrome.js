@@ -393,8 +393,8 @@ function initCarousel(carousel) {
 
   let activeIndex = 0;
   let timer = null;
-  const intervalAttr = parseInt(carousel.dataset.carouselInterval || '6000', 10);
-  const AUTO_INTERVAL_MS = Number.isFinite(intervalAttr) ? intervalAttr : 6000;
+  const intervalAttr = parseInt(carousel.dataset.carouselInterval || '5000', 10);
+  const AUTO_INTERVAL_MS = Number.isFinite(intervalAttr) ? intervalAttr : 5000;
   const noAuto = carousel.hasAttribute('data-carousel-no-auto');
 
   function go(index) {
@@ -485,6 +485,67 @@ document.querySelectorAll('[data-plp-filters]').forEach((filterList) => {
     });
   });
 });
+
+// ── Reading-progress highlight ──
+// Each [data-typewriter] paragraph is split into per-word spans. All words
+// start dimmed; as the user scrolls past the paragraphs, words light up
+// one by one in reading order, like a karaoke-style reading position.
+const typewriterEls = Array.from(document.querySelectorAll('[data-typewriter]'));
+if (typewriterEls.length) {
+  typewriterEls.forEach((el) => {
+    const text = el.textContent;
+    // Split keeping whitespace; only word tokens get wrapped
+    const tokens = text.split(/(\s+)/);
+    el.innerHTML = tokens
+      .map((t) => {
+        if (!t) return '';
+        if (/^\s+$/.test(t)) return t;
+        return `<span class="reading-word">${t.replace(/</g, '&lt;')}</span>`;
+      })
+      .join('');
+    el.removeAttribute('hidden');
+    el.classList.add('reading-progress');
+  });
+
+  // Collect all word spans across all paragraphs in document order
+  const allWords = [];
+  typewriterEls.forEach((el) => {
+    el.querySelectorAll('.reading-word').forEach((w) => allWords.push(w));
+  });
+
+  // Anchor the reading-progress range to the nearest [data-reading-anchor] ancestor
+  // (the scroll runway). Reading fills as the user scrolls THROUGH the anchor.
+  const anchor = typewriterEls[0].closest('[data-reading-anchor]');
+
+  const onScroll = () => {
+    const vh = window.innerHeight;
+    let startY, endY;
+    if (anchor) {
+      const rect = anchor.getBoundingClientRect();
+      const topAbs = window.scrollY + rect.top;
+      const bottomAbs = window.scrollY + rect.bottom;
+      // Progress 0 when anchor top is at viewport top; 1 when anchor bottom is at viewport bottom.
+      startY = topAbs;
+      endY = bottomAbs - vh;
+    } else {
+      // Fallback: anchor on first/last paragraphs
+      const firstRect = typewriterEls[0].getBoundingClientRect();
+      const lastRect = typewriterEls[typewriterEls.length - 1].getBoundingClientRect();
+      startY = Math.max(0, window.scrollY + firstRect.top - vh * 0.5);
+      endY = window.scrollY + lastRect.bottom - vh * 0.2;
+    }
+    const range = endY - startY;
+    const progress = range > 0 ? Math.max(0, Math.min(1, (window.scrollY - startY) / range)) : 0;
+    const currentIdx = Math.floor(progress * allWords.length);
+    allWords.forEach((w, i) => {
+      w.classList.toggle('is-read', i < currentIdx);
+    });
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+}
 
 // ── Collection landing: subcategory filter ──
 // Each products section can wrap its subcat links + grid in [data-collection-products].

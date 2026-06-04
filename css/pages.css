@@ -165,7 +165,7 @@
 /* Tablet */
 @media (max-width: 1024px) {
   #page-home .home__hero-heading { font-size: var(--font-size-48); }
-  #page-home .home__hero-content { padding: 0 var(--space-32); }
+  #page-home .home__hero-content { padding: 0 var(--space-32) var(--space-48); }
 }
 
 /* Mobile */
@@ -1240,11 +1240,26 @@
 }
 
 .muscle-page .collections-muscle__hero-image {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   max-width: none;
+  z-index: 0;
+  transform: scale(1.9);
+  transform-origin: center;
+}
+
+/* Gradient overlay: dark on left fading to transparent on right — for text readability */
+.muscle-page .collections-muscle__hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 60%);
+  pointer-events: none;
 }
 
 .muscle-page .collections-muscle__breadcrumbs {
@@ -1440,10 +1455,28 @@
 
 /* Product cards */
 .muscle-page .collections-product-card {
+  position: relative;
   background: var(--color-neutral-0);
   border: 1px solid var(--color-neutral-1000);
   display: flex;
   flex-direction: column;
+}
+/* Filtered cards: needed because display:flex above wins over [hidden]'s default display:none */
+.muscle-page .collections-product-card[hidden] { display: none; }
+/* Stretched link: title anchor expands to cover the card (PDP link). CTA stays on top via z-index. */
+.muscle-page .collections-product-card__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+.muscle-page .collections-product-card__title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.muscle-page .collections-product-card__cta { position: relative; z-index: 1; }
+.muscle-page .collections-muscle__products-subcats a.is-active {
+  color: var(--text-accent);
+  font-weight: var(--font-weight-semibold);
 }
 
 .muscle-page .collections-product-card__media {
@@ -1451,6 +1484,14 @@
   aspect-ratio: 1 / 1;
   background: var(--color-neutral-0);
   padding: var(--space-16);
+  overflow: hidden;
+}
+.muscle-page .collections-product-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: none;
 }
 
 .muscle-page .collections-product-card__badge {
@@ -1821,6 +1862,12 @@
   margin: 0;
   color: var(--text-accent);
   max-width: 1200px;
+}
+
+.beginners-page .collections-beginner__intro-subhead {
+  margin: 0;
+  color: var(--color-neutral-1000);
+  max-width: 700px;
 }
 
 .beginners-page .collections-beginner__intro-body {
@@ -2198,11 +2245,26 @@
 }
 
 .longevity-page .collections-longevity__hero-image {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   max-width: none;
+  z-index: 0;
+  transform: scale(1.9);
+  transform-origin: center;
+}
+
+/* Gradient overlay: dark on left fading to transparent on right — for text readability */
+.longevity-page .collections-longevity__hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
 }
 
 .longevity-page .collections-longevity__breadcrumbs {
@@ -2456,10 +2518,26 @@
 
 /* Reuse product card pattern for longevity page */
 .longevity-page .collections-product-card {
+  position: relative;
   background: var(--color-neutral-0);
   border: 1px solid var(--color-neutral-1000);
   display: flex;
   flex-direction: column;
+}
+.longevity-page .collections-product-card[hidden] { display: none; }
+.longevity-page .collections-product-card__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+.longevity-page .collections-product-card__title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.longevity-page .collections-product-card__cta { position: relative; z-index: 1; }
+.longevity-page .collections-longevity__products-subcats a.is-active {
+  color: var(--text-accent);
+  font-weight: var(--font-weight-semibold);
 }
 .longevity-page .collections-product-card__media {
   position: relative;
@@ -2469,12 +2547,11 @@
   overflow: hidden;
 }
 .longevity-page .collections-product-card__image {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  max-width: none;
 }
 .longevity-page .collections-product-card__badge {
   position: absolute;
@@ -2663,15 +2740,32 @@
 }
 
 .about-page .about__container {
-  padding: calc(var(--space-64) + var(--space-48)) var(--space-32) var(--space-64);
+  /* Top padding: 24 (gap above header) + 58 (header height) + 124 (visible gap below header) */
+  padding: calc(var(--space-24) + 58px + 124px) var(--space-32) var(--space-64);
   display: flex;
   flex-direction: column;
-  gap: var(--space-64);
+  /* 148px between intro end and Our Mission heading — appears after the user scrolls past the runway */
+  gap: var(--space-148);
   color: var(--color-neutral-1000);
 }
 
-/* Intro block */
-.about-page .about__intro { display: flex; flex-direction: column; }
+/* Intro block — short scroll runway. Sticky child stays pinned just below the
+   header while the user scrolls THROUGH the runway; words light up over that scroll. */
+.about-page .about__intro {
+  position: relative;
+  min-height: 120vh;
+}
+.about-page .about__intro-sticky {
+  position: sticky;
+  /* Pinned at the content's natural position at load so the section is sticky
+     from the FIRST pixel of scroll — no initial movement.
+     254 = 48 (announcement bar) + 24 (above header) + 58 (header height) + 124 (visible gap) */
+  top: 254px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-24);
+}
 .about-page .about__intro-heading {
   margin: 0;
   color: var(--color-neutral-1000);
@@ -2763,6 +2857,25 @@
 
 @media (max-width: 767px) {
   .about-page .about__container { padding: var(--space-48) var(--space-16); gap: var(--space-48); }
+  /* Mobile keeps the runway + sticky so the typewriter effect fires as the user
+     scrolls through both paragraphs before reaching Our Mission. */
+  .about-page .about__intro { min-height: 120vh; }
+  .about-page .about__intro-sticky {
+    position: sticky;
+    /* Pin just below the in-flow mobile header (~140px from page top) */
+    top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+  /* Section headings drop to 48px on mobile */
+  .about-page .about__intro-heading,
+  .about-page h1.about__intro-heading.display-lg,
+  .about-page .about__mission-heading,
+  .about-page h2.about__mission-heading.display-lg,
+  .about-page .about__history-heading,
+  .about-page h2.about__history-heading {
+    font-size: var(--font-size-48);
+    line-height: var(--font-leading-tight);
+  }
   .about-page .about__intro-body p { font-size: var(--font-size-20); }
   .about-page .about__mission-text p.body-md { font-size: var(--font-size-16); }
   .about-page .about__mission-statement { font-size: var(--font-size-20); }
@@ -2834,12 +2947,24 @@
   .about-page .about__history-inner { padding: var(--space-48) var(--space-32); }
 }
 @media (max-width: 767px) {
-  .about-page .about__history { min-height: 240px; }
-  .about-page .about__history-inner { padding: var(--space-48) var(--space-16); gap: var(--space-24); }
-  .about-page .about__history-row { flex-direction: column; }
-  .about-page .about__history-heading { font-size: var(--font-size-48); }
-  .about-page .about__history-body { font-size: var(--font-size-20); }
-  .about-page .about__history-chevron { display: none; }
+  .about-page .about__history { min-height: 0; }
+  .about-page .about__history-inner { padding: var(--space-48) var(--space-16) var(--space-32); gap: var(--space-16); }
+  .about-page .about__history-row { flex-direction: column; gap: var(--space-16); }
+  /* Scale down for mobile — match Figma proportions */
+  .about-page .about__history-eyebrow { font-size: var(--font-size-14); letter-spacing: var(--font-tracking-wider); }
+  .about-page .about__history-heading { font-size: var(--font-size-24); }
+  .about-page .about__history-body { font-size: var(--font-size-14); }
+  /* Double-chevron at mobile — pushed past the right edge so it doesn't overlap the text */
+  .about-page .about__history-chevron {
+    display: block;
+    top: 50%;
+    left: auto;
+    right: -40px;
+    transform: translateY(-50%);
+    height: 160px;
+    width: auto;
+    aspect-ratio: 668 / 519;
+  }
 }
 
 /* About: Timeline (3 cards in a row, white bg, image bottom half) */
@@ -2872,7 +2997,7 @@
 .about-page .about__timeline-body {
   margin: 0;
   color: var(--color-neutral-1000);
-  font-size: var(--font-size-20);
+  font-size: var(--font-size-24);
   line-height: var(--font-leading-normal);
   max-width: 526px;
 }
@@ -2893,6 +3018,20 @@
   .about-page .about__timeline-text { height: auto; padding: var(--space-32); }
   .about-page .about__timeline-image { min-height: 320px; }
 }
+@media (max-width: 767px) {
+  /* Cream background shows around each card */
+  .about-page .about__timeline {
+    padding: var(--space-32) var(--space-16);
+    gap: var(--space-24);
+    background: var(--color-cream-base);
+  }
+  /* All 3 cards equal height; image fills remaining space (cropped via object-fit: cover) */
+  .about-page .about__timeline-card { height: 540px; grid-template-rows: auto 1fr; }
+  .about-page .about__timeline-text { padding: var(--space-24); gap: var(--space-16); }
+  .about-page .about__timeline-heading { font-size: var(--font-size-24); }
+  .about-page .about__timeline-body { font-size: var(--font-size-16); }
+  .about-page .about__timeline-image { min-height: 0; }
+}
 
 /* About: Gallery carousel — full-bleed image with dot indicators */
 .about-page .about__gallery {
@@ -2909,8 +3048,15 @@
 .about-page .about__gallery-slide {
   position: absolute;
   inset: 0;
+  opacity: 1;
+  transition: opacity 0.8s ease;
 }
-.about-page .about__gallery-slide[hidden] { display: none; }
+/* Smooth fade — keep slide in flow but transparent so opacity transition can apply */
+.about-page .about__gallery-slide[hidden] {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+}
 .about-page .about__gallery-image {
   width: 100%;
   height: 100%;
@@ -2946,8 +3092,11 @@
   outline-offset: 4px;
 }
 
+@media (max-width: 1440px) {
+  .about-page .about__gallery { height: 548px; }
+}
 @media (max-width: 1024px) {
-  .about-page .about__gallery { height: 560px; }
+  .about-page .about__gallery { height: 548px; }
 }
 @media (max-width: 767px) {
   .about-page .about__gallery { height: 400px; }
@@ -3007,7 +3156,7 @@
   flex-direction: column;
   gap: var(--space-24);
 }
-.about-page .about__who-text p { margin: 0; font-size: var(--font-size-20); }
+.about-page .about__who-text p { margin: 0; font-size: var(--font-size-24); }
 .about-page .about__who-images {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3033,7 +3182,7 @@
 }
 .about-page .about__who-quote {
   margin: 0;
-  font-size: var(--font-size-20);
+  font-size: var(--font-size-24);
   line-height: var(--font-leading-normal);
 }
 
@@ -3041,7 +3190,7 @@
 .about-page .about__founder-row {
   display: grid;
   grid-template-columns: 1012px 1fr;
-  gap: 148px;
+  gap: var(--space-48);
   align-items: start;
 }
 .about-page .about__founder-image {
@@ -3066,7 +3215,7 @@
 }
 .about-page .about__founder-block p {
   margin: 0;
-  font-size: var(--font-size-20);
+  font-size: var(--font-size-24);
   line-height: var(--font-leading-normal);
 }
 
@@ -3096,7 +3245,8 @@
 }
 
 .contact-page .contact__container {
-  padding: calc(var(--space-64) + var(--space-48)) var(--space-32) var(--space-64);
+  /* Top padding: 24 (gap above header) + 58 (header height) + 64 (visible gap below header) */
+  padding: calc(var(--space-24) + 58px + var(--space-64)) var(--space-32) var(--space-64);
   display: flex;
   flex-direction: column;
   gap: var(--space-48);
@@ -3286,6 +3436,8 @@
 }
 @media (max-width: 767px) {
   .contact-page .contact__container { padding: var(--space-48) var(--space-16); }
+  .contact-page .contact__title,
+  .contact-page h1.contact__title.display-lg { font-size: var(--font-size-32); line-height: var(--font-leading-tight); }
   .contact-page .contact__row-label { font-size: var(--font-size-24); }
 }
 
@@ -3301,7 +3453,8 @@
 .returns-page .returns__container,
 .shipping-page .returns__container,
 .warranty-page .returns__container {
-  padding: calc(var(--space-64) + var(--space-48)) var(--space-32) var(--space-64);
+  /* Top padding: 24 (gap above header) + 58 (header height) + 64 (visible gap below header) */
+  padding: calc(var(--space-24) + 58px + var(--space-64)) var(--space-32) var(--space-64);
   display: flex;
   flex-direction: column;
   gap: var(--space-48);
@@ -3360,7 +3513,7 @@
 }
 .returns-page .returns__row-body p,
 .shipping-page .returns__row-body p,
-.warranty-page .returns__row-body p { margin: 0; font-size: var(--font-size-20); line-height: var(--font-leading-normal); }
+.warranty-page .returns__row-body p { margin: 0; font-size: var(--font-size-16); line-height: var(--font-leading-normal); }
 .returns-page .returns__row-body a,
 .shipping-page .returns__row-body a,
 .warranty-page .returns__row-body a {
@@ -3386,7 +3539,7 @@
 .shipping-page .returns__list li,
 .warranty-page .returns__list li {
   font-family: var(--font-family-body);
-  font-size: var(--font-size-20);
+  font-size: var(--font-size-16);
   line-height: var(--font-leading-normal);
   color: var(--color-neutral-1000);
 }
@@ -3400,6 +3553,12 @@
   .returns-page .returns__container,
   .shipping-page .returns__container,
   .warranty-page .returns__container { padding: var(--space-48) var(--space-16); }
+  .returns-page .returns__title,
+  .shipping-page .returns__title,
+  .warranty-page .returns__title,
+  .returns-page h1.returns__title.display-lg,
+  .shipping-page h1.returns__title.display-lg,
+  .warranty-page h1.returns__title.display-lg { font-size: var(--font-size-32); line-height: var(--font-leading-tight); }
   .returns-page .returns__row-label,
   .shipping-page .returns__row-label,
   .warranty-page .returns__row-label { font-size: var(--font-size-24); }
@@ -4957,4 +5116,155 @@
   font-family: var(--font-family-body);
   font-size: var(--font-size-16);
   line-height: var(--font-leading-normal);
+}
+
+/* ── Blog (blog.html) ───────────────────────────────────────────────── */
+
+.blog-page {
+  background: var(--color-cream-base);
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.blog-page .blog__container {
+  /* Fill full viewport width; cards inside stretch via 1fr columns */
+  /* Top padding: 24 (gap above floating header) + 58 (header height) + 48 (gap below header) = 130px */
+  padding: calc(var(--space-24) + 58px + var(--space-48)) var(--space-32) var(--space-148);
+  color: var(--color-neutral-1000);
+}
+
+.blog-page .blog__layout {
+  display: grid;
+  grid-template-columns: 365px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Intro column (left) */
+.blog-page .blog__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+.blog-page .blog__title {
+  margin: 0;
+  font-size: var(--font-size-48);
+  line-height: var(--font-leading-tight);
+}
+.blog-page .blog__intro-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-16);
+}
+.blog-page .blog__intro-body p { margin: 0; }
+.blog-page .blog__intro-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.blog-page .blog__intro-list li::before {
+  content: "•  ";
+}
+
+/* Articles grid (right) — 2 cols, n rows */
+.blog-page .blog__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-48) var(--space-24);
+}
+
+.blog-page .blog-article {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  padding: 0 var(--space-24);
+}
+.blog-page .blog-article__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  text-decoration: none;
+  color: inherit;
+}
+.blog-page .blog-article__media {
+  position: relative;
+  width: 100%;
+  height: 317px;
+  overflow: hidden;
+  background: var(--color-neutral-200);
+}
+.blog-page .blog-article__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-width: none;
+}
+/* Tighter crop for the first article ("Anatomy Of A York Olympic Bar") */
+.blog-page .blog-article:first-child .blog-article__image {
+  transform: scale(1.6);
+  transform-origin: center;
+}
+.blog-page .blog-article__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+.blog-page .blog-article__date {
+  margin: 0;
+  font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
+  font-size: var(--font-size-24);
+  font-weight: var(--font-weight-semibold);
+  line-height: 32px;
+  color: var(--text-accent);
+}
+.blog-page .blog-article__title {
+  margin: 0;
+  font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
+  font-size: var(--font-size-24);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--font-leading-tight);
+  text-transform: uppercase;
+  color: var(--color-neutral-1000);
+}
+.blog-page .blog-article__desc { margin: 0; }
+.blog-page .blog-article__divider {
+  border: 0;
+  border-top: 1px solid var(--color-neutral-1000);
+  margin: 0;
+}
+
+.blog-page .blog-article:hover .blog-article__title { color: var(--text-accent); }
+.blog-page .blog-article:hover .blog-article__image { opacity: 0.9; }
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .blog-page .blog__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-64);
+  }
+  .blog-page .blog__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .blog-page .blog__container {
+    padding: var(--space-48) var(--space-24) var(--space-64);
+  }
+  .blog-page .blog__layout { gap: var(--space-48); }
+  .blog-page .blog__title { font-size: var(--font-size-32); }
+  .blog-page .blog__grid { grid-template-columns: 1fr; gap: var(--space-48); }
+  .blog-page .blog-article { padding: 0; }
+  .blog-page .blog-article__media { height: 240px; }
+  .blog-page .blog-article__date { font-size: var(--font-size-20); line-height: 1.3; }
+  .blog-page .blog-article__title { font-size: var(--font-size-20); }
 }
