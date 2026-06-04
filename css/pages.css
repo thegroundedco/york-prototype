@@ -92,10 +92,10 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
   gap: var(--space-16);
-  padding: 0 var(--space-32);
+  padding: 0 var(--space-32) var(--space-64);
   z-index: 4;
 }
 
@@ -183,8 +183,7 @@
   }
 
   #page-home .home__hero-content {
-    /* Bottom padding (58) = dot bottom-offset (24) + dot height (10) + 24px gap above the dots */
-    padding: 0 var(--space-24) 58px;
+    padding: 0 var(--space-24) var(--space-64);
     align-items: flex-start;
     justify-content: flex-end;
     gap: 0;
@@ -830,6 +829,8 @@
   object-fit: cover;
   display: block;
   max-width: none;
+  transform: scale(1.3);
+  transform-origin: center;
 }
 
 #page-collections-beginner .collections-beginner__breadcrumbs {
@@ -872,7 +873,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: var(--space-24);
+  gap: var(--space-16);
 }
 
 #page-collections-beginner .collections-beginner__hero-heading {
@@ -889,7 +890,7 @@
 
 #page-collections-beginner .collections-beginner__hero-cta {
   align-self: flex-start;
-  margin-top: var(--space-12);
+  margin-top: var(--space-8);
 }
 
 /* Intro section — cream bg, centered heading + body, 148px top padding */
@@ -944,9 +945,9 @@
     font-size: var(--font-size-12);
   }
   #page-collections-beginner .collections-beginner__hero-slogan {
-    bottom: var(--space-32);
-    left: var(--space-16);
-    right: var(--space-16);
+    bottom: var(--space-64);
+    left: var(--space-24);
+    right: var(--space-24);
   }
   #page-collections-beginner .collections-beginner__hero-heading {
     font-size: var(--font-size-32);
@@ -1286,7 +1287,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: var(--space-24);
+  gap: var(--space-16);
 }
 
 .muscle-page .collections-muscle__hero-heading {
@@ -1303,7 +1304,7 @@
 
 .muscle-page .collections-muscle__hero-cta {
   align-self: flex-start;
-  margin-top: var(--space-12);
+  margin-top: var(--space-8);
 }
 
 /* Intro section */
@@ -1528,14 +1529,14 @@
 @media (max-width: 767px) {
   .muscle-page .collections-muscle__hero { min-height: 560px; }
   .muscle-page .collections-muscle__breadcrumbs {
-    top: var(--space-48);
+    top: var(--space-32);
     left: var(--space-16);
     font-size: var(--font-size-12);
   }
   .muscle-page .collections-muscle__hero-slogan {
-    bottom: var(--space-32);
-    left: var(--space-16);
-    right: var(--space-16);
+    bottom: var(--space-64);
+    left: var(--space-24);
+    right: var(--space-24);
   }
   .muscle-page .collections-muscle__hero-heading {
     font-size: var(--font-size-32);
@@ -1722,28 +1723,17 @@
   background: var(--color-neutral-1000);
 }
 
-.beginners-page .collections-beginner__hero-media {
+.beginners-page .collections-beginner__hero-image {
   position: absolute;
   inset: 0;
   display: block;
   width: 100%;
   height: 100%;
-  z-index: 0;
-}
-
-/* picture must fill the media wrapper so the img inside has a sized box to cover */
-.beginners-page .collections-beginner__hero-media picture {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.beginners-page .collections-beginner__hero-image {
-  display: block;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   max-width: none;
+  z-index: 0;
+  transform: scale(1.9);
+  transform-origin: center;
 }
 
 /* Gradient overlay: dark on left, transparent on right — for text readability */
@@ -1796,7 +1786,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: var(--space-24);
+  gap: var(--space-16);
 }
 
 .beginners-page .collections-beginner__hero-heading {
@@ -1813,7 +1803,7 @@
 
 .beginners-page .collections-beginner__hero-cta {
   align-self: flex-start;
-  margin-top: var(--space-12);
+  margin-top: var(--space-8);
 }
 
 /* Intro section */
@@ -2128,14 +2118,14 @@
 @media (max-width: 767px) {
   .beginners-page .collections-beginner__hero { min-height: 560px; }
   .beginners-page .collections-beginner__breadcrumbs {
-    top: var(--space-48);
+    top: var(--space-32);
     left: var(--space-16);
     font-size: var(--font-size-12);
   }
   .beginners-page .collections-beginner__hero-slogan {
-    bottom: var(--space-32);
-    left: var(--space-16);
-    right: var(--space-16);
+    bottom: var(--space-64);
+    left: var(--space-24);
+    right: var(--space-24);
   }
   .beginners-page .collections-beginner__hero-heading {
     font-size: var(--font-size-32);
@@ -2255,7 +2245,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: var(--space-24);
+  gap: var(--space-16);
 }
 
 .longevity-page .collections-longevity__hero-heading {
@@ -2272,7 +2262,7 @@
 
 .longevity-page .collections-longevity__hero-cta {
   align-self: flex-start;
-  margin-top: var(--space-12);
+  margin-top: var(--space-8);
 }
 
 /* Tablet */
@@ -2284,14 +2274,14 @@
 @media (max-width: 767px) {
   .longevity-page .collections-longevity__hero { min-height: 560px; }
   .longevity-page .collections-longevity__breadcrumbs {
-    top: var(--space-48);
+    top: var(--space-32);
     left: var(--space-16);
     font-size: var(--font-size-12);
   }
   .longevity-page .collections-longevity__hero-slogan {
-    bottom: var(--space-32);
-    left: var(--space-16);
-    right: var(--space-16);
+    bottom: var(--space-64);
+    left: var(--space-24);
+    right: var(--space-24);
   }
   .longevity-page .collections-longevity__hero-heading {
     font-size: var(--font-size-32);
@@ -3491,7 +3481,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: var(--space-24);
+  gap: var(--space-16);
 }
 
 #page-collections-muscle .collections-muscle__hero-heading {
@@ -3508,7 +3498,7 @@
 
 #page-collections-muscle .collections-muscle__hero-cta {
   align-self: flex-start;
-  margin-top: var(--space-12);
+  margin-top: var(--space-8);
 }
 
 /* Intro section — cream bg, centered heading + subhead + body, 148px top/bottom */
@@ -3569,9 +3559,9 @@
     font-size: var(--font-size-12);
   }
   #page-collections-muscle .collections-muscle__hero-slogan {
-    bottom: var(--space-32);
-    left: var(--space-16);
-    right: var(--space-16);
+    bottom: var(--space-64);
+    left: var(--space-24);
+    right: var(--space-24);
   }
   #page-collections-muscle .collections-muscle__hero-heading {
     font-size: var(--font-size-32);
