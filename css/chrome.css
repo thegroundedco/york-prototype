@@ -99,7 +99,9 @@
 .site-nav {
   display: flex;
   align-items: center;
-  padding: var(--space-16) var(--space-24);
+  /* 32px horizontal padding matches the announcement bar so the cart icon
+     vertically aligns with the right arrow in the bar above. */
+  padding: var(--space-16) var(--space-32);
   gap: var(--space-32);
   /* No max-width/margin:auto needed — parent .site-header already constrains width */
 }
@@ -181,6 +183,31 @@
 /* Cart button: icon + price text side-by-side (matches Figma layout) */
 .site-nav__icon-btn--cart {
   gap: var(--space-8);
+  position: relative;
+}
+/* Red dot with item count, overlaid on the top-right corner of the bag SVG.
+   Desktop: SVG sits at x=8–28 inside the 8px-padded button; mobile: SVG at x=0–20 (no padding). */
+.site-nav__cart-badge {
+  position: absolute;
+  top: -4px;
+  left: 22px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--accent-default);
+  color: var(--text-on-accent);
+  font-family: var(--font-family-body);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 18px;
+  text-align: center;
+  pointer-events: none;
+}
+.site-nav__cart-badge[hidden] { display: none; }
+@media (max-width: 767px) {
+  /* Mobile button has no padding, so shift the badge left to land on the SVG corner */
+  .site-nav__cart-badge { left: 14px; }
 }
 .site-nav__cart-total {
   font-family: var(--font-family-body);
@@ -188,8 +215,24 @@
   font-weight: var(--font-weight-semibold);
   color: var(--text-primary);
   white-space: nowrap;
+  display: inline-block;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateX(-4px);
+  transition: max-width 0.25s ease, opacity 0.2s ease, transform 0.25s ease, margin-left 0.25s ease;
+  margin-left: calc(var(--space-8) * -1);
 }
-.site-nav__icon-btn--cart:hover .site-nav__cart-total { color: var(--text-accent); }
+.site-nav__icon-btn--cart:hover .site-nav__cart-total,
+.site-nav__icon-btn--cart:focus-visible .site-nav__cart-total,
+.site-nav__icon-btn--cart:focus-within .site-nav__cart-total,
+.site-nav__icon-btn--cart.is-price-revealed .site-nav__cart-total {
+  max-width: 120px;
+  opacity: 1;
+  transform: translateX(0);
+  margin-left: 0;
+  color: var(--text-accent);
+}
 
 /* ── Dropdown menus (base) ── */
 
@@ -519,21 +562,22 @@
 /* ── Mobile nav (≤ 767px) ── */
 
 @media (max-width: 767px) {
-  /* On mobile: revert to normal flow — no floating treatment, no side margins */
+  /* Mobile: nav floats like desktop with breathing room above (uses the same
+     --site-header-top variable so it slides with the announcement bar). */
   .site-header {
-    position: static;
-    left: auto;
-    right: auto;
-    margin-top: 0;
+    left: var(--space-16);
+    right: var(--space-16);
   }
 
-  /* Non-home pages: reduce padding since nav is in normal flow now */
+  /* Non-home pages: reduce padding since nav is in normal flow */
   .page:not(#page-home) {
     padding-top: var(--space-24);
   }
 
   .site-nav {
-    padding: var(--space-12) var(--space-16);
+    /* Padding-right (20) = ann-bar padding (16) + arrow button's internal padding (4)
+       so the cart SVG aligns with the announcement bar arrow SVG above it. */
+    padding: var(--space-12) calc(var(--space-16) + var(--space-4)) var(--space-12) var(--space-16);
     gap: var(--space-16);
   }
   .site-nav__links { display: none; }
@@ -551,7 +595,7 @@
     margin-left: auto;
   }
   .site-nav__hamburger svg { width: 24px; height: 24px; }
-  .site-nav__icons { gap: var(--space-16); }
+  .site-nav__icons { gap: var(--space-8); }
   .site-nav__icon-btn { padding: 0; }
 
   /* Dropdowns are desktop-only */

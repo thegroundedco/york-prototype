@@ -313,7 +313,7 @@
 @media (max-width: 767px) {
   #page-home .home__goals { padding: 0; gap: 0; }
   #page-home .home__goals-header { flex-direction: column; align-items: stretch; padding: var(--space-24); gap: var(--space-16); }
-  #page-home .home__goals-heading { font-size: var(--font-size-24); margin: 0; }
+  #page-home .home__goals-heading { font-size: var(--font-size-32); margin: 0; }
   #page-home .home__goals-cta { display: none; }
   #page-home .home__goals-grid { grid-template-columns: 1fr; gap: var(--space-16); }
   #page-home .goal-card__header { padding: var(--space-24); }
@@ -1570,7 +1570,7 @@
 @media (max-width: 767px) {
   .muscle-page .collections-muscle__hero { min-height: 560px; }
   .muscle-page .collections-muscle__breadcrumbs {
-    top: var(--space-32);
+    top: calc(var(--space-24) + 44px + var(--space-24));
     left: var(--space-16);
     font-size: var(--font-size-12);
   }
@@ -2165,7 +2165,7 @@
 @media (max-width: 767px) {
   .beginners-page .collections-beginner__hero { min-height: 560px; }
   .beginners-page .collections-beginner__breadcrumbs {
-    top: var(--space-32);
+    top: calc(var(--space-24) + 44px + var(--space-24));
     left: var(--space-16);
     font-size: var(--font-size-12);
   }
@@ -2336,7 +2336,7 @@
 @media (max-width: 767px) {
   .longevity-page .collections-longevity__hero { min-height: 560px; }
   .longevity-page .collections-longevity__breadcrumbs {
-    top: var(--space-32);
+    top: calc(var(--space-24) + 44px + var(--space-24));
     left: var(--space-16);
     font-size: var(--font-size-12);
   }
@@ -2856,7 +2856,7 @@
 }
 
 @media (max-width: 767px) {
-  .about-page .about__container { padding: var(--space-48) var(--space-16); gap: var(--space-48); }
+  .about-page .about__container { padding: calc(var(--space-24) + 44px + var(--space-24)) var(--space-16) var(--space-48); gap: var(--space-48); }
   /* Mobile keeps the runway + sticky so the typewriter effect fires as the user
      scrolls through both paragraphs before reaching Our Mission. */
   .about-page .about__intro { min-height: 120vh; }
@@ -3435,7 +3435,7 @@
   .contact-page .contact__row { grid-template-columns: 1fr; gap: var(--space-24); }
 }
 @media (max-width: 767px) {
-  .contact-page .contact__container { padding: var(--space-48) var(--space-16); }
+  .contact-page .contact__container { padding: calc(var(--space-24) + 44px + var(--space-24)) var(--space-16) var(--space-48); }
   .contact-page .contact__title,
   .contact-page h1.contact__title.display-lg { font-size: var(--font-size-32); line-height: var(--font-leading-tight); }
   .contact-page .contact__row-label { font-size: var(--font-size-24); }
@@ -3552,7 +3552,7 @@
 @media (max-width: 767px) {
   .returns-page .returns__container,
   .shipping-page .returns__container,
-  .warranty-page .returns__container { padding: var(--space-48) var(--space-16); }
+  .warranty-page .returns__container { padding: calc(var(--space-24) + 44px + var(--space-24)) var(--space-16) var(--space-48); }
   .returns-page .returns__title,
   .shipping-page .returns__title,
   .warranty-page .returns__title,
@@ -3734,7 +3734,8 @@
   margin: 0;
 }
 .pdp-page .pdp__container {
-  padding: calc(var(--space-64) + var(--space-48)) var(--space-32) var(--space-64);
+  /* 1920: 24 (gap above floating nav) + 58 (nav height) + 64 (gap below) = 146 */
+  padding: calc(var(--space-24) + 58px + var(--space-64)) var(--space-32) var(--space-64);
   color: var(--color-neutral-1000);
 }
 
@@ -3788,12 +3789,16 @@
   display: block;
 }
 
-/* Buy box */
+/* Buy box — sticks alongside the gallery so the info stays visible
+   while the user scrolls through the image stack (Arc'teryx-style). */
 .pdp-page .pdp__info {
   display: flex;
   flex-direction: column;
   gap: var(--space-32);
   min-width: 0;
+  position: sticky;
+  top: calc(var(--space-24) + 58px + var(--space-24));
+  align-self: start;
 }
 
 .pdp-page .pdp__breadcrumbs ol {
@@ -3857,15 +3862,32 @@
   font-size: var(--font-size-16);
   line-height: var(--font-leading-normal);
 }
+/* Truncated by default: only the first paragraph shows. Toggles open when expanded. */
+.pdp-page .pdp__description[data-pdp-description] > p:not(:first-of-type) { display: none; }
+.pdp-page .pdp__description[data-pdp-description].is-expanded > p { display: block; }
+
 .pdp-page .pdp__read-more {
+  align-self: flex-start;
+  display: inline-flex;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
   font-family: var(--font-family-body);
   font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-leading-normal);
   color: var(--color-neutral-1000);
   text-decoration: underline;
+  text-decoration-color: currentColor;
   text-underline-offset: 3px;
-  align-self: flex-start;
+  transition: color 0.15s ease;
+  -webkit-font-smoothing: antialiased;
 }
-.pdp-page .pdp__read-more:hover { color: var(--text-accent); }
+/* Inner labels inherit color so the hover transitions smoothly */
+.pdp-page .pdp__read-more > span { color: inherit; text-decoration: inherit; }
+.pdp-page .pdp__read-more:hover,
+.pdp-page .pdp__read-more:focus-visible { color: var(--text-accent); outline: none; }
 
 .pdp-page .pdp__included {
   display: flex;
@@ -4029,7 +4051,19 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
+  position: relative;
 }
+/* Stretched link: title anchor covers the whole card. CTA stays clickable via z-index. */
+.pdp-page .pdp__rec-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+.pdp-page .pdp__rec-title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.pdp-page .pdp__rec-cta { position: relative; z-index: 1; }
 .pdp-page .pdp__rec-image {
   width: 100%;
   aspect-ratio: 195 / 148;
@@ -4052,11 +4086,10 @@
 }
 .pdp-page .pdp__rec-prices {
   display: flex;
-  gap: var(--space-12);
+  gap: var(--space-8);
   align-items: baseline;
   font-family: var(--font-family-body);
   font-size: var(--font-size-14);
-  text-transform: uppercase;
   color: var(--color-neutral-1000);
 }
 .pdp-page .pdp__rec-price--sale { font-weight: var(--font-weight-semibold); }
@@ -4092,9 +4125,20 @@
 
 @media (max-width: 1024px) {
   .pdp-page .pdp__split { grid-template-columns: 1fr; gap: var(--space-32); }
+  /* In single column the info wraps below the gallery — no sticky behavior. */
+  .pdp-page .pdp__info { position: static; top: auto; }
+}
+@media (max-width: 1440px) {
+  .pdp-page .pdp__container {
+    /* 1440: 24 + 58 + 48 = 130 */
+    padding: calc(var(--space-24) + 58px + var(--space-48)) var(--space-32) var(--space-64);
+  }
 }
 @media (max-width: 767px) {
-  .pdp-page .pdp__container { padding: var(--space-48) var(--space-16); }
+  .pdp-page .pdp__container {
+    /* 390: 24 + 44 + 32 = 100 */
+    padding: calc(var(--space-24) + 44px + var(--space-32)) var(--space-16) var(--space-48);
+  }
   .pdp-page .pdp__title { font-size: var(--font-size-24); }
 }
 
@@ -4116,7 +4160,8 @@
   background: var(--color-neutral-0);
   border: 1px solid var(--color-neutral-1000);
   border-radius: 0;
-  width: 110px;
+  width: 164px;
+  padding: 0 var(--space-16);
   overflow: hidden;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
@@ -4127,8 +4172,8 @@
 .pdp-page .pdp__quantity-btn {
   background: transparent;
   border: 0;
-  padding: 0;
-  width: 32px;
+  padding: var(--space-12) 0;
+  width: 40px;
   font-family: var(--font-family-body);
   font-size: var(--font-size-20);
   line-height: 1;
@@ -4151,7 +4196,7 @@
   font-family: var(--font-family-body);
   font-size: var(--font-size-16);
   color: var(--color-neutral-1000);
-  padding: var(--space-8) 0;
+  padding: var(--space-12) var(--space-8);
   -moz-appearance: textfield;
   appearance: textfield;
 }
@@ -4235,15 +4280,15 @@
   align-items: baseline;
 }
 .pdp-page .pdp__addon-name {
-  font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
+  font-family: var(--font-family-body);
   font-size: var(--font-size-16);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-regular);
   color: var(--color-neutral-1000);
 }
 .pdp-page .pdp__addon-price {
   font-family: var(--font-family-body);
   font-size: var(--font-size-16);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   color: var(--color-neutral-1000);
 }
 .pdp-page .pdp__addon-desc {
@@ -4292,7 +4337,7 @@
 .pdp-single .pdp-single__feature-title {
   margin: 0;
   font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
-  font-size: var(--font-size-32);
+  font-size: var(--font-size-24);
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   line-height: var(--font-leading-snug);
@@ -4301,6 +4346,8 @@
 .pdp-single .pdp-single__feature-body,
 .pdp-single .pdp-single__product-body {
   margin: 0;
+  width: 300px;
+  max-width: 100%;
   font-family: var(--font-family-body);
   font-size: var(--font-size-16);
   line-height: var(--font-leading-normal);
@@ -4333,7 +4380,7 @@
 .pdp-single .pdp-single__product-title {
   margin: 0;
   font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
-  font-size: var(--font-size-32);
+  font-size: var(--font-size-24);
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   line-height: var(--font-leading-snug);
@@ -4356,7 +4403,7 @@
 /* PDP generic — feature: full-bleed image + centered horizontal card with title + body */
 .pdp-generic .pdp-generic__feature {
   width: 100%;
-  padding: var(--space-48) var(--space-32);
+  padding: var(--space-48) var(--space-24);
   display: flex;
   flex-direction: column;
   gap: var(--space-64);
@@ -4393,6 +4440,8 @@
 }
 .pdp-generic .pdp-generic__feature-body {
   margin: 0;
+  width: 480px;
+  max-width: 100%;
   font-family: var(--font-family-body);
   font-size: var(--font-size-16);
   line-height: var(--font-leading-normal);
@@ -4406,6 +4455,7 @@
   height: 623px;
   overflow: hidden;
   background: var(--color-neutral-1000);
+  padding: 0 var(--space-24);
 }
 .pdp-generic .pdp-generic__featured-slides {
   position: absolute;
@@ -4457,6 +4507,8 @@
 }
 @media (max-width: 767px) {
   .pdp-generic .pdp-generic__feature { padding: var(--space-48) var(--space-16); }
+  .pdp-generic .pdp-generic__feature-card { padding: 0 var(--space-16); }
+  .pdp-generic .pdp-generic__feature-body { width: 300px; }
   .pdp-generic .pdp-generic__feature-image { height: 240px; }
   .pdp-generic .pdp-generic__featured { height: 320px; }
 }
@@ -4478,14 +4530,18 @@
 }
 .pdp-single__recs-heading {
   margin: 0;
+  font-size: var(--font-size-32);
+  line-height: var(--font-leading-tight);
   color: var(--color-neutral-1000);
 }
 .pdp-single__recs-desc {
   margin: 0;
   font-family: var(--font-family-body);
-  font-size: var(--font-size-24);
+  font-size: var(--font-size-16);
   line-height: var(--font-leading-normal);
-  max-width: 801px;
+  color: var(--color-neutral-1000);
+  width: 480px;
+  max-width: 100%;
 }
 .pdp-single__recs-row {
   display: grid;
@@ -4493,6 +4549,7 @@
   gap: var(--space-24);
 }
 .pdp-single__rec-card {
+  position: relative;
   background: var(--color-neutral-0);
   border: 1px solid var(--color-neutral-1000);
   padding: var(--space-24);
@@ -4500,6 +4557,18 @@
   flex-direction: column;
   gap: var(--space-16);
 }
+/* Stretched link: title anchor covers the whole card so it navigates to a PDP.
+   Add To Cart stays interactive via z-index. */
+.pdp-single__rec-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+.pdp-single__rec-title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.pdp-single__rec-cta { position: relative; z-index: 1; }
 .pdp-single__rec-image {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -4528,7 +4597,7 @@
 }
 .pdp-single__rec-title {
   margin: 0;
-  font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
+  font-family: var(--font-family-body);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-semibold);
   color: var(--color-neutral-1000);
@@ -4537,10 +4606,9 @@
 .pdp-single__rec-prices {
   display: flex;
   align-items: baseline;
-  gap: var(--space-12);
+  gap: var(--space-8);
   font-family: var(--font-family-body);
   font-size: var(--font-size-14);
-  text-transform: uppercase;
   color: var(--color-neutral-1000);
 }
 .pdp-single__rec-price--sale { font-weight: var(--font-weight-semibold); }
@@ -4588,7 +4656,7 @@
 .pdp-page .pdp__key-features-title {
   margin: 0;
   font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
-  font-size: var(--font-size-16);
+  font-size: var(--font-size-24);
   font-weight: var(--font-weight-semibold);
   color: var(--color-neutral-1000);
 }
@@ -4647,6 +4715,8 @@
 }
 .pdp-page .pdp__why-desc p {
   margin: 0;
+  width: 480px;
+  max-width: 100%;
   font-family: var(--font-family-body);
   font-size: var(--font-size-16);
   line-height: var(--font-leading-normal);
@@ -4700,7 +4770,8 @@
 }
 .pdp-page .pdp__why-testimonial-body {
   margin: 0;
-  max-width: 394px;
+  width: 300px;
+  max-width: 100%;
   font-family: var(--font-family-body);
   font-size: var(--font-size-16);
   line-height: var(--font-leading-normal);
@@ -4723,6 +4794,7 @@
   grid-template-columns: 1fr 1fr;
   background: var(--color-cream-base);
   width: 100%;
+  padding: var(--space-24) var(--space-24) 0;
 }
 .pdp-page .pdp__featured-card {
   display: flex;
@@ -4782,7 +4854,8 @@
 }
 
 .plp-page .plp__container {
-  padding: calc(var(--space-64) + var(--space-48)) var(--space-32) var(--space-64);
+  /* 1920: 24 (gap above floating nav) + 58 (nav height) + 64 (gap below) = 146 */
+  padding: calc(var(--space-24) + 58px + var(--space-64)) var(--space-32) var(--space-64);
   display: flex;
   flex-direction: column;
   gap: var(--space-64);
@@ -4793,7 +4866,7 @@
 .plp-page .plp__header {
   display: flex;
   flex-direction: column;
-  gap: var(--space-32);
+  gap: var(--space-16);
 }
 .plp-page .plp__breadcrumbs ol {
   display: flex;
@@ -4813,6 +4886,7 @@
 
 .plp-page .plp__title {
   margin: 0;
+  font-size: var(--font-size-32);
   color: var(--color-neutral-1000);
 }
 
@@ -4826,12 +4900,22 @@
 
 .plp-page .plp__filters {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: var(--space-24);
   list-style: none;
-  padding: 0;
+  padding: 0 0 var(--space-8);
   margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  flex: 1 1 0%;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
+.plp-page .plp__filters::-webkit-scrollbar { display: none; }
+.plp-page .plp__filters > li { scroll-snap-align: start; flex-shrink: 0; }
 .plp-page .plp__filter {
   background: transparent;
   border: 0;
@@ -4841,6 +4925,7 @@
   font-size: var(--font-size-16);
   color: var(--color-neutral-1000);
   text-decoration: none;
+  white-space: nowrap;
 }
 .plp-page .plp__filter:hover { color: var(--text-accent); }
 .plp-page .plp__filter:focus-visible {
@@ -4891,6 +4976,41 @@
   outline-offset: 1px;
 }
 
+/* Title row — H1 + sort icon on the same line at mobile (Shop All Equipment) */
+.plp-page .plp__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+/* Sort icon — hidden at desktop, replaces dropdown visually at mobile.
+   Mirrors the main-nav icon buttons (search, account, cart) — same padding,
+   color, hover, and 20x20 SVG. */
+.plp-page .plp__sort-icon {
+  display: none;
+  background: transparent;
+  border: 0;
+  padding: var(--space-8);
+  cursor: pointer;
+  color: var(--color-neutral-1000);
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.plp-page .plp__sort-icon svg { width: 20px; height: 20px; flex-shrink: 0; }
+.plp-page .plp__sort-icon:hover { color: var(--text-accent); }
+.plp-page .plp__sort-icon:focus-visible {
+  outline: 2px solid var(--accent-default);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1024px) {
+  .plp-page .plp__sort-label,
+  .plp-page .plp__sort-select { display: none; }
+  .plp-page .plp__sort-icon { display: inline-flex; }
+}
+
 /* Category section: label-left, 3-col grid right */
 .plp-page .plp__category {
   display: grid;
@@ -4926,7 +5046,19 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
+  position: relative;
 }
+/* Stretched link: title anchor covers the whole card; Add To Cart stays clickable via z-index. */
+.plp-page .plp__card-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+.plp-page .plp__card-title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.plp-page .plp__card-cta { position: relative; z-index: 1; }
 .plp-page .plp__card-image {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -4948,14 +5080,14 @@
   background: var(--accent-default);
   color: var(--text-on-accent);
   padding: var(--space-8) var(--space-16);
-  font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
-  font-size: var(--font-size-12);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-14);
   font-weight: var(--font-weight-semibold);
   line-height: 1;
 }
 .plp-page .plp__card-title {
   margin: 0;
-  font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
+  font-family: var(--font-family-body);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-semibold);
   color: var(--color-neutral-1000);
@@ -4964,10 +5096,9 @@
 .plp-page .plp__card-prices {
   display: flex;
   align-items: baseline;
-  gap: var(--space-12);
+  gap: var(--space-8);
   font-family: var(--font-family-body);
   font-size: var(--font-size-14);
-  text-transform: uppercase;
   color: var(--color-neutral-1000);
 }
 .plp-page .plp__card-price--sale { font-weight: var(--font-weight-semibold); }
@@ -4983,14 +5114,24 @@
   letter-spacing: 0.84px;
 }
 
+@media (max-width: 1440px) {
+  .plp-page .plp__container {
+    /* 1440: 24 + 58 + 48 = 130 */
+    padding: calc(var(--space-24) + 58px + var(--space-48)) var(--space-32) var(--space-64);
+  }
+}
 @media (max-width: 1024px) {
   .plp-page .plp__category { grid-template-columns: 1fr; gap: var(--space-24); }
   .plp-page .plp__category-label { position: static; }
-  .plp-page .plp__grid { grid-template-columns: repeat(2, 1fr); }
+  .plp-page .plp__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 767px) {
-  .plp-page .plp__container { padding: var(--space-48) var(--space-16); gap: var(--space-48); }
-  .plp-page .plp__grid { grid-template-columns: 1fr; }
+  .plp-page .plp__container {
+    /* 390: top 100 (24 + 44 + 32), right 24, bottom 24, left 24 */
+    padding: calc(var(--space-24) + 44px + var(--space-32)) var(--space-24) var(--space-24);
+    gap: var(--space-48);
+  }
+  .plp-page .plp__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .plp-page .plp__toolbar { flex-direction: column; align-items: flex-start; }
   .plp-page .plp__sort { width: 100%; justify-content: space-between; }
 }
@@ -5088,10 +5229,13 @@
   .plp-category .plp-category__feature-image { height: 360px; }
 }
 @media (max-width: 767px) {
-  .plp-category .plp-category__grid { grid-template-columns: 1fr; }
+  .plp-category .plp-category__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .plp-category .plp-category__feature-image { height: 240px; }
   .plp-category .plp-category__feature-text { padding: 0 var(--space-16); }
+  .plp-category .plp-category__feature-body { width: 300px; max-width: 100%; }
   .plp-category .plp-category__toolbar { flex-direction: column; align-items: flex-start; }
+  /* Search pages: keep "Showing all X results" + sort icon on one row at mobile */
+  .plp-search.plp-category .plp-category__toolbar { flex-direction: row; align-items: center; justify-content: space-between; }
 }
 
 /* PLP — Search empty state */
@@ -5116,6 +5260,9 @@
   font-family: var(--font-family-body);
   font-size: var(--font-size-16);
   line-height: var(--font-leading-normal);
+}
+@media (max-width: 767px) {
+  .plp-search--empty .plp-search__empty-body { width: 300px; max-width: 100%; }
 }
 
 /* ── Blog (blog.html) ───────────────────────────────────────────────── */
@@ -5258,7 +5405,7 @@
 /* Mobile */
 @media (max-width: 767px) {
   .blog-page .blog__container {
-    padding: var(--space-48) var(--space-24) var(--space-64);
+    padding: calc(var(--space-24) + 44px + var(--space-24)) var(--space-24) var(--space-64);
   }
   .blog-page .blog__layout { gap: var(--space-48); }
   .blog-page .blog__title { font-size: var(--font-size-32); }
@@ -5267,4 +5414,137 @@
   .blog-page .blog-article__media { height: 240px; }
   .blog-page .blog-article__date { font-size: var(--font-size-20); line-height: 1.3; }
   .blog-page .blog-article__title { font-size: var(--font-size-20); }
+}
+
+/* ── Site-wide price color: every price renders red/base.
+   Struck-through originals stay muted via a follow-up rule. ── */
+#page-home .home__bestsellers-grid .product-card__price,
+.product-card__price,
+.collections-product-card__price,
+#page-collections-beginner .collections-product-card__price,
+.muscle-page .collections-product-card__price,
+.beginners-page .collections-product-card__price,
+.longevity-page .collections-product-card__price,
+.pdp-page .pdp__price-current,
+.pdp-page .pdp__rec-prices,
+.pdp-page .pdp__rec-price--sale,
+.pdp-single__rec-prices,
+.pdp-single__rec-price--sale,
+.pdp-page .pdp__addon-price,
+.plp-page .plp__card-prices,
+.plp-page .plp__card-price--sale,
+.search-overlay__result-price {
+  color: var(--accent-default);
+}
+
+/* Struck-through originals: keep muted so the discount reads cleanly. */
+.product-card__price--original,
+#page-home .home__bestsellers-grid .product-card__price--original,
+.collections-product-card__price--original,
+#page-collections-beginner .collections-product-card__price--original,
+.muscle-page .collections-product-card__price--original,
+.beginners-page .collections-product-card__price--original,
+.longevity-page .collections-product-card__price--original,
+.pdp-page .pdp__price-original,
+.pdp-page .pdp__rec-price--original,
+.pdp-single__rec-price--original,
+.plp-page .plp__card-price--original {
+  color: var(--color-neutral-500);
+  font-weight: var(--font-weight-regular);
+}
+
+/* Site-wide price weight: every current/sale price renders semibold for consistency. */
+#page-home .home__bestsellers-grid .product-card__price,
+#page-home .home__bestsellers-grid .product-card__price--sale,
+.product-card__price,
+.product-card__price--sale,
+.collections-product-card__price,
+.collections-product-card__price--sale,
+#page-collections-beginner .collections-product-card__price,
+#page-collections-beginner .collections-product-card__price--sale,
+.muscle-page .collections-product-card__price,
+.muscle-page .collections-product-card__price--sale,
+.beginners-page .collections-product-card__price,
+.beginners-page .collections-product-card__price--sale,
+.longevity-page .collections-product-card__price,
+.longevity-page .collections-product-card__price--sale,
+.pdp-page .pdp__rec-price,
+.pdp-page .pdp__rec-price--sale,
+.pdp-single__rec-price,
+.pdp-single__rec-price--sale,
+.plp-page .plp__card-price,
+.plp-page .plp__card-price--sale {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ── Page header consistency: hero/page titles are uniform per breakpoint.
+   1920+: 64, 1440 (tablet→1440): 48, 390 (mobile): 24. Same selector list. ── */
+@media (min-width: 1441px) {
+  #page-collections-beginner .collections-beginner__hero-heading,
+  .beginners-page .collections-beginner__hero-heading,
+  .muscle-page .collections-muscle__hero-heading,
+  .longevity-page .collections-longevity__hero-heading,
+  #page-collections-muscle .collections-muscle__hero-heading,
+  .about-page .about__intro-heading,
+  .about-page h1.about__intro-heading.display-lg,
+  .contact-page .contact__title,
+  .contact-page h1.contact__title.display-lg,
+  .returns-page .returns__title,
+  .shipping-page .returns__title,
+  .warranty-page .returns__title,
+  .returns-page h1.returns__title.display-lg,
+  .shipping-page h1.returns__title.display-lg,
+  .warranty-page h1.returns__title.display-lg,
+  .plp-page .plp__title,
+  .blog-page .blog__title,
+  #page-home .home__hero-heading {
+    font-size: var(--font-size-64);
+    line-height: var(--font-leading-tight);
+  }
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  #page-collections-beginner .collections-beginner__hero-heading,
+  .beginners-page .collections-beginner__hero-heading,
+  .muscle-page .collections-muscle__hero-heading,
+  .longevity-page .collections-longevity__hero-heading,
+  #page-collections-muscle .collections-muscle__hero-heading,
+  .about-page .about__intro-heading,
+  .about-page h1.about__intro-heading.display-lg,
+  .contact-page .contact__title,
+  .contact-page h1.contact__title.display-lg,
+  .returns-page .returns__title,
+  .shipping-page .returns__title,
+  .warranty-page .returns__title,
+  .returns-page h1.returns__title.display-lg,
+  .shipping-page h1.returns__title.display-lg,
+  .warranty-page h1.returns__title.display-lg,
+  .plp-page .plp__title,
+  .blog-page .blog__title,
+  #page-home .home__hero-heading {
+    font-size: var(--font-size-48);
+    line-height: var(--font-leading-tight);
+  }
+}
+@media (max-width: 767px) {
+  #page-collections-beginner .collections-beginner__hero-heading,
+  .beginners-page .collections-beginner__hero-heading,
+  .muscle-page .collections-muscle__hero-heading,
+  .longevity-page .collections-longevity__hero-heading,
+  #page-collections-muscle .collections-muscle__hero-heading,
+  .about-page .about__intro-heading,
+  .about-page h1.about__intro-heading.display-lg,
+  .contact-page .contact__title,
+  .contact-page h1.contact__title.display-lg,
+  .returns-page .returns__title,
+  .shipping-page .returns__title,
+  .warranty-page .returns__title,
+  .returns-page h1.returns__title.display-lg,
+  .shipping-page h1.returns__title.display-lg,
+  .warranty-page h1.returns__title.display-lg,
+  .plp-page .plp__title,
+  .blog-page .blog__title,
+  #page-home .home__hero-heading {
+    font-size: var(--font-size-24);
+    line-height: var(--font-leading-tight);
+  }
 }

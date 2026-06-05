@@ -67,7 +67,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 6H16C16 3.79 14.21 2 12 2C9.79 2 8 3.79 8 6H4V22H20V6ZM10 11H8V8H10V11ZM12 4C13.1 4 14 4.9 14 6H10C10 4.9 10.9 4 12 4ZM16 11H14V8H16V11Z" fill="currentColor"/>
           </svg>
-          <span class="site-nav__cart-total">$0.00</span>
+          <span class="site-nav__cart-badge" data-cart-badge hidden aria-live="polite"></span><span class="site-nav__cart-total">$0.00</span>
         </button>
       </div>
     </nav>
@@ -327,8 +327,6 @@
             <ol role="list">
               <li><a href="homepage.html">Home</a></li>
               <li aria-hidden="true">/</li>
-              <li><a href="homepage.html#shop-by-goals">Shop Collections</a></li>
-              <li aria-hidden="true">/</li>
               <li><a href="longevity-collection.html">Longevity</a></li>
               <li aria-hidden="true">/</li>
               <li><span aria-current="page">Product Name</span></li>
@@ -344,9 +342,14 @@
 
           <hr class="pdp__rule">
 
-          <div class="pdp__description">
+          <div class="pdp__description" data-pdp-description>
             <p>The Fitness Training Series Power Cage will help you work out safely and efficiently while performing squats, military press, bench press, curls, shrugs, and more. Order now!</p>
-            <a class="pdp__read-more" href="#description">Read More</a>
+            <p>Heavy-gauge 11-gauge steel construction stands up to commercial-level use, and the dual safety bars catch a missed rep without forcing you to bail awkwardly. Pull-up bar, plate storage horns, and integrated J-cups are included so you can train top to bottom without bolting on extras.</p>
+            <p>Whether you're training alone or pushing through a top-end set, the cage gives you the confidence to load up and go without spotters standing by.</p>
+            <button type="button" class="pdp__read-more" data-pdp-description-toggle aria-expanded="false">
+              <span data-pdp-description-label-more>Read More</span>
+              <span data-pdp-description-label-less hidden>Read Less</span>
+            </button>
           </div>
 
           <!-- Quantity -->
@@ -496,7 +499,7 @@
             <img src="assets/images/pdp/single-rec-1.jpg" alt="">
             <span class="pdp-single__rec-badge">Sale</span>
           </div>
-          <h3 class="pdp-single__rec-title">Product Title Title Title Title Title title Title Product</h3>
+          <h3 class="pdp-single__rec-title"><a class="pdp-single__rec-title-link" href="product-generic.html">Product Title Title Title Title Title Title Title Product</a></h3>
           <div class="pdp-single__rec-prices">
             <span class="pdp-single__rec-price--sale">$0.00</span>
             <span class="pdp-single__rec-price--original">$1,2200.00</span>
@@ -507,7 +510,7 @@
           <div class="pdp-single__rec-image">
             <img src="assets/images/pdp/single-rec-2.jpg" alt="">
           </div>
-          <h3 class="pdp-single__rec-title">Product Title Title Title Title Title title Title Product</h3>
+          <h3 class="pdp-single__rec-title"><a class="pdp-single__rec-title-link" href="product-package.html">Product Title Title Title Title Title Title Title Product</a></h3>
           <div class="pdp-single__rec-prices">
             <span class="pdp-single__rec-price">$1,2200.00</span>
           </div>
@@ -517,7 +520,7 @@
           <div class="pdp-single__rec-image">
             <img src="assets/images/pdp/single-rec-3.jpg" alt="">
           </div>
-          <h3 class="pdp-single__rec-title">Product Title Title Title Title Title title Title Product</h3>
+          <h3 class="pdp-single__rec-title"><a class="pdp-single__rec-title-link" href="product-generic.html">Product Title Title Title Title Title Title Title Product</a></h3>
           <div class="pdp-single__rec-prices">
             <span class="pdp-single__rec-price">$1,2200.00</span>
           </div>
@@ -527,7 +530,7 @@
           <div class="pdp-single__rec-image">
             <img src="assets/images/pdp/single-rec-4.jpg" alt="">
           </div>
-          <h3 class="pdp-single__rec-title">Product Title Title Title Title Title title Title Product</h3>
+          <h3 class="pdp-single__rec-title"><a class="pdp-single__rec-title-link" href="product-package.html">Product Title Title Title Title Title Title Title Product</a></h3>
           <div class="pdp-single__rec-prices">
             <span class="pdp-single__rec-price">$1,2200.00</span>
           </div>

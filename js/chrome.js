@@ -143,6 +143,42 @@ function initStickyNav() {
 
 initStickyNav();
 
+// ── Mobile: scroll-stop reveal of floating nav ──
+// At ≤767px, the header sits in normal flow at the top. When the user
+// scrolls and then stops scrolling (and isn't at the top of the page),
+// add .is-revealed so the CSS slides a floating duplicate down. Scrolling
+// again removes the class.
+function initMobileFloatingNav() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const isMobile = () => window.matchMedia('(max-width: 767px)').matches;
+  const STOP_DELAY = 150;   // ms after last scroll event = "stopped"
+  const MIN_SCROLL_Y = 80;  // don't reveal while still near the top
+  let stopTimer = null;
+
+  function onScroll() {
+    if (!isMobile()) {
+      header.classList.remove('is-revealed');
+      return;
+    }
+    // Always hide while actively scrolling
+    header.classList.remove('is-revealed');
+    clearTimeout(stopTimer);
+    stopTimer = setTimeout(() => {
+      if (window.scrollY > MIN_SCROLL_Y) {
+        header.classList.add('is-revealed');
+      }
+    }, STOP_DELAY);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  // Re-evaluate when crossing the breakpoint
+  window.addEventListener('resize', () => {
+    if (!isMobile()) header.classList.remove('is-revealed');
+  });
+}
+initMobileFloatingNav();
+
 // ── Desktop dropdown menus ──
 function initDropdowns() {
   const triggers = document.querySelectorAll('[data-dropdown]');
@@ -349,6 +385,13 @@ function initMobileDrawer() {
 
 initMobileDrawer();
 
+// ── Cart price reveal: latch open after first hover so it stays visible ──
+document.querySelectorAll('.site-nav__icon-btn--cart').forEach((btn) => {
+  const reveal = () => btn.classList.add('is-price-revealed');
+  btn.addEventListener('mouseenter', reveal, { once: true });
+  btn.addEventListener('focus', reveal, { once: true });
+});
+
 // ── Cart drawer ──
 function initCartDrawer() {
   const drawer = document.getElementById('cart-drawer');
@@ -486,6 +529,89 @@ document.querySelectorAll('[data-plp-filters]').forEach((filterList) => {
   });
 });
 
+// ── Cart count badge + running total ──
+// Persists across pages in localStorage. Any add-to-cart trigger increments
+// the count AND adds the product's price to the running total.
+(function () {
+  const COUNT_KEY = 'york_cart_count';
+  const TOTAL_KEY = 'york_cart_total';
+  const getCount = () => parseInt(localStorage.getItem(COUNT_KEY) || '0', 10) || 0;
+  const getTotal = () => parseFloat(localStorage.getItem(TOTAL_KEY) || '0') || 0;
+  const setState = (n, t) => {
+    localStorage.setItem(COUNT_KEY, String(Math.max(0, n)));
+    localStorage.setItem(TOTAL_KEY, String(Math.max(0, t)));
+    render();
+  };
+
+  const fmt = (n) =>
+    '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  function render() {
+    const n = getCount();
+    const t = getTotal();
+    document.querySelectorAll('[data-cart-badge]').forEach((badge) => {
+      badge.textContent = n > 99 ? '99+' : String(n);
+      badge.toggleAttribute('hidden', n === 0);
+    });
+    document.querySelectorAll('.site-nav__cart-total').forEach((el) => {
+      el.textContent = fmt(t);
+    });
+  }
+  render();
+
+  // Parse "$1,299.00" / "$899.00" / "1299" → 1299, 899, 1299
+  const parsePrice = (s) => {
+    if (!s) return 0;
+    const m = String(s).replace(/[, ]+/g, '').match(/\$?(\d+(?:\.\d+)?)/);
+    return m ? parseFloat(m[1]) : 0;
+  };
+
+  // Find the price for the product the trigger belongs to.
+  function priceFor(trigger) {
+    // 1) Explicit data-price on the trigger itself
+    if (trigger.dataset.price) return parsePrice(trigger.dataset.price);
+    // 2) Price baked into the trigger's own text (e.g. "Add Bundle to cart - $222.00")
+    const inText = parsePrice(trigger.textContent);
+    if (inText) return inText;
+    // 3) Walk to the nearest product-card / buy-box ancestor and find a price element
+    const card = trigger.closest(
+      '.product-card, .collections-product-card, .pdp-single__rec-card, ' +
+      '.pdp__rec-card, .pdp__featured-card, .pdp__buy, .pdp-single__buy, ' +
+      '.pdp-generic__buy, .pdp-single__product'
+    );
+    const scope = card || trigger.parentElement;
+    if (!scope) return 0;
+    // Prefer sale price (current selling price) when both sale + original exist
+    const saleEl = scope.querySelector(
+      '.product-card__price--sale, .collections-product-card__price--sale, ' +
+      '.pdp-single__rec-price--sale, .pdp__rec-price--sale'
+    );
+    if (saleEl) return parsePrice(saleEl.textContent);
+    // Otherwise the first non-modifier price
+    const priceEl = scope.querySelector(
+      '.product-card__price, .collections-product-card__price, ' +
+      '.pdp-single__rec-price, .pdp__rec-price, .pdp__price, .pdp-single__price'
+    );
+    if (priceEl) return parsePrice(priceEl.textContent);
+    return 0;
+  }
+
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest(
+      'a[href="#cart"], [data-add-to-cart], .pdp__cta, .pdp-single__cta, .pdp-generic__cta'
+    );
+    if (!trigger) return;
+    e.preventDefault();
+    const price = priceFor(trigger);
+    setState(getCount() + 1, getTotal() + price);
+  });
+
+  // Keep multiple tabs in sync
+  window.addEventListener('storage', (e) => {
+    if (e.key === COUNT_KEY || e.key === TOTAL_KEY) render();
+  });
+})();
+
 // ── Reading-progress highlight ──
 // Each [data-typewriter] paragraph is split into per-word spans. All words
 // start dimmed; as the user scrolls past the paragraphs, words light up
@@ -573,6 +699,21 @@ document.querySelectorAll('[data-collection-products]').forEach((section) => {
   });
 });
 
+// ── PDP description: truncated by default, toggles open via [data-pdp-description-toggle] ──
+document.querySelectorAll('[data-pdp-description]').forEach((desc) => {
+  const toggle = desc.querySelector('[data-pdp-description-toggle]');
+  if (!toggle) return;
+  const moreLabel = toggle.querySelector('[data-pdp-description-label-more]');
+  const lessLabel = toggle.querySelector('[data-pdp-description-label-less]');
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const expanded = desc.classList.toggle('is-expanded');
+    toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    if (moreLabel) moreLabel.toggleAttribute('hidden', expanded);
+    if (lessLabel) lessLabel.toggleAttribute('hidden', !expanded);
+  });
+});
+
 // ── PDP quantity selector ──
 document.querySelectorAll('[data-qty-value]').forEach((input) => {
   const wrap = input.parentElement;
@@ -656,4 +797,39 @@ document.querySelectorAll('[data-pdp-recs]').forEach((scroller) => {
   update();
   scroller.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
+});
+
+// ── Search results: swap "term" placeholders with the ?q= the user typed ──
+(function injectSearchTerm() {
+  const params = new URLSearchParams(window.location.search);
+  const raw = params.get('q');
+  if (!raw) return;
+  const term = raw.trim();
+  if (!term) return;
+  document.querySelectorAll('.plp-search__term').forEach((el) => {
+    el.textContent = term;
+  });
+  // Mirror it back into the search overlay input so the user can refine
+  const input = document.querySelector('.search-overlay__input');
+  if (input && !input.value) input.value = term;
+})();
+
+// ── PLP sort icon → open the visually-hidden native <select> on mobile ──
+// At ≤767 the dropdown is hidden but kept in the DOM. The icon button calls
+// showPicker() (Chromium / Safari 16.4+) and falls back to a focus+click.
+document.querySelectorAll('.plp__sort-icon').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const container = btn.closest('.plp__sort, .plp-category__sort');
+    const select = container && container.querySelector('.plp__sort-select');
+    if (!select) return;
+    e.preventDefault();
+    try {
+      if (typeof select.showPicker === 'function') {
+        select.showPicker();
+        return;
+      }
+    } catch (_) { /* fall through */ }
+    select.focus();
+    select.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+  });
 });

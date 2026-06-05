@@ -11,6 +11,10 @@ function initModals() {
       if (!modal) return;
       window.YorkBodyLock?.lock();
       modal.showModal();
+      // Move focus off the close button (which would otherwise auto-receive focus
+      // and trigger a :focus-visible outline). Tab order is unaffected.
+      if (!modal.hasAttribute('tabindex')) modal.setAttribute('tabindex', '-1');
+      modal.focus({ preventScroll: true });
     });
   });
 

@@ -67,7 +67,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 6H16C16 3.79 14.21 2 12 2C9.79 2 8 3.79 8 6H4V22H20V6ZM10 11H8V8H10V11ZM12 4C13.1 4 14 4.9 14 6H10C10 4.9 10.9 4 12 4ZM16 11H14V8H16V11Z" fill="currentColor"/>
           </svg>
-          <span class="site-nav__cart-total">$0.00</span>
+          <span class="site-nav__cart-badge" data-cart-badge hidden aria-live="polite"></span><span class="site-nav__cart-total">$0.00</span>
         </button>
       </div>
     </nav>
@@ -321,6 +321,13 @@
               <option value="newest">Newest</option>
               <option value="best-selling">Best Selling</option>
             </select>
+            <button type="button" class="plp__sort-icon" aria-label="Sort">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none">
+                <path d="M3 6h7M14 6h3M3 14h3M9 14h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="12" cy="6" r="1.75" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="7" cy="14" r="1.75" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </button>
           </div>
         </div>
       </header>
@@ -332,7 +339,7 @@
             <img src="assets/images/plp/cat-1.jpg" alt="">
             <span class="plp__card-badge">Sale</span>
           </div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-single.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices">
             <span class="plp__card-price--sale">$0.00</span>
             <span class="plp__card-price--original">$1,2200.00</span>
@@ -341,67 +348,67 @@
         </article>
         <article class="plp__card">
           <div class="plp__card-image"><img src="assets/images/plp/cat-2.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-generic.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
           <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
         </article>
         <article class="plp__card">
           <div class="plp__card-image"><img src="assets/images/plp/cat-3.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-package.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
           <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
         </article>
         <article class="plp__card">
           <div class="plp__card-image"><img src="assets/images/plp/cat-4.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-single.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
           <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
         </article>
         <article class="plp__card">
           <div class="plp__card-image"><img src="assets/images/pdp/single-rec-1.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-generic.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
           <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
         </article>
         <article class="plp__card">
           <div class="plp__card-image"><img src="assets/images/pdp/single-rec-2.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-package.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
           <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
         </article>
         <article class="plp__card">
           <div class="plp__card-image"><img src="assets/images/pdp/single-rec-3.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-single.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
           <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
         </article>
         <article class="plp__card">
           <div class="plp__card-image"><img src="assets/images/pdp/single-rec-4.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-generic.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
           <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
         </article>
         <article class="plp__card">
           <div class="plp__card-image"><img src="assets/images/pdp/pkg-secondary-1.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-package.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
           <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
         </article>
         <article class="plp__card">
           <div class="plp__card-image"><img src="assets/images/pdp/pkg-secondary-2.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-single.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
           <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
         </article>
         <article class="plp__card">
           <div class="plp__card-image"><img src="assets/images/pdp/pkg-detail-1.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-generic.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
           <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
         </article>
         <article class="plp__card">
           <div class="plp__card-image"><img src="assets/images/pdp/pkg-detail-2.jpg" alt=""></div>
-          <h3 class="plp__card-title">Product Title Product Title Product Title</h3>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="product-package.html">Product Title Product Title Product Title</a></h3>
           <div class="plp__card-prices"><span class="plp__card-price">$1,2200.00</span></div>
           <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
         </article>

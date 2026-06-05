@@ -67,7 +67,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 6H16C16 3.79 14.21 2 12 2C9.79 2 8 3.79 8 6H4V22H20V6ZM10 11H8V8H10V11ZM12 4C13.1 4 14 4.9 14 6H10C10 4.9 10.9 4 12 4ZM16 11H14V8H16V11Z" fill="currentColor"/>
           </svg>
-          <span class="site-nav__cart-total">$0.00</span>
+          <span class="site-nav__cart-badge" data-cart-badge hidden aria-live="polite"></span><span class="site-nav__cart-total">$0.00</span>
         </button>
       </div>
     </nav>
@@ -327,8 +327,6 @@
             <ol role="list">
               <li><a href="homepage.html">Home</a></li>
               <li aria-hidden="true">/</li>
-              <li><a href="homepage.html#shop-by-goals">Shop Collections</a></li>
-              <li aria-hidden="true">/</li>
               <li><a href="longevity-collection.html">Longevity</a></li>
               <li aria-hidden="true">/</li>
               <li><span aria-current="page">Product Name</span></li>
@@ -344,9 +342,14 @@
 
           <hr class="pdp__rule">
 
-          <div class="pdp__description">
+          <div class="pdp__description" data-pdp-description>
             <p>The Fitness Training Series Power Cage will help you work out safely and efficiently while performing squats, military press, bench press, curls, shrugs, and more. Order now!</p>
-            <a class="pdp__read-more" href="#features-specs">Read More</a>
+            <p>Built from heavy-gauge steel and finished in a tough powder coat, the cage is engineered for serious daily training. The integrated J-cups, safety spotter arms, and pull-up bar all bolt directly to the uprights, giving you a complete strength station in a single footprint. Whether you're chasing a new PR, rebuilding after a layoff, or just settling into a sustainable lifting routine, the Performance Package is sized for the room you actually have — without giving up the spec you'd expect in a commercial gym.</p>
+            <p>The package ships with the Olympic bar, a full set of bumper plates, training collars, and the bench you need to get under the bar on day one. Every component is built to outlast the workout: a 1500 lb static load rating, a 28.5 mm dual-knurled bar with center knurl, and IWF-spec virgin rubber plates that take a drop and bounce back. Setup takes about an hour with two people; the bolt-on connections mean the cage stays square and stable through years of heavy training.</p>
+            <button type="button" class="pdp__read-more" data-pdp-description-toggle aria-expanded="false">
+              <span data-pdp-description-label-more>Read More</span>
+              <span data-pdp-description-label-less hidden>Read Less</span>
+            </button>
           </div>
 
           <div class="pdp__included">
@@ -392,7 +395,7 @@
                 <div class="pdp__recs-scroller" data-pdp-recs>
                   <article class="pdp__rec-card">
                     <div class="pdp__rec-image"><img src="assets/images/pdp/pkg-detail-1.jpg" alt=""></div>
-                    <h4 class="pdp__rec-title">Product Name Product Title</h4>
+                    <h4 class="pdp__rec-title"><a class="pdp__rec-title-link" href="product-single.html">Product Name Product Title</a></h4>
                     <div class="pdp__rec-prices">
                       <span class="pdp__rec-price--sale">$0.00</span>
                       <span class="pdp__rec-price--original">$1,2200.00</span>
@@ -401,7 +404,7 @@
                   </article>
                   <article class="pdp__rec-card">
                     <div class="pdp__rec-image"><img src="assets/images/pdp/pkg-detail-2.jpg" alt=""></div>
-                    <h4 class="pdp__rec-title">Product Name Product Title</h4>
+                    <h4 class="pdp__rec-title"><a class="pdp__rec-title-link" href="product-generic.html">Product Name Product Title</a></h4>
                     <div class="pdp__rec-prices">
                       <span class="pdp__rec-price--sale">$0.00</span>
                       <span class="pdp__rec-price--original">$1,2200.00</span>
@@ -410,7 +413,7 @@
                   </article>
                   <article class="pdp__rec-card">
                     <div class="pdp__rec-image"><img src="assets/images/pdp/pkg-rec-3.jpg" alt=""></div>
-                    <h4 class="pdp__rec-title">Product Name Product Title</h4>
+                    <h4 class="pdp__rec-title"><a class="pdp__rec-title-link" href="product-single.html">Product Name Product Title</a></h4>
                     <div class="pdp__rec-prices">
                       <span class="pdp__rec-price--sale">$0.00</span>
                       <span class="pdp__rec-price--original">$1,2200.00</span>
@@ -419,7 +422,7 @@
                   </article>
                   <article class="pdp__rec-card">
                     <div class="pdp__rec-image"><img src="assets/images/pdp/pkg-rec-4.jpg" alt=""></div>
-                    <h4 class="pdp__rec-title">Product Name Product Title</h4>
+                    <h4 class="pdp__rec-title"><a class="pdp__rec-title-link" href="product-generic.html">Product Name Product Title</a></h4>
                     <div class="pdp__rec-prices">
                       <span class="pdp__rec-price--sale">$0.00</span>
                       <span class="pdp__rec-price--original">$1,2200.00</span>
@@ -428,7 +431,7 @@
                   </article>
                   <article class="pdp__rec-card">
                     <div class="pdp__rec-image"><img src="assets/images/pdp/pkg-secondary-1.jpg" alt=""></div>
-                    <h4 class="pdp__rec-title">Product Name Product Title</h4>
+                    <h4 class="pdp__rec-title"><a class="pdp__rec-title-link" href="product-single.html">Product Name Product Title</a></h4>
                     <div class="pdp__rec-prices">
                       <span class="pdp__rec-price--sale">$0.00</span>
                       <span class="pdp__rec-price--original">$1,2200.00</span>
@@ -639,7 +642,7 @@
         <path d="M3 3l18 18M21 3L3 21" stroke="currentColor" stroke-width="2" fill="none"/>
       </svg>
     </button>
-    <div class="modal--gallery-image__carousel" data-carousel data-carousel-no-auto tabindex="0">
+    <div class="modal--gallery-image__carousel" data-carousel data-carousel-interval="5000" tabindex="0">
       <div class="modal--gallery-image__slides">
         <div class="modal--gallery-image__slide" data-carousel-slide>
           <img src="assets/images/pdp/pkg-main.jpg" alt="York Performance Package — orange vinyl dumbbells, 3KG">
