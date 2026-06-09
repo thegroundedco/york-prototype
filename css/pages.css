@@ -401,6 +401,13 @@
   color: var(--color-neutral-0);
 }
 
+/* Crop frame around the plate. On desktop/tablet it's a no-op (display:contents),
+   so the plate keeps positioning relative to .home__history-inner as before.
+   On mobile it becomes a fixed, non-rotating box that crops the spinning plate. */
+#page-home .home__history-decoration-frame {
+  display: contents;
+}
+
 /* Decorative weight plate photo — right-positioned so it stays in view across viewports.
    Negative right offset lets a portion bleed off the right edge like Figma. */
 #page-home .home__history-decoration {
@@ -476,6 +483,15 @@
   #page-home .home__history-body {
     font-size: var(--font-size-20);
   }
+  /* Cropping frame: shows only the top half of the plate — "sun setting" at the
+     plate's center — so the section gets shorter. The plate spins inside it. */
+  #page-home .home__history-decoration-frame {
+    display: block;
+    width: 380px;
+    height: 190px;            /* half the plate height: horizon at the plate's center */
+    overflow: hidden;
+    margin: var(--space-16) -60px 0 auto;   /* push right with a slight bleed, as before */
+  }
   #page-home .home__history-decoration {
     position: relative;
     left: auto;
@@ -483,9 +499,9 @@
     top: auto;
     width: 380px;
     height: 380px;
-    /* Sit below the content; push slightly off-screen on the right */
     display: block;
-    margin: var(--space-16) -60px 0 auto;
+    margin: 0;                /* the frame now handles placement */
+    border-radius: 50%;       /* clip the square photo to the round plate — clean sun */
     opacity: 1;
   }
   #page-home .home__history-divider { display: none; }
