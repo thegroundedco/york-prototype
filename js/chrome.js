@@ -385,6 +385,100 @@ function initMobileDrawer() {
 
 initMobileDrawer();
 
+// ── Home goal cards: whole-card click routes to the card's CTA ──
+// The CTA <a> stays the real (keyboard/AT-focusable) link; this just makes the
+// rest of the card a mouse target. Clicks that land on a real link/button are
+// left alone so they navigate themselves (and we don't double-fire).
+document.querySelectorAll('.goal-card').forEach((card) => {
+  const cta = card.querySelector('.goal-card__cta');
+  if (!cta) return;
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('a, button')) return;
+    window.location.href = cta.href;
+  });
+});
+
+// ── Home history heading: count the year down, then type the second line ──
+// When the section scrolls into view: the year counts back from the current
+// year to 1932 (~3s, ease-out), the second line stays hidden until that
+// finishes, then it types itself on (~1.5s). Reduced-motion shows the final
+// state instantly.
+function initHistoryReveal() {
+  const heading = document.querySelector('[data-history-animate]');
+  if (!heading) return;
+  const yearEl = heading.querySelector('[data-history-year]');
+  const typedEl = heading.querySelector('[data-history-typed]');
+
+  const FINAL_YEAR = 1932;
+  const COUNT_MS = 3000;
+  const TYPE_MS = 1500;
+  const startYear = new Date().getFullYear();
+  const fullText = typedEl ? typedEl.textContent : '';
+  const chars = Array.from(fullText);
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) {
+    if (yearEl) yearEl.textContent = String(FINAL_YEAR);
+    if (typedEl) typedEl.textContent = fullText;
+    return;
+  }
+
+  // "Before" state, set synchronously so it's ready before the section is
+  // scrolled to (it sits well below the fold, so this is never visible).
+  if (yearEl) yearEl.textContent = String(startYear);
+  if (typedEl) typedEl.textContent = '';
+
+  function typeLine() {
+    if (!typedEl) return;
+    typedEl.classList.add('is-typing');
+    const start = performance.now();
+    function frame(now) {
+      const t = Math.min(1, (now - start) / TYPE_MS);
+      typedEl.textContent = chars.slice(0, Math.round(t * chars.length)).join('');
+      if (t < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        typedEl.textContent = fullText;
+        typedEl.classList.remove('is-typing');
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function countDown() {
+    if (!yearEl) { typeLine(); return; }
+    const span = startYear - FINAL_YEAR;
+    const start = performance.now();
+    function frame(now) {
+      const t = Math.min(1, (now - start) / COUNT_MS);
+      const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+      yearEl.textContent = String(Math.round(startYear - span * eased));
+      if (t < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        yearEl.textContent = String(FINAL_YEAR);
+        typeLine();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  let started = false;
+  const run = () => { if (!started) { started = true; countDown(); } };
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { run(); obs.disconnect(); }
+      });
+    }, { threshold: 0.5 });
+    io.observe(heading);
+  } else {
+    run();
+  }
+}
+initHistoryReveal();
+
 // ── Cart price reveal: latch open after first hover so it stays visible ──
 document.querySelectorAll('.site-nav__icon-btn--cart').forEach((btn) => {
   const reveal = () => btn.classList.add('is-price-revealed');

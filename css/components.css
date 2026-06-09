@@ -97,9 +97,9 @@
 .pdp-generic__feature-card,
 .pdp-single__product {
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    border-color 0.3s ease-in-out;
 }
 
 .plp__card:hover,
@@ -112,17 +112,12 @@
 .pdp-generic__feature-card:hover,
 .pdp-single__product:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(16, 24, 32, 0.08);
+  box-shadow: 10px 10px 0 0 var(--accent-default);
 }
 
-/* Cards with a visible border also get a red border on hover */
-.plp__card:hover,
-.pdp-single__rec-card:hover,
-.pdp__rec-card:hover,
-.collections-product-card:hover,
-.about__timeline-card:hover {
-  border-color: var(--accent-default);
-}
+/* Red border + image zoom on hover are consolidated at the END of pages.css —
+   they must out-specify the page-scoped base borders defined there, so they
+   can't live here in components.css (which loads first). */
 
 /* ── Form Fields ── */
 
@@ -274,9 +269,8 @@
 .pdp-single__rec-price--sale,
 .pdp__rec-price--sale { order: 1; }
 
-.product-card:hover .product-card__image {
-  opacity: 0.9;
-}
+/* Product-card image zoom-on-hover is handled by the consolidated card-hover
+   block at the end of pages.css (replaces the old opacity dim). */
 
 /* ── Badges ── */
 

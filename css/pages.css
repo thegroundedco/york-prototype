@@ -255,6 +255,7 @@
   background: var(--color-neutral-0);
   color: var(--color-neutral-1000);
   border-right: 1px solid var(--color-neutral-200);
+  cursor: pointer;
 }
 
 /* Stretched link: the CTA's ::after extends to cover the whole card so clicks
@@ -280,6 +281,11 @@
 #page-home .goal-card__title {
   margin: 0;
   color: var(--color-neutral-1000);
+  transition: color 0.2s ease;
+}
+
+#page-home .goal-card:hover .goal-card__title {
+  color: var(--text-accent);
 }
 
 #page-home .goal-card__desc {
@@ -292,12 +298,22 @@
   flex-direction: column;
 }
 
+#page-home .goal-card__image-wrap {
+  overflow: hidden;
+  aspect-ratio: 480 / 318;
+}
+
 #page-home .goal-card__image {
   width: 100%;
-  aspect-ratio: 480 / 318;
+  height: 100%;
   object-fit: cover;
   display: block;
   max-width: none;
+  transition: transform 0.4s ease;
+}
+
+#page-home .goal-card:hover .goal-card__image {
+  transform: scale(1.05);
 }
 
 #page-home .goal-card__cta {
@@ -346,6 +362,22 @@
 #page-home .home__history-heading {
   margin: 0;
   color: var(--text-accent);
+}
+
+/* Year keeps a stable width while counting down so the line doesn't jitter */
+#page-home .home__history-year {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Typing caret on the second line (added by JS only while it types itself on) */
+#page-home .home__history-line2.is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 0.06em;
+  height: 0.82em;
+  margin-left: 0.04em;
+  background: currentColor;
+  vertical-align: baseline;
 }
 
 #page-home .home__history-body {
@@ -5546,5 +5578,70 @@
   #page-home .home__hero-heading {
     font-size: var(--font-size-24);
     line-height: var(--font-leading-tight);
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Card hover, site-wide: red border + image zoom across every card variant.
+   Lives here (end of the last stylesheet) and is page-scoped so it out-
+   specifies the page-scoped base borders above. The lift/shadow + the
+   border-color transition are defined in components.css.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* 1. Black border → red on hover (every card that has a visible border) */
+.plp-page .plp__card:hover,
+.beginners-page .collections-product-card:hover,
+.muscle-page .collections-product-card:hover,
+.longevity-page .collections-product-card:hover,
+#page-collections-beginner .collections-product-card:hover,
+.pdp-single__rec-card:hover,
+.about-page .about__timeline-card:hover {
+  border-color: var(--accent-default);
+}
+
+/* 2. Image zoom on hover (every card with an image) — matches the goal/
+   collection cards. Each image already sits in an overflow:hidden box. */
+.product-card__image,
+.collections-product-card__image,
+.plp__card-image img,
+.pdp__rec-image img,
+.pdp-single__rec-image img,
+.pdp-single__product-image img,
+.pdp__featured-image img,
+.about__timeline-image img {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Collection cards frame the product on a 16px white inset. Use a same-color
+   border (not padding) so overflow:hidden clips the zoom at the image edge —
+   the photo zooms in place and the white frame stays put. */
+.beginners-page .collections-product-card__media,
+.muscle-page .collections-product-card__media,
+.longevity-page .collections-product-card__media {
+  padding: 0;
+  border: var(--space-16) solid var(--color-neutral-0);
+}
+
+.product-card:hover .product-card__image,
+.collections-product-card:hover .collections-product-card__image,
+.plp__card:hover .plp__card-image img,
+.pdp__rec-card:hover .pdp__rec-image img,
+.pdp-single__rec-card:hover .pdp-single__rec-image img,
+.pdp-single__product:hover .pdp-single__product-image img,
+.pdp__featured-card:hover .pdp__featured-image img,
+.about__timeline-card:hover .about__timeline-image img {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card:hover .product-card__image,
+  .collections-product-card:hover .collections-product-card__image,
+  .plp__card:hover .plp__card-image img,
+  .pdp__rec-card:hover .pdp__rec-image img,
+  .pdp-single__rec-card:hover .pdp-single__rec-image img,
+  .pdp-single__product:hover .pdp-single__product-image img,
+  .pdp__featured-card:hover .pdp__featured-image img,
+  .about__timeline-card:hover .about__timeline-image img {
+    transform: none;
   }
 }
