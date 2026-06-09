@@ -504,7 +504,11 @@
     border-radius: 50%;       /* clip the square photo to the round plate — clean sun */
     opacity: 1;
   }
-  #page-home .home__history-divider { display: none; }
+  /* Stroke just beneath the plate's cut-off; gutters match the mobile inline padding */
+  #page-home .home__history-divider {
+    display: block;
+    margin: 0 var(--space-16);
+  }
 }
 
 /* ── Home: Best Sellers ── */
