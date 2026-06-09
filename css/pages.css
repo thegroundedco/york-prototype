@@ -190,7 +190,7 @@
   }
 
   #page-home .home__hero-heading {
-    font-size: var(--font-size-24);
+    font-size: var(--font-size-48);
     max-width: 100%;
     text-align: left;
     /* 16px between heading and body */
