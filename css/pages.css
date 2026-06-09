@@ -5580,11 +5580,12 @@
   .shipping-page h1.returns__title.display-lg,
   .warranty-page h1.returns__title.display-lg,
   .plp-page .plp__title,
-  .blog-page .blog__title,
-  #page-home .home__hero-heading {
+  .blog-page .blog__title {
     font-size: var(--font-size-24);
     line-height: var(--font-leading-tight);
   }
+  /* Home hero is intentionally larger than other page heroes on mobile —
+     it keeps the 48px set in the "Home: Hero" mobile block above. */
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
