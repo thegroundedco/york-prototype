@@ -102,9 +102,9 @@
     border-color 0.3s ease-in-out;
 }
 
+/* "You May Also Like" recommendation cards (.pdp__rec-card / .pdp-single__rec-card)
+   intentionally omitted — no lift/shadow on hover (they keep border + image zoom). */
 .plp__card:hover,
-.pdp-single__rec-card:hover,
-.pdp__rec-card:hover,
 .collections-product-card:hover,
 .product-card:hover,
 .about__timeline-card:hover,

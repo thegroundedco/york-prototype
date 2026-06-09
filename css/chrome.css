@@ -244,8 +244,29 @@
   background: var(--surface-primary);
   border-top: 1px solid var(--border-subtle);
   z-index: 99;
+  /* Slide down on open, slide up on close — 200ms ease, both directions.
+     Animate visibility/opacity/transform (not display, which can't transition).
+     position:absolute means the rendered-but-hidden panel never affects layout. */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease,
+    visibility 200ms ease;
 }
-.dropdown[hidden] { display: none; }
+/* Override the UA `[hidden] { display:none }` so the closed panel stays rendered
+   and can transition. The `hidden` attribute remains the open/closed state hook
+   (toggled by chrome.js); visibility:hidden keeps it out of the a11y tree + tab order. */
+.dropdown[hidden] { display: block; }
+.dropdown:not([hidden]) {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .dropdown { transition: none; transform: none; }
+}
 
 .dropdown__inner {
   padding: var(--space-32) var(--space-24);
