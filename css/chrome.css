@@ -643,8 +643,26 @@
   flex-direction: column;
   gap: var(--space-24);
   overflow-y: auto;
+  /* Slide in from the right, slide back out — 300ms ease, both directions.
+     Animate transform + visibility (not display, which can't transition).
+     position:fixed off-screen doesn't expand the page's horizontal scroll. */
+  transform: translateX(100%);
+  visibility: hidden;
+  transition:
+    transform 300ms ease,
+    visibility 300ms ease;
 }
-.mobile-drawer[hidden] { display: none; }
+/* Override the UA `[hidden] { display:none }` so the off-screen drawer stays
+   rendered and can transition. The `hidden` attribute is still the open/closed
+   hook (toggled by chrome.js); visibility:hidden keeps it out of the a11y tree. */
+.mobile-drawer[hidden] { display: flex; }
+.mobile-drawer:not([hidden]) {
+  transform: translateX(0);
+  visibility: visible;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-drawer { transition: none; }
+}
 
 /* Header row: title left, close button right */
 .mobile-drawer__header {
