@@ -112,7 +112,7 @@
 .pdp-generic__feature-card:hover,
 .pdp-single__product:hover {
   transform: translateY(-2px);
-  box-shadow: 10px 10px 0 0 var(--accent-default);
+  box-shadow: 5px 5px 16px 0 rgba(16, 24, 32, 0.2);
 }
 
 /* Red border + image zoom on hover are consolidated at the END of pages.css —

@@ -70,6 +70,7 @@
   --font-tracking-normal:  0em;
   --font-tracking-wide:    0.005em;
   --font-tracking-wider:   0.010em;
+  --font-tracking-display: 0.03em;   /* display + heading classes — opens up the tight Field Gothic caps */
 
   /* ── Semantic tokens — Dark mode resolved ── */
   /* Each token aliases the primitive it references in Figma */

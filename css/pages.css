@@ -522,6 +522,11 @@
   z-index: 0;
 }
 
+/* YORK watermark only appears on large screens; removed below 1200px */
+@media (max-width: 1199px) {
+  #page-home .home__bestsellers::before { display: none; }
+}
+
 #page-home .home__bestsellers > * {
   position: relative;
   z-index: 1;
@@ -684,26 +689,7 @@
 @media (max-width: 767px) {
   #page-home .home__bestsellers { padding: var(--space-64) var(--space-16); gap: var(--space-24); }
   #page-home .home__bestsellers-grid { grid-template-columns: 1fr; gap: var(--space-16); }
-  /* Heading scales down and acts as the host for the YORK watermark on mobile */
-  #page-home .home__bestsellers-heading {
-    font-size: var(--font-size-32);
-    position: relative;
-    isolation: isolate;
-  }
-  #page-home .home__bestsellers-heading::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url(../assets/images/home/bestsellers-bg.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
-    opacity: 0.1;
-    pointer-events: none;
-    z-index: -1;
-  }
-  /* Section-level watermark is replaced by the heading-bound one on mobile */
-  #page-home .home__bestsellers::before { display: none; }
+  #page-home .home__bestsellers-heading { font-size: var(--font-size-32); }
 }
 
 /* ── Home: Blog ── */
