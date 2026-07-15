@@ -87,7 +87,7 @@ ${addOnsSectionHtml(p)}
           <div class="pdp__key-features">
             <p class="pdp__key-features-title">Key Features:</p>
             <ul class="pdp__key-features-list" role="list">
-${p.keyFeatures.map((f) => '              <li>' + escapeHtml(f) + '</li>').join('\n')}
+${(p.keyFeatures || []).map((f) => '              <li>' + escapeHtml(f) + '</li>').join('\n')}
             </ul>
           </div>
 
