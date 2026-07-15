@@ -1,5 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { writeFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { loadProducts, validateProduct } from '../lib/products.js';
 
 const valid = {
@@ -30,4 +33,20 @@ test('loadProducts reads the sample fixture', () => {
   const list = loadProducts('data/products.sample.json');
   assert.equal(list.length, 1);
   assert.equal(validateProduct(list[0]).length, 0);
+});
+
+test('non-array relatedSlugs is reported, not thrown', () => {
+  let errs;
+  assert.doesNotThrow(() => { errs = validateProduct({ ...valid, relatedSlugs: 'oops' }); });
+  assert.ok(errs.some((e) => e.includes('relatedSlugs')));
+});
+
+test('loadProducts throws on non-array JSON', () => {
+  const tmpPath = join(tmpdir(), `york-products-${process.pid}-${Date.now()}.json`);
+  writeFileSync(tmpPath, JSON.stringify({ not: 'an array' }), 'utf8');
+  try {
+    assert.throws(() => loadProducts(tmpPath));
+  } finally {
+    rmSync(tmpPath, { force: true });
+  }
 });
