@@ -143,9 +143,14 @@ and `CLAUDE.md` explicitly forbids re-doing those sweeps. The built templates di
 from the Figma frames in places (e.g. Figma's generic PDP has two variant pickers; the
 built generic has a quantity field only). **We tokenize the built templates as-is and
 inject data.** We do not restructure them to match Figma. Figma is used only for
-(a) template assignment, (b) image export, (c) reference when drafting missing copy.
-Visual fidelity reconciliation against the comps is the separate PDP spot-check already
-queued in `CLAUDE.md` — out of scope here.
+(a) template assignment, (b) image export, (c) reference when drafting missing copy,
+(d) **the variant selectors** (see below). Visual fidelity reconciliation against the
+comps is the separate PDP spot-check already queued in `CLAUDE.md` — out of scope here.
+
+**The one deliberate exception: variant selectors.** The built templates' buy box has
+only a quantity stepper, but the comps + sheet define richer selectors for ~6 products.
+Those custom variant blocks are *added* from Figma — this is intentional net-new UI, not
+a re-run of the breakpoint sweep. See the "Variant selectors" section for the full model.
 
 ---
 
@@ -166,7 +171,8 @@ One object per product in `data/products.json`. Common core plus template-specif
   "specs": ["Material: 12 gauge steel", "Weight Capacity: 500 lbs"],  // ARRAY OF STRINGS (see below)
   "detailsBody": "…",                // sheet "Details About The Product"
   "highlights": [{ "title": "…", "body": "…" }],   // sheet "Product Highlight 1/2"
-  "variants": { "type": "quantity" },              // quantity | accessories | bundle-type
+  "variants": { "type": "weight-selector",         // see "Variant selectors" section — discriminated by type
+                "options": [ { "label": "10 lb", "price": 16.00 }, { "label": "25 lb", "price": 46.00 } ] },
   "relatedSlugs": ["fts-flat-to-incline-utility-bench"],  // sheet "You May Also Like" or category fallback
   "externalLinks": [{ "label": "Hi/Low Pulley", "url": "https://yorkbarbell.com/..." }],  // Power Cage only
   "included": ["…"],                 // package only — sheet "What's Included"
@@ -301,6 +307,61 @@ so this is the existing behavior, retained.
 
 ---
 
+## Variant selectors
+
+**This is the one place the build deliberately goes beyond the built templates.** The
+buy box in each built template has only a quantity stepper. But the Figma comps — and the
+sheet's "Product Variants" column (C), whose header states it is "different PER product" —
+define richer selectors for a handful of products. Shipping the quantity-only built buy
+box for those products would be wrong. So the variant block is the intentional exception
+to the "don't rebuild to match Figma" guardrail: we **add** Figma-designed variant
+components that the built templates lack.
+
+### The six variant types (from sheet column C, verified against Figma)
+
+| Type | Products (count) | UI |
+|---|---|---|
+| `quantity` (default) | ~16 — most singles, most generics, 2 packages | Plain qty stepper — **already in the built templates**, no new work |
+| `weight-selector` | Rubber Bumper Plates, Slam Ball (2) | "Sold individually" matrix: one row per weight, each with its own price + qty stepper (confirmed in Bumper Plates comp `3018:22501`) |
+| `tier-selector` | Mini / 2 / 3 Tier Dumbbell Stand (1) | "Select A Tier" (Mini / 2-tier / 3-tier) → then quantity |
+| `package-selector` | Plyo Package (1) | "Select a Package" configuration chooser |
+| `set-or-individual` | Rubber Hex Dumbbell Set (1) | Toggle whole-set vs. individual dumbbell; individual reveals a weight picker |
+| `accessories` | FTS Power Cage (1) | "Popular Accessories" list; links to yorkbarbell.com accessory pages |
+
+Floorguards and Vinyl Fitbell have an empty column C → default to `quantity` (Floorguards
+is a fixed pack of 4; Vinyl Fitbell is the drafted-copy product, confirm with Gabriela).
+
+### How they're built
+
+- Each type is a **variant-block partial** the generator injects into the buy box based on
+  `product.variants.type`. The `quantity` partial is the existing built markup; the other
+  five are new, modeled on their Figma comps.
+- **Data source for options + per-option prices:** the Figma comp shows the intended
+  option set and layout; **real prices come from yorkbarbell.com** (same scrape as the
+  base price). Where a product page isn't found, options render with `Price TBD`, never an
+  invented number. Every variant product's option set is surfaced to Adam for review — I
+  will not guess weights/tiers.
+- **Interactivity:** `js/pdp.js` is currently empty. Variant behavior (weight-matrix per-
+  row steppers, tier/package/set toggles updating the displayed price, individual-vs-set
+  reveal) lives in a new `js/pdp.js` module, loaded only on PDP pages. It is progressive —
+  the selectors are real form controls that work without JS; JS only updates price/qty
+  display.
+- **Responsive:** because these components are NOT in the already-swept built templates,
+  each new variant block gets its own responsive treatment and is checked at 1440 (comp)
+  and 390 (mobile) as part of the manual gate. This is net-new responsive work, not a
+  re-run of the existing sweep.
+
+### Scope honesty
+
+Five custom variant components, each appearing on only 1–2 products, is the single
+largest chunk of genuinely new UI in this project. Everything else is data-filling. If
+this needs to be staged, the natural cut line is: ship all 23 pages with the `quantity`
+default first, then layer in the five custom selectors — the 16 quantity-only products
+are correct either way, and the 6 custom ones are visibly "quantity for now" until their
+selector lands.
+
+---
+
 ## Templates — token map
 
 Each built template becomes a tokenized `.tmpl.html`. Sections and their data bindings:
@@ -315,6 +376,9 @@ Each built template becomes a tokenized `.tmpl.html`. Sections and their data bi
   side modal · Shipping & Returns (static short line + links)
 - gallery: `{{images.gallery}}` → main + up to 4 cells; gallery modal carousel mirrors
   the same list
+- **variant block** (`{{variants}}`): the quantity stepper by default, or one of the five
+  custom selectors per the "Variant selectors" section — this is the one buy-box element
+  that varies structurally, not just by content
 
 ### Single-only
 - `pdp__quantity` (retained) · `pdp__addons` (`{{addOns}}`, up to 3) · `pdp__cta` ·
