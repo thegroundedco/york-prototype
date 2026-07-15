@@ -316,8 +316,13 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/fts-flat-to-incline-utility-bench/gallery-1.jpg",
+        "assets/images/products/fts-flat-to-incline-utility-bench/gallery-2.jpg",
+        "assets/images/products/fts-flat-to-incline-utility-bench/gallery-3.jpg",
+        "assets/images/products/fts-flat-to-incline-utility-bench/gallery-4.jpg"
+      ],
+      "editorial": "assets/images/products/fts-flat-to-incline-utility-bench/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "yorkbarbell.com"
@@ -908,11 +913,27 @@
       "compareAt": 2.5,
       "sourceUrl": "https://yorkbarbell.com/product/vinyl-fitbell/"
     },
-    "shortDescription": "",
-    "keyFeatures": [],
-    "specs": [],
-    "detailsBody": "",
-    "highlights": [],
+    "shortDescription": "<p>YORK Vinyl Fitbells bring bright, color-coded style to any workout space. Each hex-shaped dumbbell is finished in a durable, comfortable vinyl coating that's easy to keep clean, and sold individually in weights from 1 lb to 15 lb so you can grab exactly what you need.</p>",
+    "keyFeatures": [
+      "Color-Coded by Weight: A bright vinyl color for every weight makes it easy to grab the right dumbbell at a glance, without checking the stamp.",
+      "Durable, Easy-to-Clean Coating: The vinyl finish is built for extended durability and comfort, and wipes clean to keep your dumbbells looking sharp through daily use.",
+      "Sold Individually: Fill in the gaps in a set you already own, or build a full color-coded rack one weight at a time.",
+      "Rack-Ready: Compatible with YORK's Fitbell Racks (SKU 69031 / 69032) for organized, space-saving storage."
+    ],
+    "specs": [
+      "Available individually in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, and 15 lb weights",
+      "Hex-shaped head with a durable vinyl coating",
+      "Color-coded by weight (colors may vary from stock image)",
+      "Compatible with YORK Fitbell Racks (SKU 69031 / 69032)",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "Not every piece of home-gym equipment needs to be complicated to be effective. Sometimes the right dumbbell is simply the right weight, ready when you reach for it. YORK Vinyl Fitbells pair a durable, comfortable vinyl coating with a hex-shaped head that won't roll away between sets, and every weight is finished in its own bright color so you can find the right one at a glance. Sold individually, they're an easy way to round out a set you already own or start building a color-coded rack from scratch.",
+    "highlights": [
+      {
+        "title": "Color-Coded by Weight",
+        "body": "Every YORK Vinyl Fitbell weight is finished in its own bright vinyl color, so you (and everyone else training in the room) can find the right dumbbell without reading the fine print."
+      }
+    ],
     "variants": {
       "type": "quantity"
     },
