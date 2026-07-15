@@ -41,7 +41,7 @@ page rather than injected, so each file is self-contained.
 | **Home** | `homepage.html` |
 | **Collection landings** | `beginners-collection.html`, `muscle-maintenance.html`, `longevity-collection.html` |
 | **Product listing (PLP)** | `plp-equipment.html`, `plp-racks-benches.html`, `plp-bars-weights.html`, `plp-cardio-conditioning.html`, `plp-accessories.html`, `plp-storage.html` |
-| **Product detail (PDP)** | `product-package.html`, `product-single.html`, `product-generic.html` |
+| **Product detail (PDP)** | **23 per-product pages, generated** — one `<slug>.html` per product (e.g. `york-fitness-bench.html`, `plyo-package.html`). See "Product data & the PDP generator" below. `product-single.html` / `product-generic.html` / `product-package.html` remain as the three base layouts and as landing pages for not-yet-wired PLP cards. |
 | **Search** | `search-results.html`, `search-empty.html` |
 | **Content** | `about.html`, `contact.html`, `blog.html` |
 | **Policy** | `returns-refunds.html`, `shipping.html`, `warranty.html` |
@@ -73,16 +73,65 @@ js/
   pdp.js              PDP gallery + variant picker (PDP pages only)
   router.js           LEGACY — hash section-router from the original single-file
                       prototype. Commented out in markup; kept for reference only.
+  pdp.js              PDP gallery + variant picker (PDP pages only)
 assets/
   images/             Page imagery, foldered by area: home/ mega/ collections/
-                      plp/ pdp/ about/
+                      plp/ pdp/ about/ products/<slug>/ (per-product photos)
   icons/              Shared SVG/PNG icons (logo, cart, account)
+
+data/
+  products.json       The 23 products — single source of truth (copy, price,
+                      image paths, template). Edit here, then re-run the generator.
+templates/
+  partials.js         Shared chrome (head, nav/mega-menu, footer, modals)
+  single.js  generic.js  package.js   the three PDP layouts (render functions)
+  shared.js  index.js   shared buy-box helpers + the template dispatcher
+tools/
+  build-products.mjs  data/products.json → 23 <slug>.html  (npm run build)
+  verify.mjs          link / token / asset checks           (npm run verify)
+  rewire-links.mjs    retarget nav/card links to real PDPs  (npm run rewire)
+test/                 node --test unit tests for the above  (npm test)
 ```
 
 **CSS load order matters:** `tokens → base → components → chrome → pages`.
 Page-scoped rules in `pages.css` intentionally out-specify the generic component
 rules. (One consolidated card-hover block lives at the very *end* of `pages.css`
 for exactly this specificity reason — it's commented in place.)
+
+## Product data & the PDP generator
+
+The 23 product-detail pages are **generated**, not hand-written. `data/products.json`
+is the single source of truth (each product's copy, price, image paths, and which of
+the three layouts it uses); a small zero-dependency Node script renders each product
+through `templates/` and writes a standalone `<slug>.html` to the repo root.
+
+```bash
+npm run build     # data/products.json + templates → 23 <slug>.html
+npm run verify    # checks every internal link/asset resolves, no leftover tokens
+npm test          # node --test unit tests (no third-party deps)
+npm run rewire    # retarget nav/card product links to the real <slug>.html
+```
+
+**This does NOT add a build step to the site.** The generated `<slug>.html` files are
+committed and served as plain static HTML exactly like every other page — `npm run`
+is only for regenerating them when the data or a template changes. There are **no
+runtime dependencies**; `node_modules/` is only present if you run the dev scripts.
+
+> **Do not hand-edit the generated `<slug>.html` files** — they carry a
+> `<!-- GENERATED … do not edit by hand -->` banner and are overwritten on the next
+> `npm run build`. To change a product, edit `data/products.json` (or a `templates/`
+> file for structural changes) and re-run the generator.
+
+**Known scope notes for the next pass:**
+- **Variant selectors (Phase 2):** ~6 products have real variant pickers in the Figma
+  comps (weight matrix, tier/package selectors, set-vs-individual, accessories). Phase 1
+  ships them with the quantity stepper; the custom selectors + `js/pdp.js` come next.
+- **PLP/collection card grids** still contain placeholder cards and out-of-scope products
+  that link to the three base templates (kept as landing pages). Wiring those grids to
+  real products is a separate PLP pass; `npm run verify` reports them as non-failing
+  warnings.
+- **Prices** are from the live yorkbarbell.com listings (each product's
+  `price.sourceUrl` records where). Variable products show the lowest "from" variant.
 
 ## Interactions worth clicking through
 
@@ -112,6 +161,7 @@ This prototype is front-end only. To productionize:
 - **Search** results are placeholder content — wire to a real search backend
 - **Forms** (contact, newsletter) don't submit anywhere
 - **PLP filters/sorting** are static — wire to the product database
-- **Product data** (prices, variants, inventory) is hardcoded in the markup
+- **Product data** for the 23 PDPs lives in `data/products.json` (see "Product data &
+  the PDP generator"); PLP/collection card data is still hardcoded in that markup
 - Chrome (header/footer) is **duplicated per page** — in production this should
   become a shared include/component/partial
