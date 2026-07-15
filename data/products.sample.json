@@ -1,0 +1,14 @@
+[{
+  "slug": "sample-bench", "name": "Sample Bench", "template": "single",
+  "category": "racks-benches", "categoryLabel": "Racks & Benches", "figmaFrame": "0:0",
+  "price": { "current": 104.00, "compareAt": 160.00, "sourceUrl": "" },
+  "shortDescription": "<p>A sample bench for tests.</p>",
+  "keyFeatures": ["Adjustable", "Durable"],
+  "specs": ["Weight 38 lb", "Dimensions 44 × 17 × 9"],
+  "detailsBody": "Longer marketing paragraph.",
+  "highlights": [{ "title": "Adjustable", "body": "Flat to incline." }],
+  "variants": { "type": "quantity" },
+  "relatedSlugs": [], "addOns": [],
+  "images": { "gallery": ["assets/images/products/sample-bench/gallery-1.jpg", "assets/images/products/sample-bench/gallery-2.jpg", "assets/images/products/sample-bench/gallery-3.jpg"], "editorial": "assets/images/products/sample-bench/editorial.jpg" },
+  "copySource": "sheet", "imageSource": "figma"
+}]
