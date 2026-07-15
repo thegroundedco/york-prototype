@@ -11,7 +11,7 @@
 // task brief.
 import { renderHead, renderBodyOpen, renderFooter, renderGalleryModal, renderSpecsModal, renderScripts } from './partials.js';
 import { escapeHtml } from '../lib/parse.js';
-import { priceRow, galleryHtml, breadcrumbHtml, recCardHtml, recsSectionHtml } from './shared.js';
+import { priceRow, galleryHtml, breadcrumbHtml, quantityHtml, accordionHtml, recCardHtml, recsSectionHtml } from './shared.js';
 
 // Featured-products carousel: full-bleed slides + dots, one pair per image, mirroring
 // the slide/dot pattern in partials.js's renderGalleryModal but with the
@@ -75,45 +75,11 @@ ${breadcrumbHtml(p)}
             </button>
           </div>
 
-          <!-- Quantity -->
-          <div class="pdp__quantity">
-            <label class="pdp__quantity-label" for="pdp-qty">Quantity</label>
-            <div class="pdp__quantity-input">
-              <button type="button" class="pdp__quantity-btn" data-qty-decrement aria-label="Decrease quantity">–</button>
-              <input id="pdp-qty" class="pdp__quantity-value" type="text" inputmode="numeric" value="1" data-qty-value aria-live="polite">
-              <button type="button" class="pdp__quantity-btn" data-qty-increment aria-label="Increase quantity">+</button>
-            </div>
-          </div>
+${quantityHtml()}
 
           <button type="button" class="btn btn--primary pdp__cta">Add To Cart</button>
 
-          <!-- Accordion: Description + Shipping & Returns inline expand; Features & Specs opens side modal -->
-          <div class="pdp__accordion">
-            <details class="pdp__acc-entry" id="description">
-              <summary class="pdp__acc-summary">
-                <span>Description</span>
-                <span class="pdp__acc-icon" aria-hidden="true"></span>
-              </summary>
-              <div class="pdp__acc-body">
-                <p class="body-md">${escapeHtml(p.detailsBody)}</p>
-              </div>
-            </details>
-            <button type="button" class="pdp__acc-entry pdp__acc-entry--button" data-modal="features-specs" id="features-specs">
-              <span class="pdp__acc-summary">
-                <span>Features &amp; Specs</span>
-                <span class="pdp__acc-icon" aria-hidden="true"></span>
-              </span>
-            </button>
-            <details class="pdp__acc-entry">
-              <summary class="pdp__acc-summary">
-                <span>Shipping &amp; Returns</span>
-                <span class="pdp__acc-icon" aria-hidden="true"></span>
-              </summary>
-              <div class="pdp__acc-body">
-                <p class="body-md">Freight shipping included. Carrier will schedule a delivery appointment 24 hours in advance. Returns accepted within 30 days. See our <a href="shipping.html">shipping</a> and <a href="returns-refunds.html">returns</a> pages for details.</p>
-              </div>
-            </details>
-          </div>
+${accordionHtml(p)}
 
         </div>
 

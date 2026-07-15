@@ -88,6 +88,55 @@ export function recCardHtml(slug) {
         </article>`;
 }
 
+// Static quantity stepper, shared verbatim by the Single and Generic buy boxes. Kept a
+// standalone export (not baked into any larger buy-box helper) because the Package
+// template deliberately does NOT show a quantity control.
+export function quantityHtml() {
+  return `          <!-- Quantity -->
+          <div class="pdp__quantity">
+            <label class="pdp__quantity-label" for="pdp-qty">Quantity</label>
+            <div class="pdp__quantity-input">
+              <button type="button" class="pdp__quantity-btn" data-qty-decrement aria-label="Decrease quantity">–</button>
+              <input id="pdp-qty" class="pdp__quantity-value" type="text" inputmode="numeric" value="1" data-qty-value aria-live="polite">
+              <button type="button" class="pdp__quantity-btn" data-qty-increment aria-label="Increase quantity">+</button>
+            </div>
+          </div>`;
+}
+
+// Buy-box accordion (Description / Features & Specs modal-trigger / Shipping & Returns),
+// shared verbatim by the Single and Generic buy boxes. Only the Description body varies
+// per product (escapeHtml(p.detailsBody)); the Features & Specs trigger and the static
+// Shipping & Returns copy are identical everywhere.
+export function accordionHtml(p) {
+  return `          <!-- Accordion: Description + Shipping & Returns inline expand; Features & Specs opens side modal -->
+          <div class="pdp__accordion">
+            <details class="pdp__acc-entry" id="description">
+              <summary class="pdp__acc-summary">
+                <span>Description</span>
+                <span class="pdp__acc-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="pdp__acc-body">
+                <p class="body-md">${escapeHtml(p.detailsBody)}</p>
+              </div>
+            </details>
+            <button type="button" class="pdp__acc-entry pdp__acc-entry--button" data-modal="features-specs" id="features-specs">
+              <span class="pdp__acc-summary">
+                <span>Features &amp; Specs</span>
+                <span class="pdp__acc-icon" aria-hidden="true"></span>
+              </span>
+            </button>
+            <details class="pdp__acc-entry">
+              <summary class="pdp__acc-summary">
+                <span>Shipping &amp; Returns</span>
+                <span class="pdp__acc-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="pdp__acc-body">
+                <p class="body-md">Freight shipping included. Carrier will schedule a delivery appointment 24 hours in advance. Returns accepted within 30 days. See our <a href="shipping.html">shipping</a> and <a href="returns-refunds.html">returns</a> pages for details.</p>
+              </div>
+            </details>
+          </div>`;
+}
+
 // "You May Also Like" — 4-card recommended row + Shop All link. product-generic.html
 // ships this section with the literal comment "same 4-card row + Shop All used by
 // single PDP" — it is byte-identical markup to the Single layout's recs section, so it
