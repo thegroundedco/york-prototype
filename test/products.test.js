@@ -35,6 +35,19 @@ test('loadProducts reads the sample fixture', () => {
   assert.equal(validateProduct(list[0]).length, 0);
 });
 
+test('missing category, non-array specs are reported', () => {
+  const errs = validateProduct({ ...valid, category: '', specs: undefined });
+  assert.ok(errs.some((e) => e.includes('category')), 'category');
+  assert.ok(errs.some((e) => e.includes('specs')), 'specs');
+});
+
+test('generic/package require images.editorial; single does not', () => {
+  const noEd = { images: { gallery: ['a', 'b', 'c'], editorial: '' } };
+  assert.ok(validateProduct({ ...valid, template: 'generic', ...noEd }).some((e) => e.includes('editorial')));
+  assert.ok(validateProduct({ ...valid, template: 'package', ...noEd }).some((e) => e.includes('editorial')));
+  assert.deepEqual(validateProduct({ ...valid, template: 'single', ...noEd }), []); // single uses a fixed asset
+});
+
 test('non-array relatedSlugs is reported, not thrown', () => {
   let errs;
   assert.doesNotThrow(() => { errs = validateProduct({ ...valid, relatedSlugs: 'oops' }); });

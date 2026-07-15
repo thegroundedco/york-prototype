@@ -13,11 +13,20 @@ test('verify flags a broken local link and a leftover token', () => {
   assert.ok(errors.some((e) => e.includes('token')));
 });
 
-test('verify flags a link to a retired template', () => {
+test('verify flags a link to a MISSING retired template as an error', () => {
   const dir = mkdtempSync(join(tmpdir(), 'york-v-'));
   writeFileSync(join(dir, 'a.html'), '<a href="product-generic.html">x</a>');
   const { errors } = verify(dir);
   assert.ok(errors.some((e) => e.includes('product-generic.html')));
+});
+
+test('verify warns (not errors) on a link to a KEPT retired template', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'york-v-'));
+  writeFileSync(join(dir, 'product-generic.html'), '<p>kept template</p>');
+  writeFileSync(join(dir, 'a.html'), '<a href="product-generic.html">x</a>');
+  const { errors, warnings } = verify(dir);
+  assert.deepEqual(errors, []);
+  assert.ok(warnings.some((w) => w.includes('product-generic.html') && w.includes('deferred')));
 });
 
 test('verify passes a clean file', () => {
