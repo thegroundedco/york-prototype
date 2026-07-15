@@ -34,3 +34,27 @@ test('add-ons section omitted when empty', () => {
   const html = renderSingle({ ...p, addOns: [] });
   assert.doesNotMatch(html, /Select Popular Add Ons/);
 });
+
+test('related slugs render as secondary + rec cards with humanized titles and slug links', () => {
+  // The sample fixture ships relatedSlugs: [] — with no populated fixture, the
+  // secondaryCardHtml/recCardHtml/humanizeSlug paths (and thus the whole related-card
+  // surface Task 15 builds on) never execute in any other test. Cover them here.
+  const html = renderSingle({ ...p, relatedSlugs: ['york-r-350-rower', 'fts-power-cage'] });
+  // rec-row link + humanized title (assert the exact humanizeSlug output)
+  assert.match(html, /<a class="pdp-single__rec-title-link" href="york-r-350-rower\.html">York R 350 Rower<\/a>/);
+  assert.match(html, /<a class="pdp-single__rec-title-link" href="fts-power-cage\.html">Fts Power Cage<\/a>/);
+  // secondary product card link + humanized title
+  assert.match(html, /<h3 class="pdp-single__product-title"><a href="york-r-350-rower\.html">York R 350 Rower<\/a><\/h3>/);
+});
+
+test('null price renders Price TBD and no compareAt strikethrough', () => {
+  const html = renderSingle({ ...p, price: null });
+  assert.match(html, /Price TBD/);
+  assert.doesNotMatch(html, /pdp__price-original/);
+});
+
+test('price with current but no compareAt renders a single price, no strikethrough', () => {
+  const html = renderSingle({ ...p, price: { current: 89, compareAt: null, sourceUrl: '' } });
+  assert.match(html, /<span class="pdp__price-current">\$89\.00<\/span>/);
+  assert.doesNotMatch(html, /pdp__price-original/);
+});
