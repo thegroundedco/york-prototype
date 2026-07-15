@@ -12,6 +12,7 @@ test('splitBullets strips markers and drops empties', () => {
   const raw = '* Adjustable Backrest – flat to 90°. * Built-In Storage – three rungs. ';
   assert.deepEqual(splitBullets(raw), ['Adjustable Backrest – flat to 90°.', 'Built-In Storage – three rungs.']);
   assert.deepEqual(splitBullets('- one\n- two\n'), ['one', 'two']);
+  assert.deepEqual(splitBullets('• Adjustable\n• Durable'), ['Adjustable', 'Durable']);
 });
 
 test('splitSpecs splits on newline and " - " without label parsing', () => {
