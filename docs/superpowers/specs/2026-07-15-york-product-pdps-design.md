@@ -351,14 +351,21 @@ is a fixed pack of 4; Vinyl Fitbell is the drafted-copy product, confirm with Ga
   and 390 (mobile) as part of the manual gate. This is net-new responsive work, not a
   re-run of the existing sweep.
 
-### Scope honesty
+### Staging (DECIDED)
 
 Five custom variant components, each appearing on only 1–2 products, is the single
-largest chunk of genuinely new UI in this project. Everything else is data-filling. If
-this needs to be staged, the natural cut line is: ship all 23 pages with the `quantity`
-default first, then layer in the five custom selectors — the 16 quantity-only products
-are correct either way, and the 6 custom ones are visibly "quantity for now" until their
-selector lands.
+largest chunk of genuinely new UI in this project. Everything else is data-filling.
+
+**The build is staged in two phases, in this order:**
+
+1. **Phase 1 — all 23 pages, `quantity` default.** Generator, data, images, prices,
+   link wiring, verification, README. Every product ships as a complete, correct page;
+   the ~6 custom-variant products carry the quantity stepper as a visible interim.
+2. **Phase 2 — the five custom variant selectors.** Weight-selector, tier-selector,
+   package-selector, set-or-individual, accessories — plus the `js/pdp.js` interactivity
+   and their 1440/390 responsive checks. Swapped into the ~6 affected products only.
+
+The 16 quantity-only products are correct after Phase 1 and untouched by Phase 2.
 
 ---
 
