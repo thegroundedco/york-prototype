@@ -53,7 +53,7 @@ export function galleryHtml(images) {
 
 // Breadcrumb nav shared by every PDP layout: Home / category / product name.
 export function breadcrumbHtml(p) {
-  const categoryHref = `${p.category}-collection.html`;
+  const categoryHref = `plp-${p.category}.html`;
   return `          <nav class="pdp__breadcrumbs" aria-label="Breadcrumb">
             <ol role="list">
               <li><a href="homepage.html">Home</a></li>

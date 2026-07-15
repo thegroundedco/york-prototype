@@ -2,7 +2,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadProducts, validateProduct } from '../lib/products.js';
-import { renderProduct } from '../templates/index.js';
+import { renderProduct, withRelatedFallback } from '../templates/index.js';
 
 export function buildAll(products, outDir) {
   const written = [];
@@ -12,7 +12,7 @@ export function buildAll(products, outDir) {
     const errs = validateProduct(p);
     if (errs.length) { errors.push(`${p.slug || '(no slug)'}: ${errs.join('; ')}`); continue; }
     try {
-      const html = renderProduct(p);
+      const html = renderProduct(withRelatedFallback(p, products));
       if (html.includes('{{')) { errors.push(`${p.slug}: leftover {{token}} in output`); continue; }
       const file = join(outDir, `${p.slug}.html`);
       writeFileSync(file, html, 'utf8');
