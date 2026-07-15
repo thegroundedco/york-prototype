@@ -1,0 +1,937 @@
+[
+  {
+    "slug": "york-fitness-bench",
+    "name": "YORK Fitness Bench",
+    "template": "single",
+    "category": "racks-benches",
+    "categoryLabel": "Racks & Benches",
+    "figmaFrame": "3020:26932",
+    "price": null,
+    "shortDescription": "<p>The YORK Fitness Bench is the foundation of a stronger home gym. With multiple incline positions, built-in dumbbell storage, and a sturdy, space-conscious design, it’s perfect for beginners, anyone pursuing weight loss, or anyone building strength to stay active for years to come.</p>",
+    "keyFeatures": [
+      "Adjustable Backrest – Quickly changes from flat to a full 90° incline for a wide variety of upper-body and core exercises.",
+      "Built-In Dumbbell Storage – Three integrated storage rungs keep your YORK Fitbells organized and within easy reach.",
+      "Compact & Durable Design – Lightweight enough to reposition with ease while providing a stable platform for every workout.",
+      "Versatile Strength Training – Ideal for presses, rows, shoulder exercises, core work, and full-body dumbbell workouts."
+    ],
+    "specs": [
+      "MSRP/MAP $160.00",
+      "Selling Price $104.00",
+      "Shipping Avg 63.22",
+      "Selling + shipping $167.22",
+      "Weight 38 lb",
+      "Shipping Dimensions 44 × 17 × 9. HSA Eligible"
+    ],
+    "detailsBody": "Whether you’re just beginning your fitness journey or upgrading your home gym, the YORK Fitness Bench gives you the versatility to perform dozens of effective strength-training exercises with confidence. The adjustable backrest lets you move seamlessly between incline, flat and decline positions, helping you target more muscle groups while keeping your workouts fresh and challenging. Integrated YORK Fitbell storage keeps your workout area organized and your weights within arm’s reach, so you spend less time setting up and more time training. Built with YORK’s trusted durability, this bench is designed to support years of consistent workouts that build strength, improve everyday movement, and help you maintain an active lifestyle.",
+    "highlights": [
+      {
+        "title": "Decline-to-Incline Adjustability",
+        "body": "Easily switch from decline to flat and all the way to a 90° incline for greater exercise variety and more effective strength training."
+      },
+      {
+        "title": "Integrated Dumbbell Storage",
+        "body": "Three built-in storage rungs keep your YORK Fitbells organized, accessible, and your workout space clutter-free."
+      }
+    ],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "fts-power-cage",
+    "name": "FTS Power Cage",
+    "template": "single",
+    "category": "racks-benches",
+    "categoryLabel": "Racks & Benches",
+    "figmaFrame": "3018:25832",
+    "price": null,
+    "shortDescription": "<p>The YORK FT Power Cage is the centerpiece of a safe, versatile home gym built to grow with your strength. Whether you’re learning your first squat, chasing new personal records, or training to stay strong and active for years to come, this versatile cage gives you the confidence to lift safely and the freedom to expand your setup over time.</p>",
+    "keyFeatures": [
+      "Train Safely on Your Own – Adjustable safety spotters and J-hooks let you lift with confidence, even without a training partner.",
+      "Versatile Strength Training – Perform squats, bench presses, overhead presses, pull-ups, rack pulls, and more in one compact station.",
+      "Expandable Design – Compatible with optional Hi/Low Pulley, Weight Stack, and Plate Storage attachments to grow with your training goals.",
+      "Built to Last – Heavy-duty steel construction provides the stability and durability for years of dependable workouts."
+    ],
+    "specs": [
+      "Material: 12 gauge steel",
+      "Assembled Dimensions: (H) 80” x (W) 50” x (D) 54 ½”",
+      "Weight Capacity: 500 lbs",
+      "Boxed Dimensions: 79″ x 38″ x 11″",
+      "Weight: 280 lbs. HSA/FSA eligible"
+    ],
+    "detailsBody": "Whether you’re building your first home gym or upgrading the one you’ve trained in for years, the YORK FT Power Cage provides everything you need to lift with confidence. Adjustable safety spotters and multiple bar positions allow you to push yourself while supporting proper lifting technique. The integrated pull-up bar adds bodyweight training, while optional accessories—including the Hi/Low Pulley, Weight Stack Conversion, and Plate Storage Attachment—let you transform your cage into a complete strength-training station as your fitness journey evolves. Built with the durability that has made YORK a trusted name in strength equipment for generations, it’s designed to support every stage of your strength journey.",
+    "highlights": [
+      {
+        "title": "Lift Safely with Confidence",
+        "body": "Adjustable safety spotters and J-hooks let you train hard, even when you’re lifting alone."
+      },
+      {
+        "title": "Integrated Pull-Up Station",
+        "body": "Perform wide-grip, narrow-grip, and neutral-grip pull-ups, plus advanced bodyweight movements like muscle-ups and front levers."
+      }
+    ],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma",
+    "externalLinks": []
+  },
+  {
+    "slug": "york-aspire-366-stationary-bike",
+    "name": "YORK Aspire 366 Stationary Bike",
+    "template": "single",
+    "category": "cardio-conditioning",
+    "categoryLabel": "Cardio & Conditioning",
+    "figmaFrame": "3020:27542",
+    "price": null,
+    "shortDescription": "<p>Bring studio-quality cycling into your home with the YORK Aspire 366 Stationary Bike. Featuring smooth magnetic resistance, a comfortable adjustable fit, and a quiet ride, it’s perfect for beginners, calorie-burning cardio, steady endurance rides, and high-intensity interval (HIIT) workouts that help you build strength and improve cardiovascular health.</p>",
+    "keyFeatures": [
+      "Smooth Magnetic Resistance – Easily adjust workout intensity with quiet magnetic tension control and a quick-stop brake for safe, controlled rides.",
+      "Ride with Any Workout App – Convenient phone and tablet holder keeps your favorite classes, music, or entertainment right in front of you.",
+      "No Cycling Shoes Required – Non-slip toe-cage pedals provide a secure, comfortable ride using your favorite athletic shoes.",
+      "Comfortable, Low-Impact Cardio – Fully adjustable seat and handlebars with no-slip grip create a personalized fit for efficient, joint-friendly workouts."
+    ],
+    "specs": [
+      "User Weight Capacity 275Lbs",
+      "Resistance 16kg / 35lb Flywheel",
+      "Shipping Weight 104 lbs",
+      "Shipping Dimensions 43 × 9 × 33 in"
+    ],
+    "detailsBody": "Whether you’re beginning your fitness journey, working toward weight-loss goals, or looking for a convenient way to stay active, the YORK Aspire Stationary Bike makes every ride enjoyable and effective. Quiet magnetic resistance lets you seamlessly transition from steady endurance rides to challenging HIIT intervals, while the quick-stop brake gives you added control and peace of mind. The integrated device holder lets you follow virtual cycling classes, stream workouts, or enjoy your favorite entertainment, and the built-in water bottle holder keeps hydration within easy reach. Non-slip toe-cage pedals eliminate the need for cycling shoes, making it easy for anyone to hop on, ride, and build healthier habits from the comfort of home.",
+    "highlights": [
+      {
+        "title": "Studio-Style Rides Without the Membership",
+        "body": "Quiet magnetic resistance delivers smooth, low-impact cardio that’s ideal for endurance rides, HIIT workouts, and everyday fitness."
+      },
+      {
+        "title": "Integrated Device Holder",
+        "body": "Securely holds your phone or tablet so you can follow cycling classes, stream entertainment, or track your workouts hands-free."
+      }
+    ],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "york-r-350-rower",
+    "name": "York R-350 Rower",
+    "template": "single",
+    "category": "cardio-conditioning",
+    "categoryLabel": "Cardio & Conditioning",
+    "figmaFrame": "3020:28687",
+    "price": null,
+    "shortDescription": "<p>The YORK R-350 Rower combines low-impact cardio with full-body strength training to deliver one of the most effective workouts you can do at home. Whether you’re building strength for the first time, improving endurance, or staying active for years to come, every stroke helps you move stronger, feel healthier, and live better.</p>",
+    "keyFeatures": [
+      "Full-Body, Low-Impact Workout – Strengthen your legs, core, back, and arms while improving cardiovascular fitness with minimal stress on your joints.",
+      "Smooth Air Resistance – Fan-based flywheel naturally responds to your rowing effort, making every workout feel smooth, realistic, and scalable from beginner sessions to HIIT training.",
+      "Consistent, Comfortable Stroke – Stainless steel track delivers a smooth, natural glide for comfortable, efficient rowing every time.",
+      "Easy to Store & Built to Last – Durable construction and a space-conscious design make it a reliable addition to any home gym."
+    ],
+    "specs": [
+      "HSA/FSA Eligible Stainless Steel Track",
+      "Fan Based Flywheel",
+      "Shipping Weight 79 lbs",
+      "Shipping Dimensions 57 × 15 × 22 in",
+      "Nickel Plated Steel Chain",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "Whether you’re beginning your fitness journey, training for weight loss, or investing in your long-term strength and health, the YORK R-350 Rower delivers one of the most effective total-body workouts available. The responsive fan-based flywheel and stainless steel track work together to create a smooth, natural rowing experience that adapts to your effort, making it ideal for everything from recovery sessions to high-intensity interval training. Every stroke engages nearly every major muscle group while building cardiovascular endurance, improving posture, and strengthening your core—all with minimal impact on your joints. Built with YORK’s trusted durability, the R-350 is designed to help you stay stronger, healthier, and more active for years to come.",
+    "highlights": [
+      {
+        "title": "One Machine. Total-Body Results.",
+        "body": "Engage nearly every major muscle group while building strength, endurance, and cardiovascular fitness with every stroke."
+      },
+      {
+        "title": "Low Impact. High Performance.",
+        "body": "Adjustable air resistance delivers smooth, joint-friendly workouts that grow with your fitness level, from beginner sessions to challenging HIIT training."
+      }
+    ],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "york-fb-300-fan-bike",
+    "name": "York FB-300 Fan Bike",
+    "template": "single",
+    "category": "cardio-conditioning",
+    "categoryLabel": "Cardio & Conditioning",
+    "figmaFrame": "3020:28124",
+    "price": null,
+    "shortDescription": "<p>The YORK FB300 Fan Bike combines full-body strength and high-intensity cardio in one powerful machine. Whether you’re building your fitness, accelerating weight-loss goals, or maintaining the strength and conditioning to stay active for life, the self-regulating air resistance delivers a workout that grows with every effort.</p>",
+    "keyFeatures": [
+      "Full-Body Conditioning: Dual-action handlebars engage both your upper and lower body to maximize calorie burn while building strength and endurance.",
+      "Unlimited Air Resistance: Front-mounted fan automatically increases resistance the harder you push, making every ride as challenging as you want it to be.",
+      "Perfect for HIIT & Endurance: Ideal for interval training, conditioning workouts, warm-ups, or longer steady-state cardio sessions.",
+      "Comfortable, Adjustable Fit : Adjustable seat allows riders of different heights to find a comfortable and efficient riding position."
+    ],
+    "specs": [
+      "HSA/FSA Eligible",
+      "Shipping Weight 151 lbs",
+      "Shipping Dimensions 49 × 46 × 11 in",
+      "Footprint 48 x 28.5 x 51 in"
+    ],
+    "detailsBody": "From quick 10-minute conditioning sessions to challenging HIIT workouts, the YORK FB300 Fan Bike is designed to help you build strength, improve endurance, and increase cardiovascular fitness. Unlike traditional exercise bikes, the dual-action design trains both your arms and legs simultaneously, giving you an efficient full-body workout that burns more calories in less time. The self-regulating air resistance responds instantly to your effort, so every ride naturally adapts to your fitness level—whether you’re just getting started or pushing for your next personal best. Built with the durability and performance YORK is known for, the FB300 helps you train harder today while building the strength and conditioning to keep moving for years to come.",
+    "highlights": [
+      {
+        "title": "The Harder You Push, the More You Get Back",
+        "body": "Air resistance automatically matches your effort, creating limitless workout intensity without complicated settings."
+      },
+      {
+        "title": "Strength Meets Conditioning",
+        "body": "Train your upper and lower body at the same time to build power, endurance, and cardiovascular fitness in every session."
+      }
+    ],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "fts-flat-to-incline-utility-bench",
+    "name": "FTS Flat-to-Incline Utility Bench",
+    "template": "single",
+    "category": "racks-benches",
+    "categoryLabel": "Racks & Benches",
+    "figmaFrame": "NONE",
+    "price": null,
+    "shortDescription": "<p>Your home gym should be built around equipment you look forward to using. The YORK Flat-to-Incline Adjustable Utility Bench delivers premium comfort, fast adjustments, and exceptional stability that transform everyday workouts into a better lifting experience. Because investing in your strength means investing in equipment you’ll enjoy day after day, year after year.</p>",
+    "keyFeatures": [
+      "Adjust in Seconds: Easily move from flat to multiple incline positions inthe backrest and seat with a fast, secure adjustment system, so you spend less time changing settings and more time training.",
+      "Rock-Solid Stability: Heavy-duty steel construction and a wide base create a stable lifting platform that inspires confidence during everything from dumbbell presses to heavy strength workouts.",
+      "Built for Every Upper-Body Workout: Flat, incline, and upright positions let you target your chest, shoulders, back, arms, and core with dozens of effective exercises.",
+      "Premium Comfort & Support: Adjustable seat and high-density padding provide the comfort and support needed to maintain proper positioning through every rep."
+    ],
+    "specs": [
+      "HSA/FSA",
+      "Bench dimensions: (L) 47” x (W) 24” x (H) 19”",
+      "Adjustable back pad moves from flat to incline to full upright positions.",
+      "Positions: 0, 15, 30, 45, 60, 85 and 90 degrees",
+      "Lower seat pad adjusts upward for incline positions.",
+      "White Frame / Black Upholstery",
+      "Weight Capacity: 500 LB",
+      "Unit Weight: 66 LB",
+      "Shipping Dimensions: 41\" x 22\" x 7\""
+    ],
+    "detailsBody": "A great adjustable bench doesn’t just give you more positions, it makes every workout feel smoother, more comfortable, and more efficient. The YORK FTS Adjustable Utility Bench features quick, secure adjustments that let you transition effortlessly between exercises, helping you maintain your workout rhythm instead of stopping to wrestle with your equipment. Its heavy-duty construction provides exceptional stability for pressing, rowing, shoulder work, and countless other strength exercises, while the adjustable seat and back pad help you maintain proper lifting position. Whether you’re building muscle, improving functional strength, or investing in lifelong fitness, this is the kind of bench you’ll appreciate every time you train.",
+    "highlights": [
+      {
+        "title": "Custom-Fit in Seconds",
+        "body": "Fine-tune both the seat and backrest to create a customized lifting position that feels secure, comfortable, and optimized for every exercise in your routine."
+      },
+      {
+        "title": "Rock-Solid Stability.",
+        "body": "Heavy-duty construction and high density padding minimize movement and wobble, creating a stable platform that helps you lift with greater confidence and focus."
+      }
+    ],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "yorkbarbell.com"
+  },
+  {
+    "slug": "floor-guards-pack-of-4",
+    "name": "Floor Guards — Pack of 4",
+    "template": "generic",
+    "category": "accessories",
+    "categoryLabel": "Accessories",
+    "figmaFrame": "3017:19081",
+    "price": null,
+    "shortDescription": "<p>Build your home gym with confidence from the ground up. YORK Floorguard Tiles help protect your floors, reduce noise, and create a comfortable, professional-looking workout space that inspires you to train. Whether you’re lifting weights, performing HIIT workouts, or stretching after a workout, they’re the foundation for a stronger home gym.</p>",
+    "keyFeatures": [
+      "Protect Your Floors & Equipment: High-density rubber tiles create a durable barrier that helps absorb impact from weights and equipment while protecting your floors from everyday wear.",
+      "A More Comfortable Training Surface: The cushioned rubber surface provides a more comfortable place to stand, lift, stretch, and train while helping reduce workout noise and vibration.",
+      "Build Your Gym Your Way: Interlocking tiles make it easy to start with a small workout area and expand your flooring as your home gym grows."
+    ],
+    "specs": [
+      "Tile Size 24” x 24” (61 x 61 cm)",
+      "Thickness 12 mm (approx. 0.47”)",
+      "Material: High-density non skid foam flooring tiles",
+      "Package Includes 4 interlocking tiles with edging pieces",
+      "Approximately 16 sq. ft. per pack",
+      "Shipping Weight 10 lbs",
+      "Shipping Dimensions 26 × 26 × 2 in",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "A great home gym starts from the ground up. YORK Floorguard Tiles help transform almost any room, garage, or basement into a dedicated training space by protecting your floors, reducing noise, and creating a more comfortable surface for every workout. Whether you’re lifting heavy, jumping, stretching, or simply standing between sets, the durable rubber construction helps absorb impact while giving your gym a clean, finished appearance. The interlocking tiles allow you to start with a small workout area or cover your entire training space. It is it easy to expand as your equipment, goals, and home gym continue to grow.",
+    "highlights": [
+      {
+        "title": "Protect Your Floors & Equipment",
+        "body": "High-density foam tiles create a durable barrier that helps absorb impact from weights and equipment while protecting your floors from everyday wear."
+      },
+      {
+        "title": "Build Your Gym Your Way",
+        "body": "Interlocking, modular tiles with removable edging make it easy to start with a small workout area and expand your flooring as your home gym grows."
+      }
+    ],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "york-yoga-mat",
+    "name": "YORK Yoga Mat – Red/Gray",
+    "template": "generic",
+    "category": "accessories",
+    "categoryLabel": "Accessories",
+    "figmaFrame": "3017:18463",
+    "price": null,
+    "shortDescription": "<p>Designed for more than yoga, the YORK Yoga Mat is a comfortable, supportive foundation for every stage of your workout. Whether you’re warming up for a strength workout, improving mobility, building core stability, or recovering after training, it provides the comfort and support you need to keep moving well for years to come.</p>",
+    "keyFeatures": [
+      "Comfortable Joint Support: High-density foam cushions your hands, knees, elbows, and back for greater comfort during floor exercises.",
+      "Slip-Resistant Surface: Textured top helps provide stability and confidence during yoga, stretching, and strength workouts.",
+      "Easy to Clean: Durable, wipe-clean surface helps reduce bacteria buildup and keeps your mat fresh workout after workout.",
+      "Versatile Home Fitness Essential: Perfect for yoga, mobility work, stretching, core exercises, resistance training, and post-workout recovery."
+    ],
+    "specs": [
+      "HSA/FSA Eligible. Color reversible Red/Grey",
+      "Shipping Weight 2 lbs",
+      "Shipping Dimensions 24 × 10 × 10 in",
+      "Footprint 24 x 12 x 12 in",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "Strength begins long before your first lift and continues long after your last rep. The YORK Yoga Mat creates a soft, supportive surface for everything from pre-workout mobility drills to post-workout stretching, yoga sessions, and bodyweight exercises. Its high-density foam helps reduce pressure on your joints, while the slip-resistant, easy-to-clean surface keeps you comfortable and focused throughout every workout. Whether you’re building strength, improving flexibility, or maintaining the mobility to stay active for years to come, this is a simple tool that supports every stage of your fitness journey.",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "battle-rope",
+    "name": "Battle Rope",
+    "template": "generic",
+    "category": "accessories",
+    "categoryLabel": "Accessories",
+    "figmaFrame": "3018:20694",
+    "price": null,
+    "shortDescription": "<p>The YORK Battle Rope delivers full-body strength and conditioning in one simple, versatile training tool that adapts to every fitness level, whether you’re building strength for the first time, adding intensity to your workouts, or maintaining the power and endurance to stay active for life. Designed for indoor or outdoor use, it’s an easy way to challenge your entire body almost anywhere.</p>",
+    "keyFeatures": [
+      "Build Strength & Conditioning Together: Engage your arms, shoulders, core, and legs while improving cardiovascular endurance with every wave, slam, and pull.",
+      "Built for Powerful Workouts: Durable three-strand Poly Dacron construction is designed to withstand high-intensity training indoors or outdoors.",
+      "Comfortable, Secure Grip: 7” PVC-coated handles provide a confident grip that helps reduce hand fatigue during longer workouts.",
+      "Perfect for HIIT & Functional Training: Ideal for interval training, circuit workouts, athletic conditioning, and strength-focused exercise routines."
+    ],
+    "specs": [
+      "30 FT x 1.5″ diameter",
+      "Durable Poly Dacron blend",
+      "7″ PVC covered handles",
+      "Shipping Weight 17 lbs",
+      "Shipping Dimensions 13 × 13 × 10 in",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "Designed for more than just athletic conditioning, the YORK Battle Rope is a versatile tool for building strength, improving endurance, and enhancing everyday movement. Its 30-foot length and durable design create smooth, consistent resistance for everything from beginner-friendly waves to explosive slams and advanced conditioning circuits. Comfortable PVC-coated handles provide a secure grip while you train, and the heavy-duty design stands up to years of demanding workouts indoors or outside. Whether you’re adding a finisher to strength day, incorporating HIIT into your routine, or simply looking for a fun way to improve fitness, the YORK Battle Rope helps you build the kind of strength that carries over into everyday life.",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "mens-north-american-chrome-olympic-training-weight-bar",
+    "name": "Men’s North American Chrome Olympic Training Weight Bar",
+    "template": "generic",
+    "category": "bars-weights",
+    "categoryLabel": "Bars & Weights",
+    "figmaFrame": "3018:24792",
+    "price": null,
+    "shortDescription": "<p>The YORK North American Olympic Training Bar is built for lifters who want one bar to do it all. Crafted from premium North American steel with precision needle bearings, it delivers the smooth rotation, durability, and performance to support everything from your first clean to years of strength training. Built on YORK’s legendary barbell heritage, it’s designed to help you train stronger for life.</p>",
+    "keyFeatures": [
+      "Built from North American Steel: Heat-treated 170,000 PSI steel delivers the strength and durability to handle years of heavy training with confidence.",
+      "Smooth Needle Bearing Rotation: Precision needle bearings allow the sleeves to spin independently from the bar, creating smoother, more controlled movement during Olympic lifts like cleans and snatches while reducing stress on your wrists and elbows.",
+      "One Bar. Endless Possibilities: The 28 mm shaft and balanced design make this an excellent all-around training bar for Olympic lifting, squats, deadlifts, bench presses, overhead presses, and functional fitness workouts..",
+      "Built for a Lifetime of Lifting: A durable satin chrome finish helps resist corrosion and wear while maintaining the premium feel and performance serious lifters expect."
+    ],
+    "specs": [
+      "HSA/FSA",
+      "Weight: 44 lbs",
+      "Minimum tensile strength of 170,000 PSI after heat treating.",
+      "North American steel and satin chrome",
+      "Needle Bearing",
+      "Accommodates 2” Olympic Plates",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "Some equipment comes and goes but a great barbell stays with you for decades. The YORK North American Olympic Training Bar is designed to be the centerpiece of your home gym, whether you’re learning Olympic lifts, building strength, or training for overall fitness. Precision needle bearings create smooth sleeve rotation for dynamic movements like cleans and snatches, while the 28 mm shaft offers the balanced feel preferred for versatile training. Crafted from heat-treated North American steel with a durable satin chrome finish, it’s built to handle years of consistent lifting while carrying forward the craftsmanship that has made YORK one of the most trusted names in strength equipment for generations.",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "womens-elite-olympic-training-weight-bar",
+    "name": "Women’s Elite Olympic Training Weight Bar",
+    "template": "generic",
+    "category": "bars-weights",
+    "categoryLabel": "Bars & Weights",
+    "figmaFrame": "3018:24041",
+    "price": null,
+    "shortDescription": "<p>The YORK Women’s Elite Olympic Training Bar delivers competition-inspired performance in a versatile, confidence-building design. Featuring a 25 mm grip, premium North American steel, and smooth rotating sleeves, it’s ideal for Olympic lifting, functional fitness, and strength training, whether you’re mastering your first clean or refining years of technique. Built on YORK’s legendary barbell heritage, it’s designed to help every lifter train stronger for life.</p>",
+    "keyFeatures": [
+      "Comfortable 25 mm Grip: Originally designed for Olympic women’s competition, the 25 mm shaft is also preferred by many lifters with smaller hands, younger athletes, and anyone looking for greater grip comfort and control. more controlled while reducing grip fatigue during longer training sessions.",
+      "Built from Premium North American Steel: Crafted from heat-treated 190,000 PSI North American steel for exceptional durability, responsiveness, and years of reliable performance.",
+      "Smooth Sleeve Rotation: Self-lubricating ferrous bushings allow the sleeves to rotate freely during cleans, snatches, and other explosive lifts, helping the bar move naturally while reducing unnecessary stress on your wrists and shoulders.",
+      "Built for Olympic & Everyday Strength Training: The 15 kg weight, 25 mm shaft, and Olympic specifications make this an excellent choice for Olympic lifting, functional fitness, strength training, and technique work."
+    ],
+    "specs": [
+      "Free shipping",
+      "HSA/FSA",
+      "Weight: 33 lbs",
+      "Minimum tensile strength of 190,000 PSI after heat treating.",
+      "North American steel",
+      "Needle Bearing",
+      "Accommodates 2” Olympic Plates",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "The best training bar is the one that feels like an extension of your body. The YORK Women’s Elite Olympic Training Bar combines a comfortable 25 mm grip with premium North American steel and precision-engineered rotating sleeves to deliver smooth, confident performance through every lift. Its self-lubricating bushing system provides consistent sleeve rotation for Olympic movements, while the balanced 33 Lb/15 Kg design makes it an excellent choice for technique development, functional fitness, and full-body strength training. Built to Olympic specifications and backed by decades of YORK barbell expertise, this is a training bar designed to grow with you—from learning new movements to pursuing lifelong strength.",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "rubber-training-bumper-plates",
+    "name": "Rubber Training Bumper Plates",
+    "template": "generic",
+    "category": "bars-weights",
+    "categoryLabel": "Bars & Weights",
+    "figmaFrame": "3018:22501",
+    "price": null,
+    "shortDescription": "<p>The YORK Rubber Training Bumper Plates are built for the lifts that make you stronger and the confidence to keep progressing. Whether you’re learning Olympic lifts, building strength, or training for overall fitness, these durable rubber plates help protect your equipment and flooring while delivering reliable performance for every workout.</p>",
+    "keyFeatures": [
+      "Protect Your Floors & Equipment: Durable solid rubber construction absorbs impact to help reduce noise while protecting your flooring and Olympic bar during drops and repeated training.",
+      "Confident Grip & Easy Handling: The rubber finish provides a comfortable, secure grip when loading, unloading, or carrying plates, making workouts easier for beginners and experienced lifters alike.",
+      "Built to Train Hard: A reinforced 2” steel center sleeve provides smooth loading on Olympic bars while standing up to years of heavy strength training and Olympic lifting.",
+      "Perfect for Every Stage of Your Strength Journey: Ideal for Olympic lifting, deadlifts, functional fitness, strength training, and home gyms, whether you’re mastering your first lift or chasing a new personal best."
+    ],
+    "specs": [
+      "HSA/FSA",
+      "California residents: this item may be subject to Proposition 65.Please see the table below on 17C"
+    ],
+    "detailsBody": "Your weight plates should inspire confidence, not hesitation. The YORK Rubber Training Bumper Plates are designed to help you train harder while protecting the equipment and space you’ve invested in. Their durable solid rubber construction reduces noise and cushions impact, making them an excellent choice for Olympic lifts, deadlifts, and everyday strength training at home. A reinforced steel center sleeve allows for smooth loading and unloading on any 2” Olympic bar, while the comfortable rubber exterior makes handling plates easy between sets. Built with the durability YORK is known for, these bumper plates are ready to support years of lifting, learning, and getting stronger.",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "york-quick-access-collar",
+    "name": "YORK Quick Access Collar",
+    "template": "generic",
+    "category": "bars-weights",
+    "categoryLabel": "Bars & Weights",
+    "figmaFrame": "3017:17845",
+    "price": null,
+    "shortDescription": "<p>Small upgrades make a big difference. The YORK Quick Access Collars let you change weights in seconds with a secure, one-handed locking design that’s faster, more comfortable, and easier to use than traditional spring collars. Whether you’re training for strength, fitness or longevity, they help keep every workout moving at your pace.</p>",
+    "keyFeatures": [
+      "Fast, One-Handed Weight Changes: Quick-lock design lets you load and unload plates in seconds, keeping your workouts efficient and your momentum going.",
+      "Comfortable for Every Lifter: Easy-to-operate locking lever requires less grip strength than traditional wire spring collars, making it ideal for women, younger lifters, and anyone with smaller hands.",
+      "Secure Hold You Can Trust: Locks firmly onto any 2” Olympic bar to help keep plates stable through strength training, Olympic lifts, and functional fitness workouts.",
+      "Built for Everyday Training: Lightweight, durable construction is designed for years of reliable use in your home gym."
+    ],
+    "specs": [
+      "HSA/FSA",
+      "Made for Olympic bars.",
+      "2″ diameter",
+      "Sold in pairs.",
+      "Shipping Weight 2 lbs",
+      "Shipping Dimensions 7 × 4 × 2 in",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "Designed for more than simply holding weight plates in place, the YORK Quick Access Collars make every workout smoother and more enjoyable. Unlike traditional wire spring collars that can be difficult to squeeze, the quick-lock lever design is easy to operate, allowing fast plate changes with less hand fatigue and greater confidence. They lock securely onto any 2” Olympic bar to keep your plates stable while you focus on your lifts, not your equipment. It’s one of those small upgrades that you’ll appreciate every time you train, making your home gym more convenient, comfortable, and efficient.",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "york-dumbbell-stand",
+    "name": "York Mini / 2 / 3 Tier Dumbbell Stand",
+    "template": "generic",
+    "category": "storage",
+    "categoryLabel": "Storage",
+    "figmaFrame": "3020:30111",
+    "price": null,
+    "shortDescription": "<p>The best home gyms aren’t just built for great workouts, they’re built to stay organized. YORK Dumbbell Stands keep your weights protected, accessible, and ready for every workout, helping create a training space you’ll enjoy walking into every day.</p>",
+    "keyFeatures": [
+      "Protect Your Equipment: Keeping dumbbells off the floor helps reduce unnecessary wear while protecting your flooring and extending the life of your equipment.",
+      "Faster, More Comfortable Workouts: An elevated storage design makes it easier to grab and return dumbbells, reducing unnecessary bending and making weight changes quicker and more comfortable.",
+      "Choose the Right Size for Your Gym: Available in Mini, 2-Tier, and 3-Tier configurations, so you can organize your dumbbells whether you’re just getting started or building your dream home gym."
+    ],
+    "specs": [
+      "Pleas notice the chart below**"
+    ],
+    "detailsBody": "A great home gym isn’t measured by how much equipment you own, but by how effortlessly everything works together for you. YORK Dumbbell Stands keep your weights organized, accessible, and off the floor, helping you create a cleaner training space that’s safer and more enjoyable to use every day. The elevated design makes loading and unloading dumbbells faster and more comfortable, while the durable steel construction provides the stability you expect from YORK. Whether you’re organizing a compact workout corner or a fully equipped home gym, these stands help protect your investment while making every workout feel more efficient.",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "olympic-a-frame-weight-plate-tree",
+    "name": "Olympic A-Frame 2″ Weight Plate Tree",
+    "template": "generic",
+    "category": "storage",
+    "categoryLabel": "Storage",
+    "figmaFrame": "3018:21506",
+    "price": null,
+    "shortDescription": "<p>A well-organized gym is a better place to train. The YORK Olympic A-Frame Plate Tree keeps your Olympic plates safely stored, easy to access, and off the floor, helping you create a cleaner, safer, and more efficient workout space so you can spend less time searching for weights and more time getting stronger.</p>",
+    "keyFeatures": [
+      "Keep Your Gym Organized: Seven storage pegs help organize Olympic plates by size, making it easy to find the weight you need and keep your training area clutter-free.",
+      "Safer Training Space: Keeping plates off the floor helps reduce tripping hazards while protecting your equipment and creating a more enjoyable home gym.",
+      "Compact, Stable Design: The A-frame design distributes weight evenly while the wide base helps provide excellent stability without taking up unnecessary floor space.",
+      "Built for Everyday Use: Durable steel construction and an attractive black finish are designed to withstand years of loading, unloading, and daily training."
+    ],
+    "specs": [
+      "Width at Base: 29 ½”",
+      "Depth at Base: 20 ¼”",
+      "Height: 36”",
+      "Weight Storage Peg: 6”",
+      "Number of Pegs: 7",
+      "Shipping Weight 30 lbs",
+      "Shipping Dimensions 39 × 36 × 3 in",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "The YORK Olympic A-Frame Plate Tree is designed for more than just storage, it’s an upgrade to your entire workout experience. With seven strategically placed storage pegs, you can organize your Olympic plates by weight, making every plate change quicker and more efficient. The compact A-frame design keeps your weights within easy reach while maximizing stability and minimizing the floor space required, making it ideal for home gyms of any size. By keeping plates organized and off the ground, you’ll create a cleaner, safer training environment that lets you focus on what matters most: building strength.",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "slam-ball",
+    "name": "Slam Ball",
+    "template": "generic",
+    "category": "accessories",
+    "categoryLabel": "Accessories",
+    "figmaFrame": "3018:19883",
+    "price": null,
+    "shortDescription": "<p>Strength doesn’t have to be repetitive. YORK Slam Balls bring explosive movement, endless exercise variety, and full-body conditioning to your workouts, helping you build power, improve fitness, and develop the kind of strength you use to lift, carry, twist, and move with confidence every day.</p>",
+    "keyFeatures": [
+      "Built to Be Slammed: Designed with a durable rubber shell and dead-bounce construction that absorbs impact, allowing you to throw the ball with confidence without it bouncing back.",
+      "Build Real-World Strength: Train your entire body with explosive movements in conditioning circuits, strength finishers, athletic training, and full-body workouts at home.",
+      "Textured Grip for Better Control: The textured surface provides a secure grip during slams, carries, twists, squats, and overhead movements—even as your workout gets tougher."
+    ],
+    "specs": [
+      "Available Weights:",
+      "5 lb, 10 lb, 15 lb, 20 lb, 25 lb, 30 lb, 35 lb, 40 lb, 45 lb, 50 lb, duo set of 10 + 20 lb",
+      "Construction: Heavy-duty rubber shell",
+      "Bounce: Dead-bounce design",
+      "Surface:Textured, non-slip grip",
+      "Color: Black with weight identification",
+      "Training Style: Strength, HIIT, Functional Fitness, Conditioning, Core Training",
+      "Indoor use recommended",
+      "Shipping dimension of each ball: 24 × 24 × 24 in",
+      "Sold as individual balls or complete set HSA/FSA California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "Designed for more than just slams, YORK Slam Balls add explosive movement and endless variety to almost any workout. Their dead-bounce design keeps the ball close after every throw, making training safer, more efficient, and more enjoyable. Use them for slams, carries, squats, lunges, rotational movements, and core exercises that build strength, coordination, and endurance while improving the way you move both inside and outside the gym. Available in multiple weights, they’re an excellent tool for beginners learning movement patterns, experienced athletes increasing intensity, and anyone who wants workouts that stay fresh, challenging, and rewarding.",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "resistance-bands",
+    "name": "Resistance Bands",
+    "template": "generic",
+    "category": "accessories",
+    "categoryLabel": "Accessories",
+    "figmaFrame": "3011:17125",
+    "price": null,
+    "shortDescription": "<p>Big results don’t always require big equipment. YORK Resistance Bands add strength, variety, and endless exercise possibilities to your workouts without taking up valuable space. Whether you’re warming up, building strength, improving mobility, assisting pull-ups, or staying active on the go, resistance bands help you move better, train smarter, and build strength that carries over into everyday life.</p>",
+    "keyFeatures": [
+      "One Tool. Hundreds of Exercises: From strength training and pull-up assistance to stretching, mobility, rehabilitation, and full-body workouts, resistance bands add endless variety to your routine.",
+      "Progressive Resistance That Grows With You: Available in multiple resistance levels, YORK Resistance Bands make it easy to match your current strength, combine bands for greater resistance, or progress as you get stronger.",
+      "Train Anywhere: Lightweight, portable, and made from heavy-duty natural latex, these bands deliver a full-body workout at home, in the gym, outdoors, or while traveling."
+    ],
+    "specs": [
+      "See chart below for resistance details and colors*** Material: 100% Heavy-Duty Natural Latex",
+      "Widths Available",
+      "13 mm, 19 mm, 22 mm, 29 mm, 32 mm, 45 mm, 64 mm, 83 mm",
+      "Color-Coded Resistance:Yes",
+      "Sold As: Individual bands or complete sets (see sets in table below ****",
+      "Ideal For: Strength Training, Mobility, Stretching, Pull-Up Assistance, Rehabilitation, Functional Training, Travel Workouts"
+    ],
+    "detailsBody": "Designed for more than just resistance training, YORK Resistance Bands are one of the most versatile tools you can add to your home gym. Use them to warm up before lifting, improve mobility, assist pull-ups, increase resistance on strength exercises, or add low-impact training that builds strength while being gentle on your joints. Available in multiple resistance levels, they make it easy to progress at your own pace while improving the way you move both inside and outside the gym. Whether you’re building your first home gym or adding versatility to an established training space, resistance bands are a simple investment that you’ll reach for again and again.",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "kettlebells",
+    "name": "Kettlebells",
+    "template": "generic",
+    "category": "bars-weights",
+    "categoryLabel": "Bars & Weights",
+    "figmaFrame": "3039:6834",
+    "price": null,
+    "shortDescription": "<p>Strength is meant to move. YORK Kettlebells combine strength, cardio, balance, and mobility into one incredibly versatile training tool. From explosive swings to controlled carries and presses, every movement helps develop the power, coordination, and confidence you use both inside and outside the gym.</p>",
+    "keyFeatures": [
+      "Built for Years of Training: Constructed from durable cast iron with a comfortable, easy-to-grip handle, YORK Kettlebells are designed to withstand years of swings, presses, carries, and everyday strength training.",
+      "Strength in Motion: Dynamic, full-body movements build strength, power, balance, coordination, and endurance while improving the way you move every day.",
+      "Build Your Collection Your Way: Choose individual kettlebells, curated packages, or build your collection over time as your strength and home gym grow."
+    ],
+    "specs": [
+      "HSA/FSA",
+      "Available Individual Weights",
+      "Choose from 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 70, and 80 lb kettlebells to build the perfect collection for your training needs.",
+      "Starter Kettlebell Set",
+      "Includes 5, 10, 15, 20, 25, 30, 35, 40, 45, and 50 lb kettlebells—an excellent foundation for beginners, families, and growing home gyms.",
+      "Heavy Kettlebell Package",
+      "Includes 55, 60, 70, and 80 lb kettlebells for experienced lifters looking to expand their strength training with heavier resistance."
+    ],
+    "detailsBody": "Designed for more than simply lifting weight, YORK Kettlebells help you build strength in motion through dynamic, full-body exercises that challenge the way your body naturally moves. Swings, squats, presses, carries, cleans, and Turkish get-ups develop strength, power, balance, coordination, and grip while engaging multiple muscle groups at once. Unlike many traditional strength exercises that isolate individual muscles, kettlebell training teaches your body to move with greater confidence inside and outside the gym. Whether you choose a single kettlebell, one of our thoughtfully curated packages, or build your collection over time, YORK makes it easy to create a home gym that grows with you.",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "vinyl-fitbell",
+    "name": "Vinyl Fitbell",
+    "template": "generic",
+    "category": "bars-weights",
+    "categoryLabel": "Bars & Weights",
+    "figmaFrame": "3020:31707",
+    "price": null,
+    "shortDescription": "",
+    "keyFeatures": [],
+    "specs": [],
+    "detailsBody": "",
+    "highlights": [],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "drafted-by-claude",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "essential-olympic-training-set",
+    "name": "Essential Olympic Training Set",
+    "template": "package",
+    "category": "equipment",
+    "categoryLabel": "Equipment",
+    "figmaFrame": "3018:23519",
+    "price": null,
+    "shortDescription": "<p>Build your home gym with confidence from day one. The YORK Essential Olympic Strength Systems combine our premium North American Olympic Training Bar, Rubber Training Bumper Plates, Olympic change plates, and Quick Access Collars into these thoughtfully curated packages that takes the guesswork out of building a home gym. Every component is designed to work together, giving you the confidence to start strong, progress with precision, and build strength for life.</p>",
+    "keyFeatures": [
+      "Build Strength With Precision: Rubber Training Bumper Plates provide the durability and floor protection needed for serious training, while the included 2.5 lb and 5 lb Olympic change plates let you increase weight gradually instead of making large jumps.",
+      "Choose the Bar That’s Right for You: Select the premium North American Olympic Training Bar that best fits your training style. The 20 kg / 28 mm version is the ultimate all-around strength training bar, while the 15 kg / 25 mm option offers a lighter weight and smaller grip that’s ideal for many lifters with smaller hands, younger athletes, and those refining Olympic lifting technique.",
+      "Premium Equipment. Better Experience. Every component has been selected to work together, from durable bumper plates and smooth needle-bearing bar rotation to fast Quick Access Collars that make changing weights effortless."
+    ],
+    "specs": [
+      "Plates + 44 lb/20 Kg Olympic Training Bar (28 mm Grip)",
+      "A premium bar that excels at Olympic lifts, strength training, and everyday performance.",
+      "Plates + 33 lb/15 kg Olympic Training Bar (25 mm Grip)",
+      "A lighter weight bar and smaller grip for greater comfort and technique control.",
+      "HSA/FSA",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "Building a home gym shouldn’t feel like solving a puzzle. The YORK Essential Olympic Strength System combines our most trusted strength-training equipment into one complete solution, eliminating the guesswork of choosing compatible bars, plates, and accessories. Better yet, the included Olympic change plates make it easy to progress in smaller increments, helping beginners build confidence, experienced lifters break through plateaus, and everyone continue getting stronger at their own pace. It’s everything you need to start lifting today—and a system designed to grow with you for years to come.",
+    "highlights": [
+      {
+        "title": "Thoughtfully Designed to Train Better",
+        "body": "From the smooth rotation of our premium North American needle-bearing Olympic Training Bar to the convenience of Quick Access Collars, every component is designed to make your workouts feel safer, smoother, and more enjoyable. Because when your equipment works effortlessly, you can focus on building strength—not fighting your gear."
+      },
+      {
+        "title": "Built for Steady Progress",
+        "body": "Large bumper plates help you build strength with confidence while protecting your floors and equipment. Smaller 2.5 lb and 5 lb Olympic plates make it easy to increase weight gradually, helping you refine technique, build confidence, and continue making steady progress without dramatic jumps in weight."
+      }
+    ],
+    "included": [
+      "North American Olympic Training Bar — Choose between a 44 lb (20 kg), 28 mm or 35 lb (15 kg), 25 mm premium needle-bearing training bar.",
+      "Rubber Training Bumper Plates — 2 × 10 lb, 2 × 25 lb, 2 × 35 lb, and 2 × 45 lb plates for Olympic lifting, floor protection, and long-term durability.",
+      "Olympic Change Plates — Two 2.5 lb and two 5 lb cast iron plates for smaller, more precise weight increases as your strength grows.",
+      "Quick Access Collars — Secure, one-handed locking collars that make changing weights faster and more comfortable."
+    ],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "york-performance-package",
+    "name": "YORK Performance Package",
+    "template": "package",
+    "category": "equipment",
+    "categoryLabel": "Equipment",
+    "figmaFrame": "3020:26406",
+    "price": null,
+    "shortDescription": "<p>The YORK Performance Strength System brings together premium strength equipment in a small footprint, while delivering the versatility of a much larger gym. From the smooth feel of the North American Olympic Training Bar to the fast-adjusting utility bench, every component is designed for lifters who appreciate quality, efficiency, and the details that help you design the workout you're looking forward to.</p>",
+    "keyFeatures": [
+      "Train Your Entire Body with One System: The adjustable Press Squat Stand lets you quickly change the bar height for bench presses, squats, overhead presses, rows, and more, making it easy to transition between upper and lower-body exercises while training seated or standing.",
+      "Premium in Every Detail: From the smooth rotation of the needle-bearing Olympic bar to the quick-adjust utility bench and easy-to-use Olympic Spring Collars, every interaction is designed to make training faster, smoother, and more enjoyable. Because serious lifters know it’s the little details that make you look forward to every workout.",
+      "Optimal Performace. Optimal Footprint. Everything you need for serious strength has been engineered to fit into you space and push your training without sacrificing versatility. It’s proof that a thoughtfully designed home gym can deliver professional-level training without taking over your home."
+    ],
+    "specs": [
+      "HSA/FSA",
+      "Shipping Weight 499 lbs",
+      "Shipping Dimensions 94 × 37 × 21 in",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "As your strength grows, your equipment should grow with you without taking over your home. The YORK Performance Strength System delivers the versatility of a complete strength gym in a compact footprint, making it ideal for apartments, spare bedrooms, garages, and dedicated workout spaces. Every component has been thoughtfully selected to maximize performance, minimize clutter, and create a premium training experience you’ll appreciate every time you lift. It’s a complete system for people who value quality, efficiency, and lifelong strength.",
+    "highlights": [
+      {
+        "title": "Custom-Fit in Seconds.",
+        "body": "The flat-to-incline bench allows you to effortlessly adjust both the seat and backrest to create a customized lifting position that feels secure, comfortable, and optimized for every exercise in your routine."
+      },
+      {
+        "title": "Unlock dozens of exercises",
+        "body": "Train your upper and lower body, lying, sitting or standing. More exercise options mean greater variety, better results, and a complete strength-training experience you will not outgrow or get bored of."
+      }
+    ],
+    "included": [
+      "Your Complete Strength System Includes:",
+      "FTS Press Squat Stands: Adjustable bar height supports squats, bench presses, overhead presses, and full-body strength training.",
+      "FTS Flat-to-Incline Utility Bench: Quickly adjusts for flat, incline and seated while helping you find the right position for each lift.",
+      "North American Olympic Training Bar: A premium 44 lb/20 Kg training bar with smooth needle-bearing rotation for controlled Olympic lifts and versatile strength training.",
+      "Rubber Training Bumper Plates: Includes pairs of 10, 25, 35, and 45 lb plates for progressive training with added floor protection.",
+      "Olympic Spring Collars: Keep plates securely positioned on the bar throughout your workout."
+    ],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "plyo-package",
+    "name": "Plyo Package",
+    "template": "package",
+    "category": "equipment",
+    "categoryLabel": "Equipment",
+    "figmaFrame": "3020:29285",
+    "price": null,
+    "shortDescription": "<p>Move faster. Jump higher. Train harder. The YORK Plyo Performance System and the Plyo Performance Plus combine explosive power, conditioning, agility, and mobility into one complete training package. Whether you’re improving athletic performance, burning calories, or adding more variety to your workouts, they helps you build speed, poweer, coordination, and the kind of fitness that moves with you every day.</p>",
+    "keyFeatures": [
+      "Build Explosive Power: Train with box steps or jumps, battle ropes, jump rope, and slam ball exercises that develop speed, coordination, balance, and athletic movement.",
+      "Endless Workout Variety: From conditioning circuits and HIIT sessions to mobility work and recovery, every piece of equipment complements the others to create hundreds of workout combinations.",
+      "Complete Fitness. Compact Space. Every component is portable, easy to store, and designed to work together, giving you a complete conditioning system without filling your garage or spare room."
+    ],
+    "specs": [
+      "HSA/FSA",
+      "Weight: 45 Lb",
+      "Shipping size: 31 x 26 x 21",
+      "California residents: this item may be subject to Proposition 65."
+    ],
+    "detailsBody": "Fitness should be more than lifting weights. The YORK Plyo Performance System combines complementary training tools that help you jump, sprint, move, stabilize, recover, and build endurance. All from one compact package. Every piece has been selected to create workouts that stay engaging, challenging, and never repetitive. Whether you’re training for sports, improving overall fitness, or simply looking for a fun way to stay active, this system helps you move better for life.",
+    "highlights": [
+      {
+        "title": "More Than a Workout, A Better Way to Move",
+        "body": "Every tool in this system helps improve a different aspect of fitness, creating balanced workouts that translate into better movement, greater confidence, and more energy both inside and outside the gym."
+      },
+      {
+        "title": "Performance Your Body in Motion",
+        "body": "Jump, carry, slam, pull, stretch, and recover with one thoughtfully designed system that builds strength, speed, endurance, and coordination through natural, full-body movement."
+      }
+    ],
+    "included": [
+      "Plyo Performance System",
+      "3-in-1 Plyo Box – Three jump heights in one compact box let you safely progress as your confidence and explosive power grow.",
+      "Battle Rope – Build full-body strength and conditioning through challenging, low-impact workouts.",
+      "Yoga Mat – Create a comfortable space for warm-ups, mobility, stretching, and recovery.",
+      "Resistance Bands: Yellow (30–65 lb), Purple (35–80 lb), Green (40–95 lb), Red (45–115 lb) – Add strength, mobility, activation, and travel-friendly workouts to your training.",
+      "PVC Jump Rope – Improve coordination, footwork, agility, and cardiovascular endurance almost anywhere.",
+      "Plyo Performance System Plus",
+      "Everything in the Plyo Performance System, plus:",
+      "15 lb Slam Ball – Add explosive power, rotational strength, and dynamic full-body exercises.",
+      "Complete Resistance Band Set: All eight resistance bands from 10–150 lb – Unlock even more resistance levels for strength training, mobility, assisted pull-ups, and progression."
+    ],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  },
+  {
+    "slug": "rubber-hex-dumbbell-set",
+    "name": "Rubber Hex Dumbbell Set",
+    "template": "package",
+    "category": "bars-weights",
+    "categoryLabel": "Bars & Weights",
+    "figmaFrame": "3020:31177",
+    "price": null,
+    "shortDescription": "<p>Build your strength story, one dumbbell at a time or all at once. YORK Rubber Hex Dumbbells are available individually or in thoughtfully curated packages, giving you the flexibility to start where you are today and expand your collection as your strength and home gym grow. Whether you’re building your first workout space or completing your dream gym, you’ll have the right weight for every stage of your journey.</p>",
+    "keyFeatures": [
+      "Built for Years of Training: Rubber-coated heads, solid steel construction, and ergonomic knurled chrome handles are designed for durability, comfort, and dependable performance through years of workouts.",
+      "Build Your Collection Your Way: Available individually or in curated sets, YORK Rubber Hex Dumbbells give you the freedom to create the home gym that’s right for your space, budget, and goals.",
+      "Progress One Pair at a Time: Thoughtfully spaced weight increments help you increase resistance gradually as your strength improves."
+    ],
+    "specs": [
+      "Dumbbels sold separately: 2.5 lb, 5 lb, 7.5 lb, 10 lb, 12.5 lb, 15 lb, 17.5 lb, 20 lb, 22.5 lb, 25 lb, 27.5 lb, 30 lb, 35 lb, 40 lb, 45 lb, 50 lb, 55 lb, 60 lb, 65 lb, 70 lb, 75 lb, 80 lb, 85 lb, 90 lb, 95 lb, 100 lb, 105 lb, 110 lb, 115 lb, 120 lb, 125 lb",
+      "5–50 lb Set: One pair each of 5, 10, 15, 20, 25, 30, 35, 40, 45, and 50 lb dumbbells",
+      "55–100 lb Set: One pair each of 55, 60, 65, 70, 75, 80, 85, 90, 95, and 100 lb dumbbells",
+      "105–125 lb Set: One pair each of 105, 110, 115, 120, and 125 lb dumbbells"
+    ],
+    "detailsBody": "Dumbbells have been a cornerstone of strength training for generations, and few companies understand that journey better than YORK. For nearly a century, we’ve helped athletes, coaches, and home gym owners build strength and we’ve learned that there’s no single right way to build a great home gym. Some people start with one dumbbell and grow their collection over time, while others prefer the convenience of a complete set from day one. That’s why YORK offers thoughtfully curated dumbbell packages alongside our full range of individual dumbbells, giving you the flexibility to build your home gym your way, with the same commitment to quality and performance that has defined the YORK name for generations.",
+    "highlights": [
+      {
+        "title": "Your Strength Story Starts Here",
+        "body": "Whether you choose a single dumbbell or a complete package, every YORK Rubber Hex Dumbbell is designed to become part of a home gym that grows alongside your strength, confidence, and goals.Whether you train on the floor, a mat or a bench, building muscle, improving bone health or staying active for life, dumbbells remain one of the smartest investments you can make in your home gym."
+      },
+      {
+        "title": "Complete Your Dumbbell Training Station. (show a photo of the two or three tier stands with dumbbells on it)",
+        "body": "A great home gym is about creating a space that’s organized, efficient, and enjoyable to train in. Our dumbbell stands keep your investment off your floors and closer to your training, helping you build a gym you'll be proud of."
+      }
+    ],
+    "included": [
+      "Dumbells sell by unit between 2.5 lb and 125 lb or by set.",
+      "Sets include:",
+      "5–50 lb Set: One pair each of 5, 10, 15, 20, 25, 30, 35, 40, 45, and 50 lb dumbbells",
+      "55–100 lb Set: One pair each of 55, 60, 65, 70, 75, 80, 85, 90, 95, and 100 lb dumbbells",
+      "105–125 lb Set: One pair each of 105, 110, 115, 120, and 125 lb dumbbells"
+    ],
+    "variants": {
+      "type": "quantity"
+    },
+    "relatedSlugs": [],
+    "images": {
+      "gallery": [],
+      "editorial": ""
+    },
+    "copySource": "sheet",
+    "imageSource": "figma"
+  }
+]
