@@ -1,44 +1,45 @@
-// Single-template PDP body — renders the <main> content of product-single.html
-// (buy box + secondary feature band + recs) around the Task-4 chrome partials.
+// Generic-template PDP body — renders the <main> content of product-generic.html
+// (buy box + full-bleed feature + featured-products carousel + recs) around the
+// Task-4 chrome partials.
+//
+// Differs from Single (templates/single.js): no add-ons, no key-features list, no
+// financing line in the buy box — buy box is breadcrumb + title + price + description +
+// pdp__quantity + Add To Cart + accordion. The source product-generic.html actually
+// ships a `pdp__financing` paragraph and an "Add Bundle to cart - $222.00" CTA (both
+// copy-pasted from the Package template, per its own HTML comments), which is exactly
+// the kind of leftover junk this generator exists to remove — omitted here per the
+// task brief.
 import { renderHead, renderBodyOpen, renderFooter, renderGalleryModal, renderSpecsModal, renderScripts } from './partials.js';
 import { escapeHtml } from '../lib/parse.js';
-import { priceRow, galleryHtml, breadcrumbHtml, secondaryCardHtml, recCardHtml, recsSectionHtml } from './shared.js';
+import { priceRow, galleryHtml, breadcrumbHtml, recCardHtml, recsSectionHtml } from './shared.js';
 
-function addOnHtml(a, i) {
-  return `              <label class="pdp__addon">
-                <input type="checkbox" class="pdp__addon-checkbox" name="addon-${i + 1}">
-                <img src="${a.image || ''}" alt="" class="pdp__addon-image">
-                <div class="pdp__addon-text">
-                  <div class="pdp__addon-top">
-                    <span class="pdp__addon-name">${escapeHtml(a.name)}</span>
-                    <span class="pdp__addon-price">${escapeHtml(a.price || '')}</span>
-                  </div>
-                  <span class="pdp__addon-desc">${escapeHtml(a.desc || '')}</span>
-                </div>
-              </label>`;
+// Featured-products carousel: full-bleed slides + dots, one pair per image, mirroring
+// the slide/dot pattern in partials.js's renderGalleryModal but with the
+// pdp-generic__featured-* classes. Reuses product.images.gallery (up to 3, matching
+// the 3 dots the source markup ships) instead of the source's hardcoded homepage/
+// package hero images.
+function featuredSlideHtml(src, i) {
+  return `        <div class="pdp-generic__featured-slide" data-carousel-slide${i === 0 ? '' : ' hidden'}>
+          <img src="${src}" alt="">
+        </div>`;
+}
+function featuredDotHtml(i) {
+  return `        <button type="button" class="pdp-generic__featured-dot" data-carousel-dot role="tab" aria-selected="${i === 0}">
+          <span class="visually-hidden">Slide ${i + 1}</span>
+        </button>`;
 }
 
-function addOnsSectionHtml(p) {
-  if (!p.addOns?.length) return '';
-  return `
-          <!-- Popular add-ons -->
-          <div class="pdp__addons">
-            <p class="pdp__addons-title">Select Popular Add Ons</p>
-            <div class="pdp__addons-list">
-${p.addOns.slice(0, 3).map(addOnHtml).join('\n')}
-            </div>
-          </div>
-`;
-}
-
-export function renderSingle(p) {
+export function renderGeneric(p) {
   const relatedSlugs = p.relatedSlugs || [];
   const feature = p.highlights?.[0] || {};
   const featureTitle = escapeHtml(feature.title || p.categoryLabel || p.name);
   const featureBody = escapeHtml(feature.body || p.detailsBody || '');
   const shopAllHref = p.category ? `plp-${p.category}.html` : 'plp-equipment.html';
 
-  const secondaryCards = relatedSlugs.slice(0, 2).map(secondaryCardHtml).join('\n');
+  const featuredImages = p.images.gallery.slice(0, 3);
+  const featuredSlides = featuredImages.map(featuredSlideHtml).join('\n');
+  const featuredDots = featuredImages.map((_, i) => featuredDotHtml(i)).join('\n');
+
   const recCards = relatedSlugs.slice(0, 4).map(recCardHtml).join('\n');
 
   const main = `  <main id="main">
@@ -83,21 +84,8 @@ ${breadcrumbHtml(p)}
               <button type="button" class="pdp__quantity-btn" data-qty-increment aria-label="Increase quantity">+</button>
             </div>
           </div>
-${addOnsSectionHtml(p)}
+
           <button type="button" class="btn btn--primary pdp__cta">Add To Cart</button>
-
-          <p class="pdp__financing">
-            From $0.00/mo with Paypal
-            <a href="#financing">Learn More</a>
-          </p>
-
-          <!-- Key features list -->
-          <div class="pdp__key-features">
-            <p class="pdp__key-features-title">Key Features:</p>
-            <ul class="pdp__key-features-list" role="list">
-${p.keyFeatures.map((f) => '              <li>' + escapeHtml(f) + '</li>').join('\n')}
-            </ul>
-          </div>
 
           <!-- Accordion: Description + Shipping & Returns inline expand; Features & Specs opens side modal -->
           <div class="pdp__accordion">
@@ -133,24 +121,28 @@ ${p.keyFeatures.map((f) => '              <li>' + escapeHtml(f) + '</li>').join(
 
     </section>
 
-    <!-- Secondary content: full-bleed feature + 2 product cards on dark band -->
-    <section class="pdp-single__secondary" aria-label="Featured categories">
-      <div class="pdp-single__feature">
-        <div class="pdp-single__feature-image">
-          <img src="assets/images/pdp/single-feature.jpg" alt="">
-        </div>
-        <div class="pdp-single__feature-text">
-          <h2 class="pdp-single__feature-title">${featureTitle}</h2>
-          <p class="pdp-single__feature-body">${featureBody}</p>
-        </div>
+    <!-- Feature: full-bleed image + single horizontal card with title + description -->
+    <section class="pdp-generic__feature" aria-label="Feature">
+      <div class="pdp-generic__feature-image">
+        <img src="${p.images.editorial}" alt="">
       </div>
-
-      <div class="pdp-single__products">
-${secondaryCards}
+      <div class="pdp-generic__feature-card">
+        <h2 class="pdp-generic__feature-title">${featureTitle}</h2>
+        <p class="pdp-generic__feature-body">${featureBody}</p>
       </div>
     </section>
 
-    <!-- You May Also Like — 4-card recommended row + Shop All link -->
+    <!-- Featured Products: single full-bleed carousel with dot indicators, auto-advance -->
+    <section class="pdp-generic__featured" aria-label="Featured products" data-carousel data-carousel-interval="5000">
+      <div class="pdp-generic__featured-slides">
+${featuredSlides}
+      </div>
+      <div class="pdp-generic__featured-dots" role="tablist" aria-label="Featured slides">
+${featuredDots}
+      </div>
+    </section>
+
+    <!-- You May Also Like — same 4-card row + Shop All used by single PDP -->
 ${recsSectionHtml(recCards, shopAllHref)}
 
   </main>`;
