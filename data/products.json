@@ -7,8 +7,8 @@
     "categoryLabel": "Racks & Benches",
     "figmaFrame": "3020:26932",
     "price": {
-      "current": 104.00,
-      "compareAt": 160.00,
+      "current": 104,
+      "compareAt": 160,
       "sourceUrl": "https://yorkbarbell.com/product/york-fitness-bench/"
     },
     "shortDescription": "<p>The YORK Fitness Bench is the foundation of a stronger home gym. With multiple incline positions, built-in dumbbell storage, and a sturdy, space-conscious design, it’s perfect for beginners, anyone pursuing weight loss, or anyone building strength to stay active for years to come.</p>",
@@ -42,8 +42,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/york-fitness-bench/gallery-1.jpg",
+        "assets/images/products/york-fitness-bench/gallery-2.jpg",
+        "assets/images/products/york-fitness-bench/gallery-3.jpg",
+        "assets/images/products/york-fitness-bench/gallery-4.jpg",
+        "assets/images/products/york-fitness-bench/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/york-fitness-bench/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -90,8 +96,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/fts-power-cage/gallery-1.jpg",
+        "assets/images/products/fts-power-cage/gallery-2.jpg",
+        "assets/images/products/fts-power-cage/gallery-3.jpg",
+        "assets/images/products/fts-power-cage/gallery-4.jpg",
+        "assets/images/products/fts-power-cage/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/fts-power-cage/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma",
@@ -105,8 +117,8 @@
     "categoryLabel": "Cardio & Conditioning",
     "figmaFrame": "3020:27542",
     "price": {
-      "current": 535.60,
-      "compareAt": 824.00,
+      "current": 535.6,
+      "compareAt": 824,
       "sourceUrl": "https://yorkbarbell.com/product/york-aspire-stationary-bike-flywheel/"
     },
     "shortDescription": "<p>Bring studio-quality cycling into your home with the YORK Aspire 366 Stationary Bike. Featuring smooth magnetic resistance, a comfortable adjustable fit, and a quiet ride, it’s perfect for beginners, calorie-burning cardio, steady endurance rides, and high-intensity interval (HIIT) workouts that help you build strength and improve cardiovascular health.</p>",
@@ -138,8 +150,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/york-aspire-366-stationary-bike/gallery-1.jpg",
+        "assets/images/products/york-aspire-366-stationary-bike/gallery-2.jpg",
+        "assets/images/products/york-aspire-366-stationary-bike/gallery-3.jpg",
+        "assets/images/products/york-aspire-366-stationary-bike/gallery-4.jpg",
+        "assets/images/products/york-aspire-366-stationary-bike/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/york-aspire-366-stationary-bike/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -187,8 +205,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/york-r-350-rower/gallery-1.jpg",
+        "assets/images/products/york-r-350-rower/gallery-2.jpg",
+        "assets/images/products/york-r-350-rower/gallery-3.jpg",
+        "assets/images/products/york-r-350-rower/gallery-4.jpg",
+        "assets/images/products/york-r-350-rower/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/york-r-350-rower/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -201,8 +225,8 @@
     "categoryLabel": "Cardio & Conditioning",
     "figmaFrame": "3020:28124",
     "price": {
-      "current": 624.00,
-      "compareAt": 960.00,
+      "current": 624,
+      "compareAt": 960,
       "sourceUrl": "https://yorkbarbell.com/product/york-fb300-fan-bike/"
     },
     "shortDescription": "<p>The YORK FB300 Fan Bike combines full-body strength and high-intensity cardio in one powerful machine. Whether you’re building your fitness, accelerating weight-loss goals, or maintaining the strength and conditioning to stay active for life, the self-regulating air resistance delivers a workout that grows with every effort.</p>",
@@ -234,8 +258,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/york-fb-300-fan-bike/gallery-1.jpg",
+        "assets/images/products/york-fb-300-fan-bike/gallery-2.jpg",
+        "assets/images/products/york-fb-300-fan-bike/gallery-3.jpg",
+        "assets/images/products/york-fb-300-fan-bike/gallery-4.jpg",
+        "assets/images/products/york-fb-300-fan-bike/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/york-fb-300-fan-bike/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -300,8 +330,8 @@
     "categoryLabel": "Accessories",
     "figmaFrame": "3017:19081",
     "price": {
-      "current": 15.60,
-      "compareAt": 24.00,
+      "current": 15.6,
+      "compareAt": 24,
       "sourceUrl": "https://yorkbarbell.com/product/floorguard-pack-4/"
     },
     "shortDescription": "<p>Build your home gym with confidence from the ground up. YORK Floorguard Tiles help protect your floors, reduce noise, and create a comfortable, professional-looking workout space that inspires you to train. Whether you’re lifting weights, performing HIIT workouts, or stretching after a workout, they’re the foundation for a stronger home gym.</p>",
@@ -336,8 +366,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/floor-guards-pack-of-4/gallery-1.jpg",
+        "assets/images/products/floor-guards-pack-of-4/gallery-2.jpg",
+        "assets/images/products/floor-guards-pack-of-4/gallery-3.jpg",
+        "assets/images/products/floor-guards-pack-of-4/gallery-4.jpg",
+        "assets/images/products/floor-guards-pack-of-4/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/floor-guards-pack-of-4/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -350,8 +386,8 @@
     "categoryLabel": "Accessories",
     "figmaFrame": "3017:18463",
     "price": {
-      "current": 15.60,
-      "compareAt": 24.00,
+      "current": 15.6,
+      "compareAt": 24,
       "sourceUrl": "https://yorkbarbell.com/product/york-yoga-mat-red-gray/"
     },
     "shortDescription": "<p>Designed for more than yoga, the YORK Yoga Mat is a comfortable, supportive foundation for every stage of your workout. Whether you’re warming up for a strength workout, improving mobility, building core stability, or recovering after training, it provides the comfort and support you need to keep moving well for years to come.</p>",
@@ -375,8 +411,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/york-yoga-mat/gallery-1.jpg",
+        "assets/images/products/york-yoga-mat/gallery-2.jpg",
+        "assets/images/products/york-yoga-mat/gallery-3.jpg",
+        "assets/images/products/york-yoga-mat/gallery-4.jpg",
+        "assets/images/products/york-yoga-mat/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/york-yoga-mat/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -389,8 +431,8 @@
     "categoryLabel": "Accessories",
     "figmaFrame": "3018:20694",
     "price": {
-      "current": 52.00,
-      "compareAt": 80.00,
+      "current": 52,
+      "compareAt": 80,
       "sourceUrl": "https://yorkbarbell.com/product/york-battle-rope/"
     },
     "shortDescription": "<p>The YORK Battle Rope delivers full-body strength and conditioning in one simple, versatile training tool that adapts to every fitness level, whether you’re building strength for the first time, adding intensity to your workouts, or maintaining the power and endurance to stay active for life. Designed for indoor or outdoor use, it’s an easy way to challenge your entire body almost anywhere.</p>",
@@ -415,8 +457,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/battle-rope/gallery-1.jpg",
+        "assets/images/products/battle-rope/gallery-2.jpg",
+        "assets/images/products/battle-rope/gallery-3.jpg",
+        "assets/images/products/battle-rope/gallery-4.jpg",
+        "assets/images/products/battle-rope/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/battle-rope/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -456,8 +504,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/mens-north-american-chrome-olympic-training-weight-bar/gallery-1.jpg",
+        "assets/images/products/mens-north-american-chrome-olympic-training-weight-bar/gallery-2.jpg",
+        "assets/images/products/mens-north-american-chrome-olympic-training-weight-bar/gallery-3.jpg",
+        "assets/images/products/mens-north-american-chrome-olympic-training-weight-bar/gallery-4.jpg",
+        "assets/images/products/mens-north-american-chrome-olympic-training-weight-bar/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/mens-north-american-chrome-olympic-training-weight-bar/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -498,8 +552,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/womens-elite-olympic-training-weight-bar/gallery-1.jpg",
+        "assets/images/products/womens-elite-olympic-training-weight-bar/gallery-2.jpg",
+        "assets/images/products/womens-elite-olympic-training-weight-bar/gallery-3.jpg",
+        "assets/images/products/womens-elite-olympic-training-weight-bar/gallery-4.jpg",
+        "assets/images/products/womens-elite-olympic-training-weight-bar/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/womens-elite-olympic-training-weight-bar/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -512,8 +572,8 @@
     "categoryLabel": "Bars & Weights",
     "figmaFrame": "3018:22501",
     "price": {
-      "current": 20.80,
-      "compareAt": 32.00,
+      "current": 20.8,
+      "compareAt": 32,
       "sourceUrl": "https://yorkbarbell.com/product/rubber-training-bumper-plate/"
     },
     "shortDescription": "<p>The YORK Rubber Training Bumper Plates are built for the lifts that make you stronger and the confidence to keep progressing. Whether you’re learning Olympic lifts, building strength, or training for overall fitness, these durable rubber plates help protect your equipment and flooring while delivering reliable performance for every workout.</p>",
@@ -540,8 +600,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/rubber-training-bumper-plates/gallery-1.jpg",
+        "assets/images/products/rubber-training-bumper-plates/gallery-2.jpg",
+        "assets/images/products/rubber-training-bumper-plates/gallery-3.jpg",
+        "assets/images/products/rubber-training-bumper-plates/gallery-4.jpg",
+        "assets/images/products/rubber-training-bumper-plates/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/rubber-training-bumper-plates/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -554,8 +620,8 @@
     "categoryLabel": "Bars & Weights",
     "figmaFrame": "3017:17845",
     "price": {
-      "current": 7.80,
-      "compareAt": 12.00,
+      "current": 7.8,
+      "compareAt": 12,
       "sourceUrl": "https://yorkbarbell.com/product/york-quick-access-collar/"
     },
     "shortDescription": "<p>Small upgrades make a big difference. The YORK Quick Access Collars let you change weights in seconds with a secure, one-handed locking design that’s faster, more comfortable, and easier to use than traditional spring collars. Whether you’re training for strength, fitness or longevity, they help keep every workout moving at your pace.</p>",
@@ -581,8 +647,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/york-quick-access-collar/gallery-1.jpg",
+        "assets/images/products/york-quick-access-collar/gallery-2.jpg",
+        "assets/images/products/york-quick-access-collar/gallery-3.jpg",
+        "assets/images/products/york-quick-access-collar/gallery-4.jpg",
+        "assets/images/products/york-quick-access-collar/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/york-quick-access-collar/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -595,8 +667,8 @@
     "categoryLabel": "Storage",
     "figmaFrame": "3020:30111",
     "price": {
-      "current": 253.50,
-      "compareAt": 390.00,
+      "current": 253.5,
+      "compareAt": 390,
       "sourceUrl": "https://yorkbarbell.com/product/york-2-tier-dumbbell-stand/"
     },
     "shortDescription": "<p>The best home gyms aren’t just built for great workouts, they’re built to stay organized. YORK Dumbbell Stands keep your weights protected, accessible, and ready for every workout, helping create a training space you’ll enjoy walking into every day.</p>",
@@ -617,8 +689,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/york-dumbbell-stand/gallery-1.jpg",
+        "assets/images/products/york-dumbbell-stand/gallery-2.jpg",
+        "assets/images/products/york-dumbbell-stand/gallery-3.jpg",
+        "assets/images/products/york-dumbbell-stand/gallery-4.jpg",
+        "assets/images/products/york-dumbbell-stand/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/york-dumbbell-stand/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -631,8 +709,8 @@
     "categoryLabel": "Storage",
     "figmaFrame": "3018:21506",
     "price": {
-      "current": 91.00,
-      "compareAt": 140.00,
+      "current": 91,
+      "compareAt": 140,
       "sourceUrl": "https://yorkbarbell.com/product/olympic-a-frame-2-inch-plate-tree/"
     },
     "shortDescription": "<p>A well-organized gym is a better place to train. The YORK Olympic A-Frame Plate Tree keeps your Olympic plates safely stored, easy to access, and off the floor, helping you create a cleaner, safer, and more efficient workout space so you can spend less time searching for weights and more time getting stronger.</p>",
@@ -659,8 +737,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/olympic-a-frame-weight-plate-tree/gallery-1.jpg",
+        "assets/images/products/olympic-a-frame-weight-plate-tree/gallery-2.jpg",
+        "assets/images/products/olympic-a-frame-weight-plate-tree/gallery-3.jpg",
+        "assets/images/products/olympic-a-frame-weight-plate-tree/gallery-4.jpg",
+        "assets/images/products/olympic-a-frame-weight-plate-tree/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/olympic-a-frame-weight-plate-tree/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -674,7 +758,7 @@
     "figmaFrame": "3018:19883",
     "price": {
       "current": 9.75,
-      "compareAt": 15.00,
+      "compareAt": 15,
       "sourceUrl": "https://yorkbarbell.com/product/slam-ball/"
     },
     "shortDescription": "<p>Strength doesn’t have to be repetitive. YORK Slam Balls bring explosive movement, endless exercise variety, and full-body conditioning to your workouts, helping you build power, improve fitness, and develop the kind of strength you use to lift, carry, twist, and move with confidence every day.</p>",
@@ -702,8 +786,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/slam-ball/gallery-1.jpg",
+        "assets/images/products/slam-ball/gallery-2.jpg",
+        "assets/images/products/slam-ball/gallery-3.jpg",
+        "assets/images/products/slam-ball/gallery-4.jpg",
+        "assets/images/products/slam-ball/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/slam-ball/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -748,8 +838,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/resistance-bands/gallery-1.jpg",
+        "assets/images/products/resistance-bands/gallery-2.jpg",
+        "assets/images/products/resistance-bands/gallery-3.jpg",
+        "assets/images/products/resistance-bands/gallery-4.jpg",
+        "assets/images/products/resistance-bands/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/resistance-bands/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -763,7 +859,7 @@
     "figmaFrame": "3039:6834",
     "price": {
       "current": 8.45,
-      "compareAt": 13.00,
+      "compareAt": 13,
       "sourceUrl": "https://yorkbarbell.com/product/york-barbell-kettlebells/"
     },
     "shortDescription": "<p>Strength is meant to move. YORK Kettlebells combine strength, cardio, balance, and mobility into one incredibly versatile training tool. From explosive swings to controlled carries and presses, every movement helps develop the power, coordination, and confidence you use both inside and outside the gym.</p>",
@@ -788,8 +884,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/kettlebells/gallery-1.jpg",
+        "assets/images/products/kettlebells/gallery-2.jpg",
+        "assets/images/products/kettlebells/gallery-3.jpg",
+        "assets/images/products/kettlebells/gallery-4.jpg",
+        "assets/images/products/kettlebells/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/kettlebells/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -803,7 +905,7 @@
     "figmaFrame": "3020:31707",
     "price": {
       "current": 1.63,
-      "compareAt": 2.50,
+      "compareAt": 2.5,
       "sourceUrl": "https://yorkbarbell.com/product/vinyl-fitbell/"
     },
     "shortDescription": "",
@@ -816,8 +918,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/vinyl-fitbell/gallery-1.jpg",
+        "assets/images/products/vinyl-fitbell/gallery-2.jpg",
+        "assets/images/products/vinyl-fitbell/gallery-3.jpg",
+        "assets/images/products/vinyl-fitbell/gallery-4.jpg",
+        "assets/images/products/vinyl-fitbell/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/vinyl-fitbell/editorial.jpg"
     },
     "copySource": "drafted-by-claude",
     "imageSource": "figma"
@@ -831,7 +939,7 @@
     "figmaFrame": "3018:23519",
     "price": {
       "current": 716.92,
-      "compareAt": 1161.00,
+      "compareAt": 1161,
       "sourceUrl": "https://yorkbarbell.com/product/essential-olympic-weight-plate-sets/"
     },
     "shortDescription": "<p>Build your home gym with confidence from day one. The YORK Essential Olympic Strength Systems combine our premium North American Olympic Training Bar, Rubber Training Bumper Plates, Olympic change plates, and Quick Access Collars into these thoughtfully curated packages that takes the guesswork out of building a home gym. Every component is designed to work together, giving you the confidence to start strong, progress with precision, and build strength for life.</p>",
@@ -870,8 +978,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/essential-olympic-training-set/gallery-1.jpg",
+        "assets/images/products/essential-olympic-training-set/gallery-2.jpg",
+        "assets/images/products/essential-olympic-training-set/gallery-3.jpg",
+        "assets/images/products/essential-olympic-training-set/gallery-4.jpg",
+        "assets/images/products/essential-olympic-training-set/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/essential-olympic-training-set/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -924,8 +1038,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/york-performance-package/gallery-1.jpg",
+        "assets/images/products/york-performance-package/gallery-2.jpg",
+        "assets/images/products/york-performance-package/gallery-3.jpg",
+        "assets/images/products/york-performance-package/gallery-4.jpg",
+        "assets/images/products/york-performance-package/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/york-performance-package/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -939,7 +1059,7 @@
     "figmaFrame": "3020:29285",
     "price": {
       "current": 244.06,
-      "compareAt": 398.00,
+      "compareAt": 398,
       "sourceUrl": "https://yorkbarbell.com/product/plyo-packages/"
     },
     "shortDescription": "<p>Move faster. Jump higher. Train harder. The YORK Plyo Performance System and the Plyo Performance Plus combine explosive power, conditioning, agility, and mobility into one complete training package. Whether you’re improving athletic performance, burning calories, or adding more variety to your workouts, they helps you build speed, power, coordination, and the kind of fitness that moves with you every day.</p>",
@@ -982,8 +1102,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/plyo-package/gallery-1.jpg",
+        "assets/images/products/plyo-package/gallery-2.jpg",
+        "assets/images/products/plyo-package/gallery-3.jpg",
+        "assets/images/products/plyo-package/gallery-4.jpg",
+        "assets/images/products/plyo-package/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/plyo-package/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
@@ -997,7 +1123,7 @@
     "figmaFrame": "3020:31177",
     "price": {
       "current": 805.81,
-      "compareAt": 1239.70,
+      "compareAt": 1239.7,
       "sourceUrl": "https://yorkbarbell.com/product/rubber-hex-dumbbell-set/"
     },
     "shortDescription": "<p>Build your strength story, one dumbbell at a time or all at once. YORK Rubber Hex Dumbbells are available individually or in thoughtfully curated packages, giving you the flexibility to start where you are today and expand your collection as your strength and home gym grow. Whether you’re building your first workout space or completing your dream gym, you’ll have the right weight for every stage of your journey.</p>",
@@ -1035,8 +1161,14 @@
     },
     "relatedSlugs": [],
     "images": {
-      "gallery": [],
-      "editorial": ""
+      "gallery": [
+        "assets/images/products/rubber-hex-dumbbell-set/gallery-1.jpg",
+        "assets/images/products/rubber-hex-dumbbell-set/gallery-2.jpg",
+        "assets/images/products/rubber-hex-dumbbell-set/gallery-3.jpg",
+        "assets/images/products/rubber-hex-dumbbell-set/gallery-4.jpg",
+        "assets/images/products/rubber-hex-dumbbell-set/gallery-5.jpg"
+      ],
+      "editorial": "assets/images/products/rubber-hex-dumbbell-set/editorial.jpg"
     },
     "copySource": "sheet",
     "imageSource": "figma"
