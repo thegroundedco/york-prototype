@@ -4,11 +4,14 @@
 // that render identically across layouts moved here instead of being copy-pasted.
 import { escapeHtml, formatPrice } from '../lib/parse.js';
 
-// "fts-power-cage" -> "Fts Power Cage". Used only as a display fallback for related-
-// product cards, which at this stage receive nothing but a slug — the category-fallback
-// / full-catalog lookup that fills relatedSlugs with real peers happens upstream, in
-// Task 15's withRelatedFallback (templates/index.js), before a product ever reaches a
-// renderer.
+// "fts-power-cage" -> "Fts Power Cage". Historically a display fallback for related-
+// product cards that, at render time, had nothing but a slug to show. Single/Generic's
+// recCardHtml no longer needs it — templates/index.js's resolveRelated resolves each
+// relatedSlugs entry to the real product's {slug, name, price, image} before a product
+// ever reaches a renderer, so those cards show real names now. Still used by
+// templates/package.js's own pkgRecCardHtml, which hasn't been converted to the resolved-
+// object shape (out of scope for this pass — package's recs are a separate, accordion-
+// embedded UI, not the shared recCardHtml/recsSectionHtml this file also exports).
 export function humanizeSlug(slug) {
   return String(slug)
     .split('-')
@@ -65,25 +68,43 @@ export function breadcrumbHtml(p) {
           </nav>`;
 }
 
-export function secondaryCardHtml(slug) {
-  const title = escapeHtml(humanizeSlug(slug));
+// Section 2 "Additional Features" card — a full-bleed photo + a real title/body pair
+// (single.js resolves these from the product's own highlights[1] / keyFeatures[3], not
+// from relatedSlugs — see single-rework-spec.md Section 2). Deliberately NOT a link: the
+// prior secondaryCardHtml wrapped the title in <a href="${slug}.html"> pointing at an
+// unrelated product ("Featured Products Section" in Figma was a mislabel — it's a
+// benefit-spotlight band, not a related-product card), which is the bug this replaces.
+export function additionalFeatureCardHtml({ title, body, image }) {
   return `        <article class="pdp-single__product">
           <div class="pdp-single__product-image">
-            <img src="assets/images/products/${slug}/gallery-1.jpg" alt="">
+            <img src="${image}" alt="">
           </div>
           <div class="pdp-single__product-text">
-            <h3 class="pdp-single__product-title"><a href="${slug}.html">${title}</a></h3>
+            <h3 class="pdp-single__product-title">${escapeHtml(title)}</h3>
+            <p class="pdp-single__product-body">${escapeHtml(body)}</p>
           </div>
         </article>`;
 }
 
-export function recCardHtml(slug) {
-  const title = escapeHtml(humanizeSlug(slug));
+function recPriceHtml(price) {
+  if (!price) return `<span class="pdp-single__rec-price">Price TBD</span>`;
+  if (price.compareAt) {
+    return `<span class="pdp-single__rec-price--original">${formatPrice(price.compareAt)}</span><span class="pdp-single__rec-price--sale">${formatPrice(price.current)}</span>`;
+  }
+  return `<span class="pdp-single__rec-price">${formatPrice(price.current)}</span>`;
+}
+
+// "You May Also Like" rec card. Takes a resolved related-product object (see
+// templates/index.js's resolveRelated) — {slug, name, price, image} — not a bare slug, so
+// the card shows the peer's real name/price/image instead of a humanized-slug guess and a
+// permanent "Price TBD".
+export function recCardHtml({ slug, name, price, image }) {
   return `        <article class="pdp-single__rec-card">
           <div class="pdp-single__rec-image">
-            <img src="assets/images/products/${slug}/gallery-1.jpg" alt="">
+            <img src="${image || ''}" alt="">
           </div>
-          <h3 class="pdp-single__rec-title"><a class="pdp-single__rec-title-link" href="${slug}.html">${title}</a></h3>
+          <h3 class="pdp-single__rec-title"><a class="pdp-single__rec-title-link" href="${slug}.html">${escapeHtml(name)}</a></h3>
+          <div class="pdp-single__rec-prices">${recPriceHtml(price)}</div>
           <a class="btn btn--primary pdp-single__rec-cta" href="${slug}.html">View Product</a>
         </article>`;
 }
@@ -142,7 +163,17 @@ export function accordionHtml(p) {
 // single PDP" — it is byte-identical markup to the Single layout's recs section, so it
 // lives here once instead of being copy-pasted per template. Callers keep their own
 // leading HTML comment (its wording differs slightly per template).
-export function recsSectionHtml(recCards, shopAllHref) {
+//
+// cardCount is the actual number of <article> cards in recCards (1-4). The Shop All link
+// is a grid item INSIDE .pdp-single__recs-row (its own 2nd grid row), positioned via an
+// inline grid-column matching cardCount — .pdp-single__recs-row keeps a fixed
+// repeat(4, 1fr) track definition regardless of cardCount (so card width never changes),
+// but the Shop All link needs to sit under the LAST real card, not under an empty track.
+// Previously it was a flex sibling of the row with align-self:flex-end, which aligned to
+// the always-4-wide flex parent's edge — i.e. stranded far-right whenever <4 cards
+// rendered instead of sitting under the last real card.
+export function recsSectionHtml(recCards, shopAllHref, cardCount = 4) {
+  const col = Math.min(Math.max(cardCount, 1), 4);
   return `    <section class="pdp-single__recs" aria-label="You may also like">
       <div class="pdp-single__recs-intro">
         <h2 class="pdp-single__recs-heading display-lg">You May Also Like</h2>
@@ -150,12 +181,46 @@ export function recsSectionHtml(recCards, shopAllHref) {
       </div>
       <div class="pdp-single__recs-row">
 ${recCards}
+        <a class="pdp-single__recs-shop-all" style="grid-column: ${col};" href="${shopAllHref}">
+          <span>Shop All</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
-      <a class="pdp-single__recs-shop-all" href="${shopAllHref}">
-        <span>Shop All</span>
-        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none">
-          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
     </section>`;
+}
+
+// PDP description ("Read More" control): only shown when the description is long enough
+// to need truncating. Word count is measured on the tag-stripped text of
+// p.shortDescription (which ships from the sheet as one or more <p> blocks).
+//  - <=60 words: renders plainly, no clamp wrapper, no toggle button at all — a short
+//    description has nothing to truncate, so a Read More that reveals nothing new (or a
+//    handful of extra characters) is just visual noise.
+//  - >60 words: wraps the text in an inner .pdp__description-text clamp wrapper (CSS
+//    line-clamps it to ~4 lines when collapsed) alongside the Read More/Less toggle
+//    button. js/chrome.js's existing [data-pdp-description] / [data-pdp-description-toggle]
+//    listener drives the expand/collapse — untouched, it only needs the outer element to
+//    carry data-pdp-description and a child with data-pdp-description-toggle, both of
+//    which this still provides.
+const DESCRIPTION_WORD_LIMIT = 60;
+
+export function descriptionHtml(p) {
+  const raw = p.shortDescription || '';
+  const text = raw.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  const wordCount = text ? text.split(' ').length : 0;
+
+  if (wordCount <= DESCRIPTION_WORD_LIMIT) {
+    return `          <div class="pdp__description">
+            ${raw}
+          </div>`;
+  }
+
+  return `          <div class="pdp__description" data-pdp-description>
+            <div class="pdp__description-text">${raw}</div>
+            <button type="button" class="pdp__read-more" data-pdp-description-toggle aria-expanded="false">
+              <span data-pdp-description-label-more>Read More</span>
+              <span data-pdp-description-label-less hidden>Read Less</span>
+            </button>
+          </div>`;
 }

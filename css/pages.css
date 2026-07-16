@@ -3862,6 +3862,7 @@
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   line-height: var(--font-leading-tight);
+  letter-spacing: var(--font-tracking-display);
   color: var(--color-neutral-1000);
 }
 
@@ -3900,9 +3901,22 @@
   font-size: var(--font-size-16);
   line-height: var(--font-leading-normal);
 }
-/* Truncated by default: only the first paragraph shows. Toggles open when expanded. */
-.pdp-page .pdp__description[data-pdp-description] > p:not(:first-of-type) { display: none; }
-.pdp-page .pdp__description[data-pdp-description].is-expanded > p { display: block; }
+/* Long descriptions only (see shared.js descriptionHtml — short ones render with no
+   [data-pdp-description]/.pdp__description-text wrapper at all, so this never applies to
+   them): collapsed state line-clamps the inner wrapper to ~4 lines; expanding removes the
+   clamp. Replaces the old per-paragraph "hide every <p> but the first" rule, which didn't
+   work for a single-paragraph description (the common case) at all. */
+.pdp-page .pdp__description-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+.pdp-page .pdp__description[data-pdp-description].is-expanded .pdp__description-text {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
 
 .pdp-page .pdp__read-more {
   align-self: flex-start;
@@ -4375,16 +4389,19 @@
 .pdp-single .pdp-single__feature-title {
   margin: 0;
   font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
-  font-size: var(--font-size-24);
+  font-size: var(--font-size-32); /* was 24px — Figma specs 32px */
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   line-height: var(--font-leading-snug);
+  letter-spacing: var(--font-tracking-display);
   color: var(--color-neutral-0);
 }
 .pdp-single .pdp-single__feature-body,
 .pdp-single .pdp-single__product-body {
   margin: 0;
-  width: 300px;
+  width: 100%;              /* was: 300px — caused the body to fall out of the centered
+                                394px column once the flex-column parent stopped stretching
+                                it (explicit width breaks cross-axis stretch) */
   max-width: 100%;
   font-family: var(--font-family-body);
   font-size: var(--font-size-16);
@@ -4418,10 +4435,11 @@
 .pdp-single .pdp-single__product-title {
   margin: 0;
   font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
-  font-size: var(--font-size-24);
+  font-size: var(--font-size-32); /* was 24px — Figma specs 32px, matches feature-title */
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   line-height: var(--font-leading-snug);
+  letter-spacing: var(--font-tracking-display);
   color: var(--color-neutral-0);
 }
 
@@ -4474,6 +4492,7 @@
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   line-height: var(--font-leading-snug);
+  letter-spacing: var(--font-tracking-display);
   color: var(--color-neutral-1000);
 }
 .pdp-generic .pdp-generic__feature-body {
@@ -4570,6 +4589,7 @@
   margin: 0;
   font-size: var(--font-size-32);
   line-height: var(--font-leading-tight);
+  letter-spacing: var(--font-tracking-display);
   color: var(--color-neutral-1000);
 }
 .pdp-single__recs-desc {
@@ -4584,6 +4604,7 @@
 .pdp-single__recs-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto; /* 2nd row holds the Shop All link, as its own grid item */
   gap: var(--space-24);
 }
 .pdp-single__rec-card {
@@ -4649,6 +4670,7 @@
   font-size: var(--font-size-14);
   color: var(--color-neutral-1000);
 }
+.pdp-single__rec-price { font-weight: var(--font-weight-semibold); } /* single price, no compareAt */
 .pdp-single__rec-price--sale { font-weight: var(--font-weight-semibold); }
 .pdp-single__rec-price--original { color: var(--color-neutral-500); text-decoration: line-through; }
 .pdp-single__rec-cta {
@@ -4662,7 +4684,12 @@
 }
 
 .pdp-single__recs-shop-all {
-  align-self: flex-end;
+  grid-row: 2;             /* was: a flex sibling of the row, align-self:flex-end — that
+                               aligned to the ALWAYS-4-wide flex parent's edge, stranding
+                               it under an empty column when <4 cards rendered. Now it's a
+                               grid item in the row's own 2nd row; grid-column is set inline
+                               per-render to the actual card count (see recsSectionHtml). */
+  justify-self: end;
   display: inline-flex;
   align-items: center;
   gap: var(--space-16);
@@ -4696,6 +4723,7 @@
   font-family: "Field Gothic No.64 Demi", "Impact", system-ui, sans-serif;
   font-size: var(--font-size-24);
   font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--font-tracking-display);
   color: var(--color-neutral-1000);
 }
 .pdp-page .pdp__key-features-list {
@@ -4743,6 +4771,7 @@
   font-size: var(--font-size-48);
   font-weight: var(--font-weight-bold);
   line-height: var(--font-leading-tight);
+  letter-spacing: var(--font-tracking-display);
   text-transform: uppercase;
   color: var(--color-neutral-0);
 }
@@ -4803,6 +4832,7 @@
   font-size: var(--font-size-32);
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
+  letter-spacing: var(--font-tracking-display);
   color: var(--color-neutral-0);
   line-height: var(--font-leading-snug);
 }
@@ -4867,6 +4897,7 @@
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   line-height: var(--font-leading-snug);
+  letter-spacing: var(--font-tracking-display);
 }
 .pdp-page .pdp__featured-body {
   margin: 0;

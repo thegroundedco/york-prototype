@@ -1,8 +1,47 @@
 // Single-template PDP body — renders the <main> content of product-single.html
 // (buy box + secondary feature band + recs) around the Task-4 chrome partials.
+import { existsSync } from 'node:fs';
 import { renderHead, renderBodyOpen, renderFooter, renderGalleryModal, renderSpecsModal, renderScripts } from './partials.js';
 import { escapeHtml } from '../lib/parse.js';
-import { priceRow, galleryHtml, breadcrumbHtml, quantityHtml, accordionHtml, secondaryCardHtml, recCardHtml, recsSectionHtml } from './shared.js';
+import { priceRow, galleryHtml, breadcrumbHtml, quantityHtml, accordionHtml, additionalFeatureCardHtml, recCardHtml, recsSectionHtml, descriptionHtml } from './shared.js';
+
+// Section 2 "Additional Features" images: prefers a purpose-shot feature-N.jpg (only
+// york-r-350-rower has these exported today — see single-rework-spec.md Section 2),
+// falling back to the product's own gallery photos (gallery[3] for card 1, gallery[4] for
+// card 2 — matching where those lifestyle shots land in every single-template product's
+// 5-photo gallery) when no dedicated export exists yet for a given slug.
+function resolveFeatureImage(p, n, galleryIndex) {
+  const named = `assets/images/products/${p.slug}/feature-${n}.jpg`;
+  if (existsSync(named)) return named;
+  const gallery = p.images?.gallery || [];
+  return gallery[galleryIndex] ?? gallery[gallery.length - 1] ?? gallery[0] ?? '';
+}
+
+// Card 1 = highlights[1] (title + body, as-is). Card 2 = keyFeatures[3], split at its own
+// en dash into title (before) + body (after) — every keyFeatures string ships as
+// "Bold lead – sentence", so this reuses that existing shape rather than needing new copy.
+// Renders fewer cards (never crashes) when a product doesn't have that highlight or that
+// keyFeatures entry doesn't split into a title/body pair.
+function resolveAdditionalFeatureCards(p) {
+  const cards = [];
+
+  const h1 = p.highlights?.[1];
+  if (h1?.title && h1?.body) {
+    cards.push({ title: h1.title, body: h1.body, image: resolveFeatureImage(p, 1, 3) });
+  }
+
+  const kf3 = p.keyFeatures?.[3];
+  const dashIndex = kf3 ? kf3.indexOf('–') : -1;
+  if (dashIndex !== -1) {
+    cards.push({
+      title: kf3.slice(0, dashIndex).trim(),
+      body: kf3.slice(dashIndex + 1).trim(),
+      image: resolveFeatureImage(p, 2, 4),
+    });
+  }
+
+  return cards;
+}
 
 function addOnHtml(a, i) {
   return `              <label class="pdp__addon">
@@ -32,14 +71,15 @@ ${p.addOns.slice(0, 3).map(addOnHtml).join('\n')}
 }
 
 export function renderSingle(p) {
-  const relatedSlugs = p.relatedSlugs || [];
+  const relatedProducts = p.relatedProducts || [];
   const feature = p.highlights?.[0] || {};
   const featureTitle = escapeHtml(feature.title || p.categoryLabel || p.name);
   const featureBody = escapeHtml(feature.body || p.detailsBody || '');
   const shopAllHref = p.category ? `plp-${p.category}.html` : 'plp-equipment.html';
 
-  const secondaryCards = relatedSlugs.slice(0, 2).map(secondaryCardHtml).join('\n');
-  const recCards = relatedSlugs.slice(0, 4).map(recCardHtml).join('\n');
+  const additionalFeatureCards = resolveAdditionalFeatureCards(p).map(additionalFeatureCardHtml).join('\n');
+  const recCardCount = Math.min(relatedProducts.length, 4);
+  const recCards = relatedProducts.slice(0, 4).map(recCardHtml).join('\n');
 
   const main = `  <main id="main">
 
@@ -66,13 +106,7 @@ ${breadcrumbHtml(p)}
 
           <hr class="pdp__rule">
 
-          <div class="pdp__description" data-pdp-description>
-            ${p.shortDescription}
-            <button type="button" class="pdp__read-more" data-pdp-description-toggle aria-expanded="false">
-              <span data-pdp-description-label-more>Read More</span>
-              <span data-pdp-description-label-less hidden>Read Less</span>
-            </button>
-          </div>
+${descriptionHtml(p)}
 
 ${quantityHtml()}
 ${addOnsSectionHtml(p)}
@@ -103,7 +137,7 @@ ${accordionHtml(p)}
     <section class="pdp-single__secondary" aria-label="Featured categories">
       <div class="pdp-single__feature">
         <div class="pdp-single__feature-image">
-          <img src="assets/images/pdp/single-feature.jpg" alt="">
+          <img src="${p.images.editorial}" alt="">
         </div>
         <div class="pdp-single__feature-text">
           <h2 class="pdp-single__feature-title">${featureTitle}</h2>
@@ -112,12 +146,12 @@ ${accordionHtml(p)}
       </div>
 
       <div class="pdp-single__products">
-${secondaryCards}
+${additionalFeatureCards}
       </div>
     </section>
 
     <!-- You May Also Like — 4-card recommended row + Shop All link -->
-${recsSectionHtml(recCards, shopAllHref)}
+${recsSectionHtml(recCards, shopAllHref, recCardCount)}
 
   </main>`;
 

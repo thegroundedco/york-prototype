@@ -13,7 +13,7 @@
 // `accordionHtml`/`recCardHtml`/`recsSectionHtml` from shared.js.
 import { renderHead, renderBodyOpen, renderFooter, renderGalleryModal, renderSpecsModal, renderScripts } from './partials.js';
 import { escapeHtml, formatPrice } from '../lib/parse.js';
-import { priceRow, galleryHtml, breadcrumbHtml, humanizeSlug } from './shared.js';
+import { priceRow, galleryHtml, breadcrumbHtml, humanizeSlug, descriptionHtml } from './shared.js';
 
 // Package's own "You May Also Like" rec card — visually similar to shared.js's
 // recCardHtml but with a price row and an "Add To Cart" action instead of a
@@ -144,13 +144,7 @@ ${breadcrumbHtml(p)}
 
           <hr class="pdp__rule">
 
-          <div class="pdp__description" data-pdp-description>
-            ${p.shortDescription}
-            <button type="button" class="pdp__read-more" data-pdp-description-toggle aria-expanded="false">
-              <span data-pdp-description-label-more>Read More</span>
-              <span data-pdp-description-label-less hidden>Read Less</span>
-            </button>
-          </div>
+${descriptionHtml(p)}
 
           <div class="pdp__included">
             <p class="pdp__included-title">What's Included</p>

@@ -11,7 +11,7 @@
 // task brief.
 import { renderHead, renderBodyOpen, renderFooter, renderGalleryModal, renderSpecsModal, renderScripts } from './partials.js';
 import { escapeHtml } from '../lib/parse.js';
-import { priceRow, galleryHtml, breadcrumbHtml, quantityHtml, accordionHtml, recCardHtml, recsSectionHtml } from './shared.js';
+import { priceRow, galleryHtml, breadcrumbHtml, quantityHtml, accordionHtml, recCardHtml, recsSectionHtml, descriptionHtml } from './shared.js';
 
 // Featured-products carousel: full-bleed slides + dots, one pair per image, mirroring
 // the slide/dot pattern in partials.js's renderGalleryModal but with the
@@ -30,7 +30,7 @@ function featuredDotHtml(i) {
 }
 
 export function renderGeneric(p) {
-  const relatedSlugs = p.relatedSlugs || [];
+  const relatedProducts = p.relatedProducts || [];
   const feature = p.highlights?.[0] || {};
   const featureTitle = escapeHtml(feature.title || p.categoryLabel || p.name);
   const featureBody = escapeHtml(feature.body || p.detailsBody || '');
@@ -40,7 +40,8 @@ export function renderGeneric(p) {
   const featuredSlides = featuredImages.map(featuredSlideHtml).join('\n');
   const featuredDots = featuredImages.map((_, i) => featuredDotHtml(i)).join('\n');
 
-  const recCards = relatedSlugs.slice(0, 4).map(recCardHtml).join('\n');
+  const recCardCount = Math.min(relatedProducts.length, 4);
+  const recCards = relatedProducts.slice(0, 4).map(recCardHtml).join('\n');
 
   const main = `  <main id="main">
 
@@ -67,13 +68,7 @@ ${breadcrumbHtml(p)}
 
           <hr class="pdp__rule">
 
-          <div class="pdp__description" data-pdp-description>
-            ${p.shortDescription}
-            <button type="button" class="pdp__read-more" data-pdp-description-toggle aria-expanded="false">
-              <span data-pdp-description-label-more>Read More</span>
-              <span data-pdp-description-label-less hidden>Read Less</span>
-            </button>
-          </div>
+${descriptionHtml(p)}
 
 ${quantityHtml()}
 
@@ -109,7 +104,7 @@ ${featuredDots}
     </section>
 
     <!-- You May Also Like — same 4-card row + Shop All used by single PDP -->
-${recsSectionHtml(recCards, shopAllHref)}
+${recsSectionHtml(recCards, shopAllHref, recCardCount)}
 
   </main>`;
 
