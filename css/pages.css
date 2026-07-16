@@ -4393,7 +4393,7 @@
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   line-height: var(--font-leading-snug);
-  letter-spacing: var(--font-tracking-display);
+  letter-spacing: var(--font-tracking-section);
   color: var(--color-neutral-0);
 }
 .pdp-single .pdp-single__feature-body,
@@ -4439,7 +4439,7 @@
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   line-height: var(--font-leading-snug);
-  letter-spacing: var(--font-tracking-display);
+  letter-spacing: var(--font-tracking-section);
   color: var(--color-neutral-0);
 }
 
@@ -4492,7 +4492,7 @@
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   line-height: var(--font-leading-snug);
-  letter-spacing: var(--font-tracking-display);
+  letter-spacing: var(--font-tracking-section);
   color: var(--color-neutral-1000);
 }
 .pdp-generic .pdp-generic__feature-body {
@@ -4589,7 +4589,7 @@
   margin: 0;
   font-size: var(--font-size-32);
   line-height: var(--font-leading-tight);
-  letter-spacing: var(--font-tracking-display);
+  letter-spacing: var(--font-tracking-section);
   color: var(--color-neutral-1000);
 }
 .pdp-single__recs-desc {
@@ -4771,7 +4771,7 @@
   font-size: var(--font-size-48);
   font-weight: var(--font-weight-bold);
   line-height: var(--font-leading-tight);
-  letter-spacing: var(--font-tracking-display);
+  letter-spacing: var(--font-tracking-section);
   text-transform: uppercase;
   color: var(--color-neutral-0);
 }
@@ -4832,7 +4832,7 @@
   font-size: var(--font-size-32);
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
-  letter-spacing: var(--font-tracking-display);
+  letter-spacing: var(--font-tracking-section);
   color: var(--color-neutral-0);
   line-height: var(--font-leading-snug);
 }
@@ -4897,7 +4897,7 @@
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   line-height: var(--font-leading-snug);
-  letter-spacing: var(--font-tracking-display);
+  letter-spacing: var(--font-tracking-section);
 }
 .pdp-page .pdp__featured-body {
   margin: 0;
