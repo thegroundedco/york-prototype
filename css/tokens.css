@@ -71,7 +71,7 @@
   --font-tracking-wide:    0.005em;
   --font-tracking-wider:   0.010em;
   --font-tracking-display: 0.045em;   /* display + heading classes — opens up the tight Field Gothic caps (bumped from 0.03em per client feedback: bold caps were still blending together) */
-  --font-tracking-section: 0.16em;    /* below-the-fold PDP feature/section headlines — client wanted these opened up further still than the buy-box headings (bumped 0.11→0.16em) */
+  --font-tracking-section: 0.22em;    /* below-the-fold PDP feature/section headlines — client wanted these opened up further still than the buy-box headings (0.11→0.16→0.22em) */
 
   /* ── Semantic tokens — Dark mode resolved ── */
   /* Each token aliases the primitive it references in Figma */
