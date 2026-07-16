@@ -2,9 +2,28 @@
 // The markup below is copied VERBATIM from product-single.html (head, chrome-top,
 // footer, and the two dialog modals) so that all generated PDPs share identical chrome.
 // Only title/meta/body-class/gallery-slides/spec-paragraphs vary per product.
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { escapeHtml } from '../lib/parse.js';
 
 const BODY_CLASS = { single: 'pdp-single', generic: 'pdp-generic', package: 'pdp-package' };
+
+// Content-hash of the CSS files, computed once when the generator loads this module,
+// appended to the stylesheet URLs as ?v=<hash>. When any CSS changes the hash changes,
+// so browsers are forced to fetch fresh CSS (defeats aggressive caching) — but the URL
+// stays stable across rebuilds when the CSS is unchanged, so no HTML churn.
+const STYLESHEETS = ['tokens', 'base', 'components', 'chrome', 'pages'];
+const CSS_VERSION = (() => {
+  try {
+    const css = STYLESHEETS.map((f) => readFileSync(`css/${f}.css`, 'utf8')).join('\n');
+    return createHash('sha1').update(css).digest('hex').slice(0, 8);
+  } catch {
+    return 'dev';
+  }
+})();
+const cssLinks = STYLESHEETS
+  .map((f) => `  <link rel="stylesheet" href="css/${f}.css?v=${CSS_VERSION}">`)
+  .join('\n');
 
 function metaDescription(p) {
   const text = String(p.shortDescription).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -26,11 +45,7 @@ export function renderHead(p) {
   <title>${escapeHtml(p.name)} | York Barbell</title>
   <meta name="description" content="${metaDescription(p)}">
 
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/chrome.css">
-  <link rel="stylesheet" href="css/pages.css">
+${cssLinks}
 </head>`;
 }
 

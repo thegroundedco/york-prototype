@@ -8,8 +8,8 @@ const p = loadProducts('data/products.sample.json')[0];
 test('head has title, stylesheets, no leftover placeholder', () => {
   const h = renderHead(p);
   assert.match(h, /<title>Sample Bench \| York Barbell<\/title>/);
-  assert.match(h, /href="css\/tokens\.css"/);
-  assert.match(h, /href="css\/pages\.css"/);
+  assert.match(h, /href="css\/tokens\.css\?v=[a-f0-9]+"/);
+  assert.match(h, /href="css\/pages\.css\?v=[a-f0-9]+"/);
   assert.doesNotMatch(h, /\{\{/);
 });
 
