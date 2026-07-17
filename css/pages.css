@@ -4480,10 +4480,10 @@
 }
 .pdp-generic .pdp-generic__features-row {
   width: 100%;
-  max-width: 1376px;
+  /* full-width: the 4 feature columns span the section (no centered max-width cap) */
   display: grid;
   grid-template-columns: repeat(var(--pdp-generic-features-count, 4), 1fr);
-  gap: var(--space-32);
+  gap: var(--space-48);
 }
 .pdp-generic .pdp-generic__features-item {
   display: flex;
