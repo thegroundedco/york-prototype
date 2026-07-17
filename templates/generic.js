@@ -1,6 +1,6 @@
 // Generic-template PDP body — renders the <main> content of product-generic.html
-// (buy box + full-bleed feature + featured-products carousel + recs) around the
-// Task-4 chrome partials.
+// (buy box + full-bleed feature + 4-column features grid + static featured banner +
+// recs) around the Task-4 chrome partials.
 //
 // Differs from Single (templates/single.js): no add-ons, no key-features list, no
 // financing line in the buy box — buy box is breadcrumb + title + price + description +
@@ -13,32 +13,52 @@ import { renderHead, renderBodyOpen, renderFooter, renderGalleryModal, renderSpe
 import { escapeHtml } from '../lib/parse.js';
 import { priceRow, galleryHtml, breadcrumbHtml, quantityHtml, accordionHtml, recCardHtml, recsSectionHtml, descriptionHtml } from './shared.js';
 
-// Featured-products carousel: full-bleed slides + dots, one pair per image, mirroring
-// the slide/dot pattern in partials.js's renderGalleryModal but with the
-// pdp-generic__featured-* classes. Reuses product.images.gallery (up to 3, matching
-// the 3 dots the source markup ships) instead of the source's hardcoded homepage/
-// package hero images.
-function featuredSlideHtml(src, i) {
-  return `        <div class="pdp-generic__featured-slide" data-carousel-slide${i === 0 ? '' : ' hidden'}>
-          <img src="${src}" alt="">
-        </div>`;
+// Section 1 "Features" — one column per keyFeatures entry, split on the entry's own
+// FIRST colon into a bold header + body paragraph (every generic product's keyFeatures
+// ships as "Bold Header: body sentence." — checked across all 13 generic products, see
+// generic-rework-spec.md). Generic-only: Single's Section 1 is a real highlights-driven
+// single card and is untouched by this change.
+//
+// Renders one column per keyFeatures entry (not capped at 4) — 8 of 13 generic products
+// ship exactly 4 keyFeatures, the other 5 ship 3; the CSS grid's column count is driven
+// by an inline custom property so both counts render as even columns instead of a
+// stretched/broken track. A keyFeatures entry with no colon becomes a header-only column
+// (whole string as title, empty body) rather than being skipped, so a malformed/edge-case
+// entry still shows something instead of silently vanishing.
+function featureColumnHtml({ title, body }) {
+  const bodyHtml = body ? `\n          <p class="pdp-generic__features-body">${escapeHtml(body)}</p>` : '';
+  return `        <article class="pdp-generic__features-item">
+          <h3 class="pdp-generic__features-title">${escapeHtml(title)}</h3>${bodyHtml}
+        </article>`;
 }
-function featuredDotHtml(i) {
-  return `        <button type="button" class="pdp-generic__featured-dot" data-carousel-dot role="tab" aria-selected="${i === 0}">
-          <span class="visually-hidden">Slide ${i + 1}</span>
-        </button>`;
+
+function resolveFeatureColumns(p) {
+  return (p.keyFeatures || []).map((raw) => {
+    const idx = raw.indexOf(':');
+    if (idx === -1) return { title: raw.trim(), body: '' };
+    return { title: raw.slice(0, idx).trim(), body: raw.slice(idx + 1).trim() };
+  });
+}
+
+// Section 2 "Featured" banner — single static full-bleed image, no carousel. Figma's own
+// "Slide Indictator" dots are hidden in the source document (this was never meant to
+// auto-rotate) — see generic-rework-spec.md Section 2. Only york-yoga-mat has a real,
+// purpose-shot featured-banner.jpg today (a new export, not one of the 5 gallery photos),
+// recorded on the product as `featuredBanner` rather than probed for on disk at render
+// time; every other generic product falls back to its own editorial image.
+function resolveFeaturedBannerImage(p) {
+  return p.featuredBanner || p.images.editorial;
 }
 
 export function renderGeneric(p) {
   const relatedProducts = p.relatedProducts || [];
-  const feature = p.highlights?.[0] || {};
-  const featureTitle = escapeHtml(feature.title || p.categoryLabel || p.name);
-  const featureBody = escapeHtml(feature.body || p.detailsBody || '');
   const shopAllHref = p.category ? `plp-${p.category}.html` : 'plp-equipment.html';
 
-  const featuredImages = p.images.gallery.slice(0, 3);
-  const featuredSlides = featuredImages.map(featuredSlideHtml).join('\n');
-  const featuredDots = featuredImages.map((_, i) => featuredDotHtml(i)).join('\n');
+  const featureColumns = resolveFeatureColumns(p);
+  const featureColumnCount = Math.max(featureColumns.length, 1);
+  const featureColumnsHtml = featureColumns.map(featureColumnHtml).join('\n');
+
+  const featuredBannerImage = resolveFeaturedBannerImage(p);
 
   const recCardCount = Math.min(relatedProducts.length, 4);
   const recCards = relatedProducts.slice(0, 4).map(recCardHtml).join('\n');
@@ -82,25 +102,20 @@ ${accordionHtml(p)}
 
     </section>
 
-    <!-- Feature: full-bleed image + single horizontal card with title + description -->
+    <!-- Feature: full-bleed image + 4-column header/body features grid -->
     <section class="pdp-generic__feature" aria-label="Feature">
       <div class="pdp-generic__feature-image">
         <img src="${p.images.editorial}" alt="">
       </div>
-      <div class="pdp-generic__feature-card">
-        <h2 class="pdp-generic__feature-title">${featureTitle}</h2>
-        <p class="pdp-generic__feature-body">${featureBody}</p>
+      <div class="pdp-generic__features-row" style="--pdp-generic-features-count: ${featureColumnCount};">
+${featureColumnsHtml}
       </div>
     </section>
 
-    <!-- Featured Products: single full-bleed carousel with dot indicators, auto-advance -->
-    <section class="pdp-generic__featured" aria-label="Featured products" data-carousel data-carousel-interval="5000">
-      <div class="pdp-generic__featured-slides">
-${featuredSlides}
-      </div>
-      <div class="pdp-generic__featured-dots" role="tablist" aria-label="Featured slides">
-${featuredDots}
-      </div>
+    <!-- Featured: single static full-bleed banner (Figma's own dots are hidden — this
+         was never meant to auto-rotate) -->
+    <section class="pdp-generic__featured" aria-label="Featured">
+      <img class="pdp-generic__featured-image" src="${featuredBannerImage}" alt="">
     </section>
 
     <!-- You May Also Like — same 4-card row + Shop All used by single PDP -->

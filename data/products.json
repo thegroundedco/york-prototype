@@ -417,14 +417,15 @@
     "relatedSlugs": [],
     "images": {
       "gallery": [
-        "assets/images/products/york-yoga-mat/gallery-1.jpg",
+        "assets/images/products/york-yoga-mat/gallery-5.jpg",
         "assets/images/products/york-yoga-mat/gallery-2.jpg",
         "assets/images/products/york-yoga-mat/gallery-3.jpg",
-        "assets/images/products/york-yoga-mat/gallery-4.jpg",
-        "assets/images/products/york-yoga-mat/gallery-5.jpg"
+        "assets/images/products/york-yoga-mat/gallery-1.jpg",
+        "assets/images/products/york-yoga-mat/gallery-4.jpg"
       ],
       "editorial": "assets/images/products/york-yoga-mat/editorial.jpg"
     },
+    "featuredBanner": "assets/images/products/york-yoga-mat/featured-banner.jpg",
     "copySource": "sheet",
     "imageSource": "figma"
   },
