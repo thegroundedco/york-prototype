@@ -4608,8 +4608,8 @@
 }
 .pdp-page .pdp__why-inner {
   width: 100%;
-  max-width: 1637px;
-  margin: 0 auto;
+  /* full-width: hero + 3-column key-detail images span edge-to-edge (client feedback);
+     the intro text keeps its own centered max-width below. */
   display: flex;
   flex-direction: column;
   gap: var(--space-48);
