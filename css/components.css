@@ -89,11 +89,9 @@
    children (CTAs, links) handle their own focus/hover. */
 .plp__card,
 .pdp-single__rec-card,
-.pdp__rec-card,
 .collections-product-card,
 .product-card,
 .about__timeline-card,
-.pdp__featured-card,
 .pdp-single__product {
   transition:
     transform 0.3s ease-in-out,
@@ -101,13 +99,15 @@
     border-color 0.3s ease-in-out;
 }
 
-/* "You May Also Like" recommendation cards (.pdp__rec-card / .pdp-single__rec-card)
-   intentionally omitted — no lift/shadow on hover (they keep border + image zoom). */
+/* "You May Also Like" recommendation cards (.pdp-single__rec-card) intentionally
+   omitted — no lift/shadow on hover (they keep border + image zoom).
+   .pdp__featured-card ("Built for Steady Progress") is also omitted — it's a plain,
+   non-clickable <article> with no href, so it should never lift/elevate on hover
+   (client feedback #5). */
 .plp__card:hover,
 .collections-product-card:hover,
 .product-card:hover,
 .about__timeline-card:hover,
-.pdp__featured-card:hover,
 .pdp-single__product:hover {
   transform: translateY(-2px);
   box-shadow: 5px 5px 16px 0 rgba(16, 24, 32, 0.2);

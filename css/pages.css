@@ -4065,116 +4065,6 @@
 .pdp-page .pdp__acc-body p { margin: 0; font-size: var(--font-size-16); line-height: var(--font-leading-normal); }
 .pdp-page .pdp__acc-body a:not(.btn) { color: var(--color-neutral-1000); text-decoration: underline; text-underline-offset: 3px; }
 
-/* "You May Also Like" — chevron-down style icon when open (no rotation), per Figma */
-.pdp-page .pdp__acc-icon--chevron::before {
-  background: transparent;
-  width: 12px;
-  height: 12px;
-  border-right: 2px solid var(--color-neutral-1000);
-  border-bottom: 2px solid var(--color-neutral-1000);
-  transform: translate(-50%, -75%) rotate(45deg);
-  transition: transform 0.2s ease;
-}
-.pdp-page .pdp__acc-icon--chevron::after { display: none; }
-.pdp-page .pdp__acc-entry[open] .pdp__acc-icon--chevron::before {
-  transform: translate(-50%, -25%) rotate(-135deg);
-}
-
-/* Recommendations: horizontal scroller with progress bar */
-.pdp-page .pdp__acc-body--recs {
-  padding: 0 0 var(--space-16);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-24);
-}
-.pdp-page .pdp__recs-scroller {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 195px;
-  gap: var(--space-32);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  padding-bottom: var(--space-8);
-}
-.pdp-page .pdp__recs-scroller::-webkit-scrollbar { display: none; }
-.pdp-page .pdp__rec-card {
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-  position: relative;
-}
-/* Stretched link: title anchor covers the whole card. CTA stays clickable via z-index. */
-.pdp-page .pdp__rec-title-link {
-  color: inherit;
-  text-decoration: none;
-}
-.pdp-page .pdp__rec-title-link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-.pdp-page .pdp__rec-cta { position: relative; z-index: 1; }
-.pdp-page .pdp__rec-image {
-  width: 100%;
-  aspect-ratio: 195 / 148;
-  background: var(--color-neutral-200);
-  overflow: hidden;
-}
-.pdp-page .pdp__rec-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.pdp-page .pdp__rec-title {
-  margin: 0;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-16);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-neutral-1000);
-  line-height: var(--font-leading-snug);
-}
-.pdp-page .pdp__rec-prices {
-  display: flex;
-  gap: var(--space-8);
-  align-items: baseline;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-14);
-  color: var(--color-neutral-1000);
-}
-.pdp-page .pdp__rec-price--sale { font-weight: var(--font-weight-semibold); }
-.pdp-page .pdp__rec-price--original { color: var(--color-neutral-500); text-decoration: line-through; }
-.pdp-page .pdp__rec-cta {
-  width: 100%;
-  text-align: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: var(--space-8);
-  color: var(--text-on-accent);
-}
-
-.pdp-page .pdp__recs-progress {
-  position: relative;
-  width: 100%;
-  height: 4px;
-  background: var(--color-neutral-200);
-  border-radius: 16px;
-  overflow: hidden;
-}
-.pdp-page .pdp__recs-progress-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 40%;
-  background: var(--accent-default);
-  border-radius: 16px;
-  transition: width 0.15s ease, left 0.15s ease;
-}
-
 @media (max-width: 1024px) {
   .pdp-page .pdp__split { grid-template-columns: 1fr; gap: var(--space-32); }
   /* In single column the info wraps below the gallery — no sticky behavior. */
@@ -4707,14 +4597,17 @@
   color: var(--color-neutral-1000);
 }
 
-/* PDP "Why The Performance Package" — full-bleed dark band */
+/* PDP "Why The Performance Package" — full-bleed dark band. Side padding lives on
+   .pdp__why-intro only (not .pdp__why itself) so .pdp__why-hero and
+   .pdp__why-testimonials can span edge-to-edge — see package-rework-spec.md Section 1. */
 .pdp-page .pdp__why {
   background: var(--color-neutral-1000);
   color: var(--color-neutral-0);
-  padding: var(--space-48) var(--space-32);
+  padding: var(--space-48) 0;
   width: 100%;
 }
 .pdp-page .pdp__why-inner {
+  width: 100%;
   max-width: 1637px;
   margin: 0 auto;
   display: flex;
@@ -4725,6 +4618,8 @@
 .pdp-page .pdp__why-intro {
   width: 100%;
   max-width: 701px;
+  padding: 0 var(--space-32);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: var(--space-48);
@@ -4768,10 +4663,12 @@
   display: block;
 }
 
+/* Key Details: 3-column, full-bleed images (client feedback #3) — no gutter between
+   columns, so gap lives on .pdp__why-testimonial (image-to-text) instead. */
 .pdp-page .pdp__why-testimonials {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-24);
+  gap: 0;
   width: 100%;
 }
 .pdp-page .pdp__why-testimonial {
@@ -4779,11 +4676,11 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: var(--space-24);
+  gap: var(--space-48);
 }
 .pdp-page .pdp__why-testimonial-image {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 400px;
   overflow: hidden;
 }
 .pdp-page .pdp__why-testimonial-image img {
@@ -4804,7 +4701,7 @@
 }
 .pdp-page .pdp__why-testimonial-body {
   margin: 0;
-  width: 300px;
+  width: 394px;
   max-width: 100%;
   font-family: var(--font-family-body);
   font-size: var(--font-size-16);
@@ -4817,18 +4714,21 @@
   .pdp-page .pdp__why-hero { height: 360px; }
 }
 @media (max-width: 767px) {
-  .pdp-page .pdp__why { padding: var(--space-48) var(--space-16); }
+  .pdp-page .pdp__why { padding: var(--space-48) 0; }
+  .pdp-page .pdp__why-intro { padding: 0 var(--space-16); }
   .pdp-page .pdp__why-heading { font-size: var(--font-size-32); }
   .pdp-page .pdp__why-hero { height: 240px; }
 }
 
-/* PDP Featured Products: 2 large cards, edge-to-edge */
+/* PDP "Built for Steady Progress": 2 large cards, edge-to-edge (client feedback #5 —
+   no side padding, images full-bleed against the sides). Not clickable, no hover/
+   elevation — see components.css / the image-zoom-hover block below. */
 .pdp-page .pdp__featured {
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: var(--color-cream-base);
   width: 100%;
-  padding: var(--space-24) var(--space-24) 0;
+  padding: 0 0 var(--space-48);
 }
 .pdp-page .pdp__featured-card {
   display: flex;
@@ -5608,10 +5508,8 @@
 .product-card__image,
 .collections-product-card__image,
 .plp__card-image img,
-.pdp__rec-image img,
 .pdp-single__rec-image img,
 .pdp-single__product-image img,
-.pdp__featured-image img,
 .about__timeline-image img {
   transition: transform 0.3s ease-in-out;
 }
@@ -5629,10 +5527,8 @@
 .product-card:hover .product-card__image,
 .collections-product-card:hover .collections-product-card__image,
 .plp__card:hover .plp__card-image img,
-.pdp__rec-card:hover .pdp__rec-image img,
 .pdp-single__rec-card:hover .pdp-single__rec-image img,
 .pdp-single__product:hover .pdp-single__product-image img,
-.pdp__featured-card:hover .pdp__featured-image img,
 .about__timeline-card:hover .about__timeline-image img {
   transform: scale(1.05);
 }
@@ -5641,10 +5537,8 @@
   .product-card:hover .product-card__image,
   .collections-product-card:hover .collections-product-card__image,
   .plp__card:hover .plp__card-image img,
-  .pdp__rec-card:hover .pdp__rec-image img,
   .pdp-single__rec-card:hover .pdp-single__rec-image img,
   .pdp-single__product:hover .pdp-single__product-image img,
-  .pdp__featured-card:hover .pdp__featured-image img,
   .about__timeline-card:hover .about__timeline-image img {
     transform: none;
   }

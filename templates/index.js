@@ -11,14 +11,22 @@ export function renderProduct(product) {
   return fn(product);
 }
 
-// Fill up to 5 related slugs from same-category peers (single/generic show 4,
-// package shows 5). Excludes self and already-listed peers; degrades gracefully
-// when a category has fewer than 5 members.
+// Fill up to 5 related slugs from a peer pool (single/generic show 4, package shows up
+// to 4 too via its own recCardCount cap — see templates/package.js). Excludes self and
+// already-listed peers; degrades gracefully when the pool has fewer than 5 members.
+//
+// Pool selection branches on the product's own template: a package product pools other
+// `template === 'package'` products ("other packages" per client feedback #2 — see
+// package-rework-spec.md Section 4), since relatedSlugs is empty on all 4 package
+// products today and a same-category filter can't reliably surface "other packages"
+// (the 4 packages don't all share one category). Single/Generic products keep the
+// original same-category behavior, unchanged.
 export function withRelatedFallback(product, allProducts) {
   const related = [...(product.relatedSlugs || [])];
   if (related.length >= 5) return product;
   const pool = allProducts
-    .filter((q) => q.slug !== product.slug && q.category === product.category && !related.includes(q.slug))
+    .filter((q) => q.slug !== product.slug && !related.includes(q.slug))
+    .filter((q) => (product.template === 'package' ? q.template === 'package' : q.category === product.category))
     .map((q) => q.slug);
   while (related.length < 5 && pool.length) related.push(pool.shift());
   return { ...product, relatedSlugs: related };

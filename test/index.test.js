@@ -11,6 +11,41 @@ test('fills related from same category up to 4', () => {
   assert.deepEqual(out.relatedSlugs, ['b', 'c']); // only 2 same-category peers exist
 });
 
+test('package products pool other packages, not same-category peers', () => {
+  // Mirrors the real catalog shape: 4 package products spread across 2 different
+  // categories (equipment / bars-weights) alongside plain equipment products — a
+  // same-category filter could never reliably surface "other packages" here (client
+  // feedback #2 — see package-rework-spec.md Section 4).
+  const all = [
+    { slug: 'essential-olympic-training-set', template: 'package', category: 'equipment' },
+    { slug: 'york-performance-package', template: 'package', category: 'equipment' },
+    { slug: 'plyo-package', template: 'package', category: 'equipment' },
+    { slug: 'rubber-hex-dumbbell-set', template: 'package', category: 'bars-weights' },
+    { slug: 'fts-power-cage', template: 'single', category: 'equipment' },
+    { slug: 'battle-rope', template: 'generic', category: 'equipment' },
+  ];
+  const out = withRelatedFallback(
+    { slug: 'essential-olympic-training-set', template: 'package', category: 'equipment', relatedSlugs: [] },
+    all,
+  );
+  assert.deepEqual(out.relatedSlugs, ['york-performance-package', 'plyo-package', 'rubber-hex-dumbbell-set']);
+});
+
+test('non-package products keep the original same-category pool, unaffected by the package branch', () => {
+  const all = [
+    { slug: 'fts-power-cage', template: 'single', category: 'equipment' },
+    { slug: 'battle-rope', template: 'generic', category: 'equipment' },
+    { slug: 'plyo-package', template: 'package', category: 'equipment' },
+  ];
+  const out = withRelatedFallback(
+    { slug: 'fts-power-cage', template: 'single', category: 'equipment', relatedSlugs: [] },
+    all,
+  );
+  // Same-category filter, exactly as before this change — a same-category package peer
+  // is still eligible (the branch only changes the pool for package products themselves).
+  assert.deepEqual(out.relatedSlugs, ['battle-rope', 'plyo-package']);
+});
+
 test('resolveRelated maps relatedSlugs to real product data (name/price/first gallery image)', () => {
   const all = [
     { slug: 'a', name: 'A Product', price: { current: 10, compareAt: null }, images: { gallery: ['a1.jpg', 'a2.jpg'] } },

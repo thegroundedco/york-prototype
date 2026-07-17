@@ -1,44 +1,48 @@
 // Package-template PDP body — renders the <main> content of product-package.html
-// (buy box with a "What's Included" list + accordion-embedded recs + Why/Featured
-// sections) around the Task-4 chrome partials.
+// (buy box with a "What's Included" list + Why/Key-Details/Featured sections + a
+// standalone "You May Also Like" section) around the Task-4 chrome partials.
 //
 // Differs from Single/Generic: no quantity stepper, no add-ons — the buy box shows a
 // `pdp__included` "What's Included" list (from p.included) instead of quantityHtml().
 // The accordion also differs: product-package.html has no Description entry (the
-// buy-box description above already covers it) and embeds the "You May Also Like" recs
-// directly inside an OPEN accordion entry (`pdp__acc-body--recs`), using package-
-// specific rec-card markup (`pdp__rec-card` / `pdp__rec-prices` / "Add To Cart") that
-// doesn't match the shared `recCardHtml`/`recsSectionHtml` used by Single/Generic — so
-// the accordion and its rec cards are built inline here rather than reusing
-// `accordionHtml`/`recCardHtml`/`recsSectionHtml` from shared.js.
+// buy-box description above already covers it). "You May Also Like" no longer lives
+// inside the accordion (see package-rework-spec.md Section 4) — it's now the shared
+// `recCardHtml`/`recsSectionHtml` 4-card row + Shop All, same as Single/Generic,
+// rendered as its own section after the Featured band.
+import { existsSync } from 'node:fs';
 import { renderHead, renderBodyOpen, renderFooter, renderGalleryModal, renderSpecsModal, renderScripts } from './partials.js';
 import { escapeHtml, formatPrice } from '../lib/parse.js';
-import { priceRow, galleryHtml, breadcrumbHtml, humanizeSlug, descriptionHtml } from './shared.js';
+import { priceRow, galleryHtml, breadcrumbHtml, descriptionHtml, recCardHtml, recsSectionHtml } from './shared.js';
 
-// Package's own "You May Also Like" rec card — visually similar to shared.js's
-// recCardHtml but with a price row and an "Add To Cart" action instead of a
-// "View Product" link, matching product-package.html's pdp__rec-card markup. There is
-// no per-related-product price data available at this stage (relatedSlugs is just an
-// array of slugs — see shared.js's humanizeSlug comment), so the price shows "Price TBD"
-// rather than carrying over the source's hardcoded/junk "$0.00 / $1,2200.00" figures.
-function pkgRecCardHtml(slug) {
-  const title = escapeHtml(humanizeSlug(slug));
-  return `                  <article class="pdp__rec-card">
-                    <div class="pdp__rec-image"><img src="assets/images/products/${slug}/gallery-1.jpg" alt=""></div>
-                    <h4 class="pdp__rec-title"><a class="pdp__rec-title-link" href="${slug}.html">${title}</a></h4>
-                    <div class="pdp__rec-prices">
-                      <span class="pdp__rec-price--sale">Price TBD</span>
-                    </div>
-                    <a class="btn btn--primary pdp__rec-cta" href="#cart">Add To Cart</a>
-                  </article>`;
+// Key Details (Section 2) per-column image: prefers a purpose-shot key-detail-N.jpg
+// (only essential-olympic-training-set has these exported today — see
+// package-rework-spec.md Section 2), falling back to the product's own gallery photos
+// when no dedicated export exists yet for a given slug/column.
+function resolveKeyDetailImage(p, n, galleryIndex) {
+  const named = `assets/images/products/${p.slug}/key-detail-${n}.jpg`;
+  if (existsSync(named)) return named;
+  const gallery = p.images?.gallery || [];
+  return gallery[galleryIndex] ?? gallery[0] ?? '';
+}
+
+// Built for Steady Progress (Section 3) card image: same existsSync-then-gallery-
+// fallback pattern as resolveKeyDetailImage, feature-N.jpg naming matches the
+// convention single.js's resolveFeatureImage already established for this "2-card
+// featured band" shape.
+function resolveFeaturedCardImage(p, n, galleryIndex) {
+  const named = `assets/images/products/${p.slug}/feature-${n}.jpg`;
+  if (existsSync(named)) return named;
+  const gallery = p.images?.gallery || [];
+  return gallery[galleryIndex] ?? gallery[0] ?? '';
 }
 
 // Package's accordion: Features & Specs (button->modal) + Shipping & Returns (details,
-// copy identical to shared.js's accordionHtml) + an OPEN "You May Also Like" details
-// embedding the rec-card scroller. No Description entry here, unlike shared.js's
-// accordionHtml — product-package.html doesn't repeat the buy-box description the way
-// Single/Generic's accordion does.
-function packageAccordionHtml(recCards) {
+// copy identical to shared.js's accordionHtml). No Description entry here, unlike
+// shared.js's accordionHtml — product-package.html doesn't repeat the buy-box
+// description the way Single/Generic's accordion does. No longer takes a recCards
+// param — "You May Also Like" moved out of the accordion (see package-rework-spec.md
+// Section 4).
+function packageAccordionHtml() {
   return `          <div class="pdp__accordion">
             <button type="button" class="pdp__acc-entry pdp__acc-entry--button" data-modal="features-specs" id="features-specs">
               <span class="pdp__acc-summary">
@@ -55,28 +59,14 @@ function packageAccordionHtml(recCards) {
                 <p class="body-md">Freight shipping included. Carrier will schedule a delivery appointment 24 hours in advance. Returns accepted within 30 days. See our <a href="shipping.html">shipping</a> and <a href="returns-refunds.html">returns</a> pages for details.</p>
               </div>
             </details>
-            <details class="pdp__acc-entry" open>
-              <summary class="pdp__acc-summary">
-                <span>You May Also Like</span>
-                <span class="pdp__acc-icon pdp__acc-icon--chevron" aria-hidden="true"></span>
-              </summary>
-              <div class="pdp__acc-body pdp__acc-body--recs">
-                <div class="pdp__recs-scroller" data-pdp-recs>
-${recCards}
-                </div>
-                <div class="pdp__recs-progress" aria-hidden="true">
-                  <div class="pdp__recs-progress-bar" data-pdp-recs-bar></div>
-                </div>
-              </div>
-            </details>
           </div>`;
 }
 
 export function renderPackage(p) {
-  const relatedSlugs = p.relatedSlugs || [];
-  // The source ships 5 cards in the recs scroller (it's a horizontal scroller, not the
-  // fixed 4-up grid Single/Generic use for their "You May Also Like" section).
-  const recCards = relatedSlugs.slice(0, 5).map(pkgRecCardHtml).join('\n');
+  const relatedProducts = p.relatedProducts || [];
+  const recCardCount = Math.min(relatedProducts.length, 4);
+  const recCards = relatedProducts.slice(0, 4).map(recCardHtml).join('\n');
+  const shopAllHref = p.category ? `plp-${p.category}.html` : 'plp-equipment.html';
 
   const includedItems = (p.included || [])
     .map((item) => '              <li>' + escapeHtml(item) + '</li>')
@@ -84,34 +74,34 @@ export function renderPackage(p) {
 
   const currentPriceLabel = formatPrice(p.price ? p.price.current : null);
 
-  // "Why The [Product]?" section: hero image + intro paragraph + up to 3 "Key Detail"
-  // testimonial cards. product-package.html ships this with 2 paragraphs of lorem ipsum
-  // intro copy and 3 testimonials of lorem ipsum body copy — all placeholder junk that
-  // never varies per product. Replaced here with real per-product data, falling back
-  // gracefully (same pattern generic.js uses for its one feature block: highlights[0]
-  // then detailsBody) when a product has no highlights/keyFeatures.
-  const why = p.highlights?.[0] || {};
-  const whyBody = escapeHtml(why.body || p.detailsBody || '');
-  const galleryImgs = p.images.gallery.length ? p.images.gallery : [''];
-  const testimonials = (p.keyFeatures || [])
-    .slice(0, 3)
+  // "Why The [Product]?" section: hero image + intro paragraph. Prefers the real
+  // per-product whyBody field (see package-rework-spec.md Section 1); the
+  // highlights[0]/detailsBody fallback chain stays for defensive coverage but fires 0%
+  // of the time today since every package product ships whyBody.
+  const whyBody = escapeHtml(p.whyBody || p.highlights?.[0]?.body || p.detailsBody || '');
+
+  // Key Details (Section 2): 3 columns, real title/body from p.keyDetails, each with a
+  // per-column resolved image (dedicated key-detail-N.jpg export when it exists,
+  // otherwise a gallery-photo stand-in — see resolveKeyDetailImage above). Renders
+  // fewer cards (never crashes) when keyDetails has <3 entries.
+  const keyDetails = (p.keyDetails || []).slice(0, 3);
+  const testimonials = keyDetails
     .map(
-      (text, i) => `          <article class="pdp__why-testimonial">
+      (kd, i) => `          <article class="pdp__why-testimonial">
             <div class="pdp__why-testimonial-image">
-              <img src="${galleryImgs[i % galleryImgs.length]}" alt="">
+              <img src="${resolveKeyDetailImage(p, i + 1, i + 1)}" alt="">
             </div>
-            <h3 class="pdp__why-testimonial-title">Key Detail #${i + 1}</h3>
-            <p class="pdp__why-testimonial-body">${escapeHtml(text)}</p>
+            <h3 class="pdp__why-testimonial-title">${escapeHtml(kd.title)}</h3>
+            <p class="pdp__why-testimonial-body">${escapeHtml(kd.body)}</p>
           </article>`,
     )
     .join('\n');
 
-  // Featured Products: 2 large cards. The source repeats the literal title
-  // "Product Callout" verbatim on both cards with lorem ipsum bodies — an unfilled
-  // placeholder, not real per-product copy (contrast Single/Generic's feature title,
-  // which ships real editorial text — "Built To Last" / "Racks & Benches" — in the
-  // source). Data-driven here via the same highlights-then-categoryLabel/detailsBody
-  // fallback chain generic.js established for its own feature block.
+  // Built for Steady Progress (Section 3): 2 large cards. Data-driven via the same
+  // highlights-then-categoryLabel/detailsBody fallback chain generic.js established for
+  // its own feature block. Images now via resolveFeaturedCardImage() (dedicated
+  // feature-N.jpg lifestyle shot when it exists, gallery stand-in otherwise) instead of
+  // the raw galleryImgs[n % len] plain product photos this used to show.
   const feature1 = p.highlights?.[1] || {};
   const feature2 = p.highlights?.[2] || {};
   const featuredTitle1 = escapeHtml(feature1.title || p.categoryLabel || p.name);
@@ -160,7 +150,7 @@ ${includedItems}
             <a href="#financing">Learn More</a>
           </p>
 
-${packageAccordionHtml(recCards)}
+${packageAccordionHtml()}
 
         </div>
 
@@ -190,7 +180,7 @@ ${testimonials}
     <section class="pdp__featured" aria-label="Featured products">
       <article class="pdp__featured-card">
         <div class="pdp__featured-image">
-          <img src="${galleryImgs[0 % galleryImgs.length]}" alt="">
+          <img src="${resolveFeaturedCardImage(p, 1, 0)}" alt="">
         </div>
         <div class="pdp__featured-text">
           <h3 class="pdp__featured-title">${featuredTitle1}</h3>
@@ -199,7 +189,7 @@ ${testimonials}
       </article>
       <article class="pdp__featured-card">
         <div class="pdp__featured-image">
-          <img src="${galleryImgs[1 % galleryImgs.length]}" alt="">
+          <img src="${resolveFeaturedCardImage(p, 2, 4)}" alt="">
         </div>
         <div class="pdp__featured-text">
           <h3 class="pdp__featured-title">${featuredTitle2}</h3>
@@ -207,6 +197,9 @@ ${testimonials}
         </div>
       </article>
     </section>
+
+    <!-- You May Also Like — same 4-card row + Shop All used by single/generic PDPs -->
+${recsSectionHtml(recCards, shopAllHref, recCardCount)}
 
   </main>`;
 
