@@ -4,7 +4,7 @@ import { loadProducts } from '../lib/products.js';
 import { loadMerchandising, resolveEntry, FILTER_LABELS } from '../lib/merchandising.js';
 import { plpCardHtml, collectionCardHtml } from '../templates/shared.js';
 import { replaceEachInner, replaceCount } from '../lib/html-inject.js';
-import { injectSingleCatPlp } from './inject-grids.mjs';
+import { injectSingleCatPlp, injectShopAll } from './inject-grids.mjs';
 
 const products = loadProducts('data/products.json');
 const bySlug = new Map(products.map((p) => [p.slug, p]));
@@ -134,4 +134,18 @@ test('injectSingleCatPlp swaps cards and updates the count', () => {
   assert.match(out, /Showing all 4 results/);
   assert.match(out, /plp__card">NEW/);
   assert.doesNotMatch(out, /plp__card">OLD/);
+});
+
+// ── Task 6: Shop All injector ───────────────────────────────────────
+
+test('injectShopAll fills each category section grid in document order', () => {
+  const html = `<section data-plp-category="racks-benches"><div class="plp__grid"><article>OLD</article></div></section>
+<section data-plp-category="storage"><div class="plp__grid"><article>OLD</article></div></section>`;
+  const out = injectShopAll(html, [
+    { attr: 'racks-benches', cards: '<article>RB</article>' },
+    { attr: 'storage', cards: '<article>ST</article>' },
+  ]);
+  assert.match(out, /data-plp-category="racks-benches"><div class="plp__grid"><article>RB/);
+  assert.match(out, /data-plp-category="storage"><div class="plp__grid"><article>ST/);
+  assert.doesNotMatch(out, /OLD/);
 });

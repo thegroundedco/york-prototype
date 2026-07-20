@@ -18,6 +18,18 @@ export function injectSingleCatPlp(html, cards, count) {
   return out;
 }
 
+// Shop All (plp-equipment): several `[data-plp-category="<attr>"]` sections, each
+// with a `.plp__grid`. Replaces each section's grid inner with its cards, matched
+// by the section's data-attr so document order and the filter buttons stay valid.
+export function injectShopAll(html, sections) {
+  let out = html;
+  for (const { attr, cards } of sections) {
+    const openRe = new RegExp(`<section[^>]*data-plp-category="${attr}"[^>]*>[\\s\\S]*?<div class="plp__grid">`);
+    out = replaceEachInner(out, openRe, [cards]);
+  }
+  return out;
+}
+
 // --- CLI ---
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const products = loadProducts('data/products.json');
@@ -35,4 +47,27 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.log(`  ${c.page}: ${c.products.length} cards`);
   }
   console.log(`Injected ${SINGLE_CAT.length} single-category PLPs.`);
+
+  // Shop All — group all products by primary `category` into the existing sections.
+  // The 3 packages (category "equipment") have no section and are intentionally
+  // skipped here; full re-section to the 8 new collections is deferred with the nav.
+  const CAT_TO_ATTR = {
+    'racks-benches': 'racks-benches', 'bars-weights': 'bars-weights',
+    'cardio-conditioning': 'cardio', 'accessories': 'accessories', 'storage': 'storage',
+  };
+  const byCat = {};
+  const skipped = [];
+  for (const p of products) {
+    const attr = CAT_TO_ATTR[p.category];
+    if (!attr) { skipped.push(p.slug); continue; }
+    (byCat[attr] ||= []).push(plpCardHtml(resolveEntry(p.slug, bySlug)));
+  }
+  const shopAllHtml = readFileSync(merch.shopAll.page, 'utf8');
+  const sections = Object.entries(byCat).map(([attr, cards]) => ({
+    attr,
+    // grid <div> sits at 8-space indent in this page; cards go 2 deeper.
+    cards: `\n${cards.map((c) => `  ${c}`).join('\n')}\n        `,
+  }));
+  writeFileSync(merch.shopAll.page, injectShopAll(shopAllHtml, sections), 'utf8');
+  console.log(`Shop All: ${sections.length} sections populated; skipped ${skipped.length} package(s): ${skipped.join(', ') || 'none'}`);
 }
