@@ -94,6 +94,53 @@ function recPriceHtml(price) {
   return `<span class="pdp-single__rec-price">${formatPrice(price.current)}</span>`;
 }
 
+// Shared price fragment for listing cards. `base` is the base price class.
+// compareAt → sale (current) + original (strikethrough), in that order.
+// The two card families differ in markup: PLP sale/original spans carry the
+// modifier class ONLY; collection spans carry base + modifier. `withBaseOnMods`
+// selects which, so each renderer reproduces its family's original markup exactly.
+function cardPrices(price, base, withBaseOnMods) {
+  if (!price) return `<span class="${base}">Price TBD</span>`;
+  if (price.compareAt) {
+    const mod = (name) => (withBaseOnMods ? `${base} ${base}--${name}` : `${base}--${name}`);
+    return `<span class="${mod('sale')}">${formatPrice(price.current)}</span>`
+      + `<span class="${mod('original')}">${formatPrice(price.compareAt)}</span>`;
+  }
+  return `<span class="${base}">${formatPrice(price.current)}</span>`;
+}
+
+// PLP grid card (`.plp__card`). Takes a resolved card object from
+// lib/merchandising.js resolveEntry — { href, name, image, price }. Title link +
+// CTA point at the PDP/cart the same way the placeholder cards did.
+export function plpCardHtml({ href, name, image, price }) {
+  const badge = price?.compareAt ? `\n            <span class="plp__card-badge">Sale</span>` : '';
+  return `        <article class="plp__card">
+          <div class="plp__card-image">
+            <img src="${image}" alt="">${badge}
+          </div>
+          <h3 class="plp__card-title"><a class="plp__card-title-link" href="${href}">${escapeHtml(name)}</a></h3>
+          <div class="plp__card-prices">${cardPrices(price, 'plp__card-price', false)}</div>
+          <a class="btn btn--primary plp__card-cta" href="#cart">Add To Cart</a>
+        </article>`;
+}
+
+// Collection/goal grid card (`.collections-product-card`). Same resolved object
+// plus `filterType`, which becomes the `data-collection-card-category` the goal
+// sub-filter JS matches against.
+export function collectionCardHtml({ href, name, image, price, filterType }) {
+  const badge = price?.compareAt ? `\n            <span class="collections-product-card__badge">Sale</span>` : '';
+  return `        <article class="collections-product-card" data-collection-card-category="${filterType}">
+          <div class="collections-product-card__media">
+            <img class="collections-product-card__image" src="${image}" alt="${escapeHtml(name)}">${badge}
+          </div>
+          <div class="collections-product-card__body">
+            <h4 class="collections-product-card__title"><a class="collections-product-card__title-link" href="${href}">${escapeHtml(name)}</a></h4>
+            <div class="collections-product-card__prices">${cardPrices(price, 'collections-product-card__price', true)}</div>
+            <a class="btn btn--primary collections-product-card__cta" href="#cart">Add To Cart</a>
+          </div>
+        </article>`;
+}
+
 // "You May Also Like" rec card. Takes a resolved related-product object (see
 // templates/index.js's resolveRelated) — {slug, name, price, image} — not a bare slug, so
 // the card shows the peer's real name/price/image instead of a humanized-slug guess and a

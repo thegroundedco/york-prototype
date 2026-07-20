@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { loadProducts } from '../lib/products.js';
 import { loadMerchandising, resolveEntry, FILTER_LABELS } from '../lib/merchandising.js';
+import { plpCardHtml, collectionCardHtml } from '../templates/shared.js';
 
 const products = loadProducts('data/products.json');
 const bySlug = new Map(products.map((p) => [p.slug, p]));
@@ -48,4 +49,30 @@ test('each goal has exactly 3 sections with the spec counts (App. A)', () => {
     'muscle-maintenance': [10, 7, 5],
     'longevity': [8, 5, 6],
   });
+});
+
+// ── Task 2: card renderers ──────────────────────────────────────────
+
+const saleCard = { href: 'slam-ball.html', name: 'Slam Ball', image: 'a.jpg', price: { current: 40, compareAt: 60 }, filterType: 'balls' };
+const plainCard = { href: 'kettlebells.html', name: 'Kettlebells', image: 'k.jpg', price: { current: 80 }, filterType: 'kettlebells' };
+
+test('plpCardHtml links title to the PDP and shows a sale badge + strikethrough', () => {
+  const h = plpCardHtml(saleCard);
+  assert.match(h, /class="plp__card"/);
+  assert.match(h, /href="slam-ball\.html"[^>]*>Slam Ball</);
+  assert.match(h, /plp__card-badge">Sale/);
+  assert.match(h, /plp__card-price--original">\$60/);
+});
+
+test('plpCardHtml with no compareAt shows a single price and no badge', () => {
+  const h = plpCardHtml(plainCard);
+  assert.doesNotMatch(h, /badge">Sale/);
+  assert.match(h, /plp__card-price">\$80/);
+});
+
+test('collectionCardHtml tags the card with its filterType', () => {
+  const h = collectionCardHtml(plainCard);
+  assert.match(h, /data-collection-card-category="kettlebells"/);
+  assert.match(h, /href="kettlebells\.html"[^>]*>Kettlebells</);
+  assert.doesNotMatch(h, /badge">Sale/);
 });
