@@ -1,6 +1,7 @@
 [
   {
     "slug": "york-fitness-bench",
+    "filterType": "benches",
     "name": "YORK Fitness Bench",
     "template": "single",
     "category": "racks-benches",
@@ -54,6 +55,7 @@
   },
   {
     "slug": "fts-power-cage",
+    "filterType": "cages",
     "name": "FTS Power Cage",
     "template": "single",
     "category": "racks-benches",
@@ -109,6 +111,7 @@
   },
   {
     "slug": "york-aspire-366-stationary-bike",
+    "filterType": "bikes",
     "name": "YORK Aspire 366 Stationary Bike",
     "template": "single",
     "category": "cardio-conditioning",
@@ -162,6 +165,7 @@
   },
   {
     "slug": "york-r-350-rower",
+    "filterType": "rower",
     "name": "York R-350 Rower",
     "template": "single",
     "category": "cardio-conditioning",
@@ -217,6 +221,7 @@
   },
   {
     "slug": "york-fb-300-fan-bike",
+    "filterType": "bikes",
     "name": "York FB-300 Fan Bike",
     "template": "single",
     "category": "cardio-conditioning",
@@ -270,6 +275,7 @@
   },
   {
     "slug": "fts-flat-to-incline-utility-bench",
+    "filterType": "benches",
     "name": "FTS Flat-to-Incline Utility Bench",
     "template": "single",
     "category": "racks-benches",
@@ -327,6 +333,7 @@
   },
   {
     "slug": "floor-guards-pack-of-4",
+    "filterType": "floor",
     "name": "Floor Guards — Pack of 4",
     "template": "generic",
     "category": "accessories",
@@ -383,6 +390,7 @@
   },
   {
     "slug": "york-yoga-mat",
+    "filterType": "mats",
     "name": "YORK Yoga Mat – Red/Gray",
     "template": "generic",
     "category": "accessories",
@@ -429,6 +437,7 @@
   },
   {
     "slug": "battle-rope",
+    "filterType": "ropes",
     "name": "Battle Rope",
     "template": "generic",
     "category": "accessories",
@@ -475,6 +484,7 @@
   },
   {
     "slug": "mens-north-american-chrome-olympic-training-weight-bar",
+    "filterType": "bars",
     "name": "Men’s North American Chrome Olympic Training Weight Bar",
     "template": "generic",
     "category": "bars-weights",
@@ -522,6 +532,7 @@
   },
   {
     "slug": "womens-elite-olympic-training-weight-bar",
+    "filterType": "bars",
     "name": "Women’s Elite Olympic Training Weight Bar",
     "template": "generic",
     "category": "bars-weights",
@@ -570,6 +581,7 @@
   },
   {
     "slug": "rubber-training-bumper-plates",
+    "filterType": "plates",
     "name": "Rubber Training Bumper Plates",
     "template": "generic",
     "category": "bars-weights",
@@ -618,6 +630,7 @@
   },
   {
     "slug": "york-quick-access-collar",
+    "filterType": "collars",
     "name": "YORK Quick Access Collar",
     "template": "generic",
     "category": "bars-weights",
@@ -665,6 +678,7 @@
   },
   {
     "slug": "york-dumbbell-stand",
+    "filterType": "storage",
     "name": "York Mini / 2 / 3 Tier Dumbbell Stand",
     "template": "generic",
     "category": "storage",
@@ -707,6 +721,7 @@
   },
   {
     "slug": "olympic-a-frame-weight-plate-tree",
+    "filterType": "storage",
     "name": "Olympic A-Frame 2″ Weight Plate Tree",
     "template": "generic",
     "category": "storage",
@@ -755,6 +770,7 @@
   },
   {
     "slug": "slam-ball",
+    "filterType": "balls",
     "name": "Slam Ball",
     "template": "generic",
     "category": "accessories",
@@ -804,6 +820,7 @@
   },
   {
     "slug": "resistance-bands",
+    "filterType": "bands",
     "name": "Resistance Bands",
     "template": "generic",
     "category": "accessories",
@@ -856,6 +873,7 @@
   },
   {
     "slug": "kettlebells",
+    "filterType": "kettlebells",
     "name": "Kettlebells",
     "template": "generic",
     "category": "bars-weights",
@@ -902,6 +920,7 @@
   },
   {
     "slug": "vinyl-fitbell",
+    "filterType": "dumbbells",
     "name": "Vinyl Fitbell",
     "template": "generic",
     "category": "bars-weights",
@@ -952,6 +971,7 @@
   },
   {
     "slug": "essential-olympic-training-set",
+    "filterType": "systems",
     "name": "Essential Olympic Training Set",
     "template": "package",
     "category": "equipment",
@@ -1027,6 +1047,7 @@
   },
   {
     "slug": "york-performance-package",
+    "filterType": "systems",
     "name": "YORK Performance Package",
     "template": "package",
     "category": "equipment",
@@ -1102,6 +1123,7 @@
   },
   {
     "slug": "plyo-package",
+    "filterType": "systems",
     "name": "Plyo Package",
     "template": "package",
     "category": "equipment",
@@ -1181,6 +1203,7 @@
   },
   {
     "slug": "rubber-hex-dumbbell-set",
+    "filterType": "dumbbells",
     "name": "Rubber Hex Dumbbell Set",
     "template": "package",
     "category": "bars-weights",

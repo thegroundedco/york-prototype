@@ -1,0 +1,222 @@
+{
+  "collections": {
+    "racks-benches": {
+      "page": "plp-racks-benches.html",
+      "label": "Racks & Benches",
+      "products": [
+        "york-fitness-bench",
+        "fts-flat-to-incline-utility-bench",
+        "fts-power-cage",
+        "york-performance-package"
+      ]
+    },
+    "bars-weights": {
+      "page": "plp-bars-weights.html",
+      "label": "Bars & Weights",
+      "products": [
+        "mens-north-american-chrome-olympic-training-weight-bar",
+        "womens-elite-olympic-training-weight-bar",
+        "rubber-training-bumper-plates",
+        "rubber-hex-dumbbell-set",
+        { "slug": "vinyl-fitbell", "label": "Neoprene Hex Dumbbells" },
+        "kettlebells",
+        "york-quick-access-collar",
+        "essential-olympic-training-set",
+        "york-performance-package"
+      ]
+    },
+    "cardio-conditioning": {
+      "page": "plp-cardio-conditioning.html",
+      "label": "Cardio & Conditioning",
+      "products": [
+        "york-aspire-366-stationary-bike",
+        "york-r-350-rower",
+        "york-fb-300-fan-bike",
+        "battle-rope",
+        "slam-ball",
+        "resistance-bands",
+        "plyo-package"
+      ]
+    },
+    "accessories": {
+      "page": "plp-accessories.html",
+      "label": "Accessories",
+      "products": [
+        "resistance-bands",
+        "york-yoga-mat",
+        "york-quick-access-collar",
+        "floor-guards-pack-of-4"
+      ]
+    },
+    "storage": {
+      "page": "plp-storage.html",
+      "label": "Storage",
+      "products": [
+        { "slug": "york-dumbbell-stand", "label": "Mini 2-Tier Dumbbell Stand" },
+        { "slug": "york-dumbbell-stand", "label": "2-Tier Dumbbell Stand" },
+        { "slug": "york-dumbbell-stand", "label": "3-Tier Dumbbell Stand" },
+        "olympic-a-frame-weight-plate-tree"
+      ]
+    },
+    "systems": {
+      "page": "plp-systems.html",
+      "label": "Systems",
+      "new": true,
+      "products": [
+        "essential-olympic-training-set",
+        "york-performance-package",
+        "plyo-package",
+        { "slug": "rubber-hex-dumbbell-set", "label": "Rubber Hex Dumbbell Sets" },
+        { "slug": "resistance-bands", "label": "Resistance Band Sets" },
+        { "slug": "slam-ball", "label": "Slam Ball Sets" },
+        { "slug": "kettlebells", "label": "Kettlebell Packages" }
+      ]
+    },
+    "recovery-mobility": {
+      "page": "plp-recovery-mobility.html",
+      "label": "Recovery & Mobility",
+      "new": true,
+      "products": [
+        "resistance-bands",
+        "york-yoga-mat",
+        "kettlebells",
+        "floor-guards-pack-of-4",
+        "plyo-package"
+      ]
+    },
+    "essentials": {
+      "page": "plp-essentials.html",
+      "label": "Essentials",
+      "new": true,
+      "products": [
+        "york-performance-package",
+        "essential-olympic-training-set",
+        "rubber-hex-dumbbell-set",
+        "resistance-bands",
+        "york-aspire-366-stationary-bike",
+        "york-r-350-rower",
+        "kettlebells",
+        "york-yoga-mat",
+        "floor-guards-pack-of-4"
+      ]
+    }
+  },
+  "shopAll": { "page": "plp-equipment.html", "groupBy": "category" },
+  "goals": {
+    "beginners": {
+      "page": "beginners-collection.html",
+      "sections": [
+        {
+          "products": [
+            { "slug": "vinyl-fitbell", "label": "Neoprene Hex Dumbbells" },
+            "york-fitness-bench",
+            "resistance-bands",
+            "rubber-hex-dumbbell-set",
+            "kettlebells",
+            "fts-flat-to-incline-utility-bench",
+            "mens-north-american-chrome-olympic-training-weight-bar",
+            "womens-elite-olympic-training-weight-bar",
+            "rubber-training-bumper-plates",
+            "york-quick-access-collar",
+            "essential-olympic-training-set",
+            "fts-power-cage"
+          ]
+        },
+        {
+          "products": [
+            "york-aspire-366-stationary-bike",
+            "york-r-350-rower",
+            "battle-rope",
+            "slam-ball",
+            "resistance-bands",
+            "plyo-package"
+          ]
+        },
+        {
+          "products": [
+            "york-yoga-mat",
+            "resistance-bands",
+            "kettlebells",
+            "floor-guards-pack-of-4",
+            "plyo-package"
+          ]
+        }
+      ]
+    },
+    "muscle-maintenance": {
+      "page": "muscle-maintenance.html",
+      "sections": [
+        {
+          "products": [
+            "york-performance-package",
+            "fts-power-cage",
+            "fts-flat-to-incline-utility-bench",
+            "mens-north-american-chrome-olympic-training-weight-bar",
+            "womens-elite-olympic-training-weight-bar",
+            "rubber-training-bumper-plates",
+            "york-quick-access-collar",
+            "rubber-hex-dumbbell-set",
+            "kettlebells",
+            "olympic-a-frame-weight-plate-tree"
+          ]
+        },
+        {
+          "products": [
+            "york-r-350-rower",
+            "york-aspire-366-stationary-bike",
+            "york-fb-300-fan-bike",
+            "battle-rope",
+            "slam-ball",
+            "resistance-bands",
+            "plyo-package"
+          ]
+        },
+        {
+          "products": [
+            "resistance-bands",
+            "york-yoga-mat",
+            "kettlebells",
+            "plyo-package",
+            "floor-guards-pack-of-4"
+          ]
+        }
+      ]
+    },
+    "longevity": {
+      "page": "longevity-collection.html",
+      "sections": [
+        {
+          "products": [
+            "york-performance-package",
+            "fts-flat-to-incline-utility-bench",
+            "rubber-hex-dumbbell-set",
+            "kettlebells",
+            "mens-north-american-chrome-olympic-training-weight-bar",
+            "womens-elite-olympic-training-weight-bar",
+            "rubber-training-bumper-plates",
+            "york-quick-access-collar"
+          ]
+        },
+        {
+          "products": [
+            "york-aspire-366-stationary-bike",
+            "york-r-350-rower",
+            "york-fb-300-fan-bike",
+            "battle-rope",
+            "plyo-package"
+          ]
+        },
+        {
+          "products": [
+            "kettlebells",
+            "resistance-bands",
+            "york-yoga-mat",
+            "slam-ball",
+            "plyo-package",
+            "floor-guards-pack-of-4"
+          ]
+        }
+      ]
+    }
+  }
+}
