@@ -171,6 +171,44 @@ export function quantityHtml() {
           </div>`;
 }
 
+// Sold-individually weight matrix (Bumper Plates, Slam Ball). One row per weight:
+// label + per-unit price + qty stepper (default 0), then a live subtotal. Rendered
+// in the buy box in place of the quantity stepper. Interactivity: js/chrome.js.
+export function weightSelectorHtml(p) {
+  const rows = p.variants.options.map((o) => {
+    const price = o.price.toFixed(2);
+    return `            <div class="pdp__weight-row" data-weight-row>
+              <span class="pdp__weight-name">${escapeHtml(o.weight)}</span>
+              <span class="pdp__weight-price" data-weight-price="${price}">${formatPrice(o.price)} each</span>
+              <div class="pdp__weight-stepper">
+                <button type="button" class="pdp__weight-btn" data-weight-decrement aria-label="Decrease ${escapeHtml(o.weight)} quantity">–</button>
+                <input class="pdp__weight-qty" type="text" inputmode="numeric" value="0" data-weight-qty aria-label="${escapeHtml(o.weight)} quantity">
+                <button type="button" class="pdp__weight-btn" data-weight-increment aria-label="Increase ${escapeHtml(o.weight)} quantity">+</button>
+              </div>
+            </div>`;
+  }).join('\n');
+  return `          <div class="pdp__weight-selector" data-weight-selector>
+            <p class="pdp__weight-selector-label">Sold Individually</p>
+            <div class="pdp__weight-grid">
+${rows}
+            </div>
+            <div class="pdp__weight-subtotal">
+              <span class="pdp__weight-subtotal-label">Subtotal</span>
+              <span class="pdp__weight-subtotal-value" data-weight-subtotal>$0.00</span>
+            </div>
+          </div>`;
+}
+
+// Buy-box control dispatcher: quantity stepper by default, or a custom variant
+// block per product.variants.type. New variant types (tier/set/accessories) plug
+// in here as later Phase-2 slices.
+export function variantBlock(p) {
+  switch (p?.variants?.type) {
+    case 'weight-selector': return weightSelectorHtml(p);
+    default: return quantityHtml();
+  }
+}
+
 // Buy-box accordion (Description / Features & Specs modal-trigger / Shipping & Returns),
 // shared verbatim by the Single and Generic buy boxes. Only the Description body varies
 // per product (escapeHtml(p.detailsBody)); the Features & Specs trigger and the static

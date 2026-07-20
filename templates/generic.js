@@ -12,7 +12,7 @@
 import { existsSync } from 'node:fs';
 import { renderHead, renderBodyOpen, renderFooter, renderGalleryModal, renderSpecsModal, renderScripts } from './partials.js';
 import { escapeHtml } from '../lib/parse.js';
-import { priceRow, galleryHtml, breadcrumbHtml, quantityHtml, accordionHtml, recCardHtml, recsSectionHtml, descriptionHtml } from './shared.js';
+import { priceRow, galleryHtml, breadcrumbHtml, variantBlock, accordionHtml, recCardHtml, recsSectionHtml, descriptionHtml } from './shared.js';
 
 // Section 1 "Features" — one column per keyFeatures entry, split on the entry's own
 // FIRST colon into a bold header + body paragraph (every generic product's keyFeatures
@@ -93,7 +93,7 @@ ${breadcrumbHtml(p)}
 
 ${descriptionHtml(p)}
 
-${quantityHtml()}
+${variantBlock(p)}
 
           <button type="button" class="btn btn--primary pdp__cta">Add To Cart</button>
 

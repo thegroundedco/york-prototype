@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { loadProducts, validateProduct } from '../lib/products.js';
+import { weightSelectorHtml, variantBlock } from '../templates/shared.js';
 
 const products = loadProducts('data/products.json');
 const bySlug = new Map(products.map((p) => [p.slug, p]));
@@ -24,4 +25,25 @@ test('the 2 weight-selector products have valid option data', () => {
 test('validateProduct rejects a malformed weight-selector', () => {
   const bad = { ...bySlug.get('slam-ball'), variants: { type: 'weight-selector', options: [{ weight: '5 lb' }] } };
   assert.ok(validateProduct(bad).some((e) => /weight-selector|price/i.test(e)));
+});
+
+// ── Task 2: renderer + dispatcher ───────────────────────────────────
+
+test('variantBlock falls back to the quantity stepper for type=quantity', () => {
+  assert.match(variantBlock({ variants: { type: 'quantity' } }), /pdp__quantity/);
+  assert.match(variantBlock({}), /pdp__quantity/); // missing variants -> quantity
+});
+
+test('weightSelectorHtml renders one row per weight with price data + a subtotal', () => {
+  const p = bySlug.get('rubber-training-bumper-plates');
+  const h = weightSelectorHtml(p);
+  assert.match(h, /data-weight-selector/);
+  assert.equal((h.match(/data-weight-row/g) || []).length, 5);
+  assert.match(h, /data-weight-price="20.80"[^>]*>\$20\.80 each/);
+  assert.match(h, /pdp__weight-qty[^>]*value="0"[^>]*data-weight-qty/);
+  assert.match(h, /data-weight-subtotal[^>]*>\$0\.00/);
+});
+
+test('variantBlock routes weight-selector products to the matrix', () => {
+  assert.match(variantBlock(bySlug.get('slam-ball')), /data-weight-selector/);
 });
