@@ -612,7 +612,15 @@
     "detailsBody": "Your weight plates should inspire confidence, not hesitation. The YORK Rubber Training Bumper Plates are designed to help you train harder while protecting the equipment and space you’ve invested in. Their durable solid rubber construction reduces noise and cushions impact, making them an excellent choice for Olympic lifts, deadlifts, and everyday strength training at home. A reinforced steel center sleeve allows for smooth loading and unloading on any 2” Olympic bar, while the comfortable rubber exterior makes handling plates easy between sets. Built with the durability YORK is known for, these bumper plates are ready to support years of lifting, learning, and getting stronger.",
     "highlights": [],
     "variants": {
-      "type": "quantity"
+      "type": "weight-selector",
+      "soldIndividually": true,
+      "options": [
+        { "weight": "10 lb", "price": 20.8 },
+        { "weight": "15 lb", "price": 30 },
+        { "weight": "25 lb", "price": 52 },
+        { "weight": "35 lb", "price": 72.8 },
+        { "weight": "45 lb", "price": 93.6 }
+      ]
     },
     "relatedSlugs": [],
     "images": {
@@ -802,7 +810,20 @@
     "detailsBody": "Designed for more than just slams, YORK Slam Balls add explosive movement and endless variety to almost any workout. Their dead-bounce design keeps the ball close after every throw, making training safer, more efficient, and more enjoyable. Use them for slams, carries, squats, lunges, rotational movements, and core exercises that build strength, coordination, and endurance while improving the way you move both inside and outside the gym. Available in multiple weights, they’re an excellent tool for beginners learning movement patterns, experienced athletes increasing intensity, and anyone who wants workouts that stay fresh, challenging, and rewarding.",
     "highlights": [],
     "variants": {
-      "type": "quantity"
+      "type": "weight-selector",
+      "soldIndividually": true,
+      "options": [
+        { "weight": "5 lb", "price": 9.75 },
+        { "weight": "10 lb", "price": 13 },
+        { "weight": "15 lb", "price": 19.5 },
+        { "weight": "20 lb", "price": 26 },
+        { "weight": "25 lb", "price": 32.5 },
+        { "weight": "30 lb", "price": 39 },
+        { "weight": "35 lb", "price": 45.5 },
+        { "weight": "40 lb", "price": 52 },
+        { "weight": "45 lb", "price": 58.5 },
+        { "weight": "50 lb", "price": 65 }
+      ]
     },
     "relatedSlugs": [],
     "images": {
