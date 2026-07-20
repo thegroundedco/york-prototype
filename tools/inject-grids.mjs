@@ -25,7 +25,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const merch = loadMerchandising('data/merchandising.json');
 
   // Every single-grid collection page (5 existing category PLPs + 3 new ones).
-  const SINGLE_CAT = ['racks-benches', 'bars-weights', 'cardio-conditioning', 'accessories', 'storage'];
+  const SINGLE_CAT = ['racks-benches', 'bars-weights', 'cardio-conditioning', 'accessories', 'storage',
+    'systems', 'recovery-mobility', 'essentials'];
   for (const key of SINGLE_CAT) {
     const c = merch.collections[key];
     const cards = c.products.map((e) => plpCardHtml(resolveEntry(e, bySlug))).join('\n');
