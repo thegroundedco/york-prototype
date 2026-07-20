@@ -1,9 +1,49 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadProducts } from '../lib/products.js';
+import { loadMerchandising, resolveEntry, FILTER_LABELS } from '../lib/merchandising.js';
 
 const RETIRED = new Set(['product-single.html', 'product-generic.html', 'product-package.html']);
 const SKIP = /^(https?:|mailto:|tel:|#|data:|\/\/)/;
+
+// Pages populated by the grid injector: they must NOT reference a retired
+// template (a regression there is a build failure, not a deferred warning).
+const IN_SCOPE = ['plp-racks-benches', 'plp-bars-weights', 'plp-cardio-conditioning',
+  'plp-accessories', 'plp-storage', 'plp-systems', 'plp-recovery-mobility', 'plp-essentials',
+  'plp-equipment', 'beginners-collection', 'muscle-maintenance', 'longevity-collection']
+  .map((s) => `${s}.html`);
+const GOAL_PAGES = ['beginners-collection.html', 'muscle-maintenance.html', 'longevity-collection.html'];
+
+// Checks specific to the merchandising/injection pass. Returns { errors }.
+export function verifyMerchandising(rootDir) {
+  const errors = [];
+  for (const f of IN_SCOPE) {
+    const p = join(rootDir, f);
+    if (!existsSync(p)) { errors.push(`in-scope page missing: ${f}`); continue; }
+    if (/href="product-(single|generic|package)\.html"/.test(readFileSync(p, 'utf8'))) {
+      errors.push(`${f}: still links to a retired product-*.html template`);
+    }
+  }
+  for (const f of GOAL_PAGES) {
+    const n = (readFileSync(join(rootDir, f), 'utf8').match(/data-collection-products/g) || []).length;
+    if (n !== 3) errors.push(`${f}: expected 3 data-collection-products sections, found ${n}`);
+  }
+  const products = loadProducts(join(rootDir, 'data/products.json'));
+  const bySlug = new Map(products.map((p) => [p.slug, p]));
+  for (const p of products) {
+    if (!FILTER_LABELS[p.filterType]) errors.push(`product ${p.slug}: invalid filterType "${p.filterType}"`);
+  }
+  const merch = loadMerchandising(join(rootDir, 'data/merchandising.json'));
+  const entries = [
+    ...Object.values(merch.collections).flatMap((c) => c.products),
+    ...Object.values(merch.goals).flatMap((g) => [...(g.cta || []), ...g.sections.flatMap((s) => s.products)]),
+  ];
+  for (const e of entries) {
+    try { resolveEntry(e, bySlug); } catch (err) { errors.push(`merchandising: ${err.message}`); }
+  }
+  return { errors };
+}
 
 export function verify(rootDir) {
   const errors = [];
@@ -36,7 +76,9 @@ export function verify(rootDir) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const { errors, warnings } = verify('.');
-  if (warnings.length) console.log(`VERIFY: ${warnings.length} deferred-PLP warnings (template card-grid links) — not build-failing.`);
-  if (errors.length) { console.error(`VERIFY FAILED (${errors.length}):\n` + errors.join('\n')); process.exit(1); }
+  const merch = verifyMerchandising('.');
+  const allErrors = [...errors, ...merch.errors];
+  if (warnings.length) console.log(`VERIFY: ${warnings.length} deferred warnings (homepage/search still link to templates) — not build-failing.`);
+  if (allErrors.length) { console.error(`VERIFY FAILED (${allErrors.length}):\n` + allErrors.join('\n')); process.exit(1); }
   console.log('VERIFY OK');
 }
