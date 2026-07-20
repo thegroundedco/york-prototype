@@ -79,8 +79,8 @@ test('Key Details renders real keyDetails titles/bodies, not "Key Detail #N" pla
 });
 
 test('Key Details column images fall back to gallery photos when no dedicated key-detail-N.jpg export exists', () => {
-  const html = renderPackage(p);
-  // plyo-package has no key-detail-*.jpg on disk, so each column falls back to
+  const html = renderPackage({ ...p, slug: 'fixture-no-images' });
+  // Fixture slug has no key-detail-*.jpg on disk, so each column falls back to
   // gallery[i+1] per resolveKeyDetailImage's existsSync-then-gallery-fallback chain.
   assert.match(html, /<div class="pdp__why-testimonial-image">\s*<img src="g2\.jpg" alt="">/);
   assert.match(html, /<div class="pdp__why-testimonial-image">\s*<img src="g3\.jpg" alt="">/);
@@ -99,8 +99,8 @@ test('Key Details degrades to zero columns (not a crash) when keyDetails is empt
 });
 
 test('Built for Steady Progress card images fall back to gallery photos when no dedicated feature-N.jpg export exists', () => {
-  const html = renderPackage(p);
-  // plyo-package has no feature-*.jpg on disk, so card 1 falls back to gallery[0] and
+  const html = renderPackage({ ...p, slug: 'fixture-no-images' });
+  // Fixture slug has no feature-*.jpg on disk, so card 1 falls back to gallery[0] and
   // card 2 falls back to gallery[4] per resolveFeaturedCardImage.
   assert.match(html, /<div class="pdp__featured-image">\s*<img src="g1\.jpg" alt="">/);
   assert.match(html, /<div class="pdp__featured-image">\s*<img src="g5\.jpg" alt="">/);

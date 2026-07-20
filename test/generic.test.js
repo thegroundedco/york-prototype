@@ -68,7 +68,8 @@ test('feature section degrades to zero columns without crashing when keyFeatures
 });
 
 test('featured section is a single static banner image, no carousel', () => {
-  const html = renderGeneric(p);
+  // Fixture slug has no featured-banner.jpg on disk, so it falls back to editorial (e.jpg).
+  const html = renderGeneric({ ...p, slug: 'fixture-no-images' });
   // The gallery-image modal elsewhere on the page has its own, separate data-carousel
   // instance (modal--gallery-image__slide/-dot) — untouched by this change — so assert
   // against the pdp-generic__featured-* names specifically, not "no data-carousel at all".

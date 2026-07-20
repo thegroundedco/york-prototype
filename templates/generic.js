@@ -9,6 +9,7 @@
 // copy-pasted from the Package template, per its own HTML comments), which is exactly
 // the kind of leftover junk this generator exists to remove — omitted here per the
 // task brief.
+import { existsSync } from 'node:fs';
 import { renderHead, renderBodyOpen, renderFooter, renderGalleryModal, renderSpecsModal, renderScripts } from './partials.js';
 import { escapeHtml } from '../lib/parse.js';
 import { priceRow, galleryHtml, breadcrumbHtml, quantityHtml, accordionHtml, recCardHtml, recsSectionHtml, descriptionHtml } from './shared.js';
@@ -47,6 +48,8 @@ function resolveFeatureColumns(p) {
 // recorded on the product as `featuredBanner` rather than probed for on disk at render
 // time; every other generic product falls back to its own editorial image.
 function resolveFeaturedBannerImage(p) {
+  const named = `assets/images/products/${p.slug}/featured-banner.jpg`;
+  if (existsSync(named)) return named;
   return p.featuredBanner || p.images.editorial;
 }
 
