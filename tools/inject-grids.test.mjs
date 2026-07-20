@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { loadProducts } from '../lib/products.js';
 import { loadMerchandising, resolveEntry, FILTER_LABELS } from '../lib/merchandising.js';
 import { plpCardHtml, collectionCardHtml } from '../templates/shared.js';
+import { replaceEachInner, replaceCount } from '../lib/html-inject.js';
 
 const products = loadProducts('data/products.json');
 const bySlug = new Map(products.map((p) => [p.slug, p]));
@@ -75,4 +76,48 @@ test('collectionCardHtml tags the card with its filterType', () => {
   assert.match(h, /data-collection-card-category="kettlebells"/);
   assert.match(h, /href="kettlebells\.html"[^>]*>Kettlebells</);
   assert.doesNotMatch(h, /badge">Sale/);
+});
+
+// ── Task 3: html-inject helper ──────────────────────────────────────
+
+test('replaceEachInner swaps inner of one container, keeps surroundings', () => {
+  const html = `<x><div class="grid">\n  <article>OLD</article>\n</div><y>`;
+  const out = replaceEachInner(html, /<div class="grid">/, ['NEW']);
+  assert.equal(out, `<x><div class="grid">NEW</div><y>`);
+});
+
+test('replaceEachInner handles nested same-tag children', () => {
+  const html = `<div class="grid"><article><div class="card"><div>x</div></div></article></div>`;
+  const out = replaceEachInner(html, /<div class="grid">/, ['Z']);
+  assert.equal(out, `<div class="grid">Z</div>`);
+});
+
+test('replaceEachInner replaces N containers left-to-right', () => {
+  const html = `<section><div class="g">A</div></section><section><div class="g">B</div></section>`;
+  const out = replaceEachInner(html, /<div class="g">/, ['1', '2']);
+  assert.equal(out, `<section><div class="g">1</div></section><section><div class="g">2</div></section>`);
+});
+
+test('replaceEachInner is idempotent when fed identical new inner', () => {
+  const html = `<div class="g"><article>OLD</article></div>`;
+  const once = replaceEachInner(html, /<div class="g">/, ['<article>NEW</article>']);
+  const twice = replaceEachInner(once, /<div class="g">/, ['<article>NEW</article>']);
+  assert.equal(once, twice);
+});
+
+test('replaceEachInner throws when a container is missing', () => {
+  assert.throws(() => replaceEachInner('<div class="g">x</div>', /<div class="g">/, ['a', 'b']));
+});
+
+test('replaceEachInner balances a non-div tag when told to', () => {
+  const html = `<ul class="f"><li>a</li><li>b</li></ul>`;
+  const out = replaceEachInner(html, /<ul class="f">/, ['<li>x</li>'], 'ul');
+  assert.equal(out, `<ul class="f"><li>x</li></ul>`);
+});
+
+test('replaceCount asserts a match exists', () => {
+  assert.equal(
+    replaceCount('<p class="c">Showing all 12 results</p>', /Showing all \d+ results/, 'Showing all 4 results'),
+    '<p class="c">Showing all 4 results</p>');
+  assert.throws(() => replaceCount('<p>none</p>', /Showing all \d+ results/, 'x'));
 });
