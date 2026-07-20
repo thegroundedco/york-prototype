@@ -4,6 +4,7 @@ import { loadProducts } from '../lib/products.js';
 import { loadMerchandising, resolveEntry, FILTER_LABELS } from '../lib/merchandising.js';
 import { plpCardHtml, collectionCardHtml } from '../templates/shared.js';
 import { replaceEachInner, replaceCount } from '../lib/html-inject.js';
+import { injectSingleCatPlp } from './inject-grids.mjs';
 
 const products = loadProducts('data/products.json');
 const bySlug = new Map(products.map((p) => [p.slug, p]));
@@ -120,4 +121,17 @@ test('replaceCount asserts a match exists', () => {
     replaceCount('<p class="c">Showing all 12 results</p>', /Showing all \d+ results/, 'Showing all 4 results'),
     '<p class="c">Showing all 4 results</p>');
   assert.throws(() => replaceCount('<p>none</p>', /Showing all \d+ results/, 'x'));
+});
+
+// ── Task 4: single-category PLP injector ────────────────────────────
+
+test('injectSingleCatPlp swaps cards and updates the count', () => {
+  const html = `<div class="plp-category__toolbar"><p class="plp-category__count">Showing all 12 results</p></div>
+<div class="plp-category__grid">
+  <article class="plp__card">OLD</article>
+</div>`;
+  const out = injectSingleCatPlp(html, `        <article class="plp__card">NEW</article>`, 4);
+  assert.match(out, /Showing all 4 results/);
+  assert.match(out, /plp__card">NEW/);
+  assert.doesNotMatch(out, /plp__card">OLD/);
 });

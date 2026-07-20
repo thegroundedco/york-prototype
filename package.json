@@ -6,6 +6,7 @@
   "description": "Dev-time tooling for the York Barbell prototype. The SITE itself has no build step — these scripts generate/verify the committed static HTML.",
   "scripts": {
     "build": "node tools/build-products.mjs",
+    "grids": "node tools/inject-grids.mjs",
     "verify": "node tools/verify.mjs",
     "rewire": "node tools/rewire-links.mjs",
     "test": "node --test"
