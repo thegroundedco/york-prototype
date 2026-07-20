@@ -45,14 +45,12 @@
       "gallery": [
         "assets/images/products/york-fitness-bench/gallery-1.jpg",
         "assets/images/products/york-fitness-bench/gallery-2.jpg",
-        "assets/images/products/york-fitness-bench/gallery-3.jpg",
-        "assets/images/products/york-fitness-bench/gallery-4.jpg",
-        "assets/images/products/york-fitness-bench/gallery-5.jpg"
+        "assets/images/products/york-fitness-bench/gallery-3.jpg"
       ],
       "editorial": "assets/images/products/york-fitness-bench/editorial.jpg"
     },
     "copySource": "sheet",
-    "imageSource": "figma"
+    "imageSource": "yorkbarbell.com"
   },
   {
     "slug": "fts-power-cage",
