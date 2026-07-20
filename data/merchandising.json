@@ -145,6 +145,12 @@
     },
     "muscle-maintenance": {
       "page": "muscle-maintenance.html",
+      "cta": [
+        "fts-power-cage",
+        { "slug": "vinyl-fitbell", "label": "Neoprene Hex Dumbbells" },
+        "york-performance-package",
+        "rubber-hex-dumbbell-set"
+      ],
       "sections": [
         {
           "products": [
@@ -184,6 +190,12 @@
     },
     "longevity": {
       "page": "longevity-collection.html",
+      "cta": [
+        "york-performance-package",
+        "york-r-350-rower",
+        "resistance-bands",
+        "york-yoga-mat"
+      ],
       "sections": [
         {
           "products": [

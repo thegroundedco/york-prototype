@@ -4,7 +4,7 @@ import { loadProducts } from '../lib/products.js';
 import { loadMerchandising, resolveEntry, FILTER_LABELS } from '../lib/merchandising.js';
 import { plpCardHtml, collectionCardHtml } from '../templates/shared.js';
 import { replaceEachInner, replaceCount } from '../lib/html-inject.js';
-import { injectSingleCatPlp, injectShopAll } from './inject-grids.mjs';
+import { injectSingleCatPlp, injectShopAll, injectGoal, subcatsHtml, injectCta } from './inject-grids.mjs';
 
 const products = loadProducts('data/products.json');
 const bySlug = new Map(products.map((p) => [p.slug, p]));
@@ -148,4 +148,35 @@ test('injectShopAll fills each category section grid in document order', () => {
   assert.match(out, /data-plp-category="racks-benches"><div class="plp__grid"><article>RB/);
   assert.match(out, /data-plp-category="storage"><div class="plp__grid"><article>ST/);
   assert.doesNotMatch(out, /OLD/);
+});
+
+// ── Task 7: goal-page injector ──────────────────────────────────────
+
+test('subcatsHtml lists distinct filterTypes in first-seen order with labels', () => {
+  const cards = [{ filterType: 'bars' }, { filterType: 'plates' }, { filterType: 'bars' }];
+  const html = subcatsHtml(cards);
+  assert.match(html, /data-collection-filter="bars"[^>]*>Bars</);
+  assert.match(html, /data-collection-filter="plates"[^>]*>Plates</);
+  assert.equal((html.match(/<li>/g) || []).length, 2); // deduped
+});
+
+test('injectGoal fills all three section grids + subcat lists', () => {
+  const sec = (n) => `<section data-collection-products><div class="x__products-sidebar"><ul class="x__products-subcats" role="list"><li>OLD</li></ul></div><div class="x__products-grid"><article>OLD${n}</article></div></section>`;
+  const html = sec(1) + sec(2) + sec(3);
+  const out = injectGoal(html, [
+    { cards: '<article>A</article>', subcats: '<li>a</li>' },
+    { cards: '<article>B</article>', subcats: '<li>b</li>' },
+    { cards: '<article>C</article>', subcats: '<li>c</li>' },
+  ]);
+  assert.match(out, /x__products-grid"><article>A/);
+  assert.match(out, /x__products-grid"><article>C/);
+  assert.match(out, /x__products-subcats" role="list"><li>a<\/li><\/ul>/);
+  assert.doesNotMatch(out, /OLD/);
+});
+
+test('injectCta fills the Complete-your-gym grid (footer-cta or cta suffix)', () => {
+  const muscle = `<div class="collections-muscle__footer-cta-grid"><article>OLD</article></div>`;
+  const longev = `<div class="collections-longevity__cta-grid"><article>OLD</article></div>`;
+  assert.match(injectCta(muscle, '<article>X</article>'), /footer-cta-grid"><article>X<\/article><\/div>/);
+  assert.match(injectCta(longev, '<article>Y</article>'), /longevity__cta-grid"><article>Y<\/article><\/div>/);
 });
