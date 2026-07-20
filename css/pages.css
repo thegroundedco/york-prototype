@@ -4147,6 +4147,97 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
+/* Weight selector — sold-individually matrix (Bumper Plates, Slam Ball) */
+.pdp-page .pdp__weight-selector {
+  border: 1px solid var(--color-neutral-1000);
+  padding: var(--space-16);
+}
+.pdp-page .pdp__weight-selector-label {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-neutral-1000);
+  margin: 0 0 var(--space-16);
+}
+.pdp-page .pdp__weight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16) var(--space-24);
+}
+.pdp-page .pdp__weight-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+.pdp-page .pdp__weight-name {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-1000);
+  min-width: 3.5em;
+}
+.pdp-page .pdp__weight-price {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-14, 14px);
+  color: var(--accent-default);
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: var(--space-8);
+}
+.pdp-page .pdp__weight-stepper {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--color-neutral-1000);
+  flex: 0 0 auto;
+}
+.pdp-page .pdp__weight-btn {
+  background: transparent;
+  border: 0;
+  width: 28px;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-20);
+  line-height: 1;
+  color: var(--color-neutral-1000);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+.pdp-page .pdp__weight-btn:hover { background: var(--accent-default); color: var(--text-on-accent); }
+.pdp-page .pdp__weight-qty {
+  width: 34px;
+  border: 0;
+  border-left: 1px solid var(--color-neutral-1000);
+  border-right: 1px solid var(--color-neutral-1000);
+  background: transparent;
+  text-align: center;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-16);
+  color: var(--color-neutral-1000);
+  padding: var(--space-8) 0;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.pdp-page .pdp__weight-subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: var(--space-16);
+  padding-top: var(--space-12);
+  border-top: 1px solid var(--color-neutral-1000);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-1000);
+}
+.pdp-page .pdp__weight-subtotal-label { text-transform: uppercase; letter-spacing: 0.04em; }
+.pdp-page .pdp__weight-subtotal-value { font-size: var(--font-size-20); }
+@media (max-width: 767px) {
+  .pdp-page .pdp__weight-grid { grid-template-columns: 1fr; }
+}
 .pdp-page .pdp__quantity-input:focus-within {
   outline: 2px solid var(--accent-default);
   outline-offset: 1px;

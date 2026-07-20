@@ -822,6 +822,34 @@ document.querySelectorAll('[data-qty-value]').forEach((input) => {
   input.addEventListener('change', () => setValue(input.value));
 });
 
+// ── PDP weight selector (sold-individually matrix) ──
+// Per-row steppers update the row qty; the subtotal re-sums qty*price live.
+// No-op on pages without a [data-weight-selector].
+document.querySelectorAll('[data-weight-selector]').forEach((sel) => {
+  const rows = [...sel.querySelectorAll('[data-weight-row]')];
+  const subtotalEl = sel.querySelector('[data-weight-subtotal]');
+  const recompute = () => {
+    let total = 0;
+    for (const row of rows) {
+      const qty = Math.max(0, parseInt(row.querySelector('[data-weight-qty]').value, 10) || 0);
+      const price = parseFloat(row.querySelector('[data-weight-price]').dataset.weightPrice) || 0;
+      total += qty * price;
+    }
+    if (subtotalEl) subtotalEl.textContent = `$${total.toFixed(2)}`;
+  };
+  for (const row of rows) {
+    const qty = row.querySelector('[data-weight-qty]');
+    row.querySelector('[data-weight-decrement]')?.addEventListener('click', () => {
+      qty.value = Math.max(0, (parseInt(qty.value, 10) || 0) - 1); recompute();
+    });
+    row.querySelector('[data-weight-increment]')?.addEventListener('click', () => {
+      qty.value = (parseInt(qty.value, 10) || 0) + 1; recompute();
+    });
+    qty.addEventListener('input', () => { qty.value = qty.value.replace(/[^0-9]/g, ''); recompute(); });
+  }
+  recompute();
+});
+
 // ── Gallery image triggers: open modal AT a specific carousel index ──
 document.querySelectorAll('[data-gallery-index]').forEach((trigger) => {
   trigger.addEventListener('click', () => {
