@@ -4328,6 +4328,35 @@
 }
 .pdp-page .pdp__soi-total-label { text-transform: uppercase; letter-spacing: 0.04em; }
 .pdp-page .pdp__soi-total-value { font-size: var(--font-size-20); }
+
+/* Tier selector — "Select A Type" radio cards (Dumbbell Stand) */
+.pdp-page .pdp__tier { display: flex; flex-direction: column; gap: var(--space-12); }
+.pdp-page .pdp__tier-label { font-family: var(--font-family-body); font-size: var(--font-size-16); font-weight: var(--font-weight-bold); text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-neutral-1000); margin: 0; }
+.pdp-page .pdp__tier-options { display: flex; flex-direction: column; gap: var(--space-8); border: 0; padding: 0; margin: 0; }
+.pdp-page .pdp__tier-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-16);
+  border: 1px solid var(--color-neutral-1000);
+  cursor: pointer;
+}
+.pdp-page .pdp__tier-option:has(.pdp__tier-radio:checked) {
+  box-shadow: inset 0 0 0 1px var(--color-neutral-1000);
+  background: var(--cream-base, #fbf7eb);
+}
+.pdp-page .pdp__tier-radio { flex: 0 0 auto; width: 18px; height: 18px; accent-color: var(--accent-default); }
+.pdp-page .pdp__tier-info { display: flex; flex-direction: column; gap: 2px; flex: 1 1 auto; }
+.pdp-page .pdp__tier-name { font-family: var(--font-family-body); font-weight: var(--font-weight-bold); color: var(--color-neutral-1000); }
+.pdp-page .pdp__tier-desc { font-family: var(--font-family-body); font-size: var(--font-size-14, 14px); color: var(--text-muted, #666); }
+.pdp-page .pdp__tier-price { flex: 0 0 auto; font-family: var(--font-family-body); font-weight: var(--font-weight-bold); color: var(--accent-default); white-space: nowrap; }
+.pdp-page .pdp__tier-qty { display: inline-flex; align-items: stretch; border: 1px solid var(--color-neutral-1000); width: 164px; }
+.pdp-page .pdp__tier-qty-btn { width: 44px; background: transparent; border: 0; cursor: pointer; font-family: var(--font-family-body); font-size: var(--font-size-20); line-height: 1; color: var(--color-neutral-1000); transition: background 0.15s ease; }
+.pdp-page .pdp__tier-qty-btn:hover { background: var(--accent-default); color: var(--text-on-accent); }
+.pdp-page .pdp__tier-qty-value { flex: 1 1 auto; min-width: 0; width: 100%; border: 0; border-left: 1px solid var(--color-neutral-1000); border-right: 1px solid var(--color-neutral-1000); text-align: center; background: transparent; font-family: var(--font-family-body); font-size: var(--font-size-16); -moz-appearance: textfield; appearance: textfield; }
+.pdp-page .pdp__tier-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: var(--space-12); border-top: 1px solid var(--color-neutral-1000); font-family: var(--font-family-body); font-weight: var(--font-weight-bold); color: var(--color-neutral-1000); }
+.pdp-page .pdp__tier-total-label { text-transform: uppercase; letter-spacing: 0.04em; }
+.pdp-page .pdp__tier-total-value { font-size: var(--font-size-20); }
 .pdp-page .pdp__quantity-input:focus-within {
   outline: 2px solid var(--accent-default);
   outline-offset: 1px;

@@ -890,6 +890,25 @@ document.querySelectorAll('[data-soi]').forEach((soi) => {
   recompute();
 });
 
+// ── PDP tier selector ──
+// Checked radio's price * qty drives the live total. No-op without [data-tier].
+document.querySelectorAll('[data-tier]').forEach((tier) => {
+  const radios = [...tier.querySelectorAll('[data-tier-radio]')];
+  const qv = tier.querySelector('[data-tier-qty-value]');
+  const totalEl = tier.querySelector('[data-tier-total]');
+  const recompute = () => {
+    const checked = radios.find((r) => r.checked) || radios[0];
+    const price = parseFloat(checked.value) || 0;
+    const qty = Math.max(1, parseInt(qv.value, 10) || 1);
+    if (totalEl) totalEl.textContent = `$${(price * qty).toFixed(2)}`;
+  };
+  radios.forEach((r) => r.addEventListener('change', recompute));
+  tier.querySelector('[data-tier-qty-decrement]')?.addEventListener('click', () => { qv.value = Math.max(1, (parseInt(qv.value, 10) || 1) - 1); recompute(); });
+  tier.querySelector('[data-tier-qty-increment]')?.addEventListener('click', () => { qv.value = (parseInt(qv.value, 10) || 1) + 1; recompute(); });
+  qv.addEventListener('input', () => { qv.value = qv.value.replace(/[^0-9]/g, ''); recompute(); });
+  recompute();
+});
+
 // ── Gallery image triggers: open modal AT a specific carousel index ──
 document.querySelectorAll('[data-gallery-index]').forEach((trigger) => {
   trigger.addEventListener('click', () => {
