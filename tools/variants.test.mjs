@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { loadProducts, validateProduct } from '../lib/products.js';
-import { weightSelectorHtml, variantBlock } from '../templates/shared.js';
+import { weightSelectorHtml, variantBlock, setOrIndividualHtml } from '../templates/shared.js';
 
 const products = loadProducts('data/products.json');
 const bySlug = new Map(products.map((p) => [p.slug, p]));
@@ -63,4 +63,27 @@ test('the 2 set-or-individual products have valid data', () => {
 test('validateProduct rejects a set-or-individual with an empty side', () => {
   const bad = { ...bySlug.get('kettlebells'), variants: { type: 'set-or-individual', default: 'bundle', bundleLabel: 'Package', bundles: [], individual: [{ weight: '5 lb', price: 8.45 }] } };
   assert.ok(validateProduct(bad).some((e) => /bundles|set-or-individual/i.test(e)));
+});
+
+// ── set-or-individual: renderer + dispatcher ────────────────────────
+
+test('setOrIndividualHtml renders 2 tabs, 2 panels, both selects, default panel visible', () => {
+  const h = setOrIndividualHtml(bySlug.get('rubber-hex-dumbbell-set'));
+  assert.match(h, /data-soi-tab="bundle"[^>]*>Set</);
+  assert.match(h, /data-soi-tab="individual"[^>]*>Individual</);
+  assert.equal((h.match(/data-soi-select/g) || []).length, 2);
+  assert.match(h, /data-soi-panel="individual"[^>]*hidden/);
+  assert.match(h, /value="805.81"[^>]*selected>5 – 50 lb Set/);
+  assert.match(h, /data-soi-total[^>]*>\$805\.81/);
+});
+
+test('setOrIndividualHtml honors default=individual (kettlebells) + bundleLabel', () => {
+  const h = setOrIndividualHtml(bySlug.get('kettlebells'));
+  assert.match(h, /data-soi-tab="bundle"[^>]*>Package</);
+  assert.match(h, /data-soi-panel="bundle"[^>]*hidden/);
+  assert.match(h, /data-soi-total[^>]*>\$8\.45/);
+});
+
+test('variantBlock routes set-or-individual to the toggle', () => {
+  assert.match(variantBlock(bySlug.get('kettlebells')), /data-soi/);
 });

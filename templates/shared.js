@@ -199,12 +199,62 @@ ${rows}
           </div>`;
 }
 
+// Compact qty stepper used inside a set-or-individual panel.
+function soiQty(mode) {
+  return `              <div class="pdp__soi-qty">
+                <button type="button" class="pdp__soi-qty-btn" data-soi-qty-decrement aria-label="Decrease ${mode} quantity">–</button>
+                <input class="pdp__soi-qty-value" type="text" inputmode="numeric" value="1" data-soi-qty-value aria-label="${mode} quantity">
+                <button type="button" class="pdp__soi-qty-btn" data-soi-qty-increment aria-label="Increase ${mode} quantity">+</button>
+              </div>`;
+}
+
+function soiOptions(items, labelKey) {
+  return items.map((o, i) =>
+    `                <option value="${o.price.toFixed(2)}"${i === 0 ? ' selected' : ''}>${escapeHtml(o[labelKey])} — ${formatPrice(o.price)}</option>`
+  ).join('\n');
+}
+
+// Set-or-individual toggle (Rubber Hex, Kettlebells). Tabs switch a bundle
+// chooser and an individual weight picker; js/chrome.js keeps the total live.
+export function setOrIndividualHtml(p) {
+  const v = p.variants;
+  const bundleDefault = v.default !== 'individual';
+  const startPrice = (bundleDefault ? v.bundles[0] : v.individual[0]).price;
+  const label = escapeHtml(v.bundleLabel);
+  const labelLower = escapeHtml(v.bundleLabel.toLowerCase());
+  return `          <div class="pdp__soi" data-soi>
+            <div class="pdp__soi-tabs" role="tablist">
+              <button type="button" class="pdp__soi-tab${bundleDefault ? ' is-active' : ''}" data-soi-tab="bundle" role="tab" aria-selected="${bundleDefault}">${label}</button>
+              <button type="button" class="pdp__soi-tab${bundleDefault ? '' : ' is-active'}" data-soi-tab="individual" role="tab" aria-selected="${!bundleDefault}">Individual</button>
+            </div>
+            <div class="pdp__soi-panel" data-soi-panel="bundle"${bundleDefault ? '' : ' hidden'}>
+              <label class="pdp__soi-label">Select a ${labelLower}</label>
+              <select class="pdp__soi-select" data-soi-select aria-label="Select a ${labelLower}">
+${soiOptions(v.bundles, 'label')}
+              </select>
+${soiQty('bundle')}
+            </div>
+            <div class="pdp__soi-panel" data-soi-panel="individual"${bundleDefault ? ' hidden' : ''}>
+              <label class="pdp__soi-label">Select weight</label>
+              <select class="pdp__soi-select" data-soi-select aria-label="Select weight">
+${soiOptions(v.individual, 'weight')}
+              </select>
+${soiQty('individual')}
+            </div>
+            <div class="pdp__soi-total">
+              <span class="pdp__soi-total-label">Total</span>
+              <span class="pdp__soi-total-value" data-soi-total>${formatPrice(startPrice)}</span>
+            </div>
+          </div>`;
+}
+
 // Buy-box control dispatcher: quantity stepper by default, or a custom variant
-// block per product.variants.type. New variant types (tier/set/accessories) plug
+// block per product.variants.type. New variant types (tier/accessories) plug
 // in here as later Phase-2 slices.
 export function variantBlock(p) {
   switch (p?.variants?.type) {
     case 'weight-selector': return weightSelectorHtml(p);
+    case 'set-or-individual': return setOrIndividualHtml(p);
     default: return quantityHtml();
   }
 }

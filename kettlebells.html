@@ -7,11 +7,11 @@
   <title>Kettlebells | York Barbell</title>
   <meta name="description" content="Strength is meant to move. YORK Kettlebells combine strength, cardio, balance, and mobility into one incredibly versatile training tool. From explosive swi">
 
-  <link rel="stylesheet" href="css/tokens.css?v=2fcca153">
-  <link rel="stylesheet" href="css/base.css?v=2fcca153">
-  <link rel="stylesheet" href="css/components.css?v=2fcca153">
-  <link rel="stylesheet" href="css/chrome.css?v=2fcca153">
-  <link rel="stylesheet" href="css/pages.css?v=2fcca153">
+  <link rel="stylesheet" href="css/tokens.css?v=0e279333">
+  <link rel="stylesheet" href="css/base.css?v=0e279333">
+  <link rel="stylesheet" href="css/components.css?v=0e279333">
+  <link rel="stylesheet" href="css/chrome.css?v=0e279333">
+  <link rel="stylesheet" href="css/pages.css?v=0e279333">
 </head>
 <body class="pdp-page pdp-generic">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -346,13 +346,50 @@
             <p>Strength is meant to move. YORK Kettlebells combine strength, cardio, balance, and mobility into one incredibly versatile training tool. From explosive swings to controlled carries and presses, every movement helps develop the power, coordination, and confidence you use both inside and outside the gym.</p>
           </div>
 
-          <!-- Quantity -->
-          <div class="pdp__quantity">
-            <label class="pdp__quantity-label" for="pdp-qty">Quantity</label>
-            <div class="pdp__quantity-input">
-              <button type="button" class="pdp__quantity-btn" data-qty-decrement aria-label="Decrease quantity">–</button>
-              <input id="pdp-qty" class="pdp__quantity-value" type="text" inputmode="numeric" value="1" data-qty-value aria-live="polite">
-              <button type="button" class="pdp__quantity-btn" data-qty-increment aria-label="Increase quantity">+</button>
+          <div class="pdp__soi" data-soi>
+            <div class="pdp__soi-tabs" role="tablist">
+              <button type="button" class="pdp__soi-tab" data-soi-tab="bundle" role="tab" aria-selected="false">Package</button>
+              <button type="button" class="pdp__soi-tab is-active" data-soi-tab="individual" role="tab" aria-selected="true">Individual</button>
+            </div>
+            <div class="pdp__soi-panel" data-soi-panel="bundle" hidden>
+              <label class="pdp__soi-label">Select a package</label>
+              <select class="pdp__soi-select" data-soi-select aria-label="Select a package">
+                <option value="84.50" selected>5 – 20 lb Pack — $84.50</option>
+                <option value="380.25">25 – 50 lb Pack — $380.25</option>
+                <option value="354.90">60 – 80 lb Pack — $354.90</option>
+              </select>
+              <div class="pdp__soi-qty">
+                <button type="button" class="pdp__soi-qty-btn" data-soi-qty-decrement aria-label="Decrease bundle quantity">–</button>
+                <input class="pdp__soi-qty-value" type="text" inputmode="numeric" value="1" data-soi-qty-value aria-label="bundle quantity">
+                <button type="button" class="pdp__soi-qty-btn" data-soi-qty-increment aria-label="Increase bundle quantity">+</button>
+              </div>
+            </div>
+            <div class="pdp__soi-panel" data-soi-panel="individual">
+              <label class="pdp__soi-label">Select weight</label>
+              <select class="pdp__soi-select" data-soi-select aria-label="Select weight">
+                <option value="8.45" selected>5 lb — $8.45</option>
+                <option value="16.90">10 lb — $16.90</option>
+                <option value="25.35">15 lb — $25.35</option>
+                <option value="33.80">20 lb — $33.80</option>
+                <option value="42.25">25 lb — $42.25</option>
+                <option value="50.70">30 lb — $50.70</option>
+                <option value="59.15">35 lb — $59.15</option>
+                <option value="67.60">40 lb — $67.60</option>
+                <option value="76.05">45 lb — $76.05</option>
+                <option value="84.50">50 lb — $84.50</option>
+                <option value="101.40">60 lb — $101.40</option>
+                <option value="118.30">70 lb — $118.30</option>
+                <option value="135.20">80 lb — $135.20</option>
+              </select>
+              <div class="pdp__soi-qty">
+                <button type="button" class="pdp__soi-qty-btn" data-soi-qty-decrement aria-label="Decrease individual quantity">–</button>
+                <input class="pdp__soi-qty-value" type="text" inputmode="numeric" value="1" data-soi-qty-value aria-label="individual quantity">
+                <button type="button" class="pdp__soi-qty-btn" data-soi-qty-increment aria-label="Increase individual quantity">+</button>
+              </div>
+            </div>
+            <div class="pdp__soi-total">
+              <span class="pdp__soi-total-label">Total</span>
+              <span class="pdp__soi-total-value" data-soi-total>$8.45</span>
             </div>
           </div>
 

@@ -12,7 +12,7 @@
 import { existsSync } from 'node:fs';
 import { renderHead, renderBodyOpen, renderFooter, renderGalleryModal, renderSpecsModal, renderScripts } from './partials.js';
 import { escapeHtml, formatPrice } from '../lib/parse.js';
-import { priceRow, galleryHtml, breadcrumbHtml, descriptionHtml, recCardHtml, recsSectionHtml } from './shared.js';
+import { priceRow, galleryHtml, breadcrumbHtml, descriptionHtml, variantBlock, recCardHtml, recsSectionHtml } from './shared.js';
 
 // Key Details (Section 2) per-column image: prefers a purpose-shot key-detail-N.jpg
 // (only essential-olympic-training-set has these exported today — see
@@ -73,6 +73,10 @@ export function renderPackage(p) {
     .join('\n');
 
   const currentPriceLabel = formatPrice(p.price ? p.price.current : null);
+  // Products with a custom variant selector (e.g. rubber-hex set-or-individual)
+  // show the toggle + a plain CTA; the other packages keep their no-control buy box.
+  const hasVariantBlock = p.variants && p.variants.type !== 'quantity';
+  const ctaLabel = hasVariantBlock ? 'Add to cart' : `Add Bundle to cart - ${currentPriceLabel}`;
 
   // "Why The [Product]?" section: hero image + intro paragraph. Prefers the real
   // per-product whyBody field (see package-rework-spec.md Section 1); the
@@ -135,7 +139,7 @@ ${breadcrumbHtml(p)}
           <hr class="pdp__rule">
 
 ${descriptionHtml(p)}
-
+${hasVariantBlock ? '\n' + variantBlock(p) + '\n' : ''}
           <div class="pdp__included">
             <p class="pdp__included-title">What's Included</p>
             <ul class="pdp__included-list" role="list">
@@ -143,7 +147,7 @@ ${includedItems}
             </ul>
           </div>
 
-          <button type="button" class="btn btn--primary pdp__cta">Add Bundle to cart - ${currentPriceLabel}</button>
+          <button type="button" class="btn btn--primary pdp__cta">${ctaLabel}</button>
 
           <p class="pdp__financing">
             From $0.00/mo with Paypal
