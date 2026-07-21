@@ -77,6 +77,9 @@ export function renderPackage(p) {
   // show the toggle + a plain CTA; the other packages keep their no-control buy box.
   const hasVariantBlock = p.variants && p.variants.type !== 'quantity';
   const ctaLabel = hasVariantBlock ? 'Add to cart' : `Add Bundle to cart - ${currentPriceLabel}`;
+  // package-selector renders its own dynamic "What's Included" per package, so
+  // the static list is suppressed for it (other packages keep theirs).
+  const showStaticIncluded = !(p.variants && p.variants.type === 'package-selector');
 
   // "Why The [Product]?" section: hero image + intro paragraph. Prefers the real
   // per-product whyBody field (see package-rework-spec.md Section 1); the
@@ -140,12 +143,12 @@ ${breadcrumbHtml(p)}
 
 ${descriptionHtml(p)}
 ${hasVariantBlock ? '\n' + variantBlock(p) + '\n' : ''}
-          <div class="pdp__included">
+${showStaticIncluded ? `          <div class="pdp__included">
             <p class="pdp__included-title">What's Included</p>
             <ul class="pdp__included-list" role="list">
 ${includedItems}
             </ul>
-          </div>
+          </div>` : ''}
 
           <button type="button" class="btn btn--primary pdp__cta">${ctaLabel}</button>
 

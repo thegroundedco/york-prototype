@@ -285,14 +285,49 @@ ${tierQty()}
           </div>`;
 }
 
+// "Select A Package" chooser (Plyo). Both packages' included lists render; JS
+// shows the selected one + updates the total. No qty (a package is one purchase).
+export function packageSelectorHtml(p) {
+  const opts = p.variants.options.map((o, i) => {
+    const price = o.price.toFixed(2);
+    return `              <label class="pdp__pkg-option">
+                <input type="radio" name="pdp-pkg" class="pdp__pkg-radio" value="${price}" data-pkg-radio data-pkg-key="${i}"${i === 0 ? ' checked' : ''}>
+                <span class="pdp__pkg-name">${escapeHtml(o.label)}</span>
+                <span class="pdp__pkg-price">${formatPrice(o.price)}</span>
+              </label>`;
+  }).join('\n');
+  const included = p.variants.options.map((o, i) => {
+    const items = o.included.map((it) => `                <li>${escapeHtml(it)}</li>`).join('\n');
+    return `            <div class="pdp__pkg-included" data-pkg-included="${i}"${i === 0 ? '' : ' hidden'}>
+              <p class="pdp__pkg-included-title">What's Included</p>
+              <ul class="pdp__pkg-included-list" role="list">
+${items}
+              </ul>
+            </div>`;
+  }).join('\n');
+  const start = p.variants.options[0].price;
+  return `          <div class="pdp__pkg" data-pkg>
+            <p class="pdp__pkg-label">Select A Package</p>
+            <fieldset class="pdp__pkg-options">
+${opts}
+            </fieldset>
+${included}
+            <div class="pdp__pkg-total">
+              <span class="pdp__pkg-total-label">Total</span>
+              <span class="pdp__pkg-total-value" data-pkg-total>${formatPrice(start)}</span>
+            </div>
+          </div>`;
+}
+
 // Buy-box control dispatcher: quantity stepper by default, or a custom variant
-// block per product.variants.type. Remaining Phase-2 types (package, accessories)
-// plug in here as later slices.
+// block per product.variants.type. Remaining Phase-2 type (accessories) plugs
+// in here as a later slice.
 export function variantBlock(p) {
   switch (p?.variants?.type) {
     case 'weight-selector': return weightSelectorHtml(p);
     case 'set-or-individual': return setOrIndividualHtml(p);
     case 'tier-selector': return tierSelectorHtml(p);
+    case 'package-selector': return packageSelectorHtml(p);
     default: return quantityHtml();
   }
 }

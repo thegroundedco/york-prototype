@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { loadProducts, validateProduct } from '../lib/products.js';
-import { weightSelectorHtml, variantBlock, setOrIndividualHtml, tierSelectorHtml } from '../templates/shared.js';
+import { weightSelectorHtml, variantBlock, setOrIndividualHtml, tierSelectorHtml, packageSelectorHtml } from '../templates/shared.js';
 
 const products = loadProducts('data/products.json');
 const bySlug = new Map(products.map((p) => [p.slug, p]));
@@ -114,4 +114,32 @@ test('tierSelectorHtml renders a radio per tier, first checked, with prices + to
 
 test('variantBlock routes tier-selector to the radio list', () => {
   assert.match(variantBlock(bySlug.get('york-dumbbell-stand')), /data-tier\b/);
+});
+
+// ── package-selector ────────────────────────────────────────────────
+
+test('the package-selector product has valid data', () => {
+  const p = bySlug.get('plyo-package');
+  assert.equal(p.variants.type, 'package-selector');
+  assert.equal(p.variants.options.length, 2);
+  for (const o of p.variants.options) { assert.ok(o.label); assert.ok(o.price > 0); assert.ok(o.included.length >= 1); }
+  assert.deepEqual(validateProduct(p), []);
+});
+
+test('validateProduct rejects a package-selector option missing included', () => {
+  const bad = { ...bySlug.get('plyo-package'), variants: { type: 'package-selector', options: [{ label: 'X', price: 10 }] } };
+  assert.ok(validateProduct(bad).some((e) => /package-selector|included/i.test(e)));
+});
+
+test('packageSelectorHtml renders 2 radios + 2 included blocks, first shown', () => {
+  const h = packageSelectorHtml(bySlug.get('plyo-package'));
+  assert.equal((h.match(/data-pkg-radio/g) || []).length, 2);
+  assert.match(h, /value="244.06"[^>]*data-pkg-radio[^>]*checked/);
+  assert.match(h, /data-pkg-included="1"[^>]*hidden/);
+  assert.match(h, /data-pkg-total[^>]*>\$244\.06/);
+  assert.match(h, /Plyo Plus Package/);
+});
+
+test('variantBlock routes package-selector to the chooser', () => {
+  assert.match(variantBlock(bySlug.get('plyo-package')), /data-pkg\b/);
 });

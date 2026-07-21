@@ -1233,8 +1233,34 @@
       "Complete Resistance Band Set: All eight resistance bands from 10–150 lb – Unlock even more resistance levels for strength training, mobility, assisted pull-ups, and progression."
     ],
     "variants": {
-      "type": "quantity"
-    },
+        "type": "package-selector",
+        "options": [
+          {
+            "label": "Plyo Package",
+            "price": 244.06,
+            "included": [
+              "3-in-1 Plyo Box – Three jump heights in one compact box let you safely progress as your confidence and explosive power grow.",
+              "Battle Rope – Build full-body strength and conditioning through challenging, low-impact workouts.",
+              "Yoga Mat – Create a comfortable space for warm-ups, mobility, stretching, and recovery.",
+              "Resistance Bands: Yellow (30–65 lb), Purple (35–80 lb), Green (40–95 lb), Red (45–115 lb) – Add strength, mobility, activation, and travel-friendly workouts to your training.",
+              "PVC Jump Rope – Improve coordination, footwork, agility, and cardiovascular endurance almost anywhere."
+            ]
+          },
+          {
+            "label": "Plyo Plus Package",
+            "price": 311.07,
+            "included": [
+              "3-in-1 Plyo Box – Three jump heights in one compact box let you safely progress as your confidence and explosive power grow.",
+              "Battle Rope – Build full-body strength and conditioning through challenging, low-impact workouts.",
+              "Yoga Mat – Create a comfortable space for warm-ups, mobility, stretching, and recovery.",
+              "Resistance Bands: Yellow (30–65 lb), Purple (35–80 lb), Green (40–95 lb), Red (45–115 lb) – Add strength, mobility, activation, and travel-friendly workouts to your training.",
+              "PVC Jump Rope – Improve coordination, footwork, agility, and cardiovascular endurance almost anywhere.",
+              "15 lb Slam Ball – Add explosive power, rotational strength, and dynamic full-body exercises.",
+              "Complete Resistance Band Set: All eight resistance bands from 10–150 lb – Unlock even more resistance levels for strength training, mobility, assisted pull-ups, and progression."
+            ]
+          }
+        ]
+      },
     "relatedSlugs": [],
     "images": {
       "gallery": [
