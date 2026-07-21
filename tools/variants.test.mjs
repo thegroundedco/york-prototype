@@ -47,3 +47,20 @@ test('weightSelectorHtml renders one row per weight with price data + a subtotal
 test('variantBlock routes weight-selector products to the matrix', () => {
   assert.match(variantBlock(bySlug.get('slam-ball')), /data-weight-selector/);
 });
+
+// ── set-or-individual: data + validation ────────────────────────────
+
+test('the 2 set-or-individual products have valid data', () => {
+  for (const slug of ['rubber-hex-dumbbell-set', 'kettlebells']) {
+    const p = bySlug.get(slug);
+    assert.equal(p.variants.type, 'set-or-individual');
+    assert.ok(['bundle', 'individual'].includes(p.variants.default));
+    assert.ok(p.variants.bundles.length >= 1 && p.variants.individual.length >= 1);
+    assert.deepEqual(validateProduct(p), []);
+  }
+});
+
+test('validateProduct rejects a set-or-individual with an empty side', () => {
+  const bad = { ...bySlug.get('kettlebells'), variants: { type: 'set-or-individual', default: 'bundle', bundleLabel: 'Package', bundles: [], individual: [{ weight: '5 lb', price: 8.45 }] } };
+  assert.ok(validateProduct(bad).some((e) => /bundles|set-or-individual/i.test(e)));
+});
