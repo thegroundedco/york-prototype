@@ -850,6 +850,46 @@ document.querySelectorAll('[data-weight-selector]').forEach((sel) => {
   recompute();
 });
 
+// ── PDP set-or-individual toggle ──
+// Tabs switch the visible panel; total = active panel's selected price * qty.
+// No-op on pages without a [data-soi].
+document.querySelectorAll('[data-soi]').forEach((soi) => {
+  const tabs = [...soi.querySelectorAll('[data-soi-tab]')];
+  const panels = [...soi.querySelectorAll('[data-soi-panel]')];
+  const totalEl = soi.querySelector('[data-soi-total]');
+  const active = () => panels.find((p) => !p.hidden) || panels[0];
+  const recompute = () => {
+    const panel = active();
+    const price = parseFloat(panel.querySelector('[data-soi-select]').value) || 0;
+    const qty = Math.max(1, parseInt(panel.querySelector('[data-soi-qty-value]').value, 10) || 1);
+    if (totalEl) totalEl.textContent = `$${(price * qty).toFixed(2)}`;
+  };
+  for (const tab of tabs) {
+    tab.addEventListener('click', () => {
+      const key = tab.dataset.soiTab;
+      for (const t of tabs) {
+        const on = t === tab;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', String(on));
+      }
+      for (const p of panels) p.hidden = p.dataset.soiPanel !== key;
+      recompute();
+    });
+  }
+  for (const panel of panels) {
+    panel.querySelector('[data-soi-select]').addEventListener('change', recompute);
+    const qv = panel.querySelector('[data-soi-qty-value]');
+    panel.querySelector('[data-soi-qty-decrement]')?.addEventListener('click', () => {
+      qv.value = Math.max(1, (parseInt(qv.value, 10) || 1) - 1); recompute();
+    });
+    panel.querySelector('[data-soi-qty-increment]')?.addEventListener('click', () => {
+      qv.value = (parseInt(qv.value, 10) || 1) + 1; recompute();
+    });
+    qv.addEventListener('input', () => { qv.value = qv.value.replace(/[^0-9]/g, ''); recompute(); });
+  }
+  recompute();
+});
+
 // ── Gallery image triggers: open modal AT a specific carousel index ──
 document.querySelectorAll('[data-gallery-index]').forEach((trigger) => {
   trigger.addEventListener('click', () => {
