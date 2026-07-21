@@ -25,7 +25,6 @@ export const LINK_MAP = {
   'Kettlebells': 'kettlebells',
   'Rubber Training Bumper Plates': 'rubber-training-bumper-plates',
   'Rubber Hex Dumbbell Set': 'rubber-hex-dumbbell-set',
-  'Vinyl Fitbell (Multi-Color)': 'vinyl-fitbell',
   'Quick Access Collar': 'york-quick-access-collar',
   'York Quick Access Collar': 'york-quick-access-collar',
   'Yoga Mat': 'york-yoga-mat',

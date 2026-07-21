@@ -28,17 +28,17 @@ test('every merchandising slug resolves to a real product', () => {
 });
 
 test('resolveEntry applies label override but resolves image/price from base slug', () => {
-  const r = resolveEntry({ slug: 'vinyl-fitbell', label: 'Neoprene Hex Dumbbells' }, bySlug);
-  assert.equal(r.name, 'Neoprene Hex Dumbbells');
-  assert.equal(r.href, 'vinyl-fitbell.html');
-  assert.ok(r.image.includes('vinyl-fitbell'));
+  const r = resolveEntry({ slug: 'york-dumbbell-stand', label: 'Mini 2-Tier Dumbbell Stand' }, bySlug);
+  assert.equal(r.name, 'Mini 2-Tier Dumbbell Stand');
+  assert.equal(r.href, 'york-dumbbell-stand.html');
+  assert.ok(r.image.includes('york-dumbbell-stand'));
 });
 
 test('collection card counts match the spec (App. A)', () => {
   const counts = Object.fromEntries(
     Object.entries(merch.collections).map(([k, c]) => [k, c.products.length]));
   assert.deepEqual(counts, {
-    'racks-benches': 4, 'bars-weights': 9, 'cardio-conditioning': 7, 'accessories': 4,
+    'racks-benches': 4, 'bars-weights': 8, 'cardio-conditioning': 7, 'accessories': 4,
     'storage': 4, 'systems': 7, 'recovery-mobility': 5, 'essentials': 9,
   });
 });
@@ -47,7 +47,7 @@ test('each goal has exactly 3 sections with the spec counts (App. A)', () => {
   const shape = Object.fromEntries(
     Object.entries(merch.goals).map(([k, g]) => [k, g.sections.map((s) => s.products.length)]));
   assert.deepEqual(shape, {
-    'beginners': [12, 6, 5],
+    'beginners': [11, 6, 5],
     'muscle-maintenance': [10, 7, 5],
     'longevity': [8, 5, 6],
   });

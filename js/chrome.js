@@ -269,7 +269,6 @@ function initSearch() {
     { name: "Women's Elite Olympic Training Bar", price: '$320.00', image: 'assets/images/pdp/pkg-main.jpg', url: 'product-generic.html' },
     { name: 'Black Rubber Training Bumper Plates', price: '$540.00', image: 'assets/images/pdp/pkg-detail-2.jpg', url: 'product-package.html' },
     { name: 'Kettlebells', price: '$80.00', image: 'assets/images/pdp/pkg-secondary-1.jpg', url: 'product-generic.html' },
-    { name: 'Vinyl Fitbell (Multi-Color)', price: '$60.00', image: 'assets/images/pdp/pkg-main.jpg', url: 'product-single.html' },
     { name: 'Aspire 366 Stationary Bike', price: '$1,200.00', image: 'assets/images/pdp/single-product-2.jpg', url: 'product-single.html' },
     { name: 'Aspire 110 Rower', price: '$880.00', image: 'assets/images/pdp/single-rec-4.jpg', url: 'product-single.html' },
     { name: 'R-350 Rower', price: '$1,140.00', image: 'assets/images/pdp/single-rec-4.jpg', url: 'product-single.html' },

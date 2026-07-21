@@ -18,7 +18,6 @@
         "womens-elite-olympic-training-weight-bar",
         "rubber-training-bumper-plates",
         "rubber-hex-dumbbell-set",
-        { "slug": "vinyl-fitbell", "label": "Neoprene Hex Dumbbells" },
         "kettlebells",
         "york-quick-access-collar",
         "essential-olympic-training-set",
@@ -108,7 +107,6 @@
       "sections": [
         {
           "products": [
-            { "slug": "vinyl-fitbell", "label": "Neoprene Hex Dumbbells" },
             "york-fitness-bench",
             "resistance-bands",
             "rubber-hex-dumbbell-set",
@@ -147,7 +145,6 @@
       "page": "muscle-maintenance.html",
       "cta": [
         "fts-power-cage",
-        { "slug": "vinyl-fitbell", "label": "Neoprene Hex Dumbbells" },
         "york-performance-package",
         "rubber-hex-dumbbell-set"
       ],

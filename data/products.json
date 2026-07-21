@@ -15,7 +15,7 @@
     "shortDescription": "<p>The YORK Fitness Bench is the foundation of a stronger home gym. With multiple incline positions, built-in dumbbell storage, and a sturdy, space-conscious design, it’s perfect for beginners, anyone pursuing weight loss, or anyone building strength to stay active for years to come.</p>",
     "keyFeatures": [
       "Adjustable Backrest – Quickly changes from flat to a full 90° incline for a wide variety of upper-body and core exercises.",
-      "Built-In Dumbbell Storage – Three integrated storage rungs keep your YORK Fitbells organized and within easy reach.",
+      "Built-In Dumbbell Storage – Three integrated storage rungs keep your YORK dumbbells organized and within easy reach.",
       "Compact & Durable Design – Lightweight enough to reposition with ease while providing a stable platform for every workout.",
       "Versatile Strength Training – Ideal for presses, rows, shoulder exercises, core work, and full-body dumbbell workouts."
     ],
@@ -27,7 +27,7 @@
       "Weight 38 lb",
       "Shipping Dimensions 44 × 17 × 9. HSA Eligible"
     ],
-    "detailsBody": "Whether you’re just beginning your fitness journey or upgrading your home gym, the YORK Fitness Bench gives you the versatility to perform dozens of effective strength-training exercises with confidence. The adjustable backrest lets you move seamlessly between incline, flat and decline positions, helping you target more muscle groups while keeping your workouts fresh and challenging. Integrated YORK Fitbell storage keeps your workout area organized and your weights within arm’s reach, so you spend less time setting up and more time training. Built with YORK’s trusted durability, this bench is designed to support years of consistent workouts that build strength, improve everyday movement, and help you maintain an active lifestyle.",
+    "detailsBody": "Whether you’re just beginning your fitness journey or upgrading your home gym, the YORK Fitness Bench gives you the versatility to perform dozens of effective strength-training exercises with confidence. The adjustable backrest lets you move seamlessly between incline, flat and decline positions, helping you target more muscle groups while keeping your workouts fresh and challenging. Integrated YORK dumbbell storage keeps your workout area organized and your weights within arm’s reach, so you spend less time setting up and more time training. Built with YORK’s trusted durability, this bench is designed to support years of consistent workouts that build strength, improve everyday movement, and help you maintain an active lifestyle.",
     "highlights": [
       {
         "title": "Decline-to-Incline Adjustability",
@@ -35,7 +35,7 @@
       },
       {
         "title": "Integrated Dumbbell Storage",
-        "body": "Three built-in storage rungs keep your YORK Fitbells organized, accessible, and your workout space clutter-free."
+        "body": "Three built-in storage rungs keep your YORK dumbbells organized, accessible, and your workout space clutter-free."
       }
     ],
     "variants": {
@@ -986,57 +986,6 @@
       "editorial": "assets/images/products/kettlebells/editorial.jpg"
     },
     "copySource": "sheet",
-    "imageSource": "figma"
-  },
-  {
-    "slug": "vinyl-fitbell",
-    "filterType": "dumbbells",
-    "name": "Vinyl Fitbell",
-    "template": "generic",
-    "category": "bars-weights",
-    "categoryLabel": "Bars & Weights",
-    "figmaFrame": "3020:31707",
-    "price": {
-      "current": 1.63,
-      "compareAt": 2.5,
-      "sourceUrl": "https://yorkbarbell.com/product/vinyl-fitbell/"
-    },
-    "shortDescription": "<p>YORK Vinyl Fitbells bring bright, color-coded style to any workout space. Each hex-shaped dumbbell is finished in a durable, comfortable vinyl coating that's easy to keep clean, and sold individually in weights from 1 lb to 15 lb so you can grab exactly what you need.</p>",
-    "keyFeatures": [
-      "Color-Coded by Weight: A bright vinyl color for every weight makes it easy to grab the right dumbbell at a glance, without checking the stamp.",
-      "Durable, Easy-to-Clean Coating: The vinyl finish is built for extended durability and comfort, and wipes clean to keep your dumbbells looking sharp through daily use.",
-      "Sold Individually: Fill in the gaps in a set you already own, or build a full color-coded rack one weight at a time.",
-      "Rack-Ready: Compatible with YORK's Fitbell Racks (SKU 69031 / 69032) for organized, space-saving storage."
-    ],
-    "specs": [
-      "Available individually in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, and 15 lb weights",
-      "Hex-shaped head with a durable vinyl coating",
-      "Color-coded by weight (colors may vary from stock image)",
-      "Compatible with YORK Fitbell Racks (SKU 69031 / 69032)",
-      "California residents: this item may be subject to Proposition 65."
-    ],
-    "detailsBody": "Not every piece of home-gym equipment needs to be complicated to be effective. Sometimes the right dumbbell is simply the right weight, ready when you reach for it. YORK Vinyl Fitbells pair a durable, comfortable vinyl coating with a hex-shaped head that won't roll away between sets, and every weight is finished in its own bright color so you can find the right one at a glance. Sold individually, they're an easy way to round out a set you already own or start building a color-coded rack from scratch.",
-    "highlights": [
-      {
-        "title": "Color-Coded by Weight",
-        "body": "Every YORK Vinyl Fitbell weight is finished in its own bright vinyl color, so you (and everyone else training in the room) can find the right dumbbell without reading the fine print."
-      }
-    ],
-    "variants": {
-      "type": "quantity"
-    },
-    "relatedSlugs": [],
-    "images": {
-      "gallery": [
-        "assets/images/products/vinyl-fitbell/gallery-1.jpg",
-        "assets/images/products/vinyl-fitbell/gallery-3.jpg",
-        "assets/images/products/vinyl-fitbell/gallery-4.jpg",
-        "assets/images/products/vinyl-fitbell/gallery-2.jpg",
-        "assets/images/products/vinyl-fitbell/gallery-5.jpg"
-      ],
-      "editorial": "assets/images/products/vinyl-fitbell/editorial.jpg"
-    },
-    "copySource": "drafted-by-claude",
     "imageSource": "figma"
   },
   {
