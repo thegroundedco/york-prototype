@@ -925,6 +925,21 @@ document.querySelectorAll('[data-pkg]').forEach((pkg) => {
   update();
 });
 
+// ── PDP accessories add-ons ──
+// Total = base cage price + sum of checked add-ons. No-op without [data-acc].
+document.querySelectorAll('[data-acc]').forEach((acc) => {
+  const base = parseFloat(acc.dataset.accBase) || 0;
+  const checks = [...acc.querySelectorAll('[data-acc-check]')];
+  const totalEl = acc.querySelector('[data-acc-total]');
+  const update = () => {
+    let total = base;
+    for (const c of checks) if (c.checked) total += parseFloat(c.value) || 0;
+    if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+  };
+  checks.forEach((c) => c.addEventListener('change', update));
+  update();
+});
+
 // ── Gallery image triggers: open modal AT a specific carousel index ──
 document.querySelectorAll('[data-gallery-index]').forEach((trigger) => {
   trigger.addEventListener('click', () => {
