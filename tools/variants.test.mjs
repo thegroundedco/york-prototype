@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { loadProducts, validateProduct } from '../lib/products.js';
-import { weightSelectorHtml, variantBlock, setOrIndividualHtml, tierSelectorHtml, packageSelectorHtml } from '../templates/shared.js';
+import { weightSelectorHtml, variantBlock, setOrIndividualHtml, tierSelectorHtml, packageSelectorHtml, accessoriesHtml } from '../templates/shared.js';
 
 const products = loadProducts('data/products.json');
 const bySlug = new Map(products.map((p) => [p.slug, p]));
@@ -142,4 +142,32 @@ test('packageSelectorHtml renders 2 radios + 2 included blocks, first shown', ()
 
 test('variantBlock routes package-selector to the chooser', () => {
   assert.match(variantBlock(bySlug.get('plyo-package')), /data-pkg\b/);
+});
+
+// ── accessories ─────────────────────────────────────────────────────
+
+test('the accessories product has valid option data', () => {
+  const p = bySlug.get('fts-power-cage');
+  assert.equal(p.variants.type, 'accessories');
+  assert.equal(p.variants.options.length, 4);
+  for (const o of p.variants.options) { assert.ok(o.label); assert.ok(o.price > 0); assert.match(o.url, /^https:\/\/yorkbarbell\.com\//); }
+  assert.deepEqual(validateProduct(p), []);
+});
+
+test('validateProduct rejects an accessories option missing url', () => {
+  const bad = { ...bySlug.get('fts-power-cage'), variants: { type: 'accessories', options: [{ label: 'X', price: 10 }] } };
+  assert.ok(validateProduct(bad).some((e) => /accessories|url/i.test(e)));
+});
+
+test('accessoriesHtml renders a checkbox per accessory, external links, base total', () => {
+  const h = accessoriesHtml(bySlug.get('fts-power-cage'));
+  assert.equal((h.match(/data-acc-check/g) || []).length, 4);
+  assert.match(h, /data-acc-base="927.64"/);
+  assert.match(h, /href="https:\/\/yorkbarbell\.com\/product\/ft-hi-low-pulley[^"]*"[^>]*target="_blank"/);
+  assert.match(h, /pdp__acc-price">\$748\.88/);
+  assert.match(h, /data-acc-total[^>]*>\$927\.64/);
+});
+
+test('variantBlock routes accessories to the checkbox list', () => {
+  assert.match(variantBlock(bySlug.get('fts-power-cage')), /data-acc\b/);
 });

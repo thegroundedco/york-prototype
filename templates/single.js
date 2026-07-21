@@ -3,7 +3,7 @@
 import { existsSync } from 'node:fs';
 import { renderHead, renderBodyOpen, renderFooter, renderGalleryModal, renderSpecsModal, renderScripts } from './partials.js';
 import { escapeHtml } from '../lib/parse.js';
-import { priceRow, galleryHtml, breadcrumbHtml, quantityHtml, accordionHtml, additionalFeatureCardHtml, recCardHtml, recsSectionHtml, descriptionHtml } from './shared.js';
+import { priceRow, galleryHtml, breadcrumbHtml, variantBlock, accordionHtml, additionalFeatureCardHtml, recCardHtml, recsSectionHtml, descriptionHtml } from './shared.js';
 
 // Section 2 "Additional Features" images: prefers a purpose-shot feature-N.jpg (only
 // york-r-350-rower has these exported today — see single-rework-spec.md Section 2),
@@ -108,7 +108,7 @@ ${breadcrumbHtml(p)}
 
 ${descriptionHtml(p)}
 
-${quantityHtml()}
+${variantBlock(p)}
 ${addOnsSectionHtml(p)}
           <button type="button" class="btn btn--primary pdp__cta">Add To Cart</button>
 

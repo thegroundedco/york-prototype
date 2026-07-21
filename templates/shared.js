@@ -319,15 +319,38 @@ ${included}
           </div>`;
 }
 
+// "Popular Accessories" add-on list (Power Cage). Each accessory links out to
+// its yorkbarbell.com page; checking it adds to the live total (base + selected).
+export function accessoriesHtml(p) {
+  const base = p.price?.current || 0;
+  const opts = p.variants.options.map((o) => {
+    return `              <label class="pdp__acc-option">
+                <input type="checkbox" class="pdp__acc-check" value="${o.price.toFixed(2)}" data-acc-check>
+                <span class="pdp__acc-name"><a href="${o.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(o.label)}</a></span>
+                <span class="pdp__acc-price">${formatPrice(o.price)}</span>
+              </label>`;
+  }).join('\n');
+  return `          <div class="pdp__acc" data-acc data-acc-base="${base.toFixed(2)}">
+            <p class="pdp__acc-label">Popular Accessories</p>
+            <fieldset class="pdp__acc-options">
+${opts}
+            </fieldset>
+            <div class="pdp__acc-total">
+              <span class="pdp__acc-total-label">Total</span>
+              <span class="pdp__acc-total-value" data-acc-total>${formatPrice(base)}</span>
+            </div>
+          </div>`;
+}
+
 // Buy-box control dispatcher: quantity stepper by default, or a custom variant
-// block per product.variants.type. Remaining Phase-2 type (accessories) plugs
-// in here as a later slice.
+// block per product.variants.type. All 6 Phase-2 variant types now handled.
 export function variantBlock(p) {
   switch (p?.variants?.type) {
     case 'weight-selector': return weightSelectorHtml(p);
     case 'set-or-individual': return setOrIndividualHtml(p);
     case 'tier-selector': return tierSelectorHtml(p);
     case 'package-selector': return packageSelectorHtml(p);
+    case 'accessories': return accessoriesHtml(p);
     default: return quantityHtml();
   }
 }
