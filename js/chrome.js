@@ -909,6 +909,22 @@ document.querySelectorAll('[data-tier]').forEach((tier) => {
   recompute();
 });
 
+// ── PDP package selector ──
+// Selected radio shows its included list + sets the total. No-op without [data-pkg].
+document.querySelectorAll('[data-pkg]').forEach((pkg) => {
+  const radios = [...pkg.querySelectorAll('[data-pkg-radio]')];
+  const blocks = [...pkg.querySelectorAll('[data-pkg-included]')];
+  const totalEl = pkg.querySelector('[data-pkg-total]');
+  const update = () => {
+    const checked = radios.find((r) => r.checked) || radios[0];
+    const key = checked.dataset.pkgKey;
+    for (const b of blocks) b.hidden = b.dataset.pkgIncluded !== key;
+    if (totalEl) totalEl.textContent = `$${(parseFloat(checked.value) || 0).toFixed(2)}`;
+  };
+  radios.forEach((r) => r.addEventListener('change', update));
+  update();
+});
+
 // ── Gallery image triggers: open modal AT a specific carousel index ──
 document.querySelectorAll('[data-gallery-index]').forEach((trigger) => {
   trigger.addEventListener('click', () => {
