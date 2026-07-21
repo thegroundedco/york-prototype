@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { loadProducts, validateProduct } from '../lib/products.js';
-import { weightSelectorHtml, variantBlock, setOrIndividualHtml } from '../templates/shared.js';
+import { weightSelectorHtml, variantBlock, setOrIndividualHtml, tierSelectorHtml } from '../templates/shared.js';
 
 const products = loadProducts('data/products.json');
 const bySlug = new Map(products.map((p) => [p.slug, p]));
@@ -86,4 +86,32 @@ test('setOrIndividualHtml honors default=individual (kettlebells) + bundleLabel'
 
 test('variantBlock routes set-or-individual to the toggle', () => {
   assert.match(variantBlock(bySlug.get('kettlebells')), /data-soi/);
+});
+
+// ── tier-selector ───────────────────────────────────────────────────
+
+test('the tier-selector product has valid option data', () => {
+  const p = bySlug.get('york-dumbbell-stand');
+  assert.equal(p.variants.type, 'tier-selector');
+  assert.equal(p.variants.options.length, 3);
+  for (const o of p.variants.options) { assert.ok(o.label); assert.ok(o.price > 0); }
+  assert.deepEqual(validateProduct(p), []);
+});
+
+test('validateProduct rejects a tier-selector with a bad option', () => {
+  const bad = { ...bySlug.get('york-dumbbell-stand'), variants: { type: 'tier-selector', options: [{ label: 'X' }] } };
+  assert.ok(validateProduct(bad).some((e) => /tier-selector|price/i.test(e)));
+});
+
+test('tierSelectorHtml renders a radio per tier, first checked, with prices + total', () => {
+  const h = tierSelectorHtml(bySlug.get('york-dumbbell-stand'));
+  assert.equal((h.match(/data-tier-radio/g) || []).length, 3);
+  assert.match(h, /value="253.50"[^>]*data-tier-radio checked/);
+  assert.match(h, /pdp__tier-name">2-Tier Stand</);
+  assert.match(h, /pdp__tier-price">\$338\.00/);
+  assert.match(h, /data-tier-total[^>]*>\$253\.50/);
+});
+
+test('variantBlock routes tier-selector to the radio list', () => {
+  assert.match(variantBlock(bySlug.get('york-dumbbell-stand')), /data-tier\b/);
 });

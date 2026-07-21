@@ -7,11 +7,11 @@
   <title>York Mini / 2 / 3 Tier Dumbbell Stand | York Barbell</title>
   <meta name="description" content="The best home gyms aren’t just built for great workouts, they’re built to stay organized. YORK Dumbbell Stands keep your weights protected, accessible, and">
 
-  <link rel="stylesheet" href="css/tokens.css?v=2fcca153">
-  <link rel="stylesheet" href="css/base.css?v=2fcca153">
-  <link rel="stylesheet" href="css/components.css?v=2fcca153">
-  <link rel="stylesheet" href="css/chrome.css?v=2fcca153">
-  <link rel="stylesheet" href="css/pages.css?v=2fcca153">
+  <link rel="stylesheet" href="css/tokens.css?v=7b738ebf">
+  <link rel="stylesheet" href="css/base.css?v=7b738ebf">
+  <link rel="stylesheet" href="css/components.css?v=7b738ebf">
+  <link rel="stylesheet" href="css/chrome.css?v=7b738ebf">
+  <link rel="stylesheet" href="css/pages.css?v=7b738ebf">
 </head>
 <body class="pdp-page pdp-generic">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -346,13 +346,42 @@
             <p>The best home gyms aren’t just built for great workouts, they’re built to stay organized. YORK Dumbbell Stands keep your weights protected, accessible, and ready for every workout, helping create a training space you’ll enjoy walking into every day.</p>
           </div>
 
-          <!-- Quantity -->
-          <div class="pdp__quantity">
-            <label class="pdp__quantity-label" for="pdp-qty">Quantity</label>
-            <div class="pdp__quantity-input">
-              <button type="button" class="pdp__quantity-btn" data-qty-decrement aria-label="Decrease quantity">–</button>
-              <input id="pdp-qty" class="pdp__quantity-value" type="text" inputmode="numeric" value="1" data-qty-value aria-live="polite">
-              <button type="button" class="pdp__quantity-btn" data-qty-increment aria-label="Increase quantity">+</button>
+          <div class="pdp__tier" data-tier>
+            <p class="pdp__tier-label">Select A Type</p>
+            <fieldset class="pdp__tier-options">
+              <label class="pdp__tier-option">
+                <input type="radio" name="pdp-tier" class="pdp__tier-radio" value="253.50" data-tier-radio checked>
+                <span class="pdp__tier-info">
+                  <span class="pdp__tier-name">2-Tier Stand</span>
+                  <span class="pdp__tier-desc">Two-tier storage for a compact dumbbell set.</span>
+                </span>
+                <span class="pdp__tier-price">$253.50</span>
+              </label>
+              <label class="pdp__tier-option">
+                <input type="radio" name="pdp-tier" class="pdp__tier-radio" value="338.00" data-tier-radio>
+                <span class="pdp__tier-info">
+                  <span class="pdp__tier-name">3-Tier Stand</span>
+                  <span class="pdp__tier-desc">Three tiers of storage for a full dumbbell range.</span>
+                </span>
+                <span class="pdp__tier-price">$338.00</span>
+              </label>
+              <label class="pdp__tier-option">
+                <input type="radio" name="pdp-tier" class="pdp__tier-radio" value="262.60" data-tier-radio>
+                <span class="pdp__tier-info">
+                  <span class="pdp__tier-name">Mini 2-Tier Stand</span>
+                  <span class="pdp__tier-desc">Space-saving two-tier design for smaller collections.</span>
+                </span>
+                <span class="pdp__tier-price">$262.60</span>
+              </label>
+            </fieldset>
+              <div class="pdp__tier-qty">
+                <button type="button" class="pdp__tier-qty-btn" data-tier-qty-decrement aria-label="Decrease quantity">–</button>
+                <input class="pdp__tier-qty-value" type="text" inputmode="numeric" value="1" data-tier-qty-value aria-label="Quantity">
+                <button type="button" class="pdp__tier-qty-btn" data-tier-qty-increment aria-label="Increase quantity">+</button>
+              </div>
+            <div class="pdp__tier-total">
+              <span class="pdp__tier-total-label">Total</span>
+              <span class="pdp__tier-total-value" data-tier-total>$253.50</span>
             </div>
           </div>
 

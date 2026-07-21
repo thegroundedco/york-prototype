@@ -711,7 +711,12 @@
     "detailsBody": "A great home gym isn’t measured by how much equipment you own, but by how effortlessly everything works together for you. YORK Dumbbell Stands keep your weights organized, accessible, and off the floor, helping you create a cleaner training space that’s safer and more enjoyable to use every day. The elevated design makes loading and unloading dumbbells faster and more comfortable, while the durable steel construction provides the stability you expect from YORK. Whether you’re organizing a compact workout corner or a fully equipped home gym, these stands help protect your investment while making every workout feel more efficient.",
     "highlights": [],
     "variants": {
-      "type": "quantity"
+      "type": "tier-selector",
+      "options": [
+        { "label": "2-Tier Stand", "desc": "Two-tier storage for a compact dumbbell set.", "price": 253.50 },
+        { "label": "3-Tier Stand", "desc": "Three tiers of storage for a full dumbbell range.", "price": 338.00 },
+        { "label": "Mini 2-Tier Stand", "desc": "Space-saving two-tier design for smaller collections.", "price": 262.60 }
+      ]
     },
     "relatedSlugs": [],
     "images": {

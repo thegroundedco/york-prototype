@@ -248,13 +248,51 @@ ${soiQty('individual')}
           </div>`;
 }
 
+// Compact qty stepper for the tier selector.
+function tierQty() {
+  return `              <div class="pdp__tier-qty">
+                <button type="button" class="pdp__tier-qty-btn" data-tier-qty-decrement aria-label="Decrease quantity">–</button>
+                <input class="pdp__tier-qty-value" type="text" inputmode="numeric" value="1" data-tier-qty-value aria-label="Quantity">
+                <button type="button" class="pdp__tier-qty-btn" data-tier-qty-increment aria-label="Increase quantity">+</button>
+              </div>`;
+}
+
+// "Select A Type" tier chooser (Dumbbell Stand). Radio-card list; js/chrome.js
+// keeps the total live from the checked tier's price * qty.
+export function tierSelectorHtml(p) {
+  const opts = p.variants.options.map((o, i) => {
+    const price = o.price.toFixed(2);
+    return `              <label class="pdp__tier-option">
+                <input type="radio" name="pdp-tier" class="pdp__tier-radio" value="${price}" data-tier-radio${i === 0 ? ' checked' : ''}>
+                <span class="pdp__tier-info">
+                  <span class="pdp__tier-name">${escapeHtml(o.label)}</span>${o.desc ? `
+                  <span class="pdp__tier-desc">${escapeHtml(o.desc)}</span>` : ''}
+                </span>
+                <span class="pdp__tier-price">${formatPrice(o.price)}</span>
+              </label>`;
+  }).join('\n');
+  const start = p.variants.options[0].price;
+  return `          <div class="pdp__tier" data-tier>
+            <p class="pdp__tier-label">Select A Type</p>
+            <fieldset class="pdp__tier-options">
+${opts}
+            </fieldset>
+${tierQty()}
+            <div class="pdp__tier-total">
+              <span class="pdp__tier-total-label">Total</span>
+              <span class="pdp__tier-total-value" data-tier-total>${formatPrice(start)}</span>
+            </div>
+          </div>`;
+}
+
 // Buy-box control dispatcher: quantity stepper by default, or a custom variant
-// block per product.variants.type. New variant types (tier/accessories) plug
-// in here as later Phase-2 slices.
+// block per product.variants.type. Remaining Phase-2 types (package, accessories)
+// plug in here as later slices.
 export function variantBlock(p) {
   switch (p?.variants?.type) {
     case 'weight-selector': return weightSelectorHtml(p);
     case 'set-or-individual': return setOrIndividualHtml(p);
+    case 'tier-selector': return tierSelectorHtml(p);
     default: return quantityHtml();
   }
 }
