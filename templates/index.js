@@ -52,3 +52,19 @@ export function resolveRelated(product, allProducts) {
     }));
   return { ...product, relatedProducts };
 }
+
+// Resolves a curated accessories list ({slug}-only options — see the 2026-07-22
+// power-cage spec) to real roster data {slug, name, price:number} for accessoriesHtml.
+// Unlike resolveRelated, a bad slug THROWS: a curated add-on list with a missing
+// product is a build failure, not a silent omission.
+export function resolveAccessories(product, allProducts) {
+  if (product?.variants?.type !== 'accessories') return product;
+  const bySlug = new Map(allProducts.map((q) => [q.slug, q]));
+  const accessoryProducts = product.variants.options.map((o) => {
+    const q = bySlug.get(o.slug);
+    if (!q) throw new Error(`accessories: unknown slug "${o.slug}" on ${product.slug}`);
+    if (!(q.price?.current > 0)) throw new Error(`accessories: "${o.slug}" has no price.current`);
+    return { slug: q.slug, name: q.name, price: q.price.current };
+  });
+  return { ...product, accessoryProducts };
+}

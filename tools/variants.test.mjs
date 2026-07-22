@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { loadProducts, validateProduct } from '../lib/products.js';
 import { weightSelectorHtml, variantBlock, setOrIndividualHtml, tierSelectorHtml, packageSelectorHtml, accessoriesHtml } from '../templates/shared.js';
+import { resolveAccessories } from '../templates/index.js';
 
 const products = loadProducts('data/products.json');
 const bySlug = new Map(products.map((p) => [p.slug, p]));
@@ -170,4 +171,39 @@ test('accessoriesHtml renders a checkbox per accessory, external links, base tot
 
 test('variantBlock routes accessories to the checkbox list', () => {
   assert.match(variantBlock(bySlug.get('fts-power-cage')), /data-acc\b/);
+});
+
+// ── resolveAccessories (roster-only accessories) ────────────────────
+
+test('resolveAccessories resolves slugs to {slug, name, price} from the roster', () => {
+  const roster = [
+    { slug: 'cage', name: 'Cage', price: { current: 900 }, variants: { type: 'accessories', options: [{ slug: 'bench' }, { slug: 'bar' }] } },
+    { slug: 'bench', name: 'Utility Bench', price: { current: 351.04 } },
+    { slug: 'bar', name: 'Training Bar', price: { current: 329.67 } },
+  ];
+  const r = resolveAccessories(roster[0], roster);
+  assert.deepEqual(r.accessoryProducts, [
+    { slug: 'bench', name: 'Utility Bench', price: 351.04 },
+    { slug: 'bar', name: 'Training Bar', price: 329.67 },
+  ]);
+});
+
+test('resolveAccessories throws on an unknown slug', () => {
+  const roster = [
+    { slug: 'cage', name: 'Cage', price: { current: 900 }, variants: { type: 'accessories', options: [{ slug: 'ghost' }] } },
+  ];
+  assert.throws(() => resolveAccessories(roster[0], roster), /ghost/);
+});
+
+test('resolveAccessories throws when a resolved accessory has no price', () => {
+  const roster = [
+    { slug: 'cage', name: 'Cage', price: { current: 900 }, variants: { type: 'accessories', options: [{ slug: 'freebie' }] } },
+    { slug: 'freebie', name: 'Freebie' },
+  ];
+  assert.throws(() => resolveAccessories(roster[0], roster), /freebie/);
+});
+
+test('resolveAccessories passes non-accessories products through unchanged', () => {
+  const p = bySlug.get('slam-ball');
+  assert.equal(resolveAccessories(p, products), p);
 });
