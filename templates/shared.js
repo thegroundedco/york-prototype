@@ -319,14 +319,16 @@ ${included}
           </div>`;
 }
 
-// "Popular Accessories" add-on list (Power Cage). Each accessory links out to
-// its yorkbarbell.com page; checking it adds to the live total (base + selected).
+// "Popular Accessories" add-on list (Power Cage). Options are roster products
+// resolved by templates/index.js resolveAccessories ({slug, name, price:number});
+// each links to its own PDP (internal, same tab) and checking it adds its price
+// to the live total (base + selected) via js/chrome.js [data-acc].
 export function accessoriesHtml(p) {
   const base = p.price?.current || 0;
-  const opts = p.variants.options.map((o) => {
+  const opts = p.accessoryProducts.map((o) => {
     return `              <label class="pdp__acc-option">
                 <input type="checkbox" class="pdp__acc-check" value="${o.price.toFixed(2)}" data-acc-check>
-                <span class="pdp__acc-name"><a href="${o.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(o.label)}</a></span>
+                <span class="pdp__acc-name"><a href="${o.slug}.html">${escapeHtml(o.name)}</a></span>
                 <span class="pdp__acc-price">${formatPrice(o.price)}</span>
               </label>`;
   }).join('\n');

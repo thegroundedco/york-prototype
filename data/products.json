@@ -92,30 +92,14 @@
       }
     ],
     "variants": {
-        "type": "accessories",
-        "options": [
-          {
-            "label": "Hi/Low Pulley Option",
-            "price": 748.88,
-            "url": "https://yorkbarbell.com/product/ft-hi-low-pulley-option-power-cage-weight-carriage/"
-          },
-          {
-            "label": "Weight Stack Conversion Kit",
-            "price": 665.49,
-            "url": "https://yorkbarbell.com/product/ft-200-lb-weight-stack-conversion-kit-power-cage-lat-machine/"
-          },
-          {
-            "label": "Plate Storage Attachment",
-            "price": 103.9,
-            "url": "https://yorkbarbell.com/product/ft-plate-storage-attachment-power-cage/"
-          },
-          {
-            "label": "2\" Olympic Adapter Sleeve",
-            "price": 25,
-            "url": "https://yorkbarbell.com/product/ft-2-inch-olympic-adapter-sleeve/"
-          }
-        ]
-      },
+      "type": "accessories",
+      "options": [
+        { "slug": "fts-flat-to-incline-utility-bench" },
+        { "slug": "mens-north-american-chrome-olympic-training-weight-bar" },
+        { "slug": "olympic-a-frame-weight-plate-tree" },
+        { "slug": "york-quick-access-collar" }
+      ]
+    },
     "relatedSlugs": [],
     "images": {
       "gallery": [
