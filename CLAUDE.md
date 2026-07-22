@@ -13,7 +13,7 @@ Owner: Adam Tarr (Grounded Company). Client: York Barbell.
 **1. The Figma design system + retrofit** (file `AvkyvrFVv3PmI2pUm2wy3o`, "York Barbell Website 26").
 Not in this repo — lives in Figma. Status and rules below.
 
-**2. This repo — the HTML prototype.** Plain HTML/CSS/vanilla JS, no build step, no
+**2. This repo — the static HTML site.** Plain HTML/CSS/vanilla JS, no build step, no
 `package.json`. `npm run dev` does NOT work. Serve it: `npx serve .` or
 `python3 -m http.server 8000`. Root `index.html` redirects to `homepage.html`.
 
@@ -29,10 +29,10 @@ User-verified at all breakpoints: homepage, the 3 collection landings, about, co
 and the 3 policy pages. Swept but awaiting Adam's spot-check: the 3 PDPs, the 6 PLPs, and the
 2 search pages.
 
-**Live site:** https://thegroundedco.github.io/york-prototype/ — GitHub Pages, auto-redeploys
+**Live site:** https://thegroundedco.github.io/york-barbell/ — GitHub Pages, auto-redeploys
 on every push to `main`.
 
-**Remotes:** `origin` = `thegroundedco/york-prototype` (canonical). `faithgrounded` =
+**Remotes:** `origin` = `thegroundedco/york-barbell` (canonical). `faithgrounded` =
 the original repo, kept as a secondary remote, no longer the source of truth. If a git push
 hangs on a credential popup in a non-interactive shell, use:
 `git -c credential.helper="!gh auth git-credential" push`

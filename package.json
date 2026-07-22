@@ -1,9 +1,9 @@
 {
-  "name": "york-prototype-tools",
+  "name": "york-barbell-tools",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Dev-time tooling for the York Barbell prototype. The SITE itself has no build step — these scripts generate/verify the committed static HTML.",
+  "description": "Dev-time tooling for the York Barbell website. The SITE itself has no build step — these scripts generate/verify the committed static HTML.",
   "scripts": {
     "build": "node tools/build-products.mjs",
     "grids": "node tools/inject-grids.mjs",

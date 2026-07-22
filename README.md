@@ -1,6 +1,6 @@
-# York Barbell — Website Prototype
+# York Barbell — Website
 
-A clickable, front-end prototype of the York Barbell website, built from the
+A clickable, front-end build of the York Barbell website, built from the
 approved Figma designs (file `AvkyvrFVv3PmI2pUm2wy3o` — "York Barbell Website
 26"). This is a **developer handoff reference**: it shows the intended markup,
 styling, responsive behavior, and interactions for every page. It is not a
@@ -12,9 +12,9 @@ framework, no dependencies.**
 
 ## Live preview
 
-The prototype is published via GitHub Pages and tracks `main`:
+The site is published via GitHub Pages and tracks `main`:
 
-> **https://faithgrounded.github.io/york-prototype/**
+> **https://thegroundedco.github.io/york-barbell/**
 
 The site root redirects to `homepage.html` (via `index.html`). Every push to
 `main` redeploys automatically within a minute or two.
@@ -72,7 +72,7 @@ js/
   modals.js           Opens/closes native <dialog> modals via [data-modal]
   pdp.js              PDP gallery + variant picker (PDP pages only)
   router.js           LEGACY — hash section-router from the original single-file
-                      prototype. Commented out in markup; kept for reference only.
+                      build. Commented out in markup; kept for reference only.
   pdp.js              PDP gallery + variant picker (PDP pages only)
 assets/
   images/             Page imagery, foldered by area: home/ mega/ collections/
@@ -155,7 +155,7 @@ rather than re-deriving values from the comps.
 
 ## Handoff notes (what still needs real wiring)
 
-This prototype is front-end only. To productionize:
+This site is front-end only. To productionize:
 
 - **Cart** is in-memory/visual only — no persistence, no real line items
 - **Search** results are placeholder content — wire to a real search backend
